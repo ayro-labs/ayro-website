@@ -1,10 +1,19 @@
-<form>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" class="form-control" id="email" placeholder="Your email address">
+<div class="container-fluid fill-height">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input [(ngModel)]="email" type="text" name="email" placeholder="Your email address" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input [(ngModel)]="password" type="text" name="password" placeholder="Your password" class="form-control">
+          </div>
+          <button type="button" class="btn btn-info">Sign In</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="text" class="form-control" id="password" placeholder="Your password">
-  </div>
-</form>
+</div>

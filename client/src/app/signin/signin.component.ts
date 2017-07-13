@@ -6,7 +6,14 @@ import {Component} from '@angular/core';
 })
 export class SignInComponent {
 
+  private email: string;
+  private password: string;
+
   constructor() {
+
+  }
+
+  private signIn() {
 
   }
 }
