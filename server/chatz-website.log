@@ -1,0 +1,6 @@
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T03:38:52.029Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T03:38:52.030Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T03:38:52.180Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T03:38:52.180Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T03:38:52.182Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T03:38:52.226Z"}

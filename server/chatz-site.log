@@ -1,0 +1,413 @@
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T00:00:24.273Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T00:00:24.274Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T00:00:24.366Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T00:00:24.367Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T00:00:24.368Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T00:00:24.376Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T01:11:22.906Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T01:11:22.907Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T01:11:23.000Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T01:11:23.000Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T01:11:23.001Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T01:11:23.009Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T01:12:31.330Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T01:12:31.331Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T01:12:31.423Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T01:12:31.423Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T01:12:31.425Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T01:12:31.432Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T01:24:22.136Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T01:24:22.137Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T01:24:22.225Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T01:24:22.226Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T01:24:22.233Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T01:24:59.641Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T01:24:59.642Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T01:24:59.734Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T01:24:59.734Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T01:24:59.742Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T01:38:44.701Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T01:38:44.702Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T01:38:44.797Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T01:38:44.797Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T01:38:44.804Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T01:49:39.801Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T01:49:39.802Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T01:49:39.893Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T01:49:39.893Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T01:49:39.901Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T01:50:01.974Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T01:50:01.975Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T01:50:02.084Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T01:50:02.084Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T01:50:02.093Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T02:03:00.615Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T02:03:00.616Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T02:03:00.711Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T02:03:00.712Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T02:03:00.719Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T02:18:39.593Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T02:18:39.594Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T02:18:39.713Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T02:18:39.714Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T02:18:39.726Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T02:20:53.280Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T02:20:53.281Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T02:20:53.372Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T02:20:53.373Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T02:20:53.404Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T02:23:40.667Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T02:23:40.668Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T02:23:40.764Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T02:23:40.764Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T02:23:40.795Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T02:23:47.640Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T02:23:47.641Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T02:23:47.732Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T02:23:47.733Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T02:23:47.764Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:03:11.166Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:03:11.167Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:03:11.257Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:03:11.257Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:03:11.265Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:13:33.612Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:13:33.613Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:13:33.721Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:13:33.721Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:13:33.730Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:14:29.342Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:14:29.344Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:14:29.475Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:14:29.475Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:14:29.488Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:28:20.454Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:28:20.455Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:28:20.551Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:28:20.551Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:28:20.559Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:31:15.200Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:31:15.202Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:31:15.309Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:31:15.310Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:31:15.318Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:35:53.343Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:35:53.344Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:35:53.484Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:35:53.484Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:35:53.494Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:41:53.940Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:41:53.941Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:41:54.035Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:41:54.035Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:41:54.043Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:43:35.817Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:43:35.819Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:43:35.930Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:43:35.931Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:43:35.940Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:54:16.310Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:54:16.311Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:54:16.407Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:54:16.407Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:54:16.414Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T03:57:06.466Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T03:57:06.467Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T03:57:06.563Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T03:57:06.563Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T03:57:06.571Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T04:03:36.116Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T04:03:36.117Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T04:03:36.220Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T04:03:36.220Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T04:03:36.227Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T14:02:31.276Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T14:02:31.277Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T14:02:31.691Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T14:02:31.691Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T14:02:31.716Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T14:04:10.364Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T14:04:10.365Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T14:04:10.471Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T14:04:10.472Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T14:04:10.480Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T14:13:08.524Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T14:13:08.525Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T14:13:08.623Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T14:13:08.623Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T14:13:08.631Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:08:06.168Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:08:06.170Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:08:06.283Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:08:06.283Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:08:06.291Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:15:21.893Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:15:21.894Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:15:21.992Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:15:21.993Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:15:22.001Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:17:34.831Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:17:34.832Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:17:34.931Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:17:34.931Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:17:34.939Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:19:52.003Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:19:52.004Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:19:52.098Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:19:52.098Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:19:52.105Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:20:14.593Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:20:14.594Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:20:14.686Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:20:14.687Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:20:14.694Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:21:33.022Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:21:33.023Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:21:33.116Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:21:33.116Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:21:33.124Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:27:01.835Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:27:01.837Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:27:01.929Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:27:01.929Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:27:01.937Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:28:31.400Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:28:31.401Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:28:31.492Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T15:28:31.493Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:28:31.494Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:28:31.502Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:31:47.378Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:31:47.379Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:31:47.478Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T15:31:47.479Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:31:47.480Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:31:47.489Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:32:04.885Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:32:04.887Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:32:05.026Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T15:32:05.026Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:32:05.029Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:32:05.041Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T15:33:57.092Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T15:33:57.094Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T15:33:57.235Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T15:33:57.235Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T15:33:57.238Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T15:33:57.249Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:21:06.792Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:21:06.793Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:21:06.904Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:21:06.904Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:21:06.906Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:21:06.943Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:21:36.877Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:21:36.879Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:21:36.990Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:21:36.990Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:21:36.992Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:21:37.026Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:22:49.028Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:22:49.029Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:22:49.122Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:22:49.122Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:22:49.124Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:22:49.160Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:23:27.265Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:23:27.266Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:23:27.370Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:23:27.370Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:23:27.371Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:23:27.404Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:23:38.896Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:23:38.897Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:23:38.994Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:23:38.994Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:23:38.995Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:23:39.030Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:24:53.826Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:24:53.827Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:24:53.917Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:24:53.918Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:24:53.919Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:24:53.950Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:26:25.954Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:26:25.956Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:26:26.052Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:26:26.053Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:26:26.054Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:26:26.085Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:27:56.197Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:27:56.198Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:27:56.293Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:27:56.293Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:27:56.294Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:27:56.327Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:28:07.376Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:28:07.377Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:28:07.472Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:28:07.472Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:28:07.474Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:28:07.506Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:32:36.081Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:32:36.082Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:32:36.176Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:32:36.176Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:32:36.178Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:32:36.210Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:34:24.001Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:34:24.002Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:34:24.137Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:34:24.137Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:34:24.139Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:34:24.178Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:38:35.695Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:38:35.696Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:38:35.791Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:38:35.792Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:38:35.793Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:38:35.823Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:40:00.912Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:40:00.913Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:40:01.011Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:40:01.012Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:40:01.013Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:40:01.045Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:45:50.994Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:45:50.995Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:45:51.095Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:45:51.095Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:45:51.097Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:45:51.128Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:45:57.348Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:45:57.349Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:45:57.442Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:45:57.442Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:45:57.443Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:45:57.475Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:46:29.280Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:46:29.282Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:46:29.383Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:46:29.383Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:46:29.385Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:46:29.419Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:49:42.989Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:49:42.990Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:49:43.084Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:49:43.084Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:49:43.086Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:49:43.118Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:50:10.024Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:50:10.026Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:50:10.122Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:50:10.122Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:50:10.124Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:50:10.156Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T17:51:38.044Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T17:51:38.046Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T17:51:38.160Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T17:51:38.160Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T17:51:38.162Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T17:51:38.193Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T18:00:02.399Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T18:00:02.400Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T18:00:02.514Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T18:00:02.514Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T18:00:02.516Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T18:00:02.545Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T18:03:32.349Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T18:03:32.351Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T18:03:32.481Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T18:03:32.481Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T18:03:32.483Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T18:03:32.511Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T18:06:25.696Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T18:06:25.697Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T18:06:25.807Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T18:06:25.807Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T18:06:25.808Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T18:06:25.835Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T18:08:59.057Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T18:08:59.058Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T18:08:59.171Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T18:08:59.171Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T18:08:59.173Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T18:08:59.200Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T18:12:37.356Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T18:12:37.357Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T18:12:37.469Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T18:12:37.469Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T18:12:37.471Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T18:12:37.496Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T19:09:45.823Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T19:09:45.825Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T19:09:46.758Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T19:09:46.758Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T19:09:46.760Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T19:09:47.003Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-21T19:24:20.179Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-21T19:24:20.180Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-21T19:24:20.323Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-21T19:24:20.324Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-21T19:24:20.325Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-21T19:24:20.353Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-06-24T06:33:21.967Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-06-24T06:33:21.968Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-06-24T06:33:22.465Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-06-24T06:33:22.466Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-06-24T06:33:22.467Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-06-24T06:33:22.793Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-12T05:01:27.860Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-12T05:01:27.861Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-12T05:01:27.964Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-12T05:01:27.965Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-12T05:01:27.966Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-12T05:01:28.180Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-12T21:06:22.124Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-12T21:06:22.125Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-12T21:06:22.333Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-12T21:06:22.333Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-12T21:06:22.334Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-12T21:06:22.372Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T01:39:18.570Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T01:39:18.571Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T01:39:18.730Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T01:39:18.730Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T01:39:18.733Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T01:39:18.782Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T01:40:45.274Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T01:40:45.275Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T01:40:45.377Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T01:40:45.377Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T01:40:45.379Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T01:40:45.406Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T01:41:03.031Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T01:41:03.032Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T01:41:03.161Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T01:41:03.161Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T01:41:03.163Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T01:41:03.215Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T01:42:05.156Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T01:42:05.157Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T01:42:05.262Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T01:42:05.263Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T01:42:05.264Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T01:42:05.291Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T01:48:30.778Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T01:48:30.779Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T01:48:30.910Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T01:48:30.910Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T01:48:30.912Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T01:48:30.962Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T03:34:22.860Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T03:34:22.861Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T03:34:22.964Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T03:34:22.965Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T03:34:22.966Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T03:34:22.995Z"}
+{"level":"info","message":"Using development environment settings","timestamp":"2017-07-13T03:34:57.990Z"}
+{"level":"info","message":"Debug mode is ON","timestamp":"2017-07-13T03:34:57.991Z"}
+{"level":"info","message":"Configuring middlewares","timestamp":"2017-07-13T03:34:58.099Z"}
+{"level":"info","message":"Configuring view engine","timestamp":"2017-07-13T03:34:58.099Z"}
+{"level":"info","message":"Configuring routes","timestamp":"2017-07-13T03:34:58.100Z"}
+{"level":"info","message":"Chatz Site server is listening on port 4000","timestamp":"2017-07-13T03:34:58.127Z"}
