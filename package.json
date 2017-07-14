@@ -50,6 +50,7 @@
     "deasync": "0.1.10",
     "express": "4.15.3",
     "express-session": "1.15.3",
+    "json.date-extensions": "1.2.2",
     "lodash": "4.17.4",
     "morgan": "1.8.2",
     "newrelic": "1.40.0",

@@ -6,24 +6,26 @@ import {RouterModule} from '@angular/router';
 
 import {AppRoutes} from './app.routes';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {SignUpComponent} from './signup/signup.component';
-import {SignInComponent} from './signin/signin.component';
+import {HomeComponent} from './components/home/home.component';
+import {SignUpComponent} from './components/signup/signup.component';
+import {SignInComponent} from './components/signin/signin.component';
+
+import {AuthService} from './services/auth.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    SignUpComponent,
-    SignInComponent,
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    SignUpComponent,
+    SignInComponent,
+  ],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

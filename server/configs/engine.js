@@ -1,7 +1,5 @@
-'use strict';
-
-let logger = require('./logger'),
-    nunjucks = require('nunjucks');
+const logger = require('../utils/logger');
+const nunjucks = require('nunjucks');
 
 exports.configure = function(app) {
 
@@ -9,16 +7,8 @@ exports.configure = function(app) {
 
   app.engine('html', nunjucks.render);
   nunjucks.configure(app.get('views'), {
-    tags: {
-      blockStart: '<%',
-      blockEnd: '%>',
-      variableStart: '<$',
-      variableEnd: '$>',
-      commentStart: '<#',
-      commentEnd: '#>'
-    },
     autoescape: true,
-    express: app
+    express: app,
   });
 
 };

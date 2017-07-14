@@ -1,7 +1,5 @@
-'use strict';
-
-let settings = require('./settings'),
-    logger = require('./logger');
+const settings = require('./settings');
+const logger = require('../utils/logger');
 
 exports.configure = function(app) {
 
