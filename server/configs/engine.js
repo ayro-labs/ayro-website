@@ -1,7 +1,7 @@
 const logger = require('../utils/logger');
 const nunjucks = require('nunjucks');
 
-exports.configure = function(app) {
+exports.configure = (app) => {
 
   logger.info('Configuring view engine');
 

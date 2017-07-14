@@ -3,13 +3,13 @@ const accountService = require('../services/account');
 const passport = require('passport');
 const SlackStrategy = require('passport-slack').Strategy;
 
-module.exports = function(router, app) {
+module.exports = (router, app) => {
 
   passport.use(new SlackStrategy({
     clientID: settings.slack.clientId,
     clientSecret: settings.slack.clientSecret,
     skipUserProfile: true,
-    scope: ['identify', 'commands', 'users:read.email', 'chat:write:bot', 'channels:write', 'channels:read', 'users:read']
+    scope: ['identify', 'commands', 'users:read.email', 'chat:write:bot', 'channels:write', 'channels:read', 'users:read'],
   }, (accessToken, refreshToken, profile, done) => {
     done(null, profile);
   }));

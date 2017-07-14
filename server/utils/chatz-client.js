@@ -6,7 +6,7 @@ const client = restify.createJsonClient(settings.apiUrl);
 
 exports.get = (url) => {
   return new Promise((resolve, reject) => {
-    client.get(url, function(err, req, res, obj) {
+    client.get(url, (err, req, res, obj) => {
       if (err) {
         reject(err);
       } else {
@@ -18,7 +18,7 @@ exports.get = (url) => {
 
 exports.post = (url, body) => {
   return new Promise((resolve, reject) => {
-    client.post(url, body, function(err, req, res, obj) {
+    client.post(url, body, (err, req, res, obj) => {
       if (err) {
         reject(err);
       } else {

@@ -10,8 +10,7 @@
     "no-underscore-dangle": ["off"],
     "newline-per-chained-call": ["off"],
     "padded-blocks": ["off"],
-    "func-names": ["warn", "as-needed"],
-    "prefer-arrow-callback": ["warn"],
+    "func-names": ["error", "as-needed"],
     "max-len": ["error", {"code": 999, "tabWidth": 2}],
     "object-curly-spacing": ["error", "never"]
   },

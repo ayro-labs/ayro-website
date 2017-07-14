@@ -1,12 +1,13 @@
 const settings = require('./settings');
 const logger = require('../utils/logger');
+const prerender = require('prerender-node');
 
-exports.configure = function(app) {
+exports.configure = (app) => {
 
   logger.info('Configuring middlewares');
 
   if (settings.prerender) {
-    app.use(require('prerender-node').set('prerenderServiceUrl', settings.prerender.url));
+    app.use(prerender.set('prerenderServiceUrl', settings.prerender.url));
   }
 
 };

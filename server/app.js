@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('tiny', {stream: loggerServer.stream}));
 app.use(express.static(app.get('public')));
-app.use(favicon(app.get('public') + '/assets/img/favicon.ico'));
+app.use(favicon(`${app.get('public')}/assets/img/favicon.ico`));
 app.use(session({secret: 'chatz', name: 'session'}));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,11 +46,11 @@ routes.configure(express, app);
 if (settings.https) {
   const key = fs.readFileSync(settings.https.key);
   const cert = fs.readFileSync(settings.https.cert);
-  https.createServer({key: key, cert: cert}, app).listen(app.get('port'), function() {
+  https.createServer({key, cert}, app).listen(app.get('port'), () => {
     logger.info('Chatz Website server is listening on port %s (Https)', app.get('port'));
   });
 } else {
-  app.listen(app.get('port'), function() {
+  app.listen(app.get('port'), () => {
     logger.info('Chatz Website server is listening on port %s', app.get('port'));
   });
 }

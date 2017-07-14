@@ -1,6 +1,6 @@
-module.exports = function(router, app) {
+module.exports = (router, app) => {
 
-  app.get('/*', function(req, res, next) {
+  app.get('/*', (req, res) => {
     res.render('index.html');
   });
 
