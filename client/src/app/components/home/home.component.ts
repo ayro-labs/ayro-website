@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
+import {CreateAppComponent} from './modals/create-app.component';
 
 import {AccountService} from '../../services/account.service';
 import {AppService} from '../../services/app.service';
@@ -14,7 +18,7 @@ export class HomeComponent implements OnInit {
   public account: Account;
   public apps: App[];
 
-  constructor(private accountService: AccountService, private appService: AppService) {
+  constructor(private accountService: AccountService, private appService: AppService, private router: Router, private ngbModal: NgbModal) {
 
   }
 
@@ -24,6 +28,15 @@ export class HomeComponent implements OnInit {
     });
     this.appService.listApps().subscribe((apps: App[]) => {
       this.apps = apps;
+    });
+  }
+
+  public createApp() {
+    const modalRef = this.ngbModal.open(CreateAppComponent);
+    modalRef.result.then((app: App) => {
+      this.router.navigate(['/apps', app.id]);
+    }).catch(() => {
+      // Nothing to do...
     });
   }
 }

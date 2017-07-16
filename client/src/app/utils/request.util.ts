@@ -23,7 +23,7 @@ export class RequestUtil {
     return new RequestOptions({headers});
   }
 
-  private static readonly BASE_URL: string = 'http://api.closic.com';
+  private static readonly BASE_URL: string = 'http://api.chatz.io';
 
   private constructor() {
 

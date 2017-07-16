@@ -1,8 +1,13 @@
 <div class="container-fluid fill-height">
   <div class="row">
     <div class="col-md-12">
-      {{ account.name }}
+      {{ account?.name }}
     </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-lg btn-info" (click)="createApp()">
+      Create App
+    </button>
   </div>
   <div *ngFor="let app of apps" class="row">
     <div class="col-md-12">

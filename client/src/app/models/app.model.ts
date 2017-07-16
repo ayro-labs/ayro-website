@@ -2,6 +2,7 @@ import {Integration} from './integration.model';
 
 export class App {
 
+  public id: string;
   public account: string;
   public name: string;
   public token: string;
@@ -10,6 +11,7 @@ export class App {
 
   constructor(data?: any) {
     if (data) {
+      this.id = data.id;
       this.account = data.account;
       this.name = data.name;
       this.token = data.token;

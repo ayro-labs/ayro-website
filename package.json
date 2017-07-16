@@ -41,6 +41,7 @@
     "@angular/platform-browser": "4.2.3",
     "@angular/platform-browser-dynamic": "4.2.3",
     "@angular/router": "4.2.3",
+    "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.28",
     "@slack/client": "3.10.0",
     "bluebird": "3.5.0",
     "body-parser": "1.17.2",
