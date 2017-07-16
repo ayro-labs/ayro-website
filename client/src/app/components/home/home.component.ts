@@ -1,12 +1,22 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {AppService} from '../../services/app.service';
 
 @Component({
-  selector: 'home',
+  selector: 'chz-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor() {
+  public apps: any;
 
+  constructor(private appService: AppService) {
+
+  }
+
+  public ngOnInit() {
+    this.appService.listApps().subscribe((apps: any) => {
+      this.apps = apps;
+    });
   }
 }

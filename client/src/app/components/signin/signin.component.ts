@@ -1,24 +1,24 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {AuthService} from '../../services/auth.service';
 
 @Component({
-  selector: 'signin',
+  selector: 'chz-signin',
   templateUrl: './signin.component.html',
-  providers: [AuthService],
 })
 export class SignInComponent {
 
-  private email: string;
-  private password: string;
+  public email: string;
+  public password: string;
 
-  constructor(private authService: AuthService)  {
+  constructor(private authService: AuthService, private router: Router)  {
 
   }
 
   public signIn() {
-    this.authService.login(this.email, this.password).subscribe((result: any) => {
-      console.log(result);
+    this.authService.login(this.email, this.password).subscribe(() => {
+      this.router.navigate(['/']);
     });
   }
 }

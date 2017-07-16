@@ -1,24 +1,26 @@
 import {Injectable} from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import {RequestUtil} from '../utils/request.util';
+import {StorageUtil} from '../utils/storage.util';
+
 @Injectable()
 export class AuthService {
 
-  private options: RequestOptions;
-
   constructor(private http: Http) {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-    });
-    this.options = new RequestOptions({headers});
+
   }
 
   public login(email: string, password: string): Observable<any> {
-    return this.http.post('/auth/accounts', {email, password}, this.options)
-      .map((res: Response) => res.json())
+    return this.http.post('/auth/accounts', {email, password}, RequestUtil.newOptions())
+      .map((res: Response) => {
+        const result = res.json();
+        StorageUtil.setApiToken(result.token);
+        return result.account;
+      })
       .catch((err: Response) => err.json());
   }
 }

@@ -9,6 +9,7 @@
     "server-lint": "eslint -c 'server/eslint.json' 'server/**/*.js'"
   },
   "devDependencies": {
+    "@types/node": "8.0.13",
     "angular2-template-loader": "0.6.2",
     "clean-webpack-plugin": "0.1.16",
     "codelyzer": "3.1.0",

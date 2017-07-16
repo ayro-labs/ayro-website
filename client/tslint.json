@@ -1,41 +1,49 @@
 {
-  "rulesDirectory": [
-    "../node_modules/codelyzer"
-  ],
   "rules": {
+    "no-console": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "space-before-function-paren": false,
     "max-line-length": [true, "999"],
     "object-curly-spacing": [true, "never"],
-    "variable-name": [
-      true,
-      "ban-keywords",
-      "check-format",
-      "allow-leading-underscore",
-      "allow-snake-case",
-      "allow-pascal-case"
-    ],
-    "align": [
-      true,
-      "elements",
-      "members",
-      "parameters",
-      "statements"
-    ],
-    "trailing-comma": [
-      true,
-      {
-        "singleline": "never",
-        "multiline": {
-          "objects": "always",
-          "arrays": "always",
-          "functions": "never",
-          "typeLiterals": "ignore"
-        }
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-snake-case", "allow-pascal-case"],
+    "align": [true, "elements", "members", "parameters", "statements"],
+    "trailing-comma": [true, {
+      "singleline": "never",
+      "multiline": {
+        "objects": "always",
+        "arrays": "always",
+        "functions": "never",
+        "typeLiterals": "ignore"
       }
-    ]
+    }],
+    // Angular rules
+    "angular-whitespace": [true, "check-interpolation", "check-pipe"],
+    "banana-in-box": true,
+    "templates-no-negated-async": true,
+    "directive-selector": [true, "attribute", "chz", "camelCase"],
+    "component-selector": [true, "element", "chz", "kebab-case"],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "no-forward-ref": true,
+    "use-view-encapsulation": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "pipe-naming": [true, "camelCase", "chz"],
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
+    "templates-use-public": true,
+    "no-access-missing-member": true,
+    "invoke-injectable": true,
+    "template-to-ng-template": true
   },
+  "rulesDirectory": [
+    "../node_modules/codelyzer"
+  ],
   "extends": [
     "tslint:recommended",
     "tslint-eslint-rules",

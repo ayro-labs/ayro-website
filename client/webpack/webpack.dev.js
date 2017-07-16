@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const MergeFilesPlugin = require('merge-files-webpack-plugin');
 
 module.exports = {
   entry: {

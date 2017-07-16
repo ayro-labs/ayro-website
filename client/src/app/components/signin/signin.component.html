@@ -1,16 +1,17 @@
 <div class="container-fluid fill-height">
   <div class="row align-items-center justify-content-center fill-height">
-    <div class="col-md-4">
+    <div class="col-md-5">
       <form>
+        <h2 class="font-light margin-bottom-30">Enter with your Chatz account</h2>
         <div class="form-group">
           <label for="email">Email</label>
-          <input [(ngModel)]="email" type="text" name="email" class="form-control">
+          <input id="email" [(ngModel)]="email" type="text" name="email" class="form-control">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input [(ngModel)]="password" type="text" name="password" class="form-control">
+          <input id="password" [(ngModel)]="password" type="text" name="password" class="form-control">
         </div>
-        <button type="button" class="btn btn-info btn-block" (click)="signIn()">Sign In</button>
+        <button type="button" class="btn btn-info btn-block" (click)="signIn()">SIGN IN</button>
       </form>
     </div>
   </div>
