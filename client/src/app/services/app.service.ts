@@ -5,9 +5,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import {App} from '../models/app.model';
-import {RequestUtil} from '../utils/request.util';
-import {ApiError} from './commons/api.error';
+import {App} from 'app/models/app.model';
+import {ApiError} from 'app/services/commons/api.error';
+import {RequestUtil} from 'app/utils/request.util';
 
 @Injectable()
 export class AppService {
@@ -30,7 +30,7 @@ export class AppService {
   }
 
   public createApp(name: string): Observable<App> {
-    return this.http.post('/apps', {name}, RequestUtil.newOptionsWithAppToken())
+    return this.http.post(RequestUtil.getUrl('/apps'), {name}, RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(new ApiError(err)));
   }

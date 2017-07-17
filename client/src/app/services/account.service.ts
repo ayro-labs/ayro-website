@@ -5,9 +5,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import {Account} from '../models/account.model';
-import {RequestUtil} from '../utils/request.util';
-import {ApiError} from './commons/api.error';
+import {Account} from 'app/models/account.model';
+import {ApiError} from 'app/services/commons/api.error';
+import {RequestUtil} from 'app/utils/request.util';
 
 @Injectable()
 export class AccountService {

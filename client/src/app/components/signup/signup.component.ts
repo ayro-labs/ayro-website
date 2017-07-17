@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {AccountService} from '../../services/account.service';
-import {AuthService} from '../../services/auth.service';
+import {AccountService} from 'app/services/account.service';
+import {AuthService} from 'app/services/auth.service';
 
 @Component({
   selector: 'chz-signup',

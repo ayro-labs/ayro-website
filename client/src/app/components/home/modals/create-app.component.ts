@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
-import {App} from '../../../models/app.model';
+import {AppService} from 'app/services/app.service';
+import {App} from 'app/models/app.model';
 
 @Component({
   selector: 'chz-create-app',
@@ -9,7 +10,9 @@ import {App} from '../../../models/app.model';
 })
 export class CreateAppComponent {
 
-  constructor(private ngbActiveModal: NgbActiveModal) {
+  public name: string;
+
+  constructor(private appService: AppService, private ngbActiveModal: NgbActiveModal) {
 
   }
 
@@ -18,6 +21,8 @@ export class CreateAppComponent {
   }
 
   public create() {
-    this.ngbActiveModal.close(new App());
+    this.appService.createApp(this.name).subscribe((app: App) => {
+      this.ngbActiveModal.close(app);
+    });
   }
 }

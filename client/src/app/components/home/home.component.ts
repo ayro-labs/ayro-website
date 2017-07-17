@@ -2,12 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
-import {CreateAppComponent} from './modals/create-app.component';
-
-import {AccountService} from '../../services/account.service';
-import {AppService} from '../../services/app.service';
-import {Account} from '../../models/account.model';
-import {App} from '../../models/app.model';
+import {CreateAppComponent} from 'app/components/home/modals/create-app.component';
+import {AccountService} from 'app/services/account.service';
+import {AppService} from 'app/services/app.service';
+import {Account} from 'app/models/account.model';
+import {App} from 'app/models/app.model';
 
 @Component({
   selector: 'chz-home',

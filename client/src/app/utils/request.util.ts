@@ -1,6 +1,6 @@
 import {Headers, RequestOptions} from '@angular/http';
 
-import {StorageUtil} from './storage.util';
+import {StorageUtil} from 'app/utils/storage.util';
 
 export class RequestUtil {
 

@@ -1,4 +1,4 @@
-import {Integration} from './integration.model';
+import {Integration} from 'app/models/integration.model';
 
 export class App {
 
