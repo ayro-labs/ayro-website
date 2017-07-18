@@ -1,3 +1,29 @@
-<div class="container-fluid fill-height">
-
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h3 class="font-light">App: {{ app?.name }}</h3>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-primary float-right ml-4" [routerLink]="['integrations']">
+        View integrations
+      </button>
+      <button class="btn btn-primary float-right" [routerLink]="['edit']">
+        Edit app
+      </button>
+    </div>
+  </div>
+  <div *ngFor="let integration of integrations" class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title d-flex align-items-center">
+            <div class="app-avatar rounded-circle d-inline-block"></div>
+            <a class="font-light ml-2">
+              {{ integration.name }}
+            </a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

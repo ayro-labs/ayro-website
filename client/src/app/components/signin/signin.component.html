@@ -2,7 +2,7 @@
   <div class="row align-items-center justify-content-center fill-height">
     <div class="col-md-5">
       <form novalidate (ngSubmit)="signIn()">
-        <h2 class="font-light margin-bottom-30">Enter with your Chatz account</h2>
+        <h2 class="font-light mb-4">Enter with your Chatz account</h2>
         <div class="form-group">
           <label for="email">Email</label>
           <input id="email" [(ngModel)]="email" type="text" name="email" class="form-control" required>
@@ -11,7 +11,7 @@
           <label for="password">Password</label>
           <input id="password" [(ngModel)]="password" type="text" name="password" class="form-control" required>
         </div>
-        <button type="button" class="btn btn-info btn-block">SIGN IN</button>
+        <button type="submit" class="btn btn-info btn-block">SIGN IN</button>
       </form>
     </div>
   </div>

@@ -8,8 +8,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutes} from 'app/app.routes';
 import {AppComponent} from 'app/app.component';
 
+import {HeaderComponent} from 'app/components/header/header.component';
+import {FooterComponent} from 'app/components/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
-import {CreateAppComponent} from 'app/components/home/modals/create-app.component';
+import {DashboardComponent} from 'app/components/dashboard/dashboard.component';
+import {CreateAppComponent} from 'app/components/dashboard/modals/create-app.component';
 import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
 import {AppComponent as ChzAppComponent} from 'app/components/app/app.component';
@@ -28,9 +31,12 @@ import {AppService} from 'app/services/app.service';
   ],
   declarations: [
     AppComponent,
-    HomeComponent,
     SignUpComponent,
     SignInComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    DashboardComponent,
     ChzAppComponent,
     CreateAppComponent,
   ],

@@ -34,4 +34,10 @@ export class AppService {
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(new ApiError(err)));
   }
+
+  public getApp(id: string): Observable<App> {
+    return this.http.get(RequestUtil.getUrl(`/apps/${id}`), RequestUtil.newOptionsWithAppToken())
+      .map((res: Response) => new App(res.json()))
+      .catch((err: Response) => Observable.throw(new ApiError(err)));
+  }
 }
