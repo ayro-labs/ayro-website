@@ -8,18 +8,20 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutes} from 'app/app.routes';
 import {AppComponent} from 'app/app.component';
 
-import {HeaderComponent} from 'app/components/header/header.component';
-import {FooterComponent} from 'app/components/footer/footer.component';
+import {HeaderComponent} from 'app/components/home/header/header.component';
+import {FooterComponent} from 'app/components/home/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
-import {DashboardComponent} from 'app/components/dashboard/dashboard.component';
-import {CreateAppComponent} from 'app/components/dashboard/modals/create-app.component';
+import {DashboardComponent} from 'app/components/home/dashboard/dashboard.component';
+import {CreateAppComponent} from 'app/components/home/dashboard/modals/create-app.component';
 import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
-import {AppComponent as ChzAppComponent} from 'app/components/app/app.component';
+import {AppComponent as ChzAppComponent} from 'app/components/home/app/app.component';
+import {IntegrationsComponent} from 'app/components/home/integrations/integrations.component';
 
 import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
+import {IntegrationService} from 'app/services/integration.service';
 
 @NgModule({
   imports: [
@@ -37,8 +39,9 @@ import {AppService} from 'app/services/app.service';
     FooterComponent,
     HomeComponent,
     DashboardComponent,
-    ChzAppComponent,
     CreateAppComponent,
+    ChzAppComponent,
+    IntegrationsComponent,
   ],
   entryComponents: [
     CreateAppComponent,
@@ -47,6 +50,7 @@ import {AppService} from 'app/services/app.service';
     AuthService,
     AccountService,
     AppService,
+    IntegrationService,
   ],
   bootstrap: [AppComponent],
 })

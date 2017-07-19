@@ -3,9 +3,11 @@
     "baseUrl": "./src",
     "target": "es5",
     "module": "commonjs",
+    "moduleResolution": "node",
     "strict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
@@ -16,6 +18,7 @@
     "lib": ["es6", "dom"]
   },
   "typeRoots": [
-    "../node_modules/@types"
+    "../node_modules/@types",
+    "./types"
   ]
 }

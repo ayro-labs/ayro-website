@@ -56,12 +56,12 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/,
-        loader: 'file-loader?name=assets/img/[name].[ext]',
+        loader: `file-loader?name=[path][name].[ext]&context=${helpers.root('/client/src')}`,
         include: helpers.root('/client/src/assets/img'),
       },
       {
         test: /\.(woff|woff2|ttf|eot)$/,
-        loader: 'file-loader?name=assets/fonts/[name].[ext]',
+        loader: `file-loader?name=[path][name].[ext]&context=${helpers.root('/client/src')}`,
         include: helpers.root('/client/src/assets/fonts'),
       },
     ],

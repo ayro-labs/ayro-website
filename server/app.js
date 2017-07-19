@@ -25,7 +25,6 @@ const app = express();
 app.set('env', settings.env);
 app.set('port', settings.port);
 app.set('views', settings.publicPath);
-app.set('public', settings.publicPath);
 app.set('trust proxy', 1);
 
 app.use(compression());
@@ -33,8 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('tiny', {stream: loggerServer.stream}));
-app.use(express.static(app.get('public')));
-app.use(favicon(`${app.get('public')}/assets/img/favicon.ico`));
+app.use(express.static(settings.publicPath));
 app.use(session({secret: 'chatz', name: 'session'}));
 app.use(passport.initialize());
 app.use(passport.session());

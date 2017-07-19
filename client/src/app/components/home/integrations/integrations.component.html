@@ -1,0 +1,32 @@
+<div class="container fill-height">
+  <div class="row pt-5">
+    <div class="col-md-12">
+      <h3>
+        Customer channels
+      </h3>
+    </div>
+  </div>
+  <div class="row align-center pt-2">
+    <div *ngFor="let channel of customerChannels" class="col-md-3">
+      <img [src]="channel.picture_url" class="integration-picture"/>
+      <div class="mt-2">
+        <h5>{{ channel.name }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-4">
+    <div class="col-md-12">
+      <h3>
+        Business channels
+      </h3>
+    </div>
+  </div>
+  <div class="row align-center pt-2">
+    <div *ngFor="let channel of businessChannels" class="col-md-3">
+      <img [src]="channel.picture_url" class="integration-picture"/>
+      <div class="mt-2">
+        <h5>{{ channel.name }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
