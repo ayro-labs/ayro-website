@@ -24,6 +24,6 @@ export class AuthService {
         StorageUtil.setApiToken(result.token);
         return new Account(result.account);
       })
-      .catch((err: Response) => Observable.throw(new ApiError(err)));
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 }

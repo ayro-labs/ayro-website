@@ -1,19 +1,19 @@
 <div class="container-fluid fill-height">
   <div class="row align-items-center justify-content-center fill-height">
     <div class="col-md-5">
-      <form novalidate (ngSubmit)="signUp()">
+      <form (ngSubmit)="signUp()" novalidate>
         <h2 class="mb-4">Create your Chatz account</h2>
         <div class="form-group">
           <label for="name">Name</label>
-          <input id="name" [(ngModel)]="name" type="text" name="name" class="form-control" required>
+          <input [(ngModel)]="name" type="text" id="name" name="name" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input id="email" [(ngModel)]="email" type="text" name="email" class="form-control" required>
+          <input [(ngModel)]="email" type="text" id="email" name="email" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input id="password" [(ngModel)]="password" type="text" name="password" class="form-control" required>
+          <input [(ngModel)]="password" type="text" id="password" name="password" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">SIGN UP</button>
       </form>

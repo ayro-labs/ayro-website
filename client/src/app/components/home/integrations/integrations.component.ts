@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {IntegrationService} from 'app/services/integration.service';
 import {Channel} from 'app/models/channel.model';
+import {Integration} from 'app/models/integration.model';
 
 @Component({
   selector: 'chz-integrations',
@@ -17,11 +18,7 @@ export class IntegrationsComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.integrationService.listChannels('customer').subscribe((channels: Channel[]) => {
-      this.customerChannels = channels;
-    });
-    this.integrationService.listChannels('business').subscribe((channels: Channel[]) => {
-      this.businessChannels = channels;
-    });
+    this.customerChannels = this.integrationService.listChannels(Integration.TYPE_CUSTOMER);
+    this.businessChannels = this.integrationService.listChannels(Integration.TYPE_BUSINESS);
   }
 }

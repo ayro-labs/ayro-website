@@ -6,7 +6,7 @@ export class App {
   public account: string;
   public name: string;
   public token: string;
-  public integrations: Integration[];
+  public integrations: Integration[] = [];
   public registration_date: Date;
 
   constructor(data?: any) {
@@ -23,5 +23,12 @@ export class App {
       }
       this.registration_date = data.registration_date;
     }
+  }
+
+  public getIntegration(channel: string) {
+    const found = this.integrations.find((integration) => {
+      return integration.channel === channel;
+    });
+    return found || null;
   }
 }

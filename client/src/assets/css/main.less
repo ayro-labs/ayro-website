@@ -1,8 +1,11 @@
 html, body {
   height: 100%;
 }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, p, small {
   font-weight: 100;
+}
+small {
+  color: #6f6f6f;
 }
 .fill-height {
   height: 100% !important;
@@ -29,14 +32,18 @@ h1, h2, h3, h4, h5 {
   height: 38px;
   background: #ffffff;
 }
-.app-avatar {
-  width: 50px;
-  height: 50px;
+.app-picture {
+  width: 80px;
+  height: 80px;
   background: #d9d9d9;
 }
 .integration-picture {
   width: 150px;
   height: 150px;
+}
+.integration-picture-small {
+  width: 75px;
+  height: 75px;
 }
 .footer {
   bottom: 0;
@@ -44,4 +51,35 @@ h1, h2, h3, h4, h5 {
   height: 100px;
   background-color: #4e5863;
   color: #ffffff;
+}
+.highlight {
+  background-color: #525252;
+  border-radius: 6px;
+  padding: 10px 15px;
+
+  pre {
+    margin: 0px;
+  }
+  code {
+    background-color: #525252;
+    color: #ffffff;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+.alert {
+  position: fixed;
+  z-index: 2000;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+
+  .close {
+    margin-left: 20px;
+    font-size: 30px;
+  }
+  p {
+    margin: 0px;
+    float: left;
+  }
 }

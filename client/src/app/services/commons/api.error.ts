@@ -2,15 +2,19 @@ import {Response} from '@angular/http';
 
 export class ApiError extends Error {
 
+  public static withResponse(err: Response): ApiError {
+    const errData = err.json();
+    return new ApiError(err.status, errData.key, errData.message);
+  }
+
   public status: number;
   public key: string;
   public message: string;
 
-  constructor(err: Response) {
+  constructor(status: number, key: string, message: string) {
     super();
-    const errData = err.json();
-    this.status = err.status;
-    this.key = errData.key;
-    this.message = errData.message;
+    this.status = status;
+    this.key = key;
+    this.message = message;
   }
 }

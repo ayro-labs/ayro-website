@@ -26,18 +26,18 @@ export class AppService {
         });
         return apps;
       })
-      .catch((err: Response) => Observable.throw(new ApiError(err)));
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public createApp(name: string): Observable<App> {
     return this.http.post(RequestUtil.getUrl('/apps'), {name}, RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
-      .catch((err: Response) => Observable.throw(new ApiError(err)));
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public getApp(id: string): Observable<App> {
     return this.http.get(RequestUtil.getUrl(`/apps/${id}`), RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
-      .catch((err: Response) => Observable.throw(new ApiError(err)));
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 }

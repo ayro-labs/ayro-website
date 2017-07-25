@@ -19,12 +19,12 @@ export class AccountService {
   public getAuthenticatedAccount(): Observable<Account> {
     return this.http.get(RequestUtil.getUrl('/accounts/authenticated'), RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new Account(res.json()))
-      .catch((err: Response) => Observable.throw(new ApiError(err)));
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public createAccount(name: string, email: string, password: string): Observable<Account> {
     return this.http.post(RequestUtil.getUrl('/accounts'), {name, email, password}, RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new Account(res.json()))
-      .catch((err: Response) => Observable.throw(new ApiError(err)));
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 }

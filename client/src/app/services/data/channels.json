@@ -1,7 +1,7 @@
 {
   "customer": [
-    {"id": "android", "name": "Android", "picture_url": "/assets/img/integrations/android.png"},
     {"id": "web", "name": "Web", "picture_url": "/assets/img/integrations/web.png"},
+    {"id": "android", "name": "Android", "picture_url": "/assets/img/integrations/android.png"},
     {"id": "ios", "name": "iOS", "picture_url": "/assets/img/integrations/ios.png"}
   ],
   "business": [
