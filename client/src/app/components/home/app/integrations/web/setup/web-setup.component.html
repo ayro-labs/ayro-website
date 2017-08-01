@@ -1,0 +1,92 @@
+<div *ngIf="app" class="container fill-height">
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <img [src]="channel?.picture_url" class="card-img-top w-100"/>
+    </div>
+    <div class="col-md-9">
+      <h1>{{ channel?.name }}</h1>
+      <hr/>
+      <div *ngIf="!hasIntegration()">
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <h5 class="mb-3">
+              1º Step - Download and Install
+            </h5>
+            <p class="mb-0">
+              Download the Chatz javascript library for Websites <a href="#">here</a>.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="mt-4 mb-3">
+              2º Step - Import the library
+            </h5>
+            <p>
+              Import the library by including the following code at the end of <code>body</code> element.
+            </p>
+            <div class="highlight">
+              <code>&lt;script type="text/javascript" src="/path/to/chatz.js"&gt;&lt;/script&gt;</code>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="mt-4 mb-3">
+              3º Step - Initialize the library
+            </h5>
+            <p>
+              Initialize the library by including the following code at the end of <code>body</code> element.
+            </p>
+            <div class="highlight">
+              <pre><code>&lt;script&gt;
+      ChatzIO.init({{ '{' }}
+        app_token: '{{ app.token }}'
+      {{ '}' }});
+    &lt;/script&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="mt-4 mb-3">
+              4º Step - Test the integration
+            </h5>
+            <p>
+              Run your Website after complete all these steps and let us know if your integration is working fine by clicking the button below.
+            </p>
+            <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">Test Integration</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="hasIntegration()">
+        <form (ngSubmit)="saveConfiguration()" novalidate>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <h4>App token</h4>
+              <div class="input-group">
+                <p class="form-control">{{ app?.token }}</p>
+                <span class="input-group-btn">
+                  <button (click)="copyAppToken()" class="btn btn-secondary" type="button">Copy</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <h4>Primary color</h4>
+              <input [(ngModel)]="config.primary_color" type="text" id="primary-color" name="primary-color" class="form-control">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <h4>Conversation color</h4>
+              <input [(ngModel)]="config.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Save Configuration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

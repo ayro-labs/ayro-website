@@ -3,7 +3,9 @@ import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import {CreateAppComponent} from 'app/components/home/dashboard/modals/create-app.component';
+import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
+import {Account} from 'app/models/account.model';
 import {App} from 'app/models/app.model';
 
 @Component({
@@ -12,13 +14,17 @@ import {App} from 'app/models/app.model';
 })
 export class DashboardComponent implements OnInit {
 
+  public account: Account;
   public apps: App[] = [];
 
-  constructor(private appService: AppService, private router: Router, private ngbModal: NgbModal) {
+  constructor(private accountService: AccountService, private appService: AppService, private router: Router, private ngbModal: NgbModal) {
 
   }
 
   public ngOnInit() {
+    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
+      this.account = account;
+    });
     this.appService.listApps().subscribe((apps: App[]) => {
       this.apps = apps;
     });

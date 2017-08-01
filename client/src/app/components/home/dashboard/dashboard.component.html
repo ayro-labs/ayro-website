@@ -1,6 +1,15 @@
 <div class="container fill-height">
   <ng-template [ngIf]="apps.length === 0">
-
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="jumbotron">
+          <h1>Hello, {{ account?.name }}!</h1>
+          <h5 class="mt-4">To get started you need to create your first App.</h5>
+          <hr class="my-4">
+          <button (click)="createApp()" class="btn btn-primary btn-lg">Create first App</button>
+        </div>
+      </div>
+    </div>
   </ng-template>
   <ng-template [ngIf]="apps.length > 0">
     <div class="row pt-4">
@@ -8,7 +17,7 @@
         <h3>Your apps</h3>
       </div>
       <div class="col-md-6">
-        <button class="btn btn-primary float-right" (click)="createApp()">
+        <button (click)="createApp()" class="btn btn-primary float-right">
           Create an app
         </button>
       </div>
@@ -21,7 +30,7 @@
               <div class="col-md-4">
                 <h3 class="card-title d-flex align-items-center">
                   <div class="app-picture rounded-circle d-inline-block"></div>
-                  <a class="font-light ml-3" [routerLink]="['apps', app.id]">
+                  <a [routerLink]="['apps', app?.id]" class="font-light ml-3">
                     {{ app.name }}
                   </a>
                 </h3>

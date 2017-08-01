@@ -1,0 +1,92 @@
+<div *ngIf="app" class="container fill-height">
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <img [src]="channel?.picture_url" class="card-img-top w-100"/>
+    </div>
+    <div class="col-md-9">
+      <h1>{{ channel?.name }}</h1>
+      <hr/>
+      <div *ngIf="!hasIntegration()">
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <h5 class="mb-3">
+              1º Step - Install the library
+            </h5>
+            <p>
+              Add the Chatz library for Android as a dependency of your project.
+            </p>
+            <p>
+              Using Gradle:
+            </p>
+            <div class="highlight mb-3">
+              <code>compile 'io.chatz:chatz:1.0.0'</code>
+            </div>
+            <p>
+              Using Maven:
+            </p>
+            <div class="highlight">
+              <pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;io.chatz&lt;/groupId&gt;
+  &lt;artifactId&gt;chatz&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="mt-4 mb-3">
+              2º Step - Initialize the library
+            </h5>
+            <p>
+              Initialize the library by including the following code in the <code>onCreate</code> method of your custom Application class.
+            </p>
+            <div class="highlight">
+              <code>ChatzIO.init(this, "{{ app.token }}")</code>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="mt-4 mb-3">
+              3º Step - Test the integration
+            </h5>
+            <p>
+              Run your Android application after complete all these steps and let us know if your integration is working fine by clicking the button below.
+            </p>
+            <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">Test Integration</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="hasIntegration()">
+        <form (ngSubmit)="saveConfiguration()" novalidate>
+          <div class="row">
+            <div class="col-md-12">
+              <h4>App token</h4>
+              <div class="input-group">
+                <p class="form-control">{{ app?.token }}</p>
+                <span class="input-group-btn">
+                  <button (click)="copyAppToken()" class="btn btn-secondary" type="button">Copy</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <h4>Firebase Cloud Messaging</h4>
+              <div class="form-group">
+                <label for="fcm-server-key">Server Key</label>
+                <input [(ngModel)]="config.fcm.server_key" type="text" id="fcm-server-key" name="fcm-server-key" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="fcm-server-key">Sender ID</label>
+                <input [(ngModel)]="config.fcm.sender_id" type="text" id="fcm-sender-id" name="fcm-sender-id" class="form-control">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Configuration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

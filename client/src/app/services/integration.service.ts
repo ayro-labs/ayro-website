@@ -34,19 +34,19 @@ export class IntegrationService {
     return channels;
   }
 
-  public addAndroid(app: App, configuration: any): Observable<void> {
-    return this.http.post(RequestUtil.getUrl(`/apps/${app.id}/integrations/android`), configuration, RequestUtil.newOptionsWithAppToken())
+  public updateAndroid(app: App, configuration: any): Observable<App> {
+    return this.http.put(RequestUtil.getUrl(`/apps/${app.id}/integrations/android`), configuration, RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
-  public addWeb(app: App, configuration: any): Observable<void> {
-    return this.http.post(RequestUtil.getUrl(`/apps/${app.id}/integrations/website`), configuration, RequestUtil.newOptionsWithAppToken())
+  public updateWeb(app: App, configuration: any): Observable<App> {
+    return this.http.put(RequestUtil.getUrl(`/apps/${app.id}/integrations/website`), configuration, RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
-  public addSlack(app: App, configuration: any): Observable<void> {
+  public addSlack(app: App, configuration: any): Observable<App> {
     return this.http.post(RequestUtil.getUrl(`/apps/${app.id}/integrations/slack`), configuration, RequestUtil.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));

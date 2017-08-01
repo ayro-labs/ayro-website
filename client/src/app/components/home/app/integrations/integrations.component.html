@@ -1,5 +1,5 @@
 <div class="container fill-height">
-  <div class="row pt-4">
+  <div class="row mt-4">
     <div class="col-md-12">
       <h3>
         Customer channels
@@ -14,7 +14,8 @@
         </span>
         <div class="card-block">
           <h4 class="card-title">{{ channel.name }}</h4>
-          <a [routerLink]="[channel.id]" class="btn btn-primary">View details</a>
+          <a *ngIf="!hasIntegration(channel)" [routerLink]="[channel.id]" class="btn btn-primary">View details</a>
+          <a *ngIf="hasIntegration(channel)" [routerLink]="[channel.id, 'setup']" class="btn btn-secondary">Configure</a>
         </div>
       </div>
     </div>
@@ -34,7 +35,8 @@
         </span>
         <div class="card-block">
           <h4 class="card-title">{{ channel.name }}</h4>
-          <a [routerLink]="[channel.id]" class="btn btn-primary">Integrate</a>
+          <a *ngIf="!hasIntegration(channel)" [routerLink]="[channel.id]" class="btn btn-primary">View details</a>
+          <a *ngIf="hasIntegration(channel)" [routerLink]="[channel.id, 'setup']" class="btn btn-info">Configure</a>
         </div>
       </div>
     </div>

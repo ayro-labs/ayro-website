@@ -1,7 +1,7 @@
 <form novalidate (ngSubmit)="create()">
   <div class="modal-header">
     <h4 class="modal-title">Create an App</h4>
-    <button type="button" class="close" aria-label="Close" (click)="close()">
+    <button (click)="close()" type="button" class="close" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -10,13 +10,13 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="name">App name</label>
-          <input id="name" [(ngModel)]="name" type="text" name="name" class="form-control" required>
+          <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" required>
         </div>
       </div>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
-    <button type="submit" class="btn btn-primary btn-primary" (click)="create()">Create</button>
+    <button (click)="close()" type="button" class="btn btn-secondary">Close</button>
+    <button (click)="create()" type="submit" class="btn btn-primary btn-primary">Create</button>
   </div>
 </form>

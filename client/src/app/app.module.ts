@@ -17,13 +17,14 @@ import {CreateAppComponent} from 'app/components/home/dashboard/modals/create-ap
 import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
 import {AppComponent as ChzAppComponent} from 'app/components/home/app/app.component';
-import {IntegrationsComponent} from 'app/components/home/integrations/integrations.component';
-import {WebIntegrationComponent} from 'app/components/home/integrations/web/web.component';
-import {WebSetupIntegrationComponent} from 'app/components/home/integrations/web/setup/web-setup.component';
-import {AndroidIntegrationComponent} from 'app/components/home/integrations/android/android.component';
-import {AndroidSetupIntegrationComponent} from 'app/components/home/integrations/android/setup/android-setup.component';
-import {IOSIntegrationComponent} from 'app/components/home/integrations/ios/ios.component';
-import {SlackIntegrationComponent} from 'app/components/home/integrations/slack/slack.component';
+import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
+import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
+import {WebIntegrationComponent} from 'app/components/home/app/integrations/web/web.component';
+import {WebSetupIntegrationComponent} from 'app/components/home/app/integrations/web/setup/web-setup.component';
+import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
+import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
+import {IOSIntegrationComponent} from 'app/components/home/app/integrations/ios/ios.component';
+import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
 
 import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
@@ -50,6 +51,7 @@ import {AlertService} from 'app/services/alert.service';
     DashboardComponent,
     CreateAppComponent,
     ChzAppComponent,
+    AppHomeComponent,
     IntegrationsComponent,
     WebIntegrationComponent,
     WebSetupIntegrationComponent,

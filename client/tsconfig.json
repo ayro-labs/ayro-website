@@ -3,7 +3,6 @@
     "baseUrl": "./src",
     "target": "es5",
     "module": "commonjs",
-    "moduleResolution": "node",
     "strict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,

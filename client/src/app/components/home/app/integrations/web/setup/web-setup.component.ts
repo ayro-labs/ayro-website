@@ -16,8 +16,7 @@ export class WebSetupIntegrationComponent implements OnInit {
 
   public app: App;
   public channel: Channel;
-  public webConfig: any = {};
-  public componentReady: boolean;
+  public config: any = {};
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private activatedRoute: ActivatedRoute) {
 
@@ -25,29 +24,38 @@ export class WebSetupIntegrationComponent implements OnInit {
 
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_WEB);
-    this.activatedRoute.params.subscribe((params: {app: string}) => {
-      this.appService.getApp(params.app).subscribe((app: App) => {
-        this.app = app;
-        this.componentReady = true;
+    if (this.activatedRoute.parent) {
+      this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
+        this.appService.getApp(params.app).subscribe((app: App) => {
+          this.app = app;
+        });
       });
-    });
+    }
   }
 
-  public isIntegrated() {
-    console.log(this.app.getIntegration(Integration.CHANNEL_WEB));
+  public copyAppToken() {
+    // Copy to Clipboard
+  }
+
+  public hasIntegration() {
     return this.app.getIntegration(Integration.CHANNEL_WEB) !== null;
   }
 
-  public confirmIntegration() {
+  public testIntegration() {
     this.appService.getApp(this.app.id).subscribe((app: App) => {
       this.app = app;
-      if (!app.getIntegration(Integration.CHANNEL_WEB)) {
-        this.alertService.error('Integration was not confirmed');
+      if (this.hasIntegration()) {
+        this.alertService.success('Integration tested with success.');
+      } else {
+        this.alertService.error('Test failed, please reviews the steps again.');
       }
     });
   }
 
-  public save() {
-    this.integrationService.addWeb(this.app, this.webConfig);
+  public saveConfiguration() {
+    this.integrationService.updateWeb(this.app, this.config).subscribe((app: App) => {
+      this.app = app;
+      this.alertService.success('Configuration updated with success.');
+    });
   }
 }

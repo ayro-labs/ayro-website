@@ -3,8 +3,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {AppService} from 'app/services/app.service';
-import {IntegrationService} from 'app/services/integration.service';
-import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
 
 @Component({
@@ -15,7 +13,7 @@ export class AppComponent implements OnInit {
 
   public app: App;
 
-  constructor(private appService: AppService, private integrationService: IntegrationService, private activatedRoute: ActivatedRoute) {
+  constructor(private appService: AppService, private activatedRoute: ActivatedRoute) {
 
   }
 
@@ -25,9 +23,5 @@ export class AppComponent implements OnInit {
         this.app = app;
       });
     });
-  }
-
-  public getChannel(id: string): Channel {
-    return this.integrationService.getChannel(id);
   }
 }
