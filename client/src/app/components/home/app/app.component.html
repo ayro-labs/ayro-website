@@ -12,7 +12,7 @@
       <a [routerLink]="['integrations']" class="btn btn-primary float-right ml-2">
         Browse integrations
       </a>
-      <a [routerLink]="['edit']" class="btn btn-primary float-right">
+      <a (click)="editApp()" class="btn btn-primary float-right">
         Edit app
       </a>
     </div>

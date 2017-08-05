@@ -40,10 +40,10 @@
             </p>
             <div class="highlight">
               <pre><code>&lt;script&gt;
-      ChatzIO.init({{ '{' }}
-        app_token: '{{ app.token }}'
-      {{ '}' }});
-    &lt;/script&gt;</code></pre>
+  ChatzIO.init({{ '{' }}
+    app_token: '{{ app.token }}'
+  {{ '}' }});
+&lt;/script&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
               <div class="input-group">
                 <p class="form-control">{{ app?.token }}</p>
                 <span class="input-group-btn">
-                  <button (click)="copyAppToken()" class="btn btn-secondary" type="button">Copy</button>
+                  <button (click)="copyAppToken()" type="button" class="btn btn-secondary">Copy</button>
                 </span>
               </div>
             </div>
@@ -75,13 +75,19 @@
           <div class="row mt-3">
             <div class="col-md-12">
               <h4>Primary color</h4>
-              <input [(ngModel)]="config.primary_color" type="text" id="primary-color" name="primary-color" class="form-control">
+              <div class="input-group">
+                <span [ngStyle]="{'background-color': '#' + config.primary_color}" class="input-group-addon color-addon"></span>
+                <input [(ngModel)]="config.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
+              </div>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-md-12">
               <h4>Conversation color</h4>
-              <input [(ngModel)]="config.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control">
+              <div class="input-group">
+                <span [ngStyle]="{'background-color': '#' + config.conversation_color}" class="input-group-addon color-addon"></span>
+                <input [(ngModel)]="config.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
+              </div>
             </div>
           </div>
           <button type="submit" class="btn btn-primary mt-3">Save Configuration</button>

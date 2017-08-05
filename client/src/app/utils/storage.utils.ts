@@ -1,23 +1,23 @@
-export class StorageUtil {
+export class StorageUtils {
 
   public static set(key: string, value: string) {
     try {
       if (localStorage) {
         localStorage.setItem(key, value);
       } else {
-        StorageUtil.MEMORY_STORAGE[key] = value;
+        StorageUtils.MEMORY_STORAGE[key] = value;
       }
     } catch (err) {
-      StorageUtil.MEMORY_STORAGE[key] = value;
+      StorageUtils.MEMORY_STORAGE[key] = value;
     }
   }
 
   public static get(key: string): string {
     let value;
     if (localStorage) {
-      value = localStorage.getItem(key) || StorageUtil.MEMORY_STORAGE[key];
+      value = localStorage.getItem(key) || StorageUtils.MEMORY_STORAGE[key];
     } else {
-      value = StorageUtil.MEMORY_STORAGE[key];
+      value = StorageUtils.MEMORY_STORAGE[key];
     }
     return value || null;
   }
@@ -26,15 +26,15 @@ export class StorageUtil {
     if (localStorage) {
       localStorage.removeItem(key);
     }
-    delete StorageUtil.MEMORY_STORAGE[key];
+    delete StorageUtils.MEMORY_STORAGE[key];
   }
 
   public static setApiToken(apiToken: string) {
-    StorageUtil.set(StorageUtil.API_TOKEN, apiToken);
+    StorageUtils.set(StorageUtils.API_TOKEN, apiToken);
   }
 
   public static getApiToken() {
-    return StorageUtil.get(StorageUtil.API_TOKEN);
+    return StorageUtils.get(StorageUtils.API_TOKEN);
   }
 
   private static readonly API_TOKEN: string = 'API_TOKEN';

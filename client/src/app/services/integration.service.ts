@@ -9,7 +9,7 @@ import {Channel} from 'app/models/channel.model';
 import {Integration} from 'app/models/integration.model';
 import {App} from 'app/models/app.model';
 import {ApiError} from 'app/services/commons/api.error';
-import {RequestUtil} from 'app/utils/request.util';
+import {RequestUtils} from 'app/utils/request.utils';
 
 import * as channelsData from 'app/services/data/channels.json';
 
@@ -35,19 +35,19 @@ export class IntegrationService {
   }
 
   public updateAndroid(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtil.getUrl(`/apps/${app.id}/integrations/android`), configuration, RequestUtil.newOptionsWithAppToken())
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/android`), configuration, RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
-  public updateWeb(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtil.getUrl(`/apps/${app.id}/integrations/website`), configuration, RequestUtil.newOptionsWithAppToken())
+  public updateWebsite(app: App, configuration: any): Observable<App> {
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/website`), configuration, RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
-  public addSlack(app: App, configuration: any): Observable<App> {
-    return this.http.post(RequestUtil.getUrl(`/apps/${app.id}/integrations/slack`), configuration, RequestUtil.newOptionsWithAppToken())
+  public updateSlack(app: App, configuration: any): Observable<App> {
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/slack`), configuration, RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }

@@ -70,6 +70,7 @@ module.exports = {
     new CleanPlugin(['client-dist'], {
       root: helpers.root('/'),
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.ContextReplacementPlugin(/angular\/core\/@angular/, helpers.root('/client/src')),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills'],

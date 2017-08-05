@@ -7,7 +7,7 @@ import 'rxjs/add/observable/throw';
 
 import {Account} from 'app/models/account.model';
 import {ApiError} from 'app/services/commons/api.error';
-import {RequestUtil} from 'app/utils/request.util';
+import {RequestUtils} from 'app/utils/request.utils';
 
 @Injectable()
 export class AccountService {
@@ -17,13 +17,13 @@ export class AccountService {
   }
 
   public getAuthenticatedAccount(): Observable<Account> {
-    return this.http.get(RequestUtil.getUrl('/accounts/authenticated'), RequestUtil.newOptionsWithAppToken())
+    return this.http.get(RequestUtils.getApiUrl('/accounts/authenticated'), RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => new Account(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public createAccount(name: string, email: string, password: string): Observable<Account> {
-    return this.http.post(RequestUtil.getUrl('/accounts'), {name, email, password}, RequestUtil.newOptionsWithAppToken())
+    return this.http.post(RequestUtils.getApiUrl('/accounts'), {name, email, password}, RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => new Account(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }

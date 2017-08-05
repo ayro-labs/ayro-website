@@ -7,8 +7,8 @@ import 'rxjs/add/observable/throw';
 
 import {Account} from 'app/models/account.model';
 import {ApiError} from 'app/services/commons/api.error';
-import {RequestUtil} from 'app/utils/request.util';
-import {StorageUtil} from 'app/utils/storage.util';
+import {RequestUtils} from 'app/utils/request.utils';
+import {StorageUtils} from 'app/utils/storage.utils';
 
 @Injectable()
 export class AuthService {
@@ -18,10 +18,10 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<Account> {
-    return this.http.post(RequestUtil.getUrl('/auth/accounts'), {email, password}, RequestUtil.newOptions())
+    return this.http.post('/auth/accounts', {email, password}, RequestUtils.newOptions())
       .map((res: Response) => {
         const result = res.json();
-        StorageUtil.setApiToken(result.token);
+        StorageUtils.setApiToken(result.token);
         return new Account(result.account);
       })
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));

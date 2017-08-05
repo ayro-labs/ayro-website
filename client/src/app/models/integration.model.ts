@@ -5,7 +5,7 @@ export class Integration {
 
   public static readonly CHANNEL_ANDROID: string = 'android';
   public static readonly CHANNEL_IOS: string = 'ios';
-  public static readonly CHANNEL_WEB: string = 'web';
+  public static readonly CHANNEL_WEBSITE: string = 'website';
   public static readonly CHANNEL_SLACK: string = 'slack';
 
   public type: string;

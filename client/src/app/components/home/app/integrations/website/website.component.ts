@@ -5,10 +5,10 @@ import {Channel} from 'app/models/channel.model';
 import {Integration} from 'app/models/integration.model';
 
 @Component({
-  selector: 'chz-web',
-  templateUrl: './web.component.html',
+  selector: 'chz-website',
+  templateUrl: './website.component.html',
 })
-export class WebIntegrationComponent implements OnInit {
+export class WebsiteIntegrationComponent implements OnInit {
 
   public channel: Channel;
 
@@ -17,6 +17,6 @@ export class WebIntegrationComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.channel = this.integrationService.getChannel(Integration.CHANNEL_WEB);
+    this.channel = this.integrationService.getChannel(Integration.CHANNEL_WEBSITE);
   }
 }

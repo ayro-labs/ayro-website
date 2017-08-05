@@ -1,11 +1,11 @@
 import {Headers, RequestOptions} from '@angular/http';
 
-import {StorageUtil} from 'app/utils/storage.util';
+import {StorageUtils} from 'app/utils/storage.utils';
 
-export class RequestUtil {
+export class RequestUtils {
 
-  public static getUrl(url: string) {
-    return RequestUtil.BASE_URL + url;
+  public static getApiUrl(url: string) {
+    return RequestUtils.API_URL + url;
   }
 
   public static newOptions() {
@@ -18,12 +18,12 @@ export class RequestUtil {
   public static newOptionsWithAppToken() {
     const headers = new Headers({
       'Content-Type': 'application/json',
-      'X-Token': StorageUtil.getApiToken(),
+      'X-Token': StorageUtils.getApiToken(),
     });
     return new RequestOptions({headers});
   }
 
-  private static readonly BASE_URL: string = 'http://api.chatz.io';
+  private static readonly API_URL: string = 'http://api.chatz.io';
 
   private constructor() {
 

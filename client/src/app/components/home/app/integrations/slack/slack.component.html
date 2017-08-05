@@ -1,2 +1,12 @@
 <div class="container fill-height">
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <img [src]="channel?.picture_url" class="card-img-top w-100"/>
+    </div>
+    <div class="col-md-9">
+      <h1>{{ channel?.name }}</h1>
+      <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg mt-2">Integrate</button>
+      <hr/>
+    </div>
+  </div>
 </div>

@@ -7,7 +7,7 @@ import 'rxjs/add/observable/throw';
 
 import {App} from 'app/models/app.model';
 import {ApiError} from 'app/services/commons/api.error';
-import {RequestUtil} from 'app/utils/request.util';
+import {RequestUtils} from 'app/utils/request.utils';
 
 @Injectable()
 export class AppService {
@@ -17,7 +17,7 @@ export class AppService {
   }
 
   public listApps(): Observable<App[]> {
-    return this.http.get(RequestUtil.getUrl('/apps'), RequestUtil.newOptionsWithAppToken())
+    return this.http.get(RequestUtils.getApiUrl('/apps'), RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => {
         const datas: any[] = res.json();
         const apps: App[] = [];
@@ -30,13 +30,19 @@ export class AppService {
   }
 
   public createApp(name: string): Observable<App> {
-    return this.http.post(RequestUtil.getUrl('/apps'), {name}, RequestUtil.newOptionsWithAppToken())
+    return this.http.post(RequestUtils.getApiUrl('/apps'), {name}, RequestUtils.newOptionsWithAppToken())
+      .map((res: Response) => new App(res.json()))
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
+  public updateApp(app: App, name: string): Observable<App> {
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}`), {name}, RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public getApp(id: string): Observable<App> {
-    return this.http.get(RequestUtil.getUrl(`/apps/${id}`), RequestUtil.newOptionsWithAppToken())
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}`), RequestUtils.newOptionsWithAppToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }

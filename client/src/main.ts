@@ -9,7 +9,7 @@ import './assets/img/favicon.ico';
 import './assets/img/integrations/slack.png';
 import './assets/img/integrations/android.png';
 import './assets/img/integrations/ios.png';
-import './assets/img/integrations/web.png';
+import './assets/img/integrations/website.png';
 
 if (environment.production) {
   enableProdMode();

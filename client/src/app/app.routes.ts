@@ -10,9 +10,10 @@ import {IntegrationsComponent} from 'app/components/home/app/integrations/integr
 import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
 import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
 import {IOSIntegrationComponent} from 'app/components/home/app/integrations/ios/ios.component';
-import {WebIntegrationComponent} from 'app/components/home/app/integrations/web/web.component';
-import {WebSetupIntegrationComponent} from 'app/components/home/app/integrations/web/setup/web-setup.component';
+import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
+import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
 import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
+import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
 
 export const AppRoutes: Routes = [
   {path: 'signup', component: SignUpComponent},
@@ -22,12 +23,13 @@ export const AppRoutes: Routes = [
     {path: 'apps/:app', component: AppComponent, children: [
       {path: '', component: AppHomeComponent},
       {path: 'integrations', component: IntegrationsComponent},
-      {path: 'integrations/web', component: WebIntegrationComponent},
-      {path: 'integrations/web/setup', component: WebSetupIntegrationComponent},
+      {path: 'integrations/website', component: WebsiteIntegrationComponent},
+      {path: 'integrations/website/setup', component: WebsiteSetupIntegrationComponent},
       {path: 'integrations/android', component: AndroidIntegrationComponent},
       {path: 'integrations/android/setup', component: AndroidSetupIntegrationComponent},
       {path: 'integrations/ios', component: IOSIntegrationComponent},
       {path: 'integrations/slack', component: SlackIntegrationComponent},
+      {path: 'integrations/slack/setup', component: SlackSetupIntegrationComponent},
     ]},
   ]},
 ];

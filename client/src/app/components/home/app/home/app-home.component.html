@@ -10,20 +10,19 @@
 </div>
 <div *ngIf="app?.integrations.length > 0" class="row mt-4">
   <div class="col-md-12">
-    <h4 class="mt-4">Integrations</h4>
-    <div *ngFor="let integration of app?.integrations" class="row align-items-center mt-4">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-block">
-            <h4 class="card-title">
-              <img [src]="getChannel(integration.channel).picture_url" class="integration-picture-small"/>
-              <span class="ml-2">{{ getChannel(integration.channel).name }}</span>
-            </h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a [routerLink]="['integrations', integration.channel, 'setup']" class="btn btn-primary">
-              Configure
-            </a>
-          </div>
+    <h4>Integrations</h4>
+    <div class="row align-items-center">
+    <div *ngFor="let integration of app?.integrations" class="col-md-6 mt-4">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <img [src]="getChannel(integration.channel).picture_url" class="integration-picture-small"/>
+            <span class="ml-2">{{ getChannel(integration.channel).name }}</span>
+          </h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a [routerLink]="['integrations', integration.channel, 'setup']" class="btn btn-primary">
+            Configure
+          </a>
         </div>
       </div>
     </div>

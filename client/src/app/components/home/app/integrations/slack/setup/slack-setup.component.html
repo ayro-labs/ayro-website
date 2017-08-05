@@ -1,0 +1,28 @@
+<div *ngIf="app" class="container fill-height">
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <img [src]="channel?.picture_url" class="card-img-top w-100"/>
+    </div>
+    <div class="col-md-9">
+      <h1>{{ channel?.name }}</h1>
+      <hr/>
+      <div *ngIf="!hasIntegration()">
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <h5 class="mb-3">
+              1º Step - Sign in with your Slack account
+            </h5>
+            <a href="/apps/{{ app.id }}/integrations/slack/connect">
+              <img src="https://api.slack.com/img/sign_in_with_slack.png"/>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="hasIntegration()">
+        <form (ngSubmit)="saveConfiguration()" novalidate>
+          <button type="submit" class="btn btn-primary mt-3">Save Configuration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

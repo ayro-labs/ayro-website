@@ -10,12 +10,24 @@ exports.debug = properties.getValue('app.debug', false);
 
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
-exports.apiUrl = properties.getValue('api.url', 'http://localhost:3000');
+exports.apiUrl = 'http://api.chatz.io';
+
+exports.session = {
+  secret: 'chatz.io',
+  prefix: 'websession:',
+  ttl: Number.MAX_SAFE_INTEGER,
+};
 
 exports.slack = {
   clientId: '4332799729.201066840038',
   clientSecret: '1d8e1127054e9577da4cc6e25b83e74e',
   verificationToken: 'tHYsNNTDP00nL2HlqhAdEraQ',
+};
+
+exports.redis = {
+  host: properties.getValue('redis.host', 'localhost'),
+  port: properties.getValue('redis.port', 6379),
+  password: properties.getValue('redis.password'),
 };
 
 if (properties.getValue('prerender')) {

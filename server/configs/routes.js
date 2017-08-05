@@ -1,6 +1,6 @@
 const logger = require('../utils/logger');
 const authRoutes = require('../routes/auth');
-const accountRoutes = require('../routes/account');
+const appRoutes = require('../routes/app');
 const indexRoutes = require('../routes');
 
 exports.configure = (express, app) => {
@@ -8,7 +8,7 @@ exports.configure = (express, app) => {
   logger.info('Configuring routes');
 
   authRoutes(express.Router(), app);
-  accountRoutes(express.Router(), app);
+  appRoutes(express.Router(), app);
   indexRoutes(express.Router(), app);
 
 };

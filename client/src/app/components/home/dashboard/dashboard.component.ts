@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
-import {CreateAppComponent} from 'app/components/home/dashboard/modals/create-app.component';
+import {CreateAppComponent} from 'app/components/home/dashboard/create-app/create-app.component';
 import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
 import {Account} from 'app/models/account.model';
