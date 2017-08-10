@@ -59,7 +59,7 @@
         </div>
       </div>
       <div *ngIf="hasIntegration()">
-        <form (ngSubmit)="saveConfiguration()" novalidate>
+        <form (ngSubmit)="updateConfiguration()" novalidate>
           <div class="row">
             <div class="col-md-12">
               <h4>App token</h4>
@@ -76,15 +76,15 @@
               <h4>Firebase Cloud Messaging</h4>
               <div class="form-group">
                 <label for="fcm-server-key">Server Key</label>
-                <input [(ngModel)]="config.fcm.server_key" type="text" id="fcm-server-key" name="fcm-server-key" class="form-control">
+                <input [(ngModel)]="configuration.fcm.server_key" type="text" id="fcm-server-key" name="fcm-server-key" class="form-control">
               </div>
               <div class="form-group">
                 <label for="fcm-server-key">Sender ID</label>
-                <input [(ngModel)]="config.fcm.sender_id" type="text" id="fcm-sender-id" name="fcm-sender-id" class="form-control">
+                <input [(ngModel)]="configuration.fcm.sender_id" type="text" id="fcm-sender-id" name="fcm-sender-id" class="form-control">
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Save Configuration</button>
+          <button type="submit" class="btn btn-primary">Update configuration</button>
         </form>
       </div>
     </div>

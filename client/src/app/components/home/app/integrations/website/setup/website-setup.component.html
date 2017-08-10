@@ -60,7 +60,7 @@
         </div>
       </div>
       <div *ngIf="hasIntegration()">
-        <form (ngSubmit)="saveConfiguration()" novalidate>
+        <form (ngSubmit)="updateConfiguration()" novalidate>
           <div class="row mt-3">
             <div class="col-md-12">
               <h4>App token</h4>
@@ -76,8 +76,8 @@
             <div class="col-md-12">
               <h4>Primary color</h4>
               <div class="input-group">
-                <span [ngStyle]="{'background-color': '#' + config.primary_color}" class="input-group-addon color-addon"></span>
-                <input [(ngModel)]="config.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
+                <span [ngStyle]="{'background-color': '#' + configuration.primary_color}" class="input-group-addon color-addon"></span>
+                <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
               </div>
             </div>
           </div>
@@ -85,12 +85,12 @@
             <div class="col-md-12">
               <h4>Conversation color</h4>
               <div class="input-group">
-                <span [ngStyle]="{'background-color': '#' + config.conversation_color}" class="input-group-addon color-addon"></span>
-                <input [(ngModel)]="config.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
+                <span [ngStyle]="{'background-color': '#' + configuration.conversation_color}" class="input-group-addon color-addon"></span>
+                <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary mt-3">Save Configuration</button>
+          <button type="submit" class="btn btn-primary mt-3">Update configuration</button>
         </form>
       </div>
     </div>

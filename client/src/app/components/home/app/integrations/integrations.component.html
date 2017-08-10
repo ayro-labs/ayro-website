@@ -10,7 +10,7 @@
     <div *ngFor="let channel of customerChannels" class="col-md-3">
       <div class="card pt-3">
         <span>
-          <img [src]="channel.picture_url" class="card-img-top integration-picture"/>
+          <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
         </span>
         <div class="card-block">
           <h4 class="card-title">{{ channel.name }}</h4>
@@ -31,7 +31,7 @@
     <div *ngFor="let channel of businessChannels" class="col-md-3">
       <div class="card">
         <span>
-          <img [src]="channel.picture_url" class="card-img-top integration-picture"/>
+          <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
         </span>
         <div class="card-block">
           <h4 class="card-title">{{ channel.name }}</h4>

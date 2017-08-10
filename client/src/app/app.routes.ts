@@ -2,8 +2,10 @@ import {Routes} from '@angular/router';
 
 import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
+import {SignOutComponent} from 'app/components/home/signout/signout.component';
 import {HomeComponent} from 'app/components/home/home.component';
 import {DashboardComponent} from 'app/components/home/dashboard/dashboard.component';
+import {SettingsComponent} from 'app/components/home/settings/settings.component';
 import {AppComponent} from 'app/components/home/app/app.component';
 import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
@@ -20,6 +22,8 @@ export const AppRoutes: Routes = [
   {path: 'signin', component: SignInComponent},
   {path: '', component: HomeComponent, children: [
     {path: '', component: DashboardComponent},
+    {path: 'settings', component: SettingsComponent},
+    {path: 'signout', component: SignOutComponent},
     {path: 'apps/:app', component: AppComponent, children: [
       {path: '', component: AppHomeComponent},
       {path: 'integrations', component: IntegrationsComponent},

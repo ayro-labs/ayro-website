@@ -16,7 +16,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
 
   public app: App;
   public channel: Channel;
-  public config: any = {};
+  public configuration: any = {};
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private activatedRoute: ActivatedRoute) {
 
@@ -28,6 +28,10 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
       this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
         this.appService.getApp(params.app).subscribe((app: App) => {
           this.app = app;
+          const integration = this.app.getIntegration(Integration.CHANNEL_WEBSITE);
+          if (integration) {
+            this.configuration = integration.configuration;
+          }
         });
       });
     }
@@ -52,10 +56,12 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public saveConfiguration() {
-    this.integrationService.updateWebsite(this.app, this.config).subscribe((app: App) => {
+  public updateConfiguration() {
+    this.integrationService.updateWebsite(this.app, this.configuration).subscribe((app: App) => {
       this.app = app;
       this.alertService.success('Configuration updated with success.');
+    }, () => {
+      this.alertService.error('Couldn\'t update the configuration, please try again later!');
     });
   }
 }

@@ -1,7 +1,7 @@
 <div *ngIf="app" class="container fill-height">
   <div class="row align-items-center mt-4">
     <div class="col-md-6">
-      <img class="app-picture rounded-circle"/>
+      <img [src]="app.getIconUrl()" class="app-icon rounded-circle"/>
       <h3 class="d-inline-block ml-3">
         <a [routerLink]="['/apps', app.id]">
           {{ app.name }}

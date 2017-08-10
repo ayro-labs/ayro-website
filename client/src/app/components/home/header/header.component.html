@@ -4,11 +4,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="/">Chatz.IO</a>
-    <div id="navbar-content" class="collapse navbar-collapse">
-      <div class="d-flex align-items-center ml-auto">
-        <div class="navbar-avatar rounded-circle d-inline-block"></div>
-        <span class="ml-2">{{ account?.name }}</span>
-      </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a id="account-menu" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img [src]="account.getLogoUrl()" class="navbar-avatar rounded-circle d-inline-block">
+            <span class="ml-2">{{ account?.name }}</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="account-menu">
+            <a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
+            <a class="dropdown-item" [routerLink]="['/logout']">Logout</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

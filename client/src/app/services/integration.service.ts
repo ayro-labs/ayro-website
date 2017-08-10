@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import {Channel} from 'app/models/channel.model';
+import {SlackChannel} from 'app/models/slack-channel.model';
 import {Integration} from 'app/models/integration.model';
 import {App} from 'app/models/app.model';
 import {ApiError} from 'app/services/commons/api.error';
@@ -35,28 +36,46 @@ export class IntegrationService {
   }
 
   public updateAndroid(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/android`), configuration, RequestUtils.newOptionsWithAppToken())
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/android`), configuration, RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public updateWebsite(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/website`), configuration, RequestUtils.newOptionsWithAppToken())
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/website`), configuration, RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public updateSlack(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/slack`), configuration, RequestUtils.newOptionsWithAppToken())
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/slack`), configuration, RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
+  public listSlackChannels(app: App): Observable<SlackChannel[]> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/slack/channels`), RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => {
+        const channels: SlackChannel[] = [];
+        (res.json() as any[]).forEach((data: any) => {
+          channels.push(new SlackChannel(data));
+        });
+        return channels;
+      })
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
+  public createSlackChannel(app: App, channel: string): Observable<SlackChannel> {
+    return this.http.post(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/slack/channels`), {channel}, RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => new SlackChannel(res.json()))
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
   private indexChannels() {
-    (channelsData[Integration.TYPE_CUSTOMER] as any[]).forEach((data) => {
+    (channelsData[Integration.TYPE_CUSTOMER] as any[]).forEach((data: any) => {
       this.indexedChannels[data.id] = new Channel(data);
     });
-    (channelsData[Integration.TYPE_BUSINESS] as any[]).forEach((data) => {
+    (channelsData[Integration.TYPE_BUSINESS] as any[]).forEach((data: any) => {
       this.indexedChannels[data.id] = new Channel(data);
     });
   }

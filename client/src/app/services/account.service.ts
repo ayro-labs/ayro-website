@@ -17,13 +17,27 @@ export class AccountService {
   }
 
   public getAuthenticatedAccount(): Observable<Account> {
-    return this.http.get(RequestUtils.getApiUrl('/accounts/authenticated'), RequestUtils.newOptionsWithAppToken())
+    return this.http.get(RequestUtils.getApiUrl('/accounts/authenticated'), RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new Account(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public createAccount(name: string, email: string, password: string): Observable<Account> {
-    return this.http.post(RequestUtils.getApiUrl('/accounts'), {name, email, password}, RequestUtils.newOptionsWithAppToken())
+    return this.http.post(RequestUtils.getApiUrl('/accounts'), {name, email, password}, RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => new Account(res.json()))
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
+  public updateAccount(data: any): Observable<Account> {
+    return this.http.put(RequestUtils.getApiUrl('/accounts'), data, RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => new Account(res.json()))
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
+  public updateAccountLogo(logo: File): Observable<Account> {
+    const formData: FormData = new FormData();
+    formData.append('logo', logo);
+    return this.http.put(RequestUtils.getApiUrl(`/accounts/logo`), formData, RequestUtils.newOptionsWithApiToken())
       .map((res: Response) => new Account(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }

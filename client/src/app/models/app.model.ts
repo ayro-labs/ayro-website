@@ -2,9 +2,12 @@ import {Integration} from 'app/models/integration.model';
 
 export class App {
 
+  private static readonly ICON_URL = 'http://api.chatz.io/img/apps/';
+
   public id: string;
   public account: string;
   public name: string;
+  public icon: string;
   public token: string;
   public integrations: Integration[] = [];
   public registration_date: Date;
@@ -13,6 +16,7 @@ export class App {
     if (data) {
       this.id = data.id;
       this.account = data.account;
+      this.icon = data.icon;
       this.name = data.name;
       this.token = data.token;
       if (data.integrations) {
@@ -30,5 +34,9 @@ export class App {
       return integration.channel === channel;
     });
     return found || null;
+  }
+
+  public getIconUrl() {
+    return this.icon ? App.ICON_URL + this.icon : null;
   }
 }

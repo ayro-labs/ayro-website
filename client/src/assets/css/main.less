@@ -22,9 +22,11 @@ small {
 .navbar-default {
   background-color: #4e5863;
   color: #ffffff;
-
   a {
     color: #ffffff;
+    &.dropdown-item {
+      color: #292b2c;
+    }
   }
 }
 .navbar-avatar {
@@ -39,16 +41,21 @@ small {
   background-color: #4e5863;
   color: #ffffff;
 }
-.app-picture {
+.app-icon {
   width: 80px;
   height: 80px;
   background: #d9d9d9;
 }
-.integration-picture {
+.app-icon-large {
+  width: 160px;
+  height: 160px;
+  background: #d9d9d9;
+}
+.integration-icon {
   width: 150px;
   height: 150px;
 }
-.integration-picture-small {
+.integration-icon-small {
   width: 75px;
   height: 75px;
 }
@@ -56,7 +63,6 @@ small {
   background-color: #525252;
   border-radius: 6px;
   padding: 10px 15px;
-
   pre {
     margin: 0px;
   }
@@ -70,7 +76,7 @@ small {
 code {
   background-color: #525252;
   color: #ffffff;
-  padding: 5px 5px;
+  padding: 5px 7px;
 }
 .alert {
   position: fixed;
@@ -78,7 +84,6 @@ code {
   top: 15px;
   right: 15px;
   font-size: 20px;
-
   .close {
     margin-left: 20px;
     font-size: 30px;
@@ -90,4 +95,9 @@ code {
 }
 .color-addon {
   width: 50px;
+}
+.btn-file  {
+  input[type=file] {
+    display: none;
+  }
 }

@@ -70,10 +70,16 @@ module.exports = {
     new CleanPlugin(['client-dist'], {
       root: helpers.root('/'),
     }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.ContextReplacementPlugin(/angular\/core\/@angular/, helpers.root('/client/src')),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills'],
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Tether: 'tether'
     }),
     new ExtractTextPlugin({
       filename: 'assets/css/[name].css',

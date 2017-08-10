@@ -29,7 +29,7 @@
             <div class="row">
               <div class="col-md-4">
                 <h3 class="card-title d-flex align-items-center">
-                  <div class="app-picture rounded-circle d-inline-block"></div>
+                  <img [src]="app.getIconUrl()" class="app-icon rounded-circle d-inline-block">
                   <a [routerLink]="['apps', app?.id]" class="font-light ml-3">
                     {{ app.name }}
                   </a>

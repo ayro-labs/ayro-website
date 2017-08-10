@@ -16,7 +16,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
 
   public app: App;
   public channel: Channel;
-  public config: any = {fcm: {}};
+  public configuration: any = {fcm: {}};
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private activatedRoute: ActivatedRoute) {
 
@@ -28,6 +28,10 @@ export class AndroidSetupIntegrationComponent implements OnInit {
       this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
         this.appService.getApp(params.app).subscribe((app: App) => {
           this.app = app;
+          const integration = this.app.getIntegration(Integration.CHANNEL_ANDROID);
+          if (integration) {
+            this.configuration = integration.configuration;
+          }
         });
       });
     }
@@ -52,10 +56,12 @@ export class AndroidSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public saveConfiguration() {
-    this.integrationService.updateAndroid(this.app, this.config).subscribe((app: App) => {
+  public updateConfiguration() {
+    this.integrationService.updateAndroid(this.app, this.configuration).subscribe((app: App) => {
       this.app = app;
       this.alertService.success('Configuration updated with success.');
+    }, () => {
+      this.alertService.error('Couldn\'t update the configuration, please try again later!');
     });
   }
 }

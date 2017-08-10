@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<Account> {
-    return this.http.post('/auth/accounts', {email, password}, RequestUtils.newOptions())
+    return this.http.post('/auth/accounts', {email, password}, RequestUtils.newJsonOptions())
       .map((res: Response) => {
         const result = res.json();
         StorageUtils.setApiToken(result.token);

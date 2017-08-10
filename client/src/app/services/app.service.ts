@@ -17,11 +17,10 @@ export class AppService {
   }
 
   public listApps(): Observable<App[]> {
-    return this.http.get(RequestUtils.getApiUrl('/apps'), RequestUtils.newOptionsWithAppToken())
+    return this.http.get(RequestUtils.getApiUrl('/apps'), RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => {
-        const datas: any[] = res.json();
         const apps: App[] = [];
-        datas.forEach((data) => {
+        (res.json() as any[]).forEach((data: any) => {
           apps.push(new App(data));
         });
         return apps;
@@ -30,19 +29,27 @@ export class AppService {
   }
 
   public createApp(name: string): Observable<App> {
-    return this.http.post(RequestUtils.getApiUrl('/apps'), {name}, RequestUtils.newOptionsWithAppToken())
+    return this.http.post(RequestUtils.getApiUrl('/apps'), {name}, RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public updateApp(app: App, name: string): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}`), {name}, RequestUtils.newOptionsWithAppToken())
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}`), {name}, RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => new App(res.json()))
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
+  public updateAppIcon(app: App, icon: File): Observable<App> {
+    const formData: FormData = new FormData();
+    formData.append('icon', icon);
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/icon`), formData, RequestUtils.newOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public getApp(id: string): Observable<App> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}`), RequestUtils.newOptionsWithAppToken())
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}`), RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }

@@ -10,7 +10,7 @@
         <div class="row mt-3">
           <div class="col-md-12">
             <h5 class="mb-3">
-              1º Step - Sign in with your Slack account
+              To get started please sign in with your Slack account.
             </h5>
             <a href="/apps/{{ app.id }}/integrations/slack/connect">
               <img src="https://api.slack.com/img/sign_in_with_slack.png"/>
@@ -19,8 +19,30 @@
         </div>
       </div>
       <div *ngIf="hasIntegration()">
-        <form (ngSubmit)="saveConfiguration()" novalidate>
-          <button type="submit" class="btn btn-primary mt-3">Save Configuration</button>
+        <form (ngSubmit)="updateConfiguration()" novalidate>
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Connected account</h4>
+              <p>You are connected as <code>{{ originalConfiguration.user.name }}</code></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Support channel</h4>
+              <p>The current support channel is <code>#{{ originalConfiguration.channel.name }}</code></p>
+              <div class="row">
+                <div class="col-md-10">
+                  <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="main-channel" class="form-control">
+                    <option *ngFor="let slackChannel of slackChannels" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <button (click)="createChannel()" type="button" class="btn btn-primary">Create channel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Update configuration</button>
         </form>
       </div>
     </div>
