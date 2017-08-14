@@ -79,11 +79,11 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
-      Tether: 'tether'
+      Popper: ['popper.js', 'default'],
     }),
     new ExtractTextPlugin({
       filename: 'assets/css/[name].css',
-      allChunks: true
+      allChunks: true,
     }),
     new HtmlPlugin({
       template: helpers.root('/client/src/index.html'),

@@ -12,10 +12,10 @@
         <span>
           <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
         </span>
-        <div class="card-block">
+        <div class="card-body">
           <h4 class="card-title">{{ channel.name }}</h4>
           <a *ngIf="!hasIntegration(channel)" [routerLink]="[channel.id]" class="btn btn-primary">View details</a>
-          <a *ngIf="hasIntegration(channel)" [routerLink]="[channel.id, 'setup']" class="btn btn-secondary">Configure</a>
+          <a *ngIf="hasIntegration(channel)" [routerLink]="[channel.id, 'setup']" class="btn btn-info">Configure</a>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
         <span>
           <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
         </span>
-        <div class="card-block">
+        <div class="card-body">
           <h4 class="card-title">{{ channel.name }}</h4>
           <a *ngIf="!hasIntegration(channel)" [routerLink]="[channel.id]" class="btn btn-primary">View details</a>
           <a *ngIf="hasIntegration(channel)" [routerLink]="[channel.id, 'setup']" class="btn btn-info">Configure</a>

@@ -9,9 +9,8 @@ import '@angular/router';
 import 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/empty';
 import 'rxjs/add/observable/throw';
 
-import 'tether';
-import 'jquery';
-import 'bootstrap/dist/js/bootstrap.min';
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';

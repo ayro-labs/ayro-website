@@ -36,4 +36,8 @@ export class AppHomeComponent implements OnInit {
   public getChannel(id: string): Channel {
     return this.integrationService.getChannel(id);
   }
+
+  public copyAppToken() {
+    // Copy to Clipboard
+  }
 }

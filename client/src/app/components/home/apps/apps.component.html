@@ -23,24 +23,20 @@
       </div>
     </div>
     <div *ngFor="let app of apps" class="row mt-4">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="card">
-          <div class="card-block">
-            <div class="row">
-              <div class="col-md-4">
-                <h3 class="card-title d-flex align-items-center">
-                  <img [src]="app.getIconUrl()" class="app-icon rounded-circle d-inline-block">
-                  <a [routerLink]="['apps', app?.id]" class="font-light ml-3">
-                    {{ app.name }}
-                  </a>
-                </h3>
-              </div>
-              <div class="col-md-4 align-center">
-                <h5>Integrations</h5>
-              </div>
-              <div class="col-md-4 align-center">
-                <h5>Conversations</h5>
-                <h2>0</h2>
+          <div class="card-body">
+            <div class="float-left">
+              <img [src]="app.getIconUrl()" class="app-icon rounded-circle">
+            </div>
+            <div class="float-left ml-3">
+              <h3 class="card-title">
+                <a [routerLink]="['apps', app?.id]" class="font-light">
+                  {{ app.name }}
+                </a>
+              </h3>
+              <div>
+                <img *ngFor="let integration of app.integrations" [src]="getChannel(integration.channel).picture_url" class="integration-icon-micro">
               </div>
             </div>
           </div>

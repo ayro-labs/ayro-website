@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {AuthService} from 'app/services/auth.service';
@@ -7,17 +7,14 @@ import {AuthService} from 'app/services/auth.service';
   selector: 'chz-signout',
   templateUrl: './signout.component.html',
 })
-export class SignOutComponent {
-
-  public email: string;
-  public password: string;
+export class SignOutComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router)  {
 
   }
 
-  public signOut() {
-    this.authService.login(this.email, this.password).subscribe(() => {
+  public ngOnInit() {
+    this.authService.signOut().subscribe(() => {
       this.router.navigate(['/']);
     });
   }

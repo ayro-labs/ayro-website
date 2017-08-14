@@ -3,8 +3,8 @@ const logger = require('../utils/logger');
 
 module.exports = (router, app) => {
 
-  function authenticateAccount(req, res) {
-    authService.authenticateAccount(req.body.email, req.body.password).then((result) => {
+  function signIn(req, res) {
+    authService.signIn(req.body.email, req.body.password).then((result) => {
       req.session.apiToken = result.token;
       res.json(result);
     }).catch((err) => {
@@ -13,7 +13,18 @@ module.exports = (router, app) => {
     });
   }
 
-  router.post('/accounts', authenticateAccount);
+  function signOut(req, res) {
+    authService.signOut(req.session.apiToken).then(() => {
+      req.session.destroy();
+      res.json({});
+    }).catch((err) => {
+      logger.error(err);
+      res.status(err.statusCode).json(err.body);
+    });
+  }
+
+  router.post('/accounts', signIn);
+  router.post('/accounts/sign_out', signOut);
 
   app.use('/auth', router);
 

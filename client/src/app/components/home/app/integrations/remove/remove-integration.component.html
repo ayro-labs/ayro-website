@@ -1,0 +1,24 @@
+<form novalidate (ngSubmit)="remove()">
+  <div class="modal-header">
+    <h4 class="modal-title">Remove integration</h4>
+    <button (click)="close()" type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <p>Do you really want to remove this integration?</p>
+        <p>If you are sure, please type the app name below to confirm removal</p>
+        <div class="form-group">
+          <label for="name">App name</label>
+          <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" required>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button (click)="close()" type="button" class="btn btn-secondary">Close</button>
+    <button type="submit" class="btn btn-danger" [disabled]="!isAppNameMatched()">Remove</button>
+  </div>
+</form>

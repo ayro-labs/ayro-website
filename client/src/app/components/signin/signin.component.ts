@@ -17,7 +17,7 @@ export class SignInComponent {
   }
 
   public signIn() {
-    this.authService.login(this.email, this.password).subscribe(() => {
+    this.authService.signIn(this.email, this.password).subscribe(() => {
       this.router.navigate(['/']);
     });
   }

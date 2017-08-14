@@ -25,21 +25,12 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  public updateName() {
-    this.accountService.updateAccount({name: this.name}).subscribe((account: Account) => {
+  public update() {
+    this.accountService.updateAccount({name: this.name, email: this.email}).subscribe((account: Account) => {
       this.fillFormFields(account);
-      this.alertService.success('Account name updated with success!');
+      this.alertService.success('Account updated with success!');
     }, () => {
-      this.alertService.error('Couldn\'t update the account name, please try again later!');
-    });
-  }
-
-  public updateEmail() {
-    this.accountService.updateAccount({email: this.email}).subscribe((account: Account) => {
-      this.fillFormFields(account);
-      this.alertService.success('Account email updated with success!');
-    }, () => {
-      this.alertService.error('Couldn\'t update the account email, please try again later!');
+      this.alertService.error('Couldn\'t update the account, please try again later!');
     });
   }
 

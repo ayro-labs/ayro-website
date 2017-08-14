@@ -12,19 +12,30 @@
   <div class="col-md-12">
     <h4>Integrations</h4>
     <div class="row align-items-center">
-    <div *ngFor="let integration of app?.integrations" class="col-md-6 mt-4">
-      <div class="card">
-        <div class="card-block">
-          <h4 class="card-title">
-            <img [src]="getChannel(integration.channel).picture_url" class="integration-icon-small"/>
-            <span class="ml-2">{{ getChannel(integration.channel).name }}</span>
-          </h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a [routerLink]="['integrations', integration.channel, 'setup']" class="btn btn-primary">
-            Configure
-          </a>
+      <div *ngFor="let integration of app?.integrations" class="col-md-6 mt-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title d-flex align-items-center">
+              <img [src]="getChannel(integration.channel).picture_url" class="integration-icon-small"/>
+              <span class="ml-3 mr-3">{{ getChannel(integration.channel).name }}</span>
+              <a [routerLink]="['integrations', integration.channel, 'setup']" class="btn btn-primary ml-auto">
+                Configure
+              </a>
+            </h4>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h4>App token</h4>
+    <div class="input-group mt-4">
+      <p class="form-control">{{ app?.token }}</p>
+      <span class="input-group-btn">
+        <button (click)="copyAppToken()" type="button" class="btn btn-secondary">Copy</button>
+      </span>
     </div>
   </div>
 </div>

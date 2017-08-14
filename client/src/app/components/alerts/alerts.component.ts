@@ -19,7 +19,7 @@ export class AlertsComponent implements OnInit {
       this.alerts.push(alert);
       setTimeout(() => {
         this.close(alert);
-      }, 8000);
+      }, 5000);
     });
   }
 

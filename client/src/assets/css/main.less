@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 html, body {
   height: 100%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 h1, h2, h3, h4, h5, p, small {
   font-weight: 100;
@@ -16,6 +21,26 @@ small {
 .align-center {
   text-align: center;
 }
+.alerts {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+}
+.alert {
+  z-index: 2000;
+  font-size: 20px;
+  .close {
+    font-size: 30px;
+  }
+}
+.color-addon {
+  width: 50px;
+}
+.btn-file  {
+  input[type=file] {
+    display: none;
+  }
+}
 .navbar {
   height: 65px;
 }
@@ -29,11 +54,6 @@ small {
     }
   }
 }
-.navbar-avatar {
-  width: 38px;
-  height: 38px;
-  background: #ffffff;
-}
 .footer {
   bottom: 0;
   width: 100%;
@@ -41,23 +61,35 @@ small {
   background-color: #4e5863;
   color: #ffffff;
 }
+.account-logo {
+  width: 38px;
+  height: 38px;
+  background: transparent;
+}
 .app-icon {
-  width: 80px;
-  height: 80px;
-  background: #d9d9d9;
+  width: 100px;
+  height: 100px;
+  background: transparent;
 }
 .app-icon-large {
   width: 160px;
   height: 160px;
-  background: #d9d9d9;
+  background: transparent;
 }
 .integration-icon {
   width: 150px;
   height: 150px;
+  background-color: transparent;
 }
 .integration-icon-small {
   width: 75px;
   height: 75px;
+  background-color: transparent;
+}
+.integration-icon-micro {
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
 }
 .highlight {
   background-color: #525252;
@@ -77,27 +109,4 @@ code {
   background-color: #525252;
   color: #ffffff;
   padding: 5px 7px;
-}
-.alert {
-  position: fixed;
-  z-index: 2000;
-  top: 15px;
-  right: 15px;
-  font-size: 20px;
-  .close {
-    margin-left: 20px;
-    font-size: 30px;
-  }
-  p {
-    margin: 0px;
-    float: left;
-  }
-}
-.color-addon {
-  width: 50px;
-}
-.btn-file  {
-  input[type=file] {
-    display: none;
-  }
 }

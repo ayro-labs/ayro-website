@@ -35,20 +35,14 @@ export class IntegrationService {
     return channels;
   }
 
-  public updateAndroid(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/android`), configuration, RequestUtils.newJsonOptionsWithApiToken())
+  public updateIntegration(app: App, channel: Channel, configuration: any): Observable<App> {
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/${channel.id}`), configuration, RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
-  public updateWebsite(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/website`), configuration, RequestUtils.newJsonOptionsWithApiToken())
-      .map((res: Response) => new App(res.json()))
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
-  }
-
-  public updateSlack(app: App, configuration: any): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/slack`), configuration, RequestUtils.newJsonOptionsWithApiToken())
+  public removeIntegration(app: App, channel: Channel): Observable<App> {
+    return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/${channel.id}`), RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }

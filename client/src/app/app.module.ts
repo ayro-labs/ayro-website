@@ -15,13 +15,14 @@ import {SignOutComponent} from 'app/components/home/signout/signout.component';
 import {HeaderComponent} from 'app/components/home/header/header.component';
 import {FooterComponent} from 'app/components/home/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
-import {DashboardComponent} from 'app/components/home/dashboard/dashboard.component';
 import {SettingsComponent} from 'app/components/home/settings/settings.component';
-import {CreateAppComponent} from 'app/components/home/dashboard/create-app/create-app.component';
+import {AppsComponent} from 'app/components/home/apps/apps.component';
+import {CreateAppComponent} from 'app/components/home/apps/create-app/create-app.component';
 import {AppComponent as ChzAppComponent} from 'app/components/home/app/app.component';
 import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
 import {EditAppComponent} from 'app/components/home/app/edit/edit-app.component';
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
+import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
 import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
@@ -54,13 +55,14 @@ import {AlertService} from 'app/services/alert.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    DashboardComponent,
     SettingsComponent,
+    AppsComponent,
     CreateAppComponent,
     ChzAppComponent,
     AppHomeComponent,
     EditAppComponent,
     IntegrationsComponent,
+    RemoveIntegrationComponent,
     WebsiteIntegrationComponent,
     WebsiteSetupIntegrationComponent,
     AndroidIntegrationComponent,
@@ -73,6 +75,7 @@ import {AlertService} from 'app/services/alert.service';
   entryComponents: [
     CreateAppComponent,
     EditAppComponent,
+    RemoveIntegrationComponent,
     CreateSlackChannelComponent,
   ],
   providers: [

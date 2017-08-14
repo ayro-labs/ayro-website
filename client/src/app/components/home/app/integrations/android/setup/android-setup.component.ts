@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
 import {AlertService} from 'app/services/alert.service';
@@ -18,7 +20,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public channel: Channel;
   public configuration: any = {fcm: {}};
 
-  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private activatedRoute: ActivatedRoute) {
+  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
   }
 
@@ -30,7 +32,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
           this.app = app;
           const integration = this.app.getIntegration(Integration.CHANNEL_ANDROID);
           if (integration) {
-            this.configuration = integration.configuration;
+            this.configuration = integration.configuration || {fcm: {}};
           }
         });
       });
@@ -57,11 +59,22 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
-    this.integrationService.updateAndroid(this.app, this.configuration).subscribe((app: App) => {
+    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
       this.app = app;
       this.alertService.success('Configuration updated with success.');
     }, () => {
       this.alertService.error('Couldn\'t update the configuration, please try again later!');
+    });
+  }
+
+  public removeIntegration() {
+    const modalRef = this.ngbModal.open(RemoveIntegrationComponent);
+    modalRef.componentInstance.app = this.app;
+    modalRef.componentInstance.channel = this.channel;
+    modalRef.result.then(() => {
+      this.router.navigate(['/apps', this.app.id]);
+    }).catch(() => {
+      // Nothing to do...
     });
   }
 }

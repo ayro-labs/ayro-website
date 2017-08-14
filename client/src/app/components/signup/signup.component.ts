@@ -20,7 +20,7 @@ export class SignUpComponent {
 
   public signUp() {
     this.accountService.createAccount(this.name, this.email, this.password).subscribe(() => {
-      this.authService.login(this.email, this.password).subscribe(() => {
+      this.authService.signIn(this.email, this.password).subscribe(() => {
         this.router.navigate(['/']);
       }, () => {
         this.router.navigate(['/signin']);
