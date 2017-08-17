@@ -20,7 +20,8 @@ import {AppsComponent} from 'app/components/home/apps/apps.component';
 import {CreateAppComponent} from 'app/components/home/apps/create-app/create-app.component';
 import {AppComponent as ChzAppComponent} from 'app/components/home/app/app.component';
 import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
-import {EditAppComponent} from 'app/components/home/app/edit/edit-app.component';
+import {AppSettingsComponent} from 'app/components/home/app/settings/app-settings.component';
+import {DeleteAppComponent} from 'app/components/home/app/delete/delete-app.component';
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
@@ -37,6 +38,7 @@ import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
 import {AlertService} from 'app/services/alert.service';
+import {EventService} from 'app/services/event.service';
 
 @NgModule({
   imports: [
@@ -60,7 +62,8 @@ import {AlertService} from 'app/services/alert.service';
     CreateAppComponent,
     ChzAppComponent,
     AppHomeComponent,
-    EditAppComponent,
+    AppSettingsComponent,
+    DeleteAppComponent,
     IntegrationsComponent,
     RemoveIntegrationComponent,
     WebsiteIntegrationComponent,
@@ -74,7 +77,7 @@ import {AlertService} from 'app/services/alert.service';
   ],
   entryComponents: [
     CreateAppComponent,
-    EditAppComponent,
+    DeleteAppComponent,
     RemoveIntegrationComponent,
     CreateSlackChannelComponent,
   ],
@@ -84,6 +87,7 @@ import {AlertService} from 'app/services/alert.service';
     AppService,
     IntegrationService,
     AlertService,
+    EventService,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+// GENERAL
 
 html, body {
   height: 100%;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 h1, h2, h3, h4, h5, p, small {
   font-weight: 100;
@@ -12,15 +14,65 @@ h1, h2, h3, h4, h5, p, small {
 small {
   color: #6f6f6f;
 }
-.fill-height {
-  height: 100% !important;
+.content {
+  min-height: 100%;
+  &::after {
+    content: "";
+    display: block;
+    height: 140px;
+  }
 }
-.font-light {
-  font-weight: 100
+
+// NAVBAR
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  height: 60px;
 }
-.align-center {
-  text-align: center;
+.navbar-brand {
+  font-size: 30px;
 }
+.navbar-app {
+  background-color: #5f5f5f;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  height: 65px;
+  .navbar-app-icon {
+    width: 45px;
+    height: 45px;
+  }
+  .navbar-app-name {
+    color: #ffffff;
+    font-size: 20px;
+    &:hover {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+  .fa {
+    color: #ffffff;
+    font-size: 30px;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+// FOOTER
+
+footer {
+  background-color: #5f5f5f;
+  color: #ffffff;
+  width: 100%;
+  height: 150px;
+  margin-top: -100px;
+  padding: 10px;
+}
+
+// ALERT
+
 .alerts {
   position: fixed;
   top: 15px;
@@ -29,9 +81,22 @@ small {
 .alert {
   z-index: 2000;
   font-size: 20px;
+  font-weight: 100;
   .close {
     font-size: 30px;
   }
+}
+
+// UTILITIES
+
+.font-light {
+  font-weight: 100
+}
+.align-center {
+  text-align: center;
+}
+.align-vmiddle {
+  vertical-align: middle;
 }
 .color-addon {
   width: 50px;
@@ -41,26 +106,9 @@ small {
     display: none;
   }
 }
-.navbar {
-  height: 65px;
-}
-.navbar-default {
-  background-color: #4e5863;
-  color: #ffffff;
-  a {
-    color: #ffffff;
-    &.dropdown-item {
-      color: #292b2c;
-    }
-  }
-}
-.footer {
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background-color: #4e5863;
-  color: #ffffff;
-}
+
+// IMAGES
+
 .account-logo {
   width: 38px;
   height: 38px;
@@ -90,6 +138,14 @@ small {
   width: 35px;
   height: 35px;
   background-color: transparent;
+}
+
+// OTHERS
+
+.badge {
+  &.integration-type {
+    font-size: 14px;
+  }
 }
 .highlight {
   background-color: #525252;

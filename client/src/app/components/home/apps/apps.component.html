@@ -1,12 +1,12 @@
-<div class="container fill-height">
+<div class="container">
   <ng-template [ngIf]="apps.length === 0">
     <div class="row mt-4">
       <div class="col-md-12">
-        <div class="jumbotron">
+        <div class="jumbotron mb-2">
           <h1>Hello, {{ account?.name }}!</h1>
           <h5 class="mt-4">To get started you need to create your first App.</h5>
           <hr class="my-4">
-          <button (click)="createApp()" type="button" class="btn btn-primary btn-lg">Create first App</button>
+          <button (click)="createApp()" type="button" class="btn btn-primary btn-lg">Create app</button>
         </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
         <h3>Your apps</h3>
       </div>
       <div class="col-md-6">
-        <button (click)="createApp()" type="button" class="btn btn-primary float-right">
+        <button (click)="createApp()" type="button" class="btn btn-primary btn-lg float-right">
           Create an app
         </button>
       </div>
@@ -31,12 +31,17 @@
             </div>
             <div class="float-left ml-3">
               <h3 class="card-title">
-                <a [routerLink]="['apps', app?.id]" class="font-light">
+                <a [routerLink]="[app?.id]" class="font-light">
                   {{ app.name }}
                 </a>
               </h3>
-              <div>
-                <img *ngFor="let integration of app.integrations" [src]="getChannel(integration.channel).picture_url" class="integration-icon-micro">
+              <div *ngIf="app.integrations.length > 0">
+                <img *ngFor="let integration of app.integrations" [src]="getChannel(integration.channel).picture_url" class="integration-icon-micro mr-2">
+              </div>
+              <div *ngIf="app.integrations.length === 0">
+              <a [routerLink]="[app.id, 'integrations']" class="btn btn-primary">
+                  Add integrations
+                </a>
               </div>
             </div>
           </div>

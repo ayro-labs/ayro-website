@@ -1,20 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Subscription} from 'rxjs/Subscription';
 
-import {EditAppComponent} from 'app/components/home/app/edit/edit-app.component';
 import {AppService} from 'app/services/app.service';
+import {EventService, IEvent} from 'app/services/event.service';
 import {App} from 'app/models/app.model';
 
 @Component({
   selector: 'chz-app',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   public app: App;
 
-  constructor(private appService: AppService, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
+  private subscriptions: Subscription[] = [];
+
+  constructor(private appService: AppService, private eventService: EventService, private activatedRoute: ActivatedRoute) {
 
   }
 
@@ -22,17 +24,21 @@ export class AppComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: {app: string}) => {
       this.appService.getApp(params.app).subscribe((app: App) => {
         this.app = app;
+        this.subscriptions.push(this.eventService.subscribe('app_name_changed', (event: IEvent) => {
+          this.app.name = event.value;
+        }));
+        this.subscriptions.push(this.eventService.subscribe('app_icon_changed', (event: IEvent) => {
+          this.app.icon = event.value;
+        }));
       });
     });
   }
 
-  public editApp() {
-    const modalRef = this.ngbModal.open(EditAppComponent);
-    modalRef.componentInstance.app = this.app;
-    modalRef.result.then((app: App) => {
-      this.app = app;
-    }).catch(() => {
-      // Nothing to do...
+  public ngOnDestroy() {
+    console.log('DESTROY');
+    console.log(this.subscriptions);
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
     });
   }
 }

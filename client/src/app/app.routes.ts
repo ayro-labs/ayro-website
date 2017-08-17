@@ -8,6 +8,7 @@ import {SettingsComponent} from 'app/components/home/settings/settings.component
 import {AppsComponent} from 'app/components/home/apps/apps.component';
 import {AppComponent} from 'app/components/home/app/app.component';
 import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
+import {AppSettingsComponent} from 'app/components/home/app/settings/app-settings.component';
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
 import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
 import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
@@ -21,11 +22,12 @@ export const AppRoutes: Routes = [
   {path: 'signup', component: SignUpComponent},
   {path: 'signin', component: SignInComponent},
   {path: '', component: HomeComponent, children: [
-    {path: 'signout', component: SignOutComponent},
     {path: 'settings', component: SettingsComponent},
+    {path: 'signout', component: SignOutComponent},
     {path: 'apps', component: AppsComponent},
     {path: 'apps/:app', component: AppComponent, children: [
       {path: '', component: AppHomeComponent},
+      {path: 'settings', component: AppSettingsComponent},
       {path: 'integrations', component: IntegrationsComponent},
       {path: 'integrations/website', component: WebsiteIntegrationComponent},
       {path: 'integrations/website/setup', component: WebsiteSetupIntegrationComponent},

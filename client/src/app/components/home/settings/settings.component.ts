@@ -2,6 +2,7 @@ import {Component, OnInit, ElementRef} from '@angular/core';
 
 import {AccountService} from 'app/services/account.service';
 import {AlertService} from 'app/services/alert.service';
+import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
 
 @Component({
@@ -15,7 +16,7 @@ export class SettingsComponent implements OnInit {
   public logo: string;
   private account: Account;
 
-  constructor(private accountService: AccountService, private alertService: AlertService, private elementRef: ElementRef) {
+  constructor(private accountService: AccountService, private alertService: AlertService, private eventService: EventService, private elementRef: ElementRef) {
 
   }
 
@@ -28,6 +29,7 @@ export class SettingsComponent implements OnInit {
   public update() {
     this.accountService.updateAccount({name: this.name, email: this.email}).subscribe((account: Account) => {
       this.fillFormFields(account);
+      this.eventService.publish('account_name_changed', account.name);
       this.alertService.success('Account updated with success!');
     }, () => {
       this.alertService.error('Couldn\'t update the account, please try again later!');
@@ -42,6 +44,7 @@ export class SettingsComponent implements OnInit {
       if (logoElement && logoElement.files && logoElement.files.length > 0) {
         this.accountService.updateAccountLogo(logoElement.files.item(0)).subscribe((account: Account) => {
           this.fillFormFields(account);
+          this.eventService.publish('account_logo_changed', account.logo);
           this.alertService.success('Account logo updated with success!');
         }, () => {
           this.alertService.error('Couldn\'t update the account logo, please try again later!');

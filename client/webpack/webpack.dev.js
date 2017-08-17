@@ -60,33 +60,25 @@ module.exports = {
         include: helpers.root('/client/src/assets/img'),
       },
       {
-        test: /\.(woff|woff2|ttf|eot)$/,
+        test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
         loader: `file-loader?name=[path][name].[ext]&context=${helpers.root('/client/src')}`,
         include: helpers.root('/client/src/assets/fonts'),
       },
     ],
   },
   plugins: [
-    new CleanPlugin(['client-dist'], {
-      root: helpers.root('/'),
-    }),
+    new CleanPlugin(['client-dist'], {root: helpers.root('/')}),
+    new webpack.LoaderOptionsPlugin({debug: true}),
     new webpack.ContextReplacementPlugin(/angular\/core\/@angular/, helpers.root('/client/src')),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills'],
-    }),
+    new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']}),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
     }),
-    new ExtractTextPlugin({
-      filename: 'assets/css/[name].css',
-      allChunks: true,
-    }),
-    new HtmlPlugin({
-      template: helpers.root('/client/src/index.html'),
-    }),
+    new ExtractTextPlugin({filename: 'assets/css/[name].css', allChunks: true}),
+    new HtmlPlugin({template: helpers.root('/client/src/index.html')}),
   ],
 };

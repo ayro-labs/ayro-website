@@ -1,21 +1,22 @@
-<div *ngIf="app" class="container fill-height">
-  <div class="row align-items-center mt-4">
-    <div class="col-md-6">
-      <img [src]="app.getIconUrl()" class="app-icon rounded-circle"/>
-      <h3 class="d-inline-block ml-3">
-        <a [routerLink]="['/apps', app.id]">
+<div *ngIf="app" class="navbar-app d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img [src]="app.getIconUrl()" class="navbar-app-icon rounded-circle"/>
+        <a [routerLink]="['/apps', app.id]" class="navbar-app-name ml-2">
           {{ app.name }}
         </a>
-      </h3>
-    </div>
-    <div class="col-md-6">
-      <a [routerLink]="['integrations']" class="btn btn-primary float-right ml-2">
-        Browse integrations
-      </a>
-      <a (click)="editApp()" class="btn btn-primary float-right">
-        Edit app
-      </a>
+      </div>
+      <div class="col-md-6">
+        <div class="float-right">
+          <a [routerLink]="['settings']" title="App settings">
+            <i class="fa fa-cog"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+<div class="container">
   <router-outlet></router-outlet>
 </div>

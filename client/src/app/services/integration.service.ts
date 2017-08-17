@@ -5,10 +5,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+import {App} from 'app/models/app.model';
 import {Channel} from 'app/models/channel.model';
 import {SlackChannel} from 'app/models/slack-channel.model';
-import {Integration} from 'app/models/integration.model';
-import {App} from 'app/models/app.model';
 import {ApiError} from 'app/services/commons/api.error';
 import {RequestUtils} from 'app/utils/request.utils';
 
@@ -17,22 +16,22 @@ import * as channelsData from 'app/services/data/channels.json';
 @Injectable()
 export class IntegrationService {
 
-  public indexedChannels: any = {};
+  private static readonly CHANNELS = 'channels';
+
+  public channelById: Map<string, Channel> = new Map<string, Channel>();
+  public channelsByType: Map<string, Channel[]> = new Map<string, Channel[]>();
 
   constructor(private http: Http) {
     this.indexChannels();
   }
 
   public getChannel(id: string): Channel {
-    return this.indexedChannels[id];
+    const channel = this.channelById.get(id);
+    return channel;
   }
 
-  public listChannels(type: string): Channel[] {
-    const channels: Channel[] = [];
-    (channelsData[type] as any[]).forEach((channelData: any) => {
-      channels.push(new Channel(channelData));
-    });
-    return channels;
+  public listChannels(type: string): Channel[] | null {
+    return this.channelsByType.get(type) || null;
   }
 
   public updateIntegration(app: App, channel: Channel, configuration: any): Observable<App> {
@@ -66,11 +65,13 @@ export class IntegrationService {
   }
 
   private indexChannels() {
-    (channelsData[Integration.TYPE_CUSTOMER] as any[]).forEach((data: any) => {
-      this.indexedChannels[data.id] = new Channel(data);
-    });
-    (channelsData[Integration.TYPE_BUSINESS] as any[]).forEach((data: any) => {
-      this.indexedChannels[data.id] = new Channel(data);
+    (channelsData[IntegrationService.CHANNELS] as any[]).forEach((data: any) => {
+      const channel = new Channel(data);
+      this.channelById.set(data.id, channel);
+      if (!this.channelsByType.has(data.type)) {
+        this.channelsByType.set(data.type, []);
+      }
+      this.channelsByType.get(data.type).push(channel);
     });
   }
 }

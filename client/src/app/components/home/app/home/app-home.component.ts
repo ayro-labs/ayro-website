@@ -1,7 +1,8 @@
-
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+import {DeleteAppComponent} from 'app/components/home/app/delete/delete-app.component';
 import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
@@ -18,7 +19,7 @@ export class AppHomeComponent implements OnInit {
   public account: Account;
   public app: App;
 
-  constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private activatedRoute: ActivatedRoute) {
+  constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
   }
 
@@ -39,5 +40,15 @@ export class AppHomeComponent implements OnInit {
 
   public copyAppToken() {
     // Copy to Clipboard
+  }
+
+  public deleteApp() {
+    const modalRef = this.ngbModal.open(DeleteAppComponent);
+    modalRef.componentInstance.app = this.app;
+    modalRef.result.then(() => {
+      this.router.navigate(['/apps']);
+    }).catch(() => {
+      // Nothing to do...
+    });
   }
 }

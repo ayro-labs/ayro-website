@@ -1,18 +1,18 @@
-<div class="container fill-height">
-  <div class="row pt-4">
+<div class="container">
+  <div class="row mt-4">
     <div class="col-md-12">
-      <h3>Account settings</h3>
-      <div class="row mt-5">
+      <h4>Account settings</h4>
+      <div class="row mt-4">
         <div class="col-md-5">
           <div class="form-group">
             <label for="name">
-              <h4>Name</h4>
+              <h5>Name</h5>
             </label>
             <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" required>
           </div>
           <div class="form-group mt-2">
             <label for="email">
-              <h4>Email</h4>
+              <h5>Email</h5>
             </label>
             <input [(ngModel)]="email" id="email" type="text" name="email" class="form-control" required>
           </div>
@@ -21,7 +21,7 @@
         <div class="col-md-7">
           <div class="form-group ml-4">
             <label class="d-block" for="name">
-              <h4>Logo</h4>
+              <h5>Logo</h5>
             </label>
             <img [src]="logo" class="app-icon-large rounded-circle mt-2"/>
             <label class="btn btn-primary btn-file ml-2">

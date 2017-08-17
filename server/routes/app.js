@@ -15,7 +15,7 @@ module.exports = (router, app) => {
     passport.authorize('slack', (err, accessToken) => {
       const apiToken = req.session.apiToken;
       const app = req.session.app;
-      const redirectTo = `/apps/${app}/integrations/slack`;
+      const redirectTo = `/apps/${app}/integrations/slack/setup`;
       appService.addSlackIntegration(apiToken, app, accessToken).then(() => {
         res.redirect(redirectTo);
       }).catch((err) => {

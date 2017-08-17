@@ -2,14 +2,14 @@ export class Channel {
 
   public id: string;
   public name: string;
-  public description: string;
+  public type: string;
   public picture_url: string;
 
   constructor(data?: any) {
     if (data) {
       this.id = data.id;
       this.name = data.name;
-      this.description = data.description;
+      this.type = data.type;
       this.picture_url = data.picture_url;
     }
   }

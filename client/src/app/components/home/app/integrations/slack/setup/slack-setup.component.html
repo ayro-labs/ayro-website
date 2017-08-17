@@ -1,4 +1,4 @@
-<div *ngIf="app" class="container fill-height">
+<div *ngIf="app" class="container">
   <div class="row mt-4">
     <div class="col-md-3">
       <img [src]="channel?.picture_url" class="card-img-top w-100"/>
@@ -31,20 +31,23 @@
               <h4>Support channel</h4>
               <p>The current support channel is <code>#{{ originalConfiguration.channel.name }}</code></p>
               <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-4">
                   <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="main-channel" class="form-control">
                     <option *ngFor="let slackChannel of slackChannels" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
                   </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-8">
                   <button (click)="createChannel()" type="button" class="btn btn-primary">Create channel</button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="mt-3">
-            <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">Update configuration</button>
-            <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">Remove integration</button>
+          <div class="row mt-2">
+            <div class="col-md-12">
+              <hr/>
+              <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">Update configuration</button>
+              <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">Remove integration</button>
+            </div>
           </div>
         </form>
       </div>

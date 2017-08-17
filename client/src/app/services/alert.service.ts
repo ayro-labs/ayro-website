@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Observer} from 'rxjs/Observer';
+import {Subject} from 'rxjs/Subject';
 
 export interface IAlert {
   message: string;
@@ -10,32 +9,29 @@ export interface IAlert {
 @Injectable()
 export class AlertService {
 
-  private observable: Observable<IAlert>;
-  private observer: Observer<IAlert>;
+  private subject: Subject<IAlert>;
 
   constructor() {
-    this.observable = new Observable((observer) => {
-      this.observer = observer;
-    });
+    this.subject = new Subject();
   }
 
   public success(message: string) {
-    this.observer.next({message, type: 'success'});
+    this.subject.next({message, type: 'success'});
   }
 
   public info(message: string) {
-    this.observer.next({message, type: 'info'});
+    this.subject.next({message, type: 'info'});
   }
 
   public warn(message: string) {
-    this.observer.next({message, type: 'warning'});
+    this.subject.next({message, type: 'warning'});
   }
 
   public error(message: string) {
-    this.observer.next({message, type: 'danger'});
+    this.subject.next({message, type: 'danger'});
   }
 
   public subscribe(callback: (alert: IAlert) => void) {
-    return this.observable.subscribe(callback);
+    return this.subject.subscribe(callback);
   }
 }
