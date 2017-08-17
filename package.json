@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "client-build": "webpack --config 'client/webpack.config.js'",
     "client-lint": "tslint -c 'client/tslint.json' 'client/src/**/*.ts?(x)'",
-    "server-start": "node server/app.js",
-    "server-lint": "eslint 'server/**/*.js'"
+    "client-build": "webpack --config 'client/webpack.config.js'",
+    "server-lint": "eslint 'server/**/*.js'",
+    "server-start": "node server/app.js"
   },
   "devDependencies": {
     "@types/lodash": "4.14.71",

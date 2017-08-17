@@ -15,10 +15,10 @@ import 'rxjs/add/observable/throw';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './assets/css/font-awesome/font-awesome.less';
-import './assets/fonts/font-awesome/FontAwesome.otf';
-import './assets/fonts/font-awesome/fontawesome-webfont.eot';
-import './assets/fonts/font-awesome/fontawesome-webfont.svg';
-import './assets/fonts/font-awesome/fontawesome-webfont.ttf';
-import './assets/fonts/font-awesome/fontawesome-webfont.woff';
-import './assets/fonts/font-awesome/fontawesome-webfont.woff2';
+import 'assets/css/font-awesome/font-awesome.less';
+import 'assets/fonts/font-awesome/FontAwesome.otf';
+import 'assets/fonts/font-awesome/fontawesome-webfont.eot';
+import 'assets/fonts/font-awesome/fontawesome-webfont.svg';
+import 'assets/fonts/font-awesome/fontawesome-webfont.ttf';
+import 'assets/fonts/font-awesome/fontawesome-webfont.woff';
+import 'assets/fonts/font-awesome/fontawesome-webfont.woff2';

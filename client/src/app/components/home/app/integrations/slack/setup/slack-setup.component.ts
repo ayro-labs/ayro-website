@@ -36,14 +36,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
       this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
         this.appService.getApp(params.app).subscribe((app: App) => {
           this.app = app;
-          const integration = app.getIntegration(Integration.CHANNEL_SLACK);
-          if (integration) {
-            this.originalConfiguration = integration.configuration;
-            this.configuration = _.cloneDeep(integration.configuration);
-            this.integrationService.listSlackChannels(app).subscribe((slackChannels: SlackChannel[]) => {
-              this.slackChannels = slackChannels;
-            });
-          }
+          this.setupIntegration();
         });
       });
     }
@@ -70,6 +63,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
   public updateConfiguration() {
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
       this.app = app;
+      this.setupIntegration();
       this.alertService.success('Configuration updated with success.');
     }, () => {
       this.alertService.error('Couldn\'t update the configuration, please try again later!');
@@ -85,5 +79,16 @@ export class SlackSetupIntegrationComponent implements OnInit {
     }).catch(() => {
       // Nothing to do...
     });
+  }
+
+  private setupIntegration() {
+    const integration = this.app.getIntegration(Integration.CHANNEL_SLACK);
+    if (integration) {
+      this.originalConfiguration = integration.configuration;
+      this.configuration = _.cloneDeep(integration.configuration);
+      this.integrationService.listSlackChannels(this.app).subscribe((slackChannels: SlackChannel[]) => {
+        this.slackChannels = slackChannels;
+      });
+    }
   }
 }
