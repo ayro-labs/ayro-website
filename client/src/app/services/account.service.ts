@@ -18,7 +18,10 @@ export class AccountService {
 
   public getAuthenticatedAccount(): Observable<Account> {
     return this.http.get(RequestUtils.getApiUrl('/accounts/authenticated'), RequestUtils.newJsonOptionsWithApiToken())
-      .map((res: Response) => new Account(res.json()))
+      .map((res: Response) => {
+        const result = res.json();
+        return result ? new Account(result) : null;
+      })
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 

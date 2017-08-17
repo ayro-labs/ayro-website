@@ -1,10 +1,15 @@
 <div *ngIf="app" class="container">
   <div class="row mt-4">
     <div class="col-md-3">
-      <img [src]="channel?.picture_url" class="card-img-top w-100"/>
+      <img [src]="channel.picture_url" class="card-img-top w-100"/>
+      <div class="integration-links ml-3 mt-2">
+        <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="d-block mt-4">View details</a>
+        <a [routerLink]="['/apps', 'integrations', 'slack', 'docs']" class="d-block mt-2">Documentation</a>
+        <a href="https://www.slack.com" target="_blank" class="d-block mt-2">Slack website</a>
+      </div>
     </div>
     <div class="col-md-9">
-      <h1>{{ channel?.name }}</h1>
+      <h1>{{ channel.name }}</h1>
       <hr/>
       <div *ngIf="!hasIntegration()">
         <div class="row mt-3">

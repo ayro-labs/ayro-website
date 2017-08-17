@@ -11,7 +11,6 @@ import {AppComponent} from 'app/app.component';
 import {AlertsComponent} from 'app/components/alerts/alerts.component';
 import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
-import {SignOutComponent} from 'app/components/home/signout/signout.component';
 import {HeaderComponent} from 'app/components/home/header/header.component';
 import {FooterComponent} from 'app/components/home/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
@@ -53,7 +52,6 @@ import {EventService} from 'app/services/event.service';
     AlertsComponent,
     SignUpComponent,
     SignInComponent,
-    SignOutComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
