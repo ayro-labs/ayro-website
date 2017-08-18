@@ -31,9 +31,9 @@ export class DeleteAppComponent {
   public delete() {
     this.appService.deleteApp(this.app).subscribe((app: App) => {
       this.ngbActiveModal.close(app);
-      this.alertService.success('App deleted with success!');
+      this.alertService.success('App removido com sucesso!');
     }, () => {
-      this.alertService.error('Couldn\'t delete the app, please try again later!');
+      this.alertService.error('Não foi possível remover o app, por favor tente novamente mais tarde!');
     });
   }
 }

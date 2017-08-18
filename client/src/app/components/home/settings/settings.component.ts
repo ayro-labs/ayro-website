@@ -30,9 +30,9 @@ export class SettingsComponent implements OnInit {
     this.accountService.updateAccount({name: this.name, email: this.email}).subscribe((account: Account) => {
       this.fillFormFields(account);
       this.eventService.publish('account_name_changed', account.name);
-      this.alertService.success('Account updated with success!');
+      this.alertService.success('Conta atualizada com sucesso!');
     }, () => {
-      this.alertService.error('Couldn\'t update the account, please try again later!');
+      this.alertService.error('Não foi possível atualizar a conta, por favor tente novamente mais tarde!');
     });
   }
 
@@ -45,9 +45,9 @@ export class SettingsComponent implements OnInit {
         this.accountService.updateAccountLogo(logoElement.files.item(0)).subscribe((account: Account) => {
           this.fillFormFields(account);
           this.eventService.publish('account_logo_changed', account.logo);
-          this.alertService.success('Account logo updated with success!');
+          this.alertService.success('Logo da conta atualizado com sucesso!');
         }, () => {
-          this.alertService.error('Couldn\'t update the account logo, please try again later!');
+          this.alertService.error('Não foi possível atualizar o logo da conta, por favor tente novamente mais tarde!');
         });
       }
     };

@@ -6,9 +6,9 @@
           <div class="card">
             <div class="card-body">
               <form (ngSubmit)="signUp()" novalidate>
-                <h2 class="mb-4">Create your Chatz account</h2>
+                <h2 class="mb-4">Crie sua conta</h2>
                 <div class="form-group">
-                  <label for="name">Name</label>
+                  <label for="name">Nome</label>
                   <input [(ngModel)]="name" type="text" id="name" name="name" class="form-control" required>
                 </div>
                 <div class="form-group">
@@ -16,10 +16,10 @@
                   <input [(ngModel)]="email" type="text" id="email" name="email" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label for="password">Password</label>
+                  <label for="password">Senha</label>
                   <input [(ngModel)]="password" type="text" id="password" name="password" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block font-weight-bold">SIGN UP</button>
+                <button type="submit" class="btn btn-primary btn-block font-weight-bold">CRIAR</button>
               </form>
             </div>
           </div>
@@ -28,7 +28,7 @@
       <div class="row justify-content-center mt-4">
         <div class="col-md-5 text-center">
           <span>
-            Already have an account? <a [routerLink]="['/signin']">Sign in here</a>.
+            Já possui uma conta? <a [routerLink]="['/signin']">Acesse aqui</a>.
           </span>
         </div>
       </div>

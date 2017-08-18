@@ -51,9 +51,9 @@ export class AndroidSetupIntegrationComponent implements OnInit {
     this.appService.getApp(this.app.id).subscribe((app: App) => {
       this.app = app;
       if (this.hasIntegration()) {
-        this.alertService.success('Integration tested with success.');
+        this.alertService.success('Integração testada com sucesso!');
       } else {
-        this.alertService.error('Test failed, please reviews the steps again.');
+        this.alertService.error('O teste falhou, por favor revise os passos novamente.');
       }
     });
   }
@@ -61,9 +61,9 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public updateConfiguration() {
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
       this.app = app;
-      this.alertService.success('Configuration updated with success.');
+      this.alertService.success('Configuração atualizada com sucesso!');
     }, () => {
-      this.alertService.error('Couldn\'t update the configuration, please try again later!');
+      this.alertService.error('Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
     });
   }
 

@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row mt-4">
     <div class="col-md-12">
-      <h4>Account settings</h4>
+      <h4>Configurações da Conta</h4>
       <div class="row mt-4">
         <div class="col-md-5">
           <div class="form-group">
             <label for="name">
-              <h5>Name</h5>
+              <h5>Nome</h5>
             </label>
             <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" required>
           </div>
@@ -16,16 +16,16 @@
             </label>
             <input [(ngModel)]="email" id="email" type="text" name="email" class="form-control" required>
           </div>
-          <button (click)="update()" type="button" class="btn btn-primary btn-primary">Update</button>
+          <button (click)="update()" type="button" class="btn btn-primary btn-primary">Atualizar</button>
         </div>
         <div class="col-md-7">
           <div class="form-group ml-4">
             <label class="d-block" for="name">
               <h5>Logo</h5>
             </label>
-            <img [src]="logo" class="app-icon-large rounded-circle mt-2"/>
+            <img [src]="logo" class="app-icon-lg rounded-circle mt-2"/>
             <label class="btn btn-primary btn-file ml-2">
-              Browse
+              Selecionar
               <input (change)="updateLogo($event)" id="logo-input" type="file" accept="image/*">
             </label>
           </div>

@@ -24,9 +24,9 @@ export class CreateAppComponent {
   public create() {
     this.appService.createApp(this.name).subscribe((app: App) => {
       this.ngbActiveModal.close(app);
-      this.alertService.success('App created with success!');
+      this.alertService.success('App criado com sucesso!');
     }, () => {
-      this.alertService.error('Couldn\'t create the app, please try again later!');
+      this.alertService.error('Não foi possível criar o app, por favor tente novamente mais tarde!');
     });
   }
 }

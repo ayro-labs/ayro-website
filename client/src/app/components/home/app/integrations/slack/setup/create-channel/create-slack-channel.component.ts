@@ -28,9 +28,9 @@ export class CreateSlackChannelComponent {
   public create() {
     this.integrationService.createSlackChannel(this.app, this.name).subscribe((channel: SlackChannel) => {
       this.ngbActiveModal.close(channel);
-      this.alertService.success('Channel created with success!');
+      this.alertService.success('Canal criado com sucesso!');
     }, () => {
-      this.alertService.error('Couldn\'t create the channel, please try again later!');
+      this.alertService.error('Não foi possível criar o canal, por favor tente novamente mais tarde!');
     });
   }
 }

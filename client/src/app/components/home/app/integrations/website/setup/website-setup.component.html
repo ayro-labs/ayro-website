@@ -3,24 +3,34 @@
     <div class="col-md-3">
       <img [src]="channel.picture_url" class="card-img-top w-100"/>
       <div class="integration-links ml-3 mt-2">
-        <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block mt-4">View details</a>
-        <a [routerLink]="['/apps', 'integrations', 'website', 'docs']" class="d-block mt-2">Documentation</a>
+        <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block mt-4">
+          Ver detalhes
+        </a>
+        <a [routerLink]="['/apps', 'integrations', 'website', 'docs']" class="d-block mt-2">
+          Documentação
+        </a>
       </div>
     </div>
     <div class="col-md-9">
-      <h1>{{ channel.name }}</h1>
+      <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
+        Canal da Empresa
+      </span>
+      <span *ngIf="channel.type === 'customer'" class="integration-type-lg badge badge-secondary">
+        Canal do Usuário
+      </span>
+      <h1 class="mt-2">{{ channel.name }}</h1>
       <hr/>
       <div *ngIf="!hasIntegration()">
         <div class="row mt-3">
           <div class="col-md-12">
-            <h5 class="mb-3">1º Step - Download and Install</h5>
-            <p class="mb-0">Download the Chatz javascript library for Websites <a href="#">here</a>.</p>
+            <h5 class="mb-3">1º Passo - Baixe e Instale</h5>
+            <p class="mb-0">Baixe a biblioteca Javascript do Chatz para Websites <a href="#">aqui</a>.</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h5 class="mt-4 mb-3">2º Step - Import the library</h5>
-            <p>Import the library by including the following code at the end of <code>body</code> element.</p>
+            <h5 class="mt-4 mb-3">2º Passo - Importe a biblioteca</h5>
+            <p>Importe a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
             <div class="highlight">
               <code>&lt;script type="text/javascript" src="/path/to/chatz.js"&gt;&lt;/script&gt;</code>
             </div>
@@ -28,8 +38,8 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h5 class="mt-4 mb-3">3º Step - Initialize the library</h5>
-            <p>Initialize the library by including the following code at the end of <code>body</code> element.</p>
+            <h5 class="mt-4 mb-3">3º Passo - Inicialize a biblioteca</h5>
+            <p>Inicialize a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
             <div class="highlight">
               <pre><code>&lt;script&gt;
   ChatzIO.init({{ '{' }}
@@ -41,9 +51,11 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h5 class="mt-4 mb-3">4º Step - Test the integration</h5>
-            <p>Run your Website after complete all these steps and let us know if your integration is working fine by clicking the button below.</p>
-            <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">Test Integration</button>
+            <h5 class="mt-4 mb-3">4º Passo - Teste a integração</h5>
+            <p>Rode o seu Website depois de ter completado todos os passos anteriores e nos deixe saber se sua integração está funcionando corretamente clicando no botão abaixo.</p>
+            <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">
+              Testar integração
+            </button>
           </div>
         </div>
       </div>
@@ -51,18 +63,20 @@
         <form novalidate>
           <div class="row mt-3">
             <div class="col-md-12">
-              <h4>App token</h4>
+              <h4>Token do app</h4>
               <div class="input-group">
                 <p class="form-control">{{ app.token }}</p>
                 <span class="input-group-btn">
-                  <button (click)="copyAppToken()" type="button" class="btn btn-secondary">Copy</button>
+                  <button (click)="copyAppToken()" type="button" class="btn btn-secondary">
+                    Copy
+                  </button>
                 </span>
               </div>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-md-12">
-              <h4>Primary color</h4>
+              <h4>Cor primária</h4>
               <div class="input-group">
                 <span [ngStyle]="{'background-color': '#' + configuration.primary_color}" class="input-group-addon color-addon"></span>
                 <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
@@ -71,7 +85,7 @@
           </div>
           <div class="row mt-3">
             <div class="col-md-12">
-              <h4>Conversation color</h4>
+              <h4>Cor da conversa</h4>
               <div class="input-group">
                 <span [ngStyle]="{'background-color': '#' + configuration.conversation_color}" class="input-group-addon color-addon"></span>
                 <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
@@ -81,8 +95,12 @@
           <div class="row mt-2">
             <div class="col-md-12">
               <hr/>
-              <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">Update configuration</button>
-              <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">Remove integration</button>
+              <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
+                Atualizar configuração
+              </button>
+              <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+                Remover integração
+              </button>
             </div>
           </div>
         </form>

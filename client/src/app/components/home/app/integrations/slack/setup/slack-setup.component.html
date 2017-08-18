@@ -1,24 +1,31 @@
+
 <div *ngIf="app" class="container">
   <div class="row mt-4">
     <div class="col-md-3">
       <img [src]="channel.picture_url" class="card-img-top w-100"/>
       <div class="integration-links ml-3 mt-2">
-        <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="d-block mt-4">View details</a>
-        <a [routerLink]="['/apps', 'integrations', 'slack', 'docs']" class="d-block mt-2">Documentation</a>
-        <a href="https://www.slack.com" target="_blank" class="d-block mt-2">Slack website</a>
+        <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="d-block mt-4">
+          Ver detalhes
+        </a>
+        <a [routerLink]="['/apps', 'integrations', 'slack', 'docs']" class="d-block mt-2">
+          Documentação
+        </a>
+        <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
+          Website do Slack
+        </a>
       </div>
     </div>
     <div class="col-md-9">
-      <h1>{{ channel.name }}</h1>
+      <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">Canal da Empresa</span>
+      <span *ngIf="channel.type === 'customer'" class="integration-type-lg badge badge-secondary">Canal do Usuário</span>
+      <h1 class="mt-2">{{ channel.name }}</h1>
       <hr/>
       <div *ngIf="!hasIntegration()">
         <div class="row mt-3">
           <div class="col-md-12">
-            <h5 class="mb-3">
-              To get started please sign in with your Slack account.
-            </h5>
+            <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
             <a href="/apps/{{ app.id }}/integrations/slack/connect">
-              <img src="https://api.slack.com/img/sign_in_with_slack.png"/>
+              <img src="/assets/img/sign_in_slack.png"/>
             </a>
           </div>
         </div>
@@ -50,8 +57,12 @@
           <div class="row mt-2">
             <div class="col-md-12">
               <hr/>
-              <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">Update configuration</button>
-              <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">Remove integration</button>
+              <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
+                Atualizar configuração
+              </button>
+              <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+                Remover integração
+              </button>
             </div>
           </div>
         </form>

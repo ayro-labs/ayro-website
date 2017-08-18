@@ -11,7 +11,7 @@
           <a [routerLink]="['/signin']" class="nav-link mr-4">LOG IN</a>
         </li>
         <li class="nav-item">
-          <a [routerLink]="['/signup']" class="nav-link btn btn-primary">SIGN UP</a>
+          <a [routerLink]="['/signup']" class="nav-link btn btn-primary">CADASTRAR</a>
         </li>
       </ul>
       <ul *ngIf="account" class="navbar-nav ml-auto">
@@ -21,8 +21,8 @@
             <span class="ml-2">{{ account?.name }}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="account-menu">
-            <a [routerLink]="['/settings']"class="dropdown-item">Settings</a>
-            <a (click)="signOut()" class="dropdown-item">Sign out</a>
+            <a [routerLink]="['/settings']" class="dropdown-item">Configurações</a>
+            <a (click)="signOut()" class="dropdown-item">Sair</a>
           </div>
         </li>
       </ul>
