@@ -1,8 +1,8 @@
 <div *ngIf="app?.integrations.length === 0" class="row mt-4">
   <div class="col-md-12">
     <div class="jumbotron mb-2">
-      <h1>Converse com seus clientes!</h1>
-      <h5 class="mt-4"></h5>
+      <h1>Converse com seus usuários!</h1>
+      <h5 class="mt-4">Integre o Chatz com os canais de comunicação que você utiliza e veja a mágica acontecer.</h5>
       <hr class="my-4">
       <a [routerLink]="['integrations']" class="btn btn-primary btn-lg">
         Ver integrações
@@ -33,7 +33,7 @@
                 <span *ngIf="channel.type === 'business'" class="integration-type badge badge-secondary">
                   Canal da Empresa
                 </span>
-                <span *ngIf="channel.type === 'customer'" class="integration-type badge badge-secondary">
+                <span *ngIf="channel.type === 'user'" class="integration-type badge badge-secondary">
                   Canal do Usuário
                 </span>
               </div>
@@ -50,8 +50,8 @@
 </div>
 <div class="row mt-4">
   <div class="col-md-12">
-    <h4>Token</h4>
-    <p>Este é o token que você utilizará para inicializar as integrações com os canais do usuário como por exemplo, Website, Android e iOS.</p>
+    <h4 class="mb-2">Token</h4>
+    <p class="mb-2">Este é o token que você utilizará para inicializar as integrações com os canais do usuário como por exemplo, Website, Android e iOS.</p>
     <div class="row">
       <div class="col-md-6">
         <div class="input-group">

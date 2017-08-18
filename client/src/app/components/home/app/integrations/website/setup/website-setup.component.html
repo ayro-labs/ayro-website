@@ -15,7 +15,7 @@
       <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
         Canal da Empresa
       </span>
-      <span *ngIf="channel.type === 'customer'" class="integration-type-lg badge badge-secondary">
+      <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
         Canal do Usuário
       </span>
       <h1 class="mt-2">{{ channel.name }}</h1>
@@ -23,7 +23,7 @@
       <div *ngIf="!hasIntegration()">
         <div class="row mt-3">
           <div class="col-md-12">
-            <h5 class="mb-3">1º Passo - Baixe e Instale</h5>
+            <h5 class="mb-3">1º Passo - Baixe a biblioteca</h5>
             <p class="mb-0">Baixe a biblioteca Javascript do Chatz para Websites <a href="#">aqui</a>.</p>
           </div>
         </div>
@@ -32,7 +32,7 @@
             <h5 class="mt-4 mb-3">2º Passo - Importe a biblioteca</h5>
             <p>Importe a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
             <div class="highlight">
-              <code>&lt;script type="text/javascript" src="/path/to/chatz.js"&gt;&lt;/script&gt;</code>
+              <code>&lt;script type="text/javascript" src="/caminho/para/chatz.js"&gt;&lt;/script&gt;</code>
             </div>
           </div>
         </div>
@@ -61,9 +61,10 @@
       </div>
       <div *ngIf="hasIntegration()">
         <form novalidate>
-          <div class="row mt-3">
+          <div class="row mt-4">
             <div class="col-md-12">
-              <h4>Token do app</h4>
+              <h4 class="mb-2">Token do app</h4>
+              <p class="mb-2">Token utilizado para inicializar a integração com o seu Website.</p>
               <div class="input-group">
                 <p class="form-control">{{ app.token }}</p>
                 <span class="input-group-btn">
@@ -74,25 +75,27 @@
               </div>
             </div>
           </div>
-          <div class="row mt-3">
+          <div class="row mt-4">
             <div class="col-md-12">
-              <h4>Cor primária</h4>
+              <h4 class="mb-2">Cor primária</h4>
+              <p class="mb-2">Cor utilizada no botão e cabeçalho da caixa de Chat.</p>
               <div class="input-group">
                 <span [ngStyle]="{'background-color': '#' + configuration.primary_color}" class="input-group-addon color-addon"></span>
                 <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
               </div>
             </div>
           </div>
-          <div class="row mt-3">
+          <div class="row mt-4">
             <div class="col-md-12">
-              <h4>Cor da conversa</h4>
+              <h4 class="mb-2">Cor da conversa</h4>
+              <p class="mb-2">Cor de fundo da mensagem do usuário.</p>
               <div class="input-group">
                 <span [ngStyle]="{'background-color': '#' + configuration.conversation_color}" class="input-group-addon color-addon"></span>
                 <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
               </div>
             </div>
           </div>
-          <div class="row mt-2">
+          <div class="row mt-4">
             <div class="col-md-12">
               <hr/>
               <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">

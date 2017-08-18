@@ -1,8 +1,8 @@
 {
   "channels": [
-    {"type": "customer", "id": "website", "name": "Website", "description": "", "picture_url": "/assets/img/integrations/website.png"},
-    {"type": "customer", "id": "android", "name": "Android", "description": "", "picture_url": "/assets/img/integrations/android.png"},
-    {"type": "customer", "id": "ios", "name": "iOS", "description": "", "picture_url": "/assets/img/integrations/ios.png"},
+    {"type": "user", "id": "website", "name": "Website", "description": "", "picture_url": "/assets/img/integrations/website.png"},
+    {"type": "user", "id": "android", "name": "Android", "description": "", "picture_url": "/assets/img/integrations/android.png"},
+    {"type": "user", "id": "ios", "name": "iOS", "description": "", "picture_url": "/assets/img/integrations/ios.png"},
     {"type": "business", "id": "slack", "name": "Slack", "picture_url": "/assets/img/integrations/slack.png"}
   ]
 }

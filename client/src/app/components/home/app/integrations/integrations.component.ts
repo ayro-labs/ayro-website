@@ -11,7 +11,7 @@ import {Integration} from 'app/models/integration.model';
 })
 export class IntegrationsComponent implements OnInit {
 
-  public customerChannels: Channel[] = [];
+  public userChannels: Channel[] = [];
   public businessChannels: Channel[] = [];
 
   constructor(private integrationService: IntegrationService) {
@@ -19,7 +19,7 @@ export class IntegrationsComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.customerChannels = this.integrationService.listChannels(Integration.TYPE_CUSTOMER);
+    this.userChannels = this.integrationService.listChannels(Integration.TYPE_USER);
     this.businessChannels = this.integrationService.listChannels(Integration.TYPE_BUSINESS);
   }
 }

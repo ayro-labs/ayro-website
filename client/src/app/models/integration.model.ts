@@ -1,6 +1,6 @@
 export class Integration {
 
-  public static readonly TYPE_CUSTOMER: string = 'customer';
+  public static readonly TYPE_USER: string = 'user';
   public static readonly TYPE_BUSINESS: string = 'business';
 
   public static readonly CHANNEL_ANDROID: string = 'android';
