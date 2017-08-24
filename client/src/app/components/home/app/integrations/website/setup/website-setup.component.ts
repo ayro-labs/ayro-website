@@ -10,6 +10,8 @@ import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 
+import * as _ from 'lodash';
+
 @Component({
   selector: 'chz-website-setup',
   templateUrl: './website-setup.component.html',
@@ -59,6 +61,11 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
+    const configuration = _.clone(this.configuration);
+    if (configuration.primary_color) {
+      configuration.primary_color = '#' + configuration.primary_color;
+      configuration.conversation_color = '#' + configuration.conversation_color;
+    }
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
       this.app = app;
       this.alertService.success('Configuração atualizada com sucesso!');
