@@ -9,20 +9,41 @@
       </div>
     </div>
     <div class="col-md-9">
-      <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
-        Canal da Empresa
-      </span>
-      <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-        Canal do Usuário
-      </span>
-      <h1 class="mt-2">{{ channel.name }}</h1>
-      <button *ngIf="!hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg mt-2">
-        Integrar
-      </button>
-      <button *ngIf="hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-info btn-lg mt-2">
-        Configurar
-      </button>
-      <hr/>
+      <div class="row">
+        <div class="col-md-12">
+          <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
+            Canal da Empresa
+          </span>
+          <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
+            Canal do Usuário
+          </span>
+          <h1 class="mt-2">{{ channel.name }}</h1>
+          <p></p>
+          <button *ngIf="!hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg mt-2">
+            Integrar
+          </button>
+          <button *ngIf="hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-info btn-lg mt-2">
+            Configurar
+          </button>
+          <hr/>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <h4>Para que serve?</h4>
+          <ul>
+            <li></li>
+          </ul>
+          <h4>Como funciona?</h4>
+          <ul>
+            <li></li>
+          </ul>
+          <h4>Do que preciso?</h4>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
