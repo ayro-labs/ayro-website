@@ -34,7 +34,13 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
           this.app = app;
           const integration = this.app.getIntegration(Integration.CHANNEL_WEBSITE);
           if (integration) {
-            this.configuration = integration.configuration || {};
+            this.configuration = _.clone(integration.configuration) || {};
+            if (this.configuration.primary_color) {
+              this.configuration.primary_color = this.configuration.primary_color.replace('#', '');
+            }
+            if (this.configuration.conversation_color) {
+              this.configuration.conversation_color = this.configuration.conversation_color.replace('#', '');
+            }
           }
         });
       });
@@ -64,9 +70,11 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     const configuration = _.clone(this.configuration);
     if (configuration.primary_color) {
       configuration.primary_color = '#' + configuration.primary_color;
+    }
+    if (configuration.conversation_color) {
       configuration.conversation_color = '#' + configuration.conversation_color;
     }
-    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
+    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((app: App) => {
       this.app = app;
       this.alertService.success('Configuração atualizada com sucesso!');
     }, () => {
