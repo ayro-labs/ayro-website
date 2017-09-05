@@ -4,14 +4,16 @@
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="card-img-top w-100"/>
-          <div class="integration-links ml-3 mt-4">
-            <a [routerLink]="['/apps', app.id, 'integrations', 'android']" class="d-block mt-2">
-              Ver detalhes
-            </a>
-            <a [routerLink]="['/apps', 'integrations', 'android', 'docs']" class="d-block mt-2">
-              Documentação
-            </a>
-          </div>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-body">
+          <a [routerLink]="['/apps', app.id, 'integrations', 'android']" class="d-block">
+            Ver detalhes
+          </a>
+          <a [routerLink]="['/apps', 'integrations', 'android', 'docs']" class="d-block mt-2">
+            Documentação
+          </a>
         </div>
       </div>
     </div>

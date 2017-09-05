@@ -4,19 +4,21 @@
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="card-img-top w-100"/>
-          <div class="integration-links ml-3 mt-4">
-            <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block mt-2">
-              Ver detalhes
-            </a>
-            <a [routerLink]="['/apps', 'integrations', 'website', 'docs']" class="d-block mt-2">
-              Documentação
-            </a>
-          </div>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-body">
+          <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block">
+            Ver detalhes
+          </a>
+          <a [routerLink]="['/apps', 'integrations', 'website', 'docs']" class="d-block mt-2">
+            Documentação
+          </a>
         </div>
       </div>
     </div>
     <div class="col-md-9">
-      <div class="card mb-4">
+      <div class="card">
         <div class="card-body">
           <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
             Canal da Empresa
@@ -27,7 +29,7 @@
           <h1 class="mt-2">{{ channel.name }}</h1>
         </div>
       </div>
-      <div *ngIf="!hasIntegration()" class="card">
+      <div *ngIf="!hasIntegration()" class="card mt-4">
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
@@ -68,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="hasIntegration()" class="card">
+      <div *ngIf="hasIntegration()" class="card mt-4">
         <div class="card-body">
           <form novalidate>
             <div class="row mt-4">

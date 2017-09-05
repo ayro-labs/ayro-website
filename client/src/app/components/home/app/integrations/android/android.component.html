@@ -4,11 +4,13 @@
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="card-img-top w-100"/>
-          <div class="integration-links ml-3 mt-2">
-            <a [routerLink]="['/apps', 'integrations', 'android', 'docs']" class="d-block mt-4">
-              Documentação
-            </a>
-          </div>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-body">
+          <a [routerLink]="['/apps', 'integrations', 'android', 'docs']" class="d-block">
+            Documentação
+          </a>
         </div>
       </div>
     </div>
@@ -22,10 +24,10 @@
             Canal do Usuário
           </span>
           <h1 class="mt-2">{{ channel.name }}</h1>
-          <button *ngIf="!hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg mt-2 px-5">
+          <button *ngIf="!hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-primary mt-2 px-5">
             Integrar
           </button>
-          <button *ngIf="hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-info btn-lg mt-2 px-5">
+          <button *ngIf="hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-info mt-2 px-5">
             Configurar
           </button>
         </div>
