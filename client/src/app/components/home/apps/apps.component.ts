@@ -18,6 +18,7 @@ export class AppsComponent implements OnInit {
 
   public account: Account;
   public apps: App[] = [];
+  public loading: boolean = true;
 
   constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private router: Router, private ngbModal: NgbModal) {
 
@@ -26,9 +27,10 @@ export class AppsComponent implements OnInit {
   public ngOnInit() {
     this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
       this.account = account;
-    });
-    this.appService.listApps().subscribe((apps: App[]) => {
-      this.apps = apps;
+      this.appService.listApps().subscribe((apps: App[]) => {
+        this.apps = apps;
+        this.loading = false;
+      });
     });
   }
 

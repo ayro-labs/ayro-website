@@ -18,18 +18,20 @@ export class AppHomeComponent implements OnInit {
 
   public account: Account;
   public app: App;
+  public loading: boolean = true;
 
   constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
   }
 
   public ngOnInit() {
-    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
-      this.account = account;
-    });
     this.activatedRoute.params.subscribe((params: {app: string}) => {
-      this.appService.getApp(params.app).subscribe((app: App) => {
-        this.app = app;
+      this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
+        this.account = account;
+        this.appService.getApp(params.app).subscribe((app: App) => {
+          this.app = app;
+          this.loading = false;
+        });
       });
     });
   }

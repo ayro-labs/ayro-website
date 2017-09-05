@@ -1,23 +1,26 @@
-
 <div *ngIf="app" class="container">
   <div class="row mt-4">
     <div class="col-md-3">
-      <img [src]="channel.picture_url" class="card-img-top w-100"/>
-      <div class="integration-links ml-3 mt-2">
-        <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="d-block mt-4">
-          Ver detalhes
-        </a>
-        <a [routerLink]="['/apps', 'integrations', 'slack', 'docs']" class="d-block mt-2">
-          Documentação
-        </a>
-        <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
-          Website do Slack
-        </a>
+      <div class="card">
+        <div class="card-body">
+          <img [src]="channel.picture_url" class="card-img-top w-100"/>
+          <div class="integration-links ml-3 mt-4">
+            <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="d-block mt-2">
+              Ver detalhes
+            </a>
+            <a [routerLink]="['/apps', 'integrations', 'slack', 'docs']" class="d-block mt-2">
+              Documentação
+            </a>
+            <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
+              Website do Slack
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-body">
           <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
             Canal da Empresa
           </span>
@@ -25,57 +28,61 @@
             Canal do Usuário
           </span>
           <h1 class="mt-2">{{ channel.name }}</h1>
-          <hr/>
         </div>
       </div>
-      <div *ngIf="!hasIntegration()">
-        <div class="row mt-3">
-          <div class="col-md-12">
-            <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
-            <a href="/apps/{{ app.id }}/integrations/slack/connect">
-              <img src="/assets/img/sign_in_slack.png"/>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="hasIntegration()">
-        <form novalidate>
+      <div *ngIf="!hasIntegration()" class="card">
+        <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h4 class="mb-2">Conta conectada</h4>
-              <p class="mb-2">Conta do Slack que dá permissão ao Chatz para interagir com o seu time.</p>
-              <p class="mb-2">Você está conectado como <code>{{ originalConfiguration.user.name }}</code></p>
+              <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
+              <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
+              <a href="/apps/{{ app.id }}/integrations/slack/connect">
+                <img src="/assets/img/sign_in_slack.png"/>
+              </a>
             </div>
           </div>
-          <div class="row mt-4">
-            <div class="col-md-12">
-              <h4 class="mb-2">Canal de suporte</h4>
-              <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos usuários.</p>
-              <p class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code></p>
-              <div class="row">
-                <div class="col-md-5">
-                  <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="main-channel" class="form-control">
-                    <option *ngFor="let slackChannel of slackChannels" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
-                  </select>
-                </div>
-                <div class="col-md-7">
-                  <button (click)="createChannel()" type="button" class="btn btn-primary">Create channel</button>
+        </div>
+      </div>
+      <div *ngIf="hasIntegration()" class="card">
+        <div class="card-body">
+          <form novalidate>
+            <div class="row">
+              <div class="col-md-12">
+                <h4 class="mb-2">Conta conectada</h4>
+                <p class="mb-2">Conta do Slack que dá permissão ao Chatz para interagir com o seu time.</p>
+                <p class="mb-2">Você está conectado como <code>{{ originalConfiguration.user.name }}</code></p>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <h4 class="mb-2">Canal de suporte</h4>
+                <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos usuários.</p>
+                <p class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code></p>
+                <div class="row">
+                  <div class="col-md-5">
+                    <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="main-channel" class="form-control">
+                      <option *ngFor="let slackChannel of slackChannels" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-7">
+                    <button (click)="createChannel()" type="button" class="btn btn-primary">Create channel</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-md-12">
-              <hr/>
-              <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
-                Atualizar configuração
-              </button>
-              <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
-                Remover integração
-              </button>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <hr/>
+                <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
+                  Atualizar configuração
+                </button>
+                <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+                  Remover integração
+                </button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>

@@ -1,19 +1,23 @@
 <div *ngIf="app" class="container">
   <div class="row mt-4">
     <div class="col-md-3">
-      <img [src]="channel.picture_url" class="card-img-top w-100"/>
-      <div class="integration-links ml-3 mt-2">
-        <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block mt-4">
-          Ver detalhes
-        </a>
-        <a [routerLink]="['/apps', 'integrations', 'website', 'docs']" class="d-block mt-2">
-          Documentação
-        </a>
+      <div class="card">
+        <div class="card-body">
+          <img [src]="channel.picture_url" class="card-img-top w-100"/>
+          <div class="integration-links ml-3 mt-4">
+            <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block mt-2">
+              Ver detalhes
+            </a>
+            <a [routerLink]="['/apps', 'integrations', 'website', 'docs']" class="d-block mt-2">
+              Documentação
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-body">
           <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
             Canal da Empresa
           </span>
@@ -21,96 +25,99 @@
             Canal do Usuário
           </span>
           <h1 class="mt-2">{{ channel.name }}</h1>
-          <hr/>
         </div>
       </div>
-      <div *ngIf="!hasIntegration()">
-        <div class="row mt-3">
-          <div class="col-md-12">
-            <h5 class="mb-3">1º Passo - Baixe a biblioteca</h5>
-            <p class="mb-0">Baixe a biblioteca Javascript do Chatz para Websites <a href="#">aqui</a>.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h5 class="mt-4 mb-3">2º Passo - Importe a biblioteca</h5>
-            <p>Importe a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
-            <div class="highlight">
-              <code>&lt;script type="text/javascript" src="/caminho/para/chatz.js"&gt;&lt;/script&gt;</code>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h5 class="mt-4 mb-3">3º Passo - Inicialize a biblioteca</h5>
-            <p>Inicialize a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
-            <div class="highlight">
-              <pre><code>&lt;script&gt;
-  ChatzIO.init({{ '{' }}
-    app_token: '{{ app.token }}'
-  {{ '}' }});
-&lt;/script&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h5 class="mt-4 mb-3">4º Passo - Teste a integração</h5>
-            <p>Rode o seu Website depois de ter completado todos os passos anteriores e nos deixe saber se sua integração está funcionando corretamente clicando no botão abaixo.</p>
-            <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">
-              Testar integração
-            </button>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="hasIntegration()">
-        <form novalidate>
-          <div class="row mt-4">
+      <div *ngIf="!hasIntegration()" class="card">
+        <div class="card-body">
+          <div class="row">
             <div class="col-md-12">
-              <h4 class="mb-2">Token do app</h4>
-              <p class="mb-2">Token utilizado para inicializar a integração com o seu Website.</p>
-              <div class="input-group">
-                <p class="form-control">{{ app.token }}</p>
-                <span class="input-group-btn">
-                  <button (click)="copyAppToken()" type="button" class="btn btn-secondary">
-                    Copy
-                  </button>
-                </span>
+              <h5 class="mb-3">1º Passo - Baixe a biblioteca</h5>
+              <p class="mb-0">Baixe a biblioteca Javascript do Chatz para Websites <a href="#">aqui</a>.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="mt-4 mb-3">2º Passo - Importe a biblioteca</h5>
+              <p>Importe a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
+              <div class="highlight">
+                <code>&lt;script type="text/javascript" src="/caminho/para/chatz.js"&gt;&lt;/script&gt;</code>
               </div>
             </div>
           </div>
-          <div class="row mt-4">
+          <div class="row">
             <div class="col-md-12">
-              <h4 class="mb-2">Cor primária</h4>
-              <p class="mb-2">Cor utilizada no botão e cabeçalho do Chat.</p>
-              <div class="input-group">
-                <span [ngStyle]="{'background-color': '#' + configuration.primary_color}" class="input-group-addon color-addon"></span>
-                <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
+              <h5 class="mt-4 mb-3">3º Passo - Inicialize a biblioteca</h5>
+              <p>Inicialize a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
+              <div class="highlight">
+                <pre><code>&lt;script&gt;
+    ChatzIO.init({{ '{' }}
+      app_token: '{{ app.token }}'
+    {{ '}' }});
+  &lt;/script&gt;</code></pre>
               </div>
             </div>
           </div>
-          <div class="row mt-4">
+          <div class="row">
             <div class="col-md-12">
-              <h4 class="mb-2">Cor da conversa</h4>
-              <p class="mb-2">Cor de fundo da mensagem do usuário.</p>
-              <div class="input-group">
-                <span [ngStyle]="{'background-color': '#' + configuration.conversation_color}" class="input-group-addon color-addon"></span>
-                <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-md-12">
-              <hr/>
-              <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
-                Atualizar configuração
-              </button>
-              <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
-                Remover integração
+              <h5 class="mt-4 mb-3">4º Passo - Teste a integração</h5>
+              <p>Rode o seu Website depois de ter completado todos os passos anteriores e nos deixe saber se sua integração está funcionando corretamente clicando no botão abaixo.</p>
+              <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">
+                Testar integração
               </button>
             </div>
           </div>
-        </form>
+        </div>
+      </div>
+      <div *ngIf="hasIntegration()" class="card">
+        <div class="card-body">
+          <form novalidate>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <h4 class="mb-2">Token do app</h4>
+                <p class="mb-2">Token utilizado para inicializar a integração com o seu Website.</p>
+                <div class="input-group">
+                  <p class="form-control">{{ app.token }}</p>
+                  <span class="input-group-btn">
+                    <button (click)="copyAppToken()" type="button" class="btn btn-secondary">
+                      Copy
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <h4 class="mb-2">Cor primária</h4>
+                <p class="mb-2">Cor utilizada no botão e cabeçalho do Chat.</p>
+                <div class="input-group">
+                  <span [ngStyle]="{'background-color': '#' + configuration.primary_color}" class="input-group-addon color-addon"></span>
+                  <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <h4 class="mb-2">Cor da conversa</h4>
+                <p class="mb-2">Cor de fundo da mensagem do usuário.</p>
+                <div class="input-group">
+                  <span [ngStyle]="{'background-color': '#' + configuration.conversation_color}" class="input-group-addon color-addon"></span>
+                  <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <hr/>
+                <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
+                  Atualizar configuração
+                </button>
+                <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+                  Remover integração
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

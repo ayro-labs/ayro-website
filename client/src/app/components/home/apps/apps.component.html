@@ -1,52 +1,56 @@
-<div class="container">
-  <ng-template [ngIf]="apps.length === 0">
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <div class="jumbotron mb-2">
-          <h1>Bem vindo, {{ account?.name }}!</h1>
+<div *ngIf="!loading" class="container">
+  <div *ngIf="apps.length === 0" class="row mt-5">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h2>Bem vindo, {{ account?.name }}!</h2>
           <h5 class="mt-4">Para começar a conversar com seus clientes de forma mais eficiente, crie o seu primeiro App.</h5>
           <hr class="my-4">
-          <button (click)="createApp()" type="button" class="btn btn-primary btn-lg">Criar app</button>
+          <button (click)="createApp()" type="button" class="btn btn-primary btn-lg px-5">Criar app</button>
         </div>
       </div>
     </div>
-  </ng-template>
-  <ng-template [ngIf]="apps.length > 0">
-    <div class="row mt-4">
-      <div class="col-md-6">
-        <h3>Seus apps</h3>
+  </div>
+  <div *ngIf="apps.length > 0" class="row">
+    <div class="col-md-12">
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <h3>Seus apps</h3>
+        </div>
+        <div class="col-md-6">
+          <button (click)="createApp()" type="button" class="btn btn-primary btn-lg float-right">
+            Criar app
+          </button>
+        </div>
       </div>
-      <div class="col-md-6">
-        <button (click)="createApp()" type="button" class="btn btn-primary btn-lg float-right">
-          Criar app
-        </button>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div *ngFor="let app of apps" class="col-md-6 mb-2">
-        <div class="card">
-          <div class="card-body">
-            <div class="float-left">
-              <img [src]="app.getIconUrl()" class="app-icon rounded-circle">
-            </div>
-            <div class="float-left ml-3">
-              <h3 class="card-title">
-                <a [routerLink]="[app?.id]" class="font-light">
-                  {{ app.name }}
-                </a>
-              </h3>
-              <div *ngIf="app.integrations.length > 0">
-                <img *ngFor="let integration of app.integrations" [src]="getChannel(integration.channel).picture_url" class="integration-icon-mc mr-2">
+      <div class="row mt-2">
+        <div *ngFor="let app of apps" class="col-md-6 mb-2">
+          <div class="card">
+            <div class="card-body">
+              <div class="float-left">
+                <img [src]="app.getIconUrl()" class="app-icon rounded-circle">
               </div>
-              <div *ngIf="app.integrations.length === 0">
-              <a [routerLink]="[app.id, 'integrations']" class="btn btn-primary">
-                  Adicionar integração
-                </a>
+              <div class="float-left ml-3">
+                <h3 class="card-title">
+                  <a [routerLink]="[app?.id]" class="font-light">
+                    {{ app.name }}
+                  </a>
+                </h3>
+                <div *ngIf="app.integrations.length > 0">
+                  <img *ngFor="let integration of app.integrations" [src]="getChannel(integration.channel).picture_url" class="integration-icon-mc mr-2">
+                </div>
+                <div *ngIf="app.integrations.length === 0">
+                <a [routerLink]="[app.id, 'integrations']" class="btn btn-primary">
+                    Adicionar integração
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </ng-template>
+  </div>
+</div>
+<div *ngIf="loading">
 </div>
