@@ -11,11 +11,14 @@ import {AppSettingsComponent} from 'app/components/home/app/settings/app-setting
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
 import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
 import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
-import {IOSIntegrationComponent} from 'app/components/home/app/integrations/ios/ios.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
 import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
 import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
+import {GuidesComponent} from 'app/components/home/guides/guides.component';
+import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
+import {WebsiteGuideComponent} from 'app/components/home/guides/website/website-guide.component';
+import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
 
 export const AppRoutes: Routes = [
   {path: 'signup', component: SignUpComponent},
@@ -31,9 +34,13 @@ export const AppRoutes: Routes = [
       {path: 'integrations/website/setup', component: WebsiteSetupIntegrationComponent},
       {path: 'integrations/android', component: AndroidIntegrationComponent},
       {path: 'integrations/android/setup', component: AndroidSetupIntegrationComponent},
-      {path: 'integrations/ios', component: IOSIntegrationComponent},
       {path: 'integrations/slack', component: SlackIntegrationComponent},
       {path: 'integrations/slack/setup', component: SlackSetupIntegrationComponent},
+    ]},
+    {path: 'guides', component: GuidesComponent, children: [
+      {path: 'website', component: WebsiteGuideComponent},
+      {path: 'android', component: AndroidGuideComponent},
+      {path: 'slack', component: SlackGuideComponent},
     ]},
   ]},
 ];

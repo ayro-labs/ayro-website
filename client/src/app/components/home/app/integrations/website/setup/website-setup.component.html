@@ -8,10 +8,11 @@
       </div>
       <div class="card mt-4">
         <div class="card-body">
+          <h4>Links úteis</h4>
           <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block">
             Ver detalhes
           </a>
-          <a [routerLink]="['/apps', 'integrations', 'website', 'docs']" class="d-block mt-2">
+          <a [routerLink]="['/guides', 'website']" class="d-block mt-2">
             Documentação
           </a>
         </div>
@@ -27,6 +28,7 @@
             Canal do Usuário
           </span>
           <h1 class="mt-2">{{ channel.name }}</h1>
+          <p>Converse em tempo real com os visitantes do seu website.</p>
         </div>
       </div>
       <div *ngIf="!hasIntegration()" class="card mt-4">

@@ -4,18 +4,23 @@
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="card-img-top w-100"/>
+          <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
+            <span *ngIf="!hasIntegration()">Integrar</span>
+            <span *ngIf="hasIntegration()">Configurar></span>
+          </button>
         </div>
       </div>
       <div class="card mt-4">
         <div class="card-body">
-          <a [routerLink]="['/apps', 'integrations', 'android', 'docs']" class="d-block">
+          <h4>Links úteis</h4>
+          <a [routerLink]="['/guides', 'android']" class="d-block">
             Documentação
           </a>
         </div>
       </div>
     </div>
     <div class="col-md-9">
-      <div class="card mb-4">
+      <div class="card">
         <div class="card-body">
           <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
             Canal da Empresa
@@ -24,15 +29,9 @@
             Canal do Usuário
           </span>
           <h1 class="mt-2">{{ channel.name }}</h1>
-          <button *ngIf="!hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-primary mt-2 px-5">
-            Integrar
-          </button>
-          <button *ngIf="hasIntegration()" [routerLink]="['setup']" type="button" class="btn btn-info mt-2 px-5">
-            Configurar
-          </button>
         </div>
       </div>
-      <div class="card">
+      <div class="card mt-4">
         <div class="card-body">
           <h4>Para que serve?</h4>
           <ul>

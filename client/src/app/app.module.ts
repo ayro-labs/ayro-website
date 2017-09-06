@@ -27,10 +27,13 @@ import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
 import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
 import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
-import {IOSIntegrationComponent} from 'app/components/home/app/integrations/ios/ios.component';
 import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
 import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
 import {CreateSlackChannelComponent} from 'app/components/home/app/integrations/slack/setup/create-channel/create-slack-channel.component';
+import {GuidesComponent} from 'app/components/home/guides/guides.component';
+import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
+import {WebsiteGuideComponent} from 'app/components/home/guides/website/website-guide.component';
+import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
 
 import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
@@ -68,10 +71,13 @@ import {EventService} from 'app/services/event.service';
     WebsiteSetupIntegrationComponent,
     AndroidIntegrationComponent,
     AndroidSetupIntegrationComponent,
-    IOSIntegrationComponent,
     SlackIntegrationComponent,
     SlackSetupIntegrationComponent,
     CreateSlackChannelComponent,
+    GuidesComponent,
+    AndroidGuideComponent,
+    WebsiteGuideComponent,
+    SlackGuideComponent,
   ],
   entryComponents: [
     CreateAppComponent,

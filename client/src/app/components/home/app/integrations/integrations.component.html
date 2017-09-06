@@ -13,7 +13,8 @@
         </span>
         <div class="card-body">
           <h4 class="card-title">{{ channel.name }}</h4>
-          <a [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
+          <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
+          <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
         </div>
       </div>
     </div>
@@ -32,7 +33,8 @@
         </span>
         <div class="card-body">
           <h4 class="card-title">{{ channel.name }}</h4>
-          <a [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
+          <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
+          <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
         </div>
       </div>
     </div>
