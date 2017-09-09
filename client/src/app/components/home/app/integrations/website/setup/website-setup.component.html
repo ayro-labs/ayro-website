@@ -8,7 +8,7 @@
       </div>
       <div class="card mt-4">
         <div class="card-body">
-          <h4>Links úteis</h4>
+          <h4>Relacionados</h4>
           <a [routerLink]="['/apps', app.id, 'integrations', 'website']" class="d-block">
             Ver detalhes
           </a>
@@ -28,7 +28,7 @@
             Canal do Usuário
           </span>
           <h1 class="mt-2">{{ channel.name }}</h1>
-          <p>Converse em tempo real com os visitantes do seu website.</p>
+          <p class="integration-subtitle mb-0">Converse em tempo real com os visitantes e usuários do seu website.</p>
         </div>
       </div>
       <div *ngIf="!hasIntegration()" class="card mt-4">
@@ -54,10 +54,10 @@
               <p>Inicialize a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
               <div class="highlight">
                 <pre><code>&lt;script&gt;
-    ChatzIO.init({{ '{' }}
-      app_token: '{{ app.token }}'
-    {{ '}' }});
-  &lt;/script&gt;</code></pre>
+  ChatzIO.init({{ '{' }}
+    app_token: '{{ app.token }}'
+  {{ '}' }});
+&lt;/script&gt;</code></pre>
               </div>
             </div>
           </div>

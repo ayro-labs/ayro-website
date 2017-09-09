@@ -4,15 +4,15 @@
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="card-img-top w-100"/>
-          <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
-            <span *ngIf="!hasIntegration()">Integrar</span>
-            <span *ngIf="hasIntegration()">Configurar></span>
-          </button>
         </div>
       </div>
+      <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
+        <span *ngIf="!hasIntegration()">Integrar</span>
+        <span *ngIf="hasIntegration()">Configurar></span>
+      </button>
       <div class="card mt-4">
         <div class="card-body">
-          <h4>Links úteis</h4>
+          <h4>Relacionados</h4>
           <a [routerLink]="['/guides', 'android']" class="d-block">
             Documentação
           </a>
@@ -29,21 +29,24 @@
             Canal do Usuário
           </span>
           <h1 class="mt-2">{{ channel.name }}</h1>
+          <p class="integration-subtitle mb-0">Converse em tempo real com os usuários do seu aplicativo Android.</p>
         </div>
       </div>
       <div class="card mt-4">
         <div class="card-body">
-          <h4>Para que serve?</h4>
+          <div class="card-body integration-description">
+          <p>Adicione chat no seu aplicativo Android em apenas alguns minutos e converse em tempo real com seus usuários.</p>
+          <h4>Funcionalidades</h4>
           <ul>
-            <li></li>
+            <li>Seus usuários podem iniciar uma conversa em tempo real com você direto do seu aplicativo Android.</li>
+            <li>Receba as mensagens dos usuários nos canais de comunicação da empresa.</li>
+            <li>Identifique o usuário e receba as informações do perfil nos canais de comunicação da empresa.</li>
+            <li>As conversas são persistidas e sincronizadas entre as sessões e canais do usuário.</li>
+            <li>Customize o visual do chat de acordo com o visual do seu aplicativo Android.</li>
           </ul>
-          <h4>Como funciona?</h4>
+          <h4>Requerimentos</h4>
           <ul>
-            <li></li>
-          </ul>
-          <h4>Do que preciso?</h4>
-          <ul>
-            <li></li>
+            <li>Conhecimentos básicos de Android.</li>
           </ul>
         </div>
       </div>

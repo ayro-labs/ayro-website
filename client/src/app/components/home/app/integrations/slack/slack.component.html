@@ -4,15 +4,15 @@
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="card-img-top w-100"/>
-          <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
-            <span *ngIf="!hasIntegration()">Integrar</span>
-            <span *ngIf="hasIntegration()">Configurar></span>
-          </button>
         </div>
       </div>
+      <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
+        <span *ngIf="!hasIntegration()">Integrar</span>
+        <span *ngIf="hasIntegration()">Configurar></span>
+      </button>
       <div class="card mt-4">
         <div class="card-body">
-          <h4>Links úteis</h4>
+          <h4>Relacionados</h4>
           <a [routerLink]="['/guides', 'slack']" class="d-block">
             Documentação
           </a>
