@@ -32,16 +32,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
       this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
         this.appService.getApp(params.app).subscribe((app: App) => {
           this.app = app;
-          const integration = this.app.getIntegration(Integration.CHANNEL_WEBSITE);
-          if (integration) {
-            this.configuration = _.clone(integration.configuration) || {};
-            if (this.configuration.primary_color) {
-              this.configuration.primary_color = this.configuration.primary_color.replace('#', '');
-            }
-            if (this.configuration.conversation_color) {
-              this.configuration.conversation_color = this.configuration.conversation_color.replace('#', '');
-            }
-          }
+          this.setConfiguration();
         });
       });
     }
@@ -58,6 +49,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   public testIntegration() {
     this.appService.getApp(this.app.id).subscribe((app: App) => {
       this.app = app;
+      this.setConfiguration();
       if (this.hasIntegration()) {
         this.alertService.success('Integração testada com sucesso!');
       } else {
@@ -91,5 +83,18 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     }).catch(() => {
       // Nothing to do...
     });
+  }
+
+  private setConfiguration() {
+    const integration = this.app.getIntegration(Integration.CHANNEL_WEBSITE);
+    if (integration) {
+      this.configuration = _.clone(integration.configuration) || {};
+      if (this.configuration.primary_color) {
+        this.configuration.primary_color = this.configuration.primary_color.replace('#', '');
+      }
+      if (this.configuration.conversation_color) {
+        this.configuration.conversation_color = this.configuration.conversation_color.replace('#', '');
+      }
+    }
   }
 }

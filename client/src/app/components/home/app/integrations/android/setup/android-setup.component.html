@@ -1,4 +1,4 @@
-<div *ngIf="app" class="container">
+<ng-container *ngIf="app">
   <div class="row mt-4">
     <div class="col-md-3">
       <div class="card">
@@ -27,7 +27,7 @@
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
             Canal do Usuário
           </span>
-          <h1 class="mt-2">{{ channel.name }}</h1>
+          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
           <p class="integration-subtitle mb-0">Converse em tempo real com os usuários do seu aplicativo Android.</p>
         </div>
       </div>
@@ -117,4 +117,4 @@ Chatz.init(this, settings);</code></pre>
       </div>
     </div>
   </div>
-</div>
+</ng-container>

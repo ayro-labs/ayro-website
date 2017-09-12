@@ -11,6 +11,9 @@ import 'assets/img/integrations/slack.png';
 import 'assets/img/integrations/android.png';
 import 'assets/img/integrations/ios.png';
 import 'assets/img/integrations/website.png';
+import 'assets/img/guides/website/setup.png';
+import 'assets/img/guides/website/floating-button.png';
+import 'assets/img/guides/website/conversation.png';
 
 if (environment.production) {
   enableProdMode();

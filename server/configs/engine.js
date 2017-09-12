@@ -10,5 +10,4 @@ exports.configure = (app) => {
     autoescape: true,
     express: app,
   });
-
 };

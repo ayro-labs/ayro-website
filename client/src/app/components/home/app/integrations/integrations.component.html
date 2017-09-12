@@ -1,41 +1,39 @@
-<div class="container">
-  <div class="row mt-4">
-    <div class="col-md-12">
-      <h3>Canais do Usuário</h3>
-      <p class="mb-2">Onde seus usuários estão? Integre seu app com os canais do usuário e converse com eles onde quer que estejam.</p>
-    </div>
+<div class="row mt-4">
+  <div class="col-md-12">
+    <h3>Canais do Usuário</h3>
+    <p class="mb-2">Onde seus usuários estão? Integre seu app com os canais do usuário e converse com eles onde quer que estejam.</p>
   </div>
-  <div class="row align-center pt-2">
-    <div *ngFor="let channel of userChannels" class="col-md-3">
-      <div class="card pt-3">
-        <span>
-          <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
-        </span>
-        <div class="card-body">
-          <h4 class="card-title">{{ channel.name }}</h4>
-          <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
-          <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
-        </div>
+</div>
+<div class="row align-center pt-2">
+  <div *ngFor="let channel of userChannels" class="col-md-3">
+    <div class="card pt-3">
+      <span>
+        <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
+      </span>
+      <div class="card-body">
+        <h4 class="card-title">{{ channel.name }}</h4>
+        <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
+        <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
       </div>
     </div>
   </div>
-  <div class="row pt-4">
-    <div class="col-md-12">
-      <h3>Canais da Empresa</h3>
-      <p class="mb-2">Converse com seus usuários diretamente das melhores ferramentas de comunicação do mercado na atualizadade.</p>
-    </div>
+</div>
+<div class="row pt-4">
+  <div class="col-md-12">
+    <h3>Canais da Empresa</h3>
+    <p class="mb-2">Converse com seus usuários diretamente das melhores ferramentas de comunicação do mercado na atualidade.</p>
   </div>
-  <div class="row align-center pt-2">
-    <div *ngFor="let channel of businessChannels" class="col-md-3">
-      <div class="card">
-        <span>
-          <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
-        </span>
-        <div class="card-body">
-          <h4 class="card-title">{{ channel.name }}</h4>
-          <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
-          <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
-        </div>
+</div>
+<div class="row align-center pt-2">
+  <div *ngFor="let channel of businessChannels" class="col-md-3">
+    <div class="card">
+      <span>
+        <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
+      </span>
+      <div class="card-body">
+        <h4 class="card-title">{{ channel.name }}</h4>
+        <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
+        <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
       </div>
     </div>
   </div>

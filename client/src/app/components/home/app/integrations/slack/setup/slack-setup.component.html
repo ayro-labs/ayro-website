@@ -1,4 +1,4 @@
-<div *ngIf="app" class="container">
+<ng-container *ngIf="app">
   <div class="row mt-4">
     <div class="col-md-3">
       <div class="card">
@@ -30,7 +30,8 @@
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
             Canal do Usuário
           </span>
-          <h1 class="mt-2">{{ channel.name }}</h1>
+          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
+          <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte a usuários.</p>
         </div>
       </div>
       <div *ngIf="!hasIntegration()" class="card mt-4">
@@ -89,4 +90,4 @@
       </div>
     </div>
   </div>
-</div>
+</ng-container>

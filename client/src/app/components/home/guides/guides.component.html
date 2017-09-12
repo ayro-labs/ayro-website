@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5>Usuários</h5>
+          <a [routerLink]="['/guides', 'user-authentication']" class="d-block">
+            Autenticação de usuários
+          </a>
+          <a [routerLink]="['/guides', 'user-information']" class="d-block mt-2">
+            Informações do usuário
+          </a>
+          <h5 class="mt-2">Canais do usuário</h5>
+          <a [routerLink]="['/guides', 'website']" class="d-block">
+            Website
+          </a>
+          <a [routerLink]="['/guides', 'android']" class="d-block mt-2">
+            Android
+          </a>
+          <h5 class="mt-2">Canais da empresa</h5>
+          <a [routerLink]="['/guides', 'slack']" class="d-block">
+            Slack
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div *ngIf="app" class="container">
+<ng-container *ngIf="app">
   <div class="row mt-4">
     <div class="col-md-3">
       <div class="card">
@@ -17,7 +17,7 @@
             Documentação
           </a>
           <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
-            Slack website
+            Website do Slack
           </a>
         </div>
       </div>
@@ -31,25 +31,25 @@
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
             Canal do Usuário
           </span>
-          <h1 class="mt-2">{{ channel.name }}</h1>
+          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
+          <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte a usuários.</p>
         </div>
       </div>
       <div class="card mt-4">
-        <div class="card-body">
-          <h4>Para que serve?</h4>
+        <div class="card-body integration-description">
+          <p>Slack é uma ferramenta de comunicação e colaboração utilizada por milhões de pessoas todos os dias.</p>
+          <p>Transforme esta incrível ferramenta em uma ferramenta de suporte a usuários.</p>
+          <h4>Funcionalidades</h4>
           <ul>
-            <li></li>
+            <li>Converse com os usuários através de canais do Slack criados exclusivamente para atendê-los.</li>
+            <li>Receba informações do perfil do usuário que iniciou uma conversa.</li>
           </ul>
-          <h4>Como funciona?</h4>
+          <h4>Requerimentos</h4>
           <ul>
-            <li></li>
-          </ul>
-          <h4>Do que preciso?</h4>
-          <ul>
-            <li></li>
+            <li>Uma conta no Slack. Você pode criar uma conta gratuita em <a href="https://slack.com" target="_blank">https://slack.com</a>.</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>

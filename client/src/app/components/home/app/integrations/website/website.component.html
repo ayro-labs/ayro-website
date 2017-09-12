@@ -1,4 +1,4 @@
-<div *ngIf="app" class="container">
+<ng-container *ngIf="app">
   <div class="row mt-4">
     <div class="col-md-3">
       <div class="card">
@@ -8,7 +8,7 @@
       </div>
       <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
         <span *ngIf="!hasIntegration()">Integrar</span>
-        <span *ngIf="hasIntegration()">Configurar></span>
+        <span *ngIf="hasIntegration()">Configurar</span>
       </button>
       <div class="card mt-4">
         <div class="card-body">
@@ -28,16 +28,16 @@
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
             Canal do Usuário
           </span>
-          <h1 class="mt-2">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Converse em tempo real com os visitantes do seu website.</p>
+          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
+          <p class="integration-subtitle mb-0">Converse em tempo real com os visitantes do seu Website.</p>
         </div>
       </div>
       <div class="card mt-4">
         <div class="card-body integration-description">
-          <p>Adicione chat no seu website em apenas alguns minutos e converse em tempo real com seus visitantes.</p>
+          <p>Adicione chat no seu Website em apenas alguns minutos e converse em tempo real com seus visitantes.</p>
           <h4>Funcionalidades</h4>
           <ul>
-            <li>Seus visitantes podem iniciar uma conversa em tempo real com você direto da sua página Web.</li>
+            <li>Seus visitantes podem iniciar uma conversa em tempo real com você direto do seu Website.</li>
             <li>Receba as mensagens dos visitantes nos canais de comunicação da empresa.</li>
             <li>Identifique o visitante e receba as informações do perfil no canal de comunicação da empresa.</li>
             <li>As conversas são persistidas e sincronizadas entre as sessões e canais do usuário.</li>
@@ -51,4 +51,4 @@
       </div>
     </div>
   </div>
-</div>
+</ng-container>

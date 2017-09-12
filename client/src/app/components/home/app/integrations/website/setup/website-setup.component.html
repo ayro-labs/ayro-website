@@ -1,4 +1,4 @@
-<div *ngIf="app" class="container">
+<ng-container *ngIf="app">
   <div class="row mt-4">
     <div class="col-md-3">
       <div class="card">
@@ -27,7 +27,7 @@
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
             Canal do Usuário
           </span>
-          <h1 class="mt-2">{{ channel.name }}</h1>
+          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
           <p class="integration-subtitle mb-0">Converse em tempo real com os visitantes do seu website.</p>
         </div>
       </div>
@@ -35,35 +35,28 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h5 class="mb-3">1º Passo - Baixe a biblioteca</h5>
-              <p class="mb-0">Baixe a biblioteca Javascript do Chatz para Websites <a href="#">aqui</a>.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h5 class="mt-4 mb-3">2º Passo - Importe a biblioteca</h5>
-              <p>Importe a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
+              <h5 class="mb-3">1º Passo - Inclua a biblioteca</h5>
+              <p>Inclua a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
               <div class="highlight">
-                <code>&lt;script type="text/javascript" src="/caminho/para/chatz.js"&gt;&lt;/script&gt;</code>
+                <code>&lt;script type="text/javascript" src="https://cdn.chatz.io/js/chatz-1.0.0.js"&gt;&lt;/script&gt;</code>
               </div>
+              <p>Você também pode optar por baixar a biblioteca (<a href="#">aqui</a>) e modificar o código acima para referenciar a biblioteca baixada.</p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <h5 class="mt-4 mb-3">3º Passo - Inicialize a biblioteca</h5>
-              <p>Inicialize a biblioteca incluindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
+              <h5 class="mb-3">2º Passo - Inicialize a biblioteca</h5>
+              <p>Inicialize a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
               <div class="highlight">
                 <pre><code>&lt;script&gt;
-  ChatzIO.init({{ '{' }}
-    app_token: '{{ app.token }}'
-  {{ '}' }});
+  Chatz.init({{ '{' }}app_token: '{{ app.token }}'{{ '}' }});
 &lt;/script&gt;</code></pre>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <h5 class="mt-4 mb-3">4º Passo - Teste a integração</h5>
+              <h5 class="mb-3">3º Passo - Teste a integração</h5>
               <p>Rode o seu Website depois de ter completado todos os passos anteriores e nos deixe saber se sua integração está funcionando corretamente clicando no botão abaixo.</p>
               <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">
                 Testar integração
@@ -75,7 +68,7 @@
       <div *ngIf="hasIntegration()" class="card mt-4">
         <div class="card-body">
           <form novalidate>
-            <div class="row mt-4">
+            <div class="row">
               <div class="col-md-12">
                 <h4 class="mb-2">Token do app</h4>
                 <p class="mb-2">Token utilizado para inicializar a integração com o seu Website.</p>
@@ -92,7 +85,7 @@
             <div class="row mt-4">
               <div class="col-md-12">
                 <h4 class="mb-2">Cor primária</h4>
-                <p class="mb-2">Cor utilizada no botão e cabeçalho do Chat.</p>
+                <p class="mb-2">Cor utilizada no botão flutuante e cabeçalho do Chat.</p>
                 <div class="input-group">
                   <span [ngStyle]="{'background-color': '#' + configuration.primary_color}" class="input-group-addon color-addon"></span>
                   <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
@@ -125,4 +118,4 @@
       </div>
     </div>
   </div>
-</div>
+</ng-container>
