@@ -6,12 +6,10 @@
 </div>
 <div class="row align-center pt-2">
   <div *ngFor="let channel of userChannels" class="col-md-3">
-    <div class="card pt-3">
-      <span>
-        <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
-      </span>
+    <div class="card mt-3">
       <div class="card-body">
-        <h4 class="card-title">{{ channel.name }}</h4>
+        <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
+        <h4 class="card-title mt-2">{{ channel.name }}</h4>
         <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
         <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
       </div>
@@ -26,12 +24,10 @@
 </div>
 <div class="row align-center pt-2">
   <div *ngFor="let channel of businessChannels" class="col-md-3">
-    <div class="card">
-      <span>
-        <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
-      </span>
+    <div class="card mt-3">
       <div class="card-body">
-        <h4 class="card-title">{{ channel.name }}</h4>
+        <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
+        <h4 class="card-title mt-2">{{ channel.name }}</h4>
         <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
         <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
       </div>

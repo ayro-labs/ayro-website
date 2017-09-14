@@ -10,6 +10,8 @@ import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 
+import * as _ from 'lodash';
+
 @Component({
   selector: 'chz-android-setup',
   templateUrl: './android-setup.component.html',
@@ -30,10 +32,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
       this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
         this.appService.getApp(params.app).subscribe((app: App) => {
           this.app = app;
-          const integration = this.app.getIntegration(Integration.CHANNEL_ANDROID);
-          if (integration) {
-            this.configuration = integration.configuration || {fcm: {}};
-          }
+          this.setConfiguration();
         });
       });
     }
@@ -50,6 +49,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public testIntegration() {
     this.appService.getApp(this.app.id).subscribe((app: App) => {
       this.app = app;
+      this.setConfiguration();
       if (this.hasIntegration()) {
         this.alertService.success('Integração testada com sucesso!');
       } else {
@@ -59,7 +59,14 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
-    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
+    const configuration = _.clone(this.configuration);
+    if (configuration.primary_color) {
+      configuration.primary_color = '#' + configuration.primary_color;
+    }
+    if (configuration.conversation_color) {
+      configuration.conversation_color = '#' + configuration.conversation_color;
+    }
+    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((app: App) => {
       this.app = app;
       this.alertService.success('Configuração atualizada com sucesso!');
     }, () => {
@@ -76,5 +83,21 @@ export class AndroidSetupIntegrationComponent implements OnInit {
     }).catch(() => {
       // Nothing to do...
     });
+  }
+
+  private setConfiguration() {
+    const integration = this.app.getIntegration(Integration.CHANNEL_WEBSITE);
+    if (integration) {
+      this.configuration = _.clone(integration.configuration) || {};
+      if (!this.configuration.fcm) {
+        this.configuration.fcm = {};
+      }
+      if (this.configuration.primary_color) {
+        this.configuration.primary_color = this.configuration.primary_color.replace('#', '');
+      }
+      if (this.configuration.conversation_color) {
+        this.configuration.conversation_color = this.configuration.conversation_color.replace('#', '');
+      }
+    }
   }
 }

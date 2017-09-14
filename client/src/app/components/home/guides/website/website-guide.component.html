@@ -6,7 +6,7 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <h3 class="mb-3">Adicione o Chatz no seu Website</h3>
+    <h3 class="mb-3">Integre o Chatz no seu Website</h3>
     <p></p>
     <div class="row">
       <div class="col-md-12">
@@ -40,23 +40,29 @@
 <div class="row">
   <div class="col-md-12">
     <h3 class="mb-3">Customizações</h3>
-    <p></p>
+    <p>Você pode customizar o Chatz para que ele fique com a aparência do seu Website.</p>
     <div class="row">
       <div class="col-md-12">
-        <h4 class="mb-3">Widget</h4>
-        <img class="w-100" src="/assets/img/guides/website/setup.png">
-        <img src="/assets/img/guides/website/floating-button.png">
-        <img src="/assets/img/guides/website/conversation.png">
+        <h4 class="mb-3">Aparência do Widget</h4>
+        <p>Ao acessar a tela de configurações da integração com Websites, você consegue customizar as cores de fundo do botão flutuante, cabeçalho da caixa de chat e mensagens dos usuários.</p>
+        <div class="align-center">
+          <img class="w-100" src="/assets/img/guides/website/color-setup.png">
+          <img src="/assets/img/guides/website/floating-button.png">
+          <img src="/assets/img/guides/website/conversation.png">
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <h4 class="mb-3">Textos</h4>
+        <p>Português do Brasil é a língua padrão utilizada nos textos que aparecem na caixa de chat. Você pode alterar os textos padrões definindo propriedades na inicialização do Chatz.</p>
         <div class="highlight">
           <pre><code>Chatz.init({{ '{' }}
   app_token: 'token',
   chatbox: {{ '{' }}
+    // Título da caixa de chat
     title: 'Como podemos ajudá-lo?',
+    // Placeholder do campo de texto da mensagem
     input_placeholder: 'Digite uma mensagem...'
   {{ '}' }}
 {{ '}' }});</code></pre>
