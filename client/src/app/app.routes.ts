@@ -16,6 +16,8 @@ import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrat
 import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
 import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
 import {GuidesComponent} from 'app/components/home/guides/guides.component';
+import {UserIdentityGuideComponent} from 'app/components/home/guides/user-identity/user-identity-guide.component';
+import {UserInformationGuideComponent} from 'app/components/home/guides/user-information/user-information-guide.component';
 import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
 import {WebsiteGuideComponent} from 'app/components/home/guides/website/website-guide.component';
 import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
@@ -38,6 +40,8 @@ export const AppRoutes: Routes = [
       {path: 'integrations/slack/setup', component: SlackSetupIntegrationComponent},
     ]},
     {path: 'guides', component: GuidesComponent, children: [
+      {path: 'user-identity', component: UserIdentityGuideComponent},
+      {path: 'user-information', component: UserInformationGuideComponent},
       {path: 'website', component: WebsiteGuideComponent},
       {path: 'android', component: AndroidGuideComponent},
       {path: 'slack', component: SlackGuideComponent},

@@ -2,62 +2,60 @@
   <div class="col-md-12">
     <h1 class="mb-3">Integração com Websites</h1>
     <p></p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3 class="mb-3">Integre o Chatz no seu Website</h3>
-    <p></p>
     <div class="row">
       <div class="col-md-12">
-        <h4 class="mb-3">Usando tags script</h4>
+        <h3 class="mb-3">Integre o Chatz no seu Website</h3>
+        <p></p>
         <div class="row">
           <div class="col-md-12">
-            <h5 class="mb-3">1º Passo - Inclua a biblioteca</h5>
-            <p>Inclua a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
-            <div class="highlight">
-              <code>&lt;script type="text/javascript" src="https://cdn.chatz.io/js/chatz-1.0.0.js"&gt;&lt;/script&gt;</code>
+            <h4 class="mb-3">Usando tags script</h4>
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="mb-3">1º Passo - Inclua a biblioteca</h5>
+                <p>Inclua a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
+                <div class="highlight">
+                  <code>&lt;script type="text/javascript" src="https://cdn.chatz.io/js/chatz-1.0.0.js"&gt;&lt;/script&gt;</code>
+                </div>
+                <p>Você também pode optar por baixar a biblioteca (<a href="#">aqui</a>) e modificar o código acima para referenciar a biblioteca baixada.</p>
+              </div>
             </div>
-            <p>Você também pode optar por baixar a biblioteca (<a href="#">aqui</a>) e modificar o código acima para referenciar a biblioteca baixada.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h5 class="mb-3">2º Passo - Inicialize a biblioteca</h5>
-            <p>Inicialize a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
-            <div class="highlight">
-              <pre><code>&lt;script&gt;
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="mb-3">2º Passo - Inicialize a biblioteca</h5>
+                <p>Inicialize a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
+                <div class="highlight">
+                  <pre><code>&lt;script&gt;
   Chatz.init({{ '{' }}app_token: 'token'{{ '}' }});
 &lt;/script&gt;</code></pre>
+                </div>
+                <p>O token pode ser obtido acessando a página inicial do seu App.</p>
+              </div>
             </div>
-            <p>O token pode ser obtido acessando a página inicial do seu App.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3 class="mb-3">Customizações</h3>
-    <p>Você pode customizar o Chatz para que ele fique com a aparência do seu Website.</p>
     <div class="row">
       <div class="col-md-12">
-        <h4 class="mb-3">Aparência do Widget</h4>
-        <p>Ao acessar a tela de configurações da integração com Websites, você consegue customizar as cores de fundo do botão flutuante, cabeçalho da caixa de chat e mensagens dos usuários.</p>
-        <div class="align-center">
-          <img class="w-100" src="/assets/img/guides/website/color-setup.png">
-          <img src="/assets/img/guides/website/floating-button.png">
-          <img src="/assets/img/guides/website/conversation.png">
+        <h3 class="mb-3">Customizações</h3>
+        <p>Você pode customizar o Chatz para que ele fique com a aparência do seu Website.</p>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Aparência do Widget</h4>
+            <p>Ao acessar a tela de configurações da integração com Websites, você consegue customizar as cores de fundo do botão flutuante, cabeçalho da caixa de chat e mensagens dos usuários.</p>
+            <div class="align-center">
+              <img class="w-100" src="/assets/img/guides/website/color-setup.png">
+              <img src="/assets/img/guides/website/floating-button.png">
+              <img src="/assets/img/guides/website/conversation.png">
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="mb-3">Textos</h4>
-        <p>Português do Brasil é a língua padrão utilizada nos textos que aparecem na caixa de chat. Você pode alterar os textos padrões definindo propriedades na inicialização do Chatz.</p>
-        <div class="highlight">
-          <pre><code>Chatz.init({{ '{' }}
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Textos</h4>
+            <p>Português do Brasil é a língua padrão utilizada nos textos que aparecem na caixa de chat. Você pode alterar os textos padrões definindo propriedades na inicialização do Chatz.</p>
+            <div class="highlight">
+              <pre><code>Chatz.init({{ '{' }}
   app_token: 'token',
   chatbox: {{ '{' }}
     // Título da caixa de chat
@@ -66,6 +64,8 @@
     input_placeholder: 'Digite uma mensagem...'
   {{ '}' }}
 {{ '}' }});</code></pre>
+          </div>
+        </div>
       </div>
     </div>
   </div>

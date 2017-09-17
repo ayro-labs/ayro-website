@@ -2,98 +2,116 @@
   <div class="col-md-12">
     <h1 class="mb-3">Integração com Android</h1>
     <p></p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3 class="mb-3">Integre o Chatz no seu aplicativo Android</h3>
-    <p></p>
     <div class="row">
       <div class="col-md-12">
-        <h5 class="mb-3">1º Passo - Importe a biblioteca</h5>
-        <p>Adicione a biblioteca Android do Chatz como dependência do seu projeto.</p>
-        <p>Usando Gradle:</p>
-        <div class="highlight mb-3">
-          <code>compile 'io.chatz:chatz:1.0.0'</code>
-        </div>
-        <p>Usando Maven:</p>
-        <div class="highlight">
-          <pre><code>&lt;dependency&gt;
+        <h3 class="mb-3">Integre o Chatz no seu aplicativo Android</h3>
+        <p></p>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Primeiros passos</h4>
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="mb-3">1º Passo - Importe a biblioteca</h5>
+                <p>Adicione a biblioteca Android do Chatz como dependência do seu projeto.</p>
+                <p>Usando Gradle:</p>
+                <div class="highlight mb-3">
+                  <code>compile 'io.chatz:chatz:1.0.0'</code>
+                </div>
+                <p>Usando Maven:</p>
+                <div class="highlight">
+                  <pre><code>&lt;dependency&gt;
   &lt;groupId&gt;io.chatz&lt;/groupId&gt;
   &lt;artifactId&gt;chatz&lt;/artifactId&gt;
   &lt;version&gt;1.0.0&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <h5 class="mb-3">2º Passo - Inicialize a biblioteca</h5>
-        <p>Inicialize a biblioteca incluindo o código a seguir no método <code>onCreate</code> da sua classe que estende Application.</p>
-        <div class="highlight">
-          <pre><code>Settings settings = new Settings("token");
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="mb-3">2º Passo - Inicialize a biblioteca</h5>
+                <p>Inicialize a biblioteca incluindo o código a seguir no método <code>onCreate</code> da sua classe que estende Application.</p>
+                <div class="highlight">
+                  <pre><code>Settings settings = new Settings("token");
 Chatz.init(this, settings);</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3 class="mb-3">Firebase Cloud Messaging</h3>
-    <p>O Firebase Cloud Messaging é uma solução de mensagens e notificações cross-plataforma para Android. Ele é utilizado para enviar mensagens e notificações push aos usuários, quando estiverem com o seu aplicativo em background.</p>
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="mb-3">Integrando com o FCM</h4>
-        <p>Se seu aplicativo não possui integração com o Firebase Cloud Messaging, siga os passos a seguir:</p>
-        <ul>
-          <li>1. Acesse o <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</li>
-          <li>2. Se você ainda não tem um projeto, crie um.</li>
-          <li>3. Adicione um novo app ao seu projeto e siga as instruções para gerar o arquivo google-services.json.</li>
-          <li>4. Copie o arquivo google-services.json para a pasta raíz do seu projeto Android.</li>
-          <li>5. Adicione a seguinte dependência no arquivo build.xml do seu projeto Android:<br/><code>classpath 'com.google.gms:google-services:3.0.0'</code></li>
-          <li>6. Ainda no arquivo build.xml, adicione o seguinte plugin no final do arquivo:<br/><code>apply plugin: 'com.google.gms.google-services'</code></li>
-        </ul>
-        <h4 class="mb-3">Configurando o FCM no Chatz</h4>
-        <p>A integração do Chatz com aplicativos Android necessita do "Server key" e "Sender ID". Essas informações podem ser obtidas no <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</p>
-        <ul>
-          <li>1. Acesse a página inicial do seu projeto no console do FCM.</li>
-          <li>2. Vá até as configurações do projeto, na aba "Cloud Messaging".</li>
-          <li>3. Encontre o "Server key" e o "Sender ID". Crie um caso ainda não o tenha.</li>
-        </ul>
-        <p>Para finalizar, adicione essas informações na página de integração Android.</p>
-        <img class="w-100 mb-3" src="/assets/img/guides/android/fcm-setup.png">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3 class="mb-3">Customizações</h3>
-    <p>Você pode customizar o Chatz para que ele fique com a aparência do seu aplicativo Android.</p>
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="mb-3">Aparência da Activity</h4>
-        <p>Ao acessar a tela de configurações da integração com Android, você consegue customizar as cores de fundo do Toolbar e mensagens dos usuários.</p>
-        <div class="align-center">
-          <img class="w-100" src="/assets/img/guides/android/color-setup.png">
-          <img src="/assets/img/guides/android/toolbar.png">
-          <img src="/assets/img/guides/android/conversation.png">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Abrindo o Chat</h4>
+          </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h4 class="mb-3">Internacionalização</h4>
-        <p>As linguagens suportadas até o momento são o Inglês e Português do Brasil. Você pode alterar os textos dos componentes ou adicionar mais línguas ajustando as strings dos arquivos strings.xml de acordo com as seguintes chaves:</p>
-        <div class="highlight">
-          <pre><code>&lt;resources&gt;
+        <h3 class="mb-3">Firebase Cloud Messaging</h3>
+        <p>O Firebase Cloud Messaging é uma solução de mensagens e notificações cross-plataforma para Android. Ele é utilizado para enviar mensagens e notificações push aos usuários.</p>
+        <p>Chatz utiliza o FCM para enviar mensagens e notificações para os usuários.</p>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Integrando com o FCM</h4>
+            <p>Se seu aplicativo não possui integração com o Firebase Cloud Messaging, siga os passos a seguir:</p>
+            <ul>
+              <li>1. Acesse o <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</li>
+              <li>2. Se você ainda não tem um projeto, crie um.</li>
+              <li>3. Adicione um novo app ao seu projeto e siga as instruções para gerar o arquivo google-services.json.</li>
+              <li>4. Copie o arquivo google-services.json para a pasta raíz do seu projeto Android.</li>
+              <li>5. Adicione a seguinte dependência no arquivo build.xml do seu projeto Android:<br/><code>classpath 'com.google.gms:google-services:3.0.0'</code></li>
+              <li>6. Ainda no arquivo build.xml, adicione o seguinte plugin no final do arquivo:<br/><code>apply plugin: 'com.google.gms.google-services'</code></li>
+            </ul>
+            <h4 class="mb-3">Configurando o FCM no Chatz</h4>
+            <p>A integração do Chatz com aplicativos Android necessita do "Server key" e "Sender ID". Essas informações podem ser obtidas no <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</p>
+            <ul>
+              <li>1. Acesse a página inicial do seu projeto no console do FCM.</li>
+              <li>2. Vá até as configurações do projeto, na aba "Cloud Messaging".</li>
+              <li>3. Encontre o "Server key" e o "Sender ID". Crie um caso ainda não o tenha.</li>
+            </ul>
+            <p>Para finalizar, adicione essas informações na página da integração Android.</p>
+            <img class="w-100 mb-3" src="/assets/img/guides/android/fcm-setup.png">
+            <!-- <h4 class="mb-3">Configurações relacionadas ao FCM</h4>
+            <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService do Chatz. Para isso basta chamar o método <code>disableMessagingService</code> da sua instância de <code>Settings</code>.</p>
+            <p>Fazendo isso,
+            <div class="highlight">
+              <pre><code>Settings settings = new Settings("token");
+    settings.disableMessagingService();
+    Chatz.init(this, settings);</code></pre>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="mb-3">Customizações</h3>
+        <p>Você pode customizar o Chatz para que ele fique com a aparência do seu aplicativo Android.</p>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Aparência da Activity</h4>
+            <p>Ao acessar a tela de configurações da integração com Android, você consegue customizar as cores de fundo do Toolbar e mensagens dos usuários.</p>
+            <div class="align-center">
+              <img class="w-100" src="/assets/img/guides/android/color-setup.png">
+              <img src="/assets/img/guides/android/toolbar.png">
+              <img src="/assets/img/guides/android/conversation.png">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Internacionalização</h4>
+            <p>As linguagens suportadas até o momento são o Inglês e Português do Brasil. Você pode alterar os textos dos componentes ou adicionar mais línguas ajustando as strings dos arquivos strings.xml de acordo com as seguintes chaves:</p>
+            <div class="highlight">
+              <pre><code>&lt;resources&gt;
   &lt;string name="chatz_activity_title"&gt;Converse conosco&lt;/string&gt;
   &lt;string name="chatz_activity_input_placeholder"&gt;Digite uma mensagem…&lt;/string&gt;
   &lt;string name="chatz_activity_status_no_internet_connection"&gt;Sem conexão com Internet&lt;/string&gt;
   &lt;string name="chatz_activity_status_connecting_to_the_servers"&gt;Conectando aos servidores…&lt;/string&gt;
-&lt;/resources&gt;
-</code></pre>
+&lt;/resources&gt;</code></pre>
+          </div>
+        </div>
       </div>
     </div>
   </div>
