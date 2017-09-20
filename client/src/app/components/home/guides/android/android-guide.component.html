@@ -42,6 +42,10 @@ Chatz.init(this, settings);</code></pre>
         <div class="row">
           <div class="col-md-12">
             <h4 class="mb-3">Abrindo o Chat</h4>
+            <p>Para abrir o Chat, basta adicionar o seguinte código na Activity desejada:</p>
+            <div class="highlight">
+              <code>Chatz.openChat();</code>
+            </div>
           </div>
         </div>
       </div>
@@ -49,12 +53,12 @@ Chatz.init(this, settings);</code></pre>
     <div class="row">
       <div class="col-md-12">
         <h3 class="mb-3">Firebase Cloud Messaging</h3>
-        <p>O Firebase Cloud Messaging é uma solução de mensagens e notificações cross-plataforma para Android. Ele é utilizado para enviar mensagens e notificações push aos usuários.</p>
+        <p>O Firebase Cloud Messaging (FCM) é uma solução de mensagens e notificações cross-plataforma para Android. Ele é utilizado para enviar mensagens e notificações push aos usuários.</p>
         <p>Chatz utiliza o FCM para enviar mensagens e notificações para os usuários.</p>
         <div class="row">
           <div class="col-md-12">
             <h4 class="mb-3">Integrando com o FCM</h4>
-            <p>Se seu aplicativo não possui integração com o Firebase Cloud Messaging, siga os passos a seguir:</p>
+            <p>Se seu aplicativo não possui integração com o Firebase Cloud Messaging, siga estes passos:</p>
             <ul>
               <li>1. Acesse o <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</li>
               <li>2. Se você ainda não tem um projeto, crie um.</li>
@@ -64,9 +68,9 @@ Chatz.init(this, settings);</code></pre>
               <li>6. Ainda no arquivo build.xml, adicione o seguinte plugin no final do arquivo:<br/><code>apply plugin: 'com.google.gms.google-services'</code></li>
             </ul>
             <h4 class="mb-3">Configurando o FCM no Chatz</h4>
-            <p>A integração do Chatz com aplicativos Android necessita do "Server key" e "Sender ID". Essas informações podem ser obtidas no <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</p>
+            <p>A integração do Chatz com aplicativos Android necessita do "Server key" e "Sender ID". Essas informações podem ser obtidas no console do FCM.</p>
             <ul>
-              <li>1. Acesse a página inicial do seu projeto no console do FCM.</li>
+              <li>1. Acesse a página inicial do seu projeto no <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</li>
               <li>2. Vá até as configurações do projeto, na aba "Cloud Messaging".</li>
               <li>3. Encontre o "Server key" e o "Sender ID". Crie um caso ainda não o tenha.</li>
             </ul>
@@ -102,7 +106,7 @@ Chatz.init(this, settings);</code></pre>
         <div class="row">
           <div class="col-md-12">
             <h4 class="mb-3">Internacionalização</h4>
-            <p>As linguagens suportadas até o momento são o Inglês e Português do Brasil. Você pode alterar os textos dos componentes ou adicionar mais línguas ajustando as strings dos arquivos strings.xml de acordo com as seguintes chaves:</p>
+            <p>As linguagens suportadas até o momento são o Inglês e Português do Brasil. Você pode alterar os textos dos componentes ou adicionar mais línguas ajustando as strings dos arquivos strings.xml, de acordo com as seguintes chaves:</p>
             <div class="highlight">
               <pre><code>&lt;resources&gt;
   &lt;string name="chatz_activity_title"&gt;Converse conosco&lt;/string&gt;

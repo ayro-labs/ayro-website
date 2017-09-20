@@ -14,6 +14,7 @@ import {SignInComponent} from 'app/components/signin/signin.component';
 import {HeaderComponent} from 'app/components/home/header/header.component';
 import {FooterComponent} from 'app/components/home/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
+import {IntroComponent} from 'app/components/home/intro/intro.component';
 import {SettingsComponent} from 'app/components/home/settings/settings.component';
 import {AppsComponent} from 'app/components/home/apps/apps.component';
 import {CreateAppComponent} from 'app/components/home/apps/create-app/create-app.component';
@@ -60,6 +61,7 @@ import {EventService} from 'app/services/event.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    IntroComponent,
     SettingsComponent,
     AppsComponent,
     CreateAppComponent,
