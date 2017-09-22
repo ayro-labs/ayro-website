@@ -2,9 +2,16 @@
   <section class="blue">
     <div class="container text-center">
       <h2 class="mb-4">Ainda usa e-mails para dar suporte a seus clientes?</h2>
-      <h2 class="mb-4">Precisa gerenciar conversas em várias redes sociais?</h2>
-      <h4 class="mb-4">Demora horas para entender e solucionar o problema do cliente porque não consegue ter uma conversa eficiente? Já passou pela situação de não saber se seus clientes estão vendo suas mensagens?</h4>
-      <h2>Temos uma solução!</h2>
+      <h2>Precisa gerenciar conversas em várias redes sociais?</h2>
+      <div class="row d-flex align-items-center">
+        <div class="col-md-9">
+          <h4 class="text-left">Demora horas para entender e solucionar o problema do cliente porque não consegue ter uma conversa eficiente? Já passou pela situação de não saber se seus clientes estão vendo suas mensagens?</h4>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-thumbs-o-down"></i>
+        </div>
+      </div>
+      <h2 class="mb-4">Temos uma solução!</h2>
       <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Crie uma conta gratuitamente</a>
     </div>
   </section>
@@ -13,14 +20,93 @@
       <h2 class="mb-4">Evolua em alguns minutos!</h2>
       <h4 class="mb-4">Converse em tempo real com seus clientes, onde quer que eles estejam.</h4>
       <h4 class="text-justify">Somos uma empresa que simplificará a forma com que se comunica com seus clientes. Oferecemos uma plataforma de Chat multi canal que integra redes sociais, websites, aplicativos, e-commerces e diversos outros canais.</h4>
-      <h4 class="text-justify">Todas as conversas são centralizadas em uma ferramenta de comunicação de sua escolha.</h4>
+      <h4 class="text-justify mb-4">Todas as conversas são centralizadas em uma ferramenta de comunicação de sua escolha.</h4>
+      <div>
+        <img [src]="getChannel('website').picture_url" class="integration-icon mx-2"/>
+        <img [src]="getChannel('android').picture_url" class="integration-icon mx-2"/>
+        <img [src]="getChannel('ios').picture_url" class="integration-icon mx-2"/>
+        <img [src]="getChannel('messenger').picture_url" class="integration-icon mx-2"/>
+        <img [src]="getChannel('twitter').picture_url" class="integration-icon mx-2"/>
+        <img [src]="getChannel('slack').picture_url" class="integration-icon mx-2"/>
+      </div>
     </div>
   </section>
   <section class="blue">
-    <div class="container  text-center">
-      <h2 class="mb-4">Conheça nossos produtos</h2>
-      <h4 class="text-left">Adicione Chat no seu website ou aplicativo em alguns minutos deixe seus clientes conversarem em tempo real com você e sua equipe.</h4>
-      <h4 class="text-left">Utilize as melhores ferramentas de comunicação do mercado para integrarir com seus clientes.</h4>
+    <div class="container text-center">
+      <h2 class="mb-4">Conheça nossa plataforma!</h2>
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-users fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Feature title</h3>
+              <p>Feature description</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-location-arrow fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Feature title</h3>
+              <p>Feature description</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-map-marker fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Feature title</h3>
+              <p>Feature description</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-calendar fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Feature title</h3>
+              <p>Feature description</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-commenting fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Feature title</h3>
+              <p>Feature description</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-map fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Feature title</h3>
+              <p>Feature description</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <section class="white">

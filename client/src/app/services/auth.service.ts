@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   public signOut(): Observable<any> {
-    return this.http.post('/auth/accounts/sign_out', {}, RequestUtils.newJsonOptions())
+    return this.http.delete('/auth/accounts', RequestUtils.newJsonOptions())
       .map((res: Response) => res.json())
       .catch(() => Observable.empty());
   }

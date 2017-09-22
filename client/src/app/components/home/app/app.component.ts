@@ -21,16 +21,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
-    this.activatedRoute.params.subscribe((params: {app: string}) => {
-      this.appService.getApp(params.app).subscribe((app: App) => {
-        this.app = app;
-        this.subscriptions.push(this.eventService.subscribe('app_name_changed', (event: IEvent) => {
-          this.app.name = event.value;
-        }));
-        this.subscriptions.push(this.eventService.subscribe('app_icon_changed', (event: IEvent) => {
-          this.app.icon = event.value;
-        }));
-      });
+    const appId = this.activatedRoute.snapshot.paramMap.get('app');
+    this.appService.getApp(appId).subscribe((app: App) => {
+      this.app = app;
+      this.subscriptions.push(this.eventService.subscribe('app_name_changed', (event: IEvent) => {
+        this.app.name = event.value;
+      }));
+      this.subscriptions.push(this.eventService.subscribe('app_icon_changed', (event: IEvent) => {
+        this.app.icon = event.value;
+      }));
     });
   }
 

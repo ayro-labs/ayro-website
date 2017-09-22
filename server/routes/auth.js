@@ -24,7 +24,7 @@ module.exports = (router, app) => {
   }
 
   router.post('/accounts', signIn);
-  router.post('/accounts/sign_out', signOut);
+  router.delete('/accounts', signOut);
 
   app.use('/auth', router);
 

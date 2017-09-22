@@ -21,13 +21,10 @@ export class AppSettingsComponent implements OnInit {
   }
 
   public ngOnInit() {
-    if (this.activatedRoute.parent) {
-      this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
-        this.appService.getApp(params.app).subscribe((app: App) => {
-          this.fillFormFields(app);
-        });
-      });
-    }
+    const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
+    this.appService.getApp(appId).subscribe((app: App) => {
+      this.fillFormFields(app);
+    });
   }
 
   public update() {

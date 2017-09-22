@@ -5,5 +5,5 @@ exports.signIn = (email, password) => {
 };
 
 exports.signOut = (apiToken) => {
-  return apiClient.post('/auth/accounts/sign_out', apiToken, {});
+  return apiClient.delete('/auth/accounts', apiToken);
 };

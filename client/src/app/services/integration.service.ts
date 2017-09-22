@@ -18,8 +18,8 @@ export class IntegrationService {
 
   private static readonly CHANNELS = 'channels';
 
-  public channelById: Map<string, Channel> = new Map<string, Channel>();
-  public channelsByType: Map<string, Channel[]> = new Map<string, Channel[]>();
+  private channelById: Map<string, Channel> = new Map<string, Channel>();
+  private channelsByType: Map<string, Channel[]> = new Map<string, Channel[]>();
 
   constructor(private http: Http) {
     this.indexChannels();

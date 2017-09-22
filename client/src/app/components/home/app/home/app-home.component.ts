@@ -25,13 +25,12 @@ export class AppHomeComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.activatedRoute.params.subscribe((params: {app: string}) => {
-      this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
-        this.account = account;
-        this.appService.getApp(params.app).subscribe((app: App) => {
-          this.app = app;
-          this.loading = false;
-        });
+    const appId = this.activatedRoute.snapshot.paramMap.get('app');
+    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
+      this.account = account;
+      this.appService.getApp(appId).subscribe((app: App) => {
+        this.app = app;
+        this.loading = false;
       });
     });
   }

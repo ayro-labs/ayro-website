@@ -32,14 +32,11 @@ export class SlackSetupIntegrationComponent implements OnInit {
 
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_SLACK);
-    if (this.activatedRoute.parent) {
-      this.activatedRoute.parent.params.subscribe((params: {app: string}) => {
-        this.appService.getApp(params.app).subscribe((app: App) => {
-          this.app = app;
-          this.setupIntegration();
-        });
-      });
-    }
+    const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
+    this.appService.getApp(appId).subscribe((app: App) => {
+      this.app = app;
+      this.setupIntegration();
+    });
   }
 
   public createChannel() {

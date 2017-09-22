@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, NavigationEnd} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 import {AuthService} from 'app/services/auth.service';
@@ -13,8 +13,11 @@ import {Account} from 'app/models/account.model';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  private static readonly INTRO_URL = '/';
+
   public account: Account;
 
+  private currentUrl: string;
   private subscriptions: Subscription[] = [];
 
   constructor(private authService: AuthService, private accountService: AccountService, private eventService: EventService, private router: Router) {
@@ -22,6 +25,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
+    this.currentUrl = this.router.url;
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.url;
+      }
+    });
     this.accountService.getAuthenticatedAccount().subscribe(
       (account: Account) => {
         if (account) {
@@ -39,6 +48,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     this.unsubscribeEvents();
+  }
+
+  public isIntroUrl() {
+    return this.currentUrl === HeaderComponent.INTRO_URL;
   }
 
   public signOut() {

@@ -35,3 +35,15 @@ exports.post = (path, apiToken, body) => {
     });
   });
 };
+
+exports.delete = (path, apiToken) => {
+  return new Promise((resolve, reject) => {
+    client.del(getRequestOptions(path, apiToken), (err, req, res, obj) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(obj);
+      }
+    });
+  });
+};
