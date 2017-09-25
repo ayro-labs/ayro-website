@@ -34,75 +34,51 @@
   <section class="blue">
     <div class="container text-center">
       <h2 class="mb-4">Conheça nossa plataforma!</h2>
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="feature">
-            <div class="feature-icon">
-              <i class="fa fa-users fa-3x"></i>
-            </div>
-            <div class="feature-description">
-              <h3>Feature title</h3>
-              <p>Feature description</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="feature">
-            <div class="feature-icon">
-              <i class="fa fa-location-arrow fa-3x"></i>
-            </div>
-            <div class="feature-description">
-              <h3>Feature title</h3>
-              <p>Feature description</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="feature">
-            <div class="feature-icon">
-              <i class="fa fa-map-marker fa-3x"></i>
-            </div>
-            <div class="feature-description">
-              <h3>Feature title</h3>
-              <p>Feature description</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="feature">
-            <div class="feature-icon">
-              <i class="fa fa-calendar fa-3x"></i>
-            </div>
-            <div class="feature-description">
-              <h3>Feature title</h3>
-              <p>Feature description</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
+      <div class="row mb-4">
+        <div class="col-md-6">
           <div class="feature">
             <div class="feature-icon">
               <i class="fa fa-commenting fa-3x"></i>
             </div>
             <div class="feature-description">
-              <h3>Feature title</h3>
-              <p>Feature description</p>
+              <h3>Live Chat</h3>
+              <p>Converse com seus clientes em tempo real, onde quer que eles estejam. Adicione suporte a Chat no seu Website e aplicativo em alguns minutos.</p>
             </div>
           </div>
         </div>
-
-        <div class="col-md-6 col-sm-6">
+        <div class="col-md-6">
           <div class="feature">
             <div class="feature-icon">
-              <i class="fa fa-map fa-3x"></i>
+              <i class="fa fa-facebook-square fa-3x"></i>
+              <i class="fa fa-twitter-square fa-3x"></i>
             </div>
             <div class="feature-description">
-              <h3>Feature title</h3>
-              <p>Feature description</p>
+              <h3>Redes sociais</h3>
+              <p>Com suporte à redes sociais, você não precisa se preocupar em acessar a rede social para saber se alguém entrou em contato.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-slack fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Ferramentas de comunicação</h3>
+              <p>Escolha as melhores ferramentas de comunicação do mercado para conversar com seus clientes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-usd fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Plano econômico</h3>
+              <p>Pague de acordo com o seu crescimento, começando gratuito.</p>
             </div>
           </div>
         </div>
@@ -112,8 +88,24 @@
   <section class="white">
     <div class="container text-center">
       <h2 class="mb-4">Quanto custa?</h2>
-      <h4 class="text-left">Muito simples! Um único plano que começa gratuito e você paga de acordo com o crescimento do seu negócio.</h4>
-      <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Crie uma conta gratuitamente</a>
+      <h4 class="mb-4 text-left">Muito simples! Um único plano que começa gratuito e você paga de acordo com o crescimento do seu negócio.</h4>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="card-title">
+                <h4>R$10 a cada 50 conversas</h4>
+                <hr/>
+                <p>Apps ilimitados</p>
+                <hr/>
+                <p>Todos os canais inclusos</p>
+                <hr/>
+                <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Criar conta</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </div>
