@@ -83,7 +83,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   }
 
   private setConfiguration() {
-    const integration = this.app.getIntegration(Integration.CHANNEL_WEBSITE);
+    const integration = this.app.getIntegration(Integration.CHANNEL_ANDROID);
     if (integration) {
       this.configuration = _.clone(integration.configuration) || {};
       if (!this.configuration.fcm) {
