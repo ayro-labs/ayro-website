@@ -1,13 +1,13 @@
 const settings = require('./configs/settings');
 const engine = require('./configs/engine');
 const middlewares = require('./configs/middlewares');
-const cors = require('./configs/cors');
 const routes = require('./configs/routes');
 const logger = require('./utils/logger');
 const loggerServer = require('./utils/logger-server');
 const fs = require('fs');
 const https = require('https');
 const express = require('express');
+const cors = require('cors');
 const flash = require('connect-flash');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('tiny', {stream: loggerServer.stream}));
-cors.configure(app);
+app.use(cors());
 app.use(express.static(settings.publicPath));
 
 const redisClient = redis.createClient(settings.redis.port, settings.redis.host);
