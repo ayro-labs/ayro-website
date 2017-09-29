@@ -56,6 +56,8 @@ app.use(session({
     ttl: settings.session.ttl,
   }),
   secret: settings.session.secret,
+  resave: false,
+  saveUninitialized: true,
 }));
 
 app.use(passport.initialize());

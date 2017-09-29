@@ -11,7 +11,7 @@ exports.configure = (app) => {
     res.header('Access-Control-Allow-Headers', 'Accept, Authorization, Content-Type, X-Token');
     res.header('Access-Control-Expose-Headers', 'Content-Length');
     if (req.method === 'OPTIONS') {
-      res.send(200);
+      res.sendStatus(200);
     } else {
       next();
     }
