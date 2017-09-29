@@ -58,6 +58,6 @@ export class AppSettingsComponent implements OnInit {
   private fillFormFields(app: App) {
     this.app = app;
     this.name = app.name;
-    this.icon = `http://api.chatz.io/img/apps/${app.icon}`;
+    this.icon = app.getIconUrl();
   }
 }

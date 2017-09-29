@@ -58,6 +58,6 @@ export class SettingsComponent implements OnInit {
     this.account = account;
     this.name = account.name;
     this.email = account.email;
-    this.logo = `http://api.chatz.io/img/accounts/${account.logo}`;
+    this.logo = account.getLogoUrl();
   }
 }

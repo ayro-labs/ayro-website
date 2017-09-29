@@ -5,6 +5,7 @@
   "scripts": {
     "client-lint": "tslint -c 'client/tslint.json' 'client/src/**/*.ts?(x)'",
     "client-build": "webpack --config 'client/webpack.config.js'",
+    "client-build-prod": "webpack --config 'client/webpack.config.js' --env.production",
     "server-lint": "eslint 'server/**/*.js'",
     "server-start": "node server/app.js"
   },
@@ -31,7 +32,8 @@
     "tslint-config-airbnb": "5.2.1",
     "typescript": "2.4.2",
     "typings": "2.1.1",
-    "webpack": "3.4.1"
+    "webpack": "3.4.1",
+    "webpack-merge": "4.1.0"
   },
   "dependencies": {
     "@angular/common": "4.3.3",

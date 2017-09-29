@@ -5,7 +5,7 @@ import {StorageUtils} from 'app/utils/storage.utils';
 export class RequestUtils {
 
   public static getApiUrl(url: string) {
-    return RequestUtils.API_URL + url;
+    return process.env.API_URL + url;
   }
 
   public static newJsonOptions() {
@@ -29,8 +29,6 @@ export class RequestUtils {
     });
     return new RequestOptions({headers});
   }
-
-  private static readonly API_URL: string = 'http://api.chatz.io';
 
   private constructor() {
 

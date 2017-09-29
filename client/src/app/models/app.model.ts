@@ -2,7 +2,7 @@ import {Integration} from 'app/models/integration.model';
 
 export class App {
 
-  private static readonly ICON_URL = 'http://api.chatz.io/img/apps/';
+  private static readonly ICON_URL = `${process.env.API_URL}/img/apps/`;
 
   public id: string;
   public account: string;

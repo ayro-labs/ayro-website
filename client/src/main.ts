@@ -2,7 +2,6 @@ import {enableProdMode} from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 import {AppModule} from './app/app.module';
-import {environment} from './environments/environment';
 
 import 'assets/css/main.less';
 import 'assets/img/favicon.ico';
@@ -23,7 +22,7 @@ import 'assets/img/guides/slack/channel-setup.png';
 import 'assets/img/guides/slack/cmd-chz.png';
 import 'assets/img/guides/slack/cmd-profile.png';
 
-if (environment.production) {
+if (process.env.PRODUCTION) {
   enableProdMode();
 }
 

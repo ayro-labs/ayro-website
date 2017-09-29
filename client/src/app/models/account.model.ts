@@ -1,6 +1,6 @@
 export class Account {
 
-  private static readonly LOGO_URL = 'http://api.chatz.io/img/accounts/';
+  private static readonly LOGO_URL = `${process.env.API_URL}/img/accounts/`;
 
   public name: string;
   public email: string;
