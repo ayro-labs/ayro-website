@@ -10,7 +10,7 @@ exports.debug = properties.getValue('app.debug', false);
 
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
-exports.apiUrl = 'http://api.chatz.io';
+exports.apiUrl = this.env === 'production' ? 'http://api.chatz.io' : 'http://api.chatz.io:4000';
 
 exports.session = {
   secret: 'chatz.io',
