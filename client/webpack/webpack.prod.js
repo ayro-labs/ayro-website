@@ -10,7 +10,7 @@ module.exports = webpackMerge(webpackCommon, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        API_URL: JSON.stringify('http://api.chatz.io'),
+        API_URL: JSON.stringify('https://api.chatz.io'),
         PRODUCTION: true,
       },
     }),

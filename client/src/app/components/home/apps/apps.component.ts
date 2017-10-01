@@ -3,7 +3,6 @@ import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import {CreateAppComponent} from 'app/components/home/apps/create-app/create-app.component';
-import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
 import {Account} from 'app/models/account.model';
@@ -20,17 +19,14 @@ export class AppsComponent implements OnInit {
   public apps: App[] = [];
   public loading: boolean = true;
 
-  constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private router: Router, private ngbModal: NgbModal) {
+  constructor(private appService: AppService, private integrationService: IntegrationService, private router: Router, private ngbModal: NgbModal) {
 
   }
 
   public ngOnInit() {
-    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
-      this.account = account;
-      this.appService.listApps().subscribe((apps: App[]) => {
-        this.apps = apps;
-        this.loading = false;
-      });
+    this.appService.listApps().subscribe((apps: App[]) => {
+      this.apps = apps;
+      this.loading = false;
     });
   }
 
