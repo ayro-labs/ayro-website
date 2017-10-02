@@ -68,10 +68,10 @@ middlewares.configure(app);
 routes.configure(express, app);
 
 if (settings.https) {
-  const key = fs.readFileSync(settings.https.key);
   const cert = fs.readFileSync(settings.https.cert);
-  https.createServer({key, cert}, app).listen(app.get('port'), () => {
-    logger.info('Chatz Website server is listening on port %s (Https)', app.get('port'));
+  const key = fs.readFileSync(settings.https.key);
+  https.createServer({cert, key}, app).listen(app.get('port'), () => {
+    logger.info('Chatz Website server is listening on port %s', app.get('port'));
   });
 } else {
   app.listen(app.get('port'), () => {

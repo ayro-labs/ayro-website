@@ -7,6 +7,6 @@ exports.configure = (app) => {
   logger.info('Configuring middlewares');
 
   if (settings.prerender) {
-    app.use(prerender.set('prerenderServiceUrl', settings.prerender.url));
+    app.use(prerender.set('prerenderServiceUrl', settings.prerenderUrl));
   }
 };

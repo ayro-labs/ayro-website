@@ -1,8 +1,8 @@
 const settings = require('../configs/settings');
-const restifyClients = require('restify-clients');
+const restify = require('restify-clients');
 const Promise = require('bluebird');
 
-const client = restifyClients.createJsonClient(settings.apiUrl);
+const client = restify.createJsonClient(settings.apiUrl);
 
 function getRequestOptions(path, apiToken) {
   const options = {path, headers: {}};

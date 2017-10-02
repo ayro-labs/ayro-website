@@ -31,9 +31,7 @@ exports.redis = {
 };
 
 if (properties.getValue('prerender')) {
-  exports.prerender = {
-    url: properties.getValue('prerender.url', 'http://localhost:9000'),
-  };
+  exports.prerenderUrl = properties.getValue('prerender.url', 'http://localhost:9000');
 }
 
 if (properties.getValue('https')) {
@@ -41,6 +39,10 @@ if (properties.getValue('https')) {
     key: properties.getValue('https.key'),
     cert: properties.getValue('https.cert'),
   };
+}
+
+if (this.env === 'production' && !this.https) {
+  throw new Error('Https is required when running in production environment');
 }
 
 logger.info('Using %s environment settings', this.env);
