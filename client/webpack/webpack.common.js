@@ -65,6 +65,11 @@ module.exports = {
         loader: `file-loader?name=[path][name].[ext]&context=${helpers.root('/client/src')}`,
         include: helpers.root('/client/src/assets/fonts'),
       },
+      {
+        test: /igrcu0o0tbmjUj5L7B2qpuoHRx61UI8qzH5V9CJyGeI$/,
+        loader: `file-loader?name=[path][name]&context=${helpers.root('/client/src')}`,
+        include: helpers.root('/client/src/.well-known/acme-challenge'),
+      },
     ],
   },
   plugins: [
