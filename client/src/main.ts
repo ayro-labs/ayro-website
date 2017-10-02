@@ -21,7 +21,7 @@ import 'assets/img/guides/slack/signin.png';
 import 'assets/img/guides/slack/channel-setup.png';
 import 'assets/img/guides/slack/cmd-chz.png';
 import 'assets/img/guides/slack/cmd-profile.png';
-import '.well-known/acme-challenge/igrcu0o0tbmjUj5L7B2qpuoHRx61UI8qzH5V9CJyGeI';
+import '.well-known/acme-challenge/sEnsQ9mkWyoaAFfUrFpykGZfLqUvoUwJB4pDJj0IGwA';
 
 if (process.env.PRODUCTION) {
   enableProdMode();
