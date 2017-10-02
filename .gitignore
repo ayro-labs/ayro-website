@@ -1,4 +1,5 @@
 node_modules
-client-dist
-server/chatz-website.log
 npm-debug.log
+server/chatz-website.log
+server/config.properties
+client-dist
