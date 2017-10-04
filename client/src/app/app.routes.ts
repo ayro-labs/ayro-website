@@ -10,10 +10,12 @@ import {AppComponent} from 'app/components/home/app/app.component';
 import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
 import {AppSettingsComponent} from 'app/components/home/app/settings/app-settings.component';
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
-import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
-import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
+import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
+import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
+import {MessengerIntegrationComponent} from 'app/components/home/app/integrations/messenger/messenger.component';
+import {MessengerSetupIntegrationComponent} from 'app/components/home/app/integrations/messenger/setup/messenger-setup.component';
 import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
 import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
 import {GuidesComponent} from 'app/components/home/guides/guides.component';
@@ -38,6 +40,8 @@ export const AppRoutes: Routes = [
       {path: 'integrations/website/setup', component: WebsiteSetupIntegrationComponent},
       {path: 'integrations/android', component: AndroidIntegrationComponent},
       {path: 'integrations/android/setup', component: AndroidSetupIntegrationComponent},
+      {path: 'integrations/messenger', component: MessengerIntegrationComponent},
+      {path: 'integrations/messenger/setup', component: MessengerSetupIntegrationComponent},
       {path: 'integrations/slack', component: SlackIntegrationComponent},
       {path: 'integrations/slack/setup', component: SlackSetupIntegrationComponent},
     ]},

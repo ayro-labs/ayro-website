@@ -8,6 +8,7 @@ import 'rxjs/add/observable/throw';
 import {App} from 'app/models/app.model';
 import {Channel} from 'app/models/channel.model';
 import {SlackChannel} from 'app/models/slack-channel.model';
+import {FacebookPage} from 'app/models/facebook-page.model';
 import {ApiError} from 'app/services/commons/api.error';
 import {RequestUtils} from 'app/utils/request.utils';
 
@@ -43,6 +44,18 @@ export class IntegrationService {
   public removeIntegration(app: App, channel: Channel): Observable<App> {
     return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/${channel.id}`), RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new App(res.json()))
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
+  public listFacebookPages(app: App): Observable<FacebookPage[]> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/messenger/pages`), RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => {
+        const pages: FacebookPage[] = [];
+        (res.json() as any[]).forEach((data: any) => {
+          pages.push(new FacebookPage(data));
+        });
+        return pages;
+      })
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 

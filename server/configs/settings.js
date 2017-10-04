@@ -12,22 +12,29 @@ exports.publicPath = path.join(__dirname, '../../client-dist');
 
 exports.apiUrl = this.env === 'production' ? 'https://api.chatz.io' : 'http://localhost:3000';
 
+exports.websiteUrl = this.env === 'production' ? 'https://www.chatz.io' : 'http://localhost:4000';
+
 exports.session = {
   secret: 'chatz.io',
   prefix: 'websession:',
   ttl: Number.MAX_SAFE_INTEGER,
 };
 
-exports.slack = {
-  clientId: '238285510608.246046996448',
-  clientSecret: 'a10204a6416c5e4b50a1209c6380568f',
-  verificationToken: '5aRssO4wD1yjYeyfDNuA6np2',
-};
-
 exports.redis = {
   host: properties.getValue('redis.host', 'localhost'),
   port: properties.getValue('redis.port', 6379),
   password: properties.getValue('redis.password'),
+};
+
+exports.facebook = {
+  appId: '1577343385621250',
+  appSecret: '28a2b0321aec6799be5f0e884431f626',
+};
+
+exports.slack = {
+  clientId: '238285510608.246046996448',
+  clientSecret: 'a10204a6416c5e4b50a1209c6380568f',
+  verificationToken: '5aRssO4wD1yjYeyfDNuA6np2',
 };
 
 if (properties.getValue('prerender')) {

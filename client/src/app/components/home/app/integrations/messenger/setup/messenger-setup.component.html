@@ -9,14 +9,14 @@
       <div class="card mt-4">
         <div class="card-body">
           <h4>Relacionados</h4>
-          <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="d-block">
+          <a [routerLink]="['/apps', app.id, 'integrations', 'messenger']" class="d-block">
             Ver detalhes
           </a>
-          <a [routerLink]="['/guides', 'slack']" class="d-block mt-2">
+          <a [routerLink]="['/guides', 'messenger']" class="d-block mt-2">
             Documentação
           </a>
-          <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
-            Website do Slack
+          <a href="https://www.messenger.com" target="_blank" class="d-block mt-2">
+            Website do Messenger
           </a>
         </div>
       </div>
@@ -31,18 +31,18 @@
             Canal do Usuário
           </span>
           <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte a usuários.</p>
+          <p class="integration-subtitle mb-0">Transforme o Messenger em uma ferramenta de suporte a usuários.</p>
         </div>
       </div>
       <div *ngIf="!hasIntegration()" class="card mt-4">
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
+              <h5 class="mb-3">Para começar, por favor entre com sua conta do Facebook.</h5>
               <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
-              <a class="btn btn-slack" href="/apps/{{ app.id }}/integrations/slack/connect">
-                <img src="/assets/img/integrations/slack_micro.png"/>
-                <span class="ml-1 align-middle">Logar com o <b>Slack</b></span>
+              <a class="btn btn-facebook" href="/apps/{{ app.id }}/integrations/facebook/connect">
+                <i class="fa fa-facebook align-middle"></i>
+                <span class="ml-1 align-middle">Logar com o <b>Facebook</b></span>
               </a>
             </div>
           </div>
@@ -53,24 +53,22 @@
           <form novalidate>
             <div class="row">
               <div class="col-md-12">
-                <h4 class="mb-2">Conta conectada</h4>
-                <p class="mb-2">Conta do Slack que dá permissão ao Chatz para interagir com o seu time.</p>
-                <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.user.name }}</code>.</p>
+                <h4 class="mb-2">Perfil conectado</h4>
+                <p class="mb-2">Perfil do Facebook que dá permissão ao Chatz para interagir com o Messenger.</p>
+                <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.profile.name }}</code>.</p>
               </div>
             </div>
             <div class="row mt-4">
               <div class="col-md-12">
-                <h4 class="mb-2">Canal de suporte</h4>
-                <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos usuários.</p>
-                <p class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
+                <h4 class="mb-2">Página conectada</h4>
+                <p class="mb-2">Página do Facebook escolhida para integração com o Chatz via Messenger.</p>
+                <p *ngIf="originalConfiguration.page" class="mb-2">Você conectou a página <code>{{ originalConfiguration.page.name }}</code>.</p>
+                <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não conectou nenhuma página.</p>
                 <div class="row">
                   <div class="col-md-5">
-                    <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="support-channel" class="form-control">
-                      <option *ngFor="let slackChannel of slackChannels" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
+                    <select [(ngModel)]="configuration.page" [compareWith]="comparePages" name="connected-page" class="form-control">
+                      <option *ngFor="let facebookPage of facebookPages" [ngValue]="facebookPage" [selected]="configuration.page && configuration.page.id === facebookPage.id">{{ facebookPage.name }}</option>
                     </select>
-                  </div>
-                  <div class="col-md-7">
-                    <button (click)="createChannel()" type="button" class="btn btn-primary">Criar canal</button>
                   </div>
                 </div>
               </div>

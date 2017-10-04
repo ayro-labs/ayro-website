@@ -1,0 +1,56 @@
+<ng-container *ngIf="app">
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <img [src]="channel.picture_url" class="w-100"/>
+        </div>
+      </div>
+      <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
+        <span *ngIf="!hasIntegration()">Integrar</span>
+        <span *ngIf="hasIntegration()">Configurar</span>
+      </button>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4>Relacionados</h4>
+          <a [routerLink]="['/guides', 'messenger']" class="d-block">
+            Documentação
+          </a>
+          <a href="https://www.messenger.com" target="_blank" class="d-block mt-2">
+            Website do Messenger
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
+            Canal da Empresa
+          </span>
+          <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
+            Canal do Usuário
+          </span>
+          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
+          <p class="integration-subtitle mb-0">Converse com os usuários do Facebook Messenger direto do canal da empresa.</p>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-body integration-description">
+          <p>Messenger é uma ferramenta de comunicação e colaboração utilizada por milhões de pessoas todos os dias.</p>
+          <p>Transforme esta incrível ferramenta em uma ferramenta de suporte a usuários.</p>
+          <h4>Funcionalidades</h4>
+          <ul>
+            <li>Converse com os usuários através de canais do Messenger criados exclusivamente para atendê-los.</li>
+            <li>Receba informações do perfil do usuário que iniciou uma conversa.</li>
+          </ul>
+          <h4>Requerimentos</h4>
+          <ul>
+            <li>Uma conta no Facebook. Você pode criar uma conta gratuita em <a href="https://facebook.com" target="_blank">https://facebook.com</a>.</li>
+            <li>Uma página no Facebook.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
