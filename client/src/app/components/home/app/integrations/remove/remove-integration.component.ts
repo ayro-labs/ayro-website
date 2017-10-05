@@ -32,8 +32,8 @@ export class RemoveIntegrationComponent {
   }
 
   public remove() {
-    this.integrationService.removeIntegration(this.app, this.channel).subscribe((app: App) => {
-      this.ngbActiveModal.close(app);
+    this.integrationService.removeIntegration(this.app, this.channel).subscribe(() => {
+      this.ngbActiveModal.close();
       this.alertService.success('Integração removida com sucesso!');
     }, () => {
       this.alertService.error('Não foi possível remover a integração, por favor tente novamente mais tarde!');

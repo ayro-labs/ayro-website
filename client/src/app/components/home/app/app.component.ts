@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     const appId = this.activatedRoute.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).subscribe((app: App) => {
+    this.appService.getApp(appId, true).subscribe((app: App) => {
       this.app = app;
       this.subscriptions.push(this.eventService.subscribe('app_name_changed', (event: IEvent) => {
         this.app.name = event.value;

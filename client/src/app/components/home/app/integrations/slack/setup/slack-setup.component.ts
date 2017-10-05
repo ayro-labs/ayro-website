@@ -21,6 +21,7 @@ import * as _ from 'lodash';
 export class SlackSetupIntegrationComponent implements OnInit {
 
   public app: App;
+  public integration: Integration;
   public channel: Channel;
   public originalConfiguration: any = {};
   public configuration: any = {};
@@ -35,32 +36,24 @@ export class SlackSetupIntegrationComponent implements OnInit {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).subscribe((app: App) => {
       this.app = app;
-      this.setupIntegration();
+      this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
+        this.integration = integration;
+        this.setConfiguration();
+      });
+      this.integrationService.listSlackChannels(this.app).subscribe((slackChannels: SlackChannel[]) => {
+        this.slackChannels = slackChannels;
+      });
     });
-  }
-
-  public createChannel() {
-    const modalRef = this.ngbModal.open(CreateSlackChannelComponent);
-    modalRef.componentInstance.app = this.app;
-    modalRef.result.then((channel: SlackChannel) => {
-      this.slackChannels.push(channel);
-    }).catch(() => {
-      // Nothing to do...
-    });
-  }
-
-  public compareChannels(channel: any, otherChannel: any) {
-    return channel && otherChannel && channel.id === otherChannel.id;
   }
 
   public hasIntegration() {
-    return this.app.getIntegration(Integration.CHANNEL_SLACK) !== null;
+    return this.integration !== null;
   }
 
   public updateConfiguration() {
-    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
-      this.app = app;
-      this.setupIntegration();
+    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration: Integration) => {
+      this.integration = integration;
+      this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
     }, () => {
       this.alertService.error('Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
@@ -78,14 +71,24 @@ export class SlackSetupIntegrationComponent implements OnInit {
     });
   }
 
-  private setupIntegration() {
-    const integration = this.app.getIntegration(Integration.CHANNEL_SLACK);
-    if (integration) {
-      this.originalConfiguration = integration.configuration;
-      this.configuration = _.cloneDeep(integration.configuration);
-      this.integrationService.listSlackChannels(this.app).subscribe((slackChannels: SlackChannel[]) => {
-        this.slackChannels = slackChannels;
-      });
+  public compareChannels(channel: any, otherChannel: any) {
+    return channel && otherChannel && channel.id === otherChannel.id;
+  }
+
+  public createChannel() {
+    const modalRef = this.ngbModal.open(CreateSlackChannelComponent);
+    modalRef.componentInstance.app = this.app;
+    modalRef.result.then((channel: SlackChannel) => {
+      this.slackChannels.push(channel);
+    }).catch(() => {
+      // Nothing to do...
+    });
+  }
+
+  private setConfiguration() {
+    if (this.integration) {
+      this.originalConfiguration = this.integration.configuration;
+      this.configuration = _.cloneDeep(this.integration.configuration);
     }
   }
 }

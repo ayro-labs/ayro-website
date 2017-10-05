@@ -19,6 +19,7 @@ import * as _ from 'lodash';
 export class WebsiteSetupIntegrationComponent implements OnInit {
 
   public app: App;
+  public integration: Integration;
   public channel: Channel;
   public configuration: any = {};
 
@@ -31,7 +32,10 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).subscribe((app: App) => {
       this.app = app;
-      this.setConfiguration();
+      this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
+        this.integration = integration;
+        this.setConfiguration();
+      });
     });
   }
 
@@ -40,15 +44,15 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   }
 
   public hasIntegration() {
-    return this.app.getIntegration(Integration.CHANNEL_WEBSITE) !== null;
+    return this.integration !== null;
   }
 
   public testIntegration() {
-    this.appService.getApp(this.app.id).subscribe((app: App) => {
-      this.app = app;
+    this.integrationService.getIntegration(this.app, this.channel).subscribe((integration: Integration) => {
+      this.integration = integration;
       this.setConfiguration();
-      if (this.hasIntegration()) {
-        this.alertService.success('Integração testada com sucesso!');
+      if (this.integration) {
+        this.alertService.success('Integração realizada com sucesso!');
       } else {
         this.alertService.error('O teste falhou, por favor revise os passos novamente.');
       }
@@ -63,8 +67,9 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     if (configuration.conversation_color) {
       configuration.conversation_color = '#' + configuration.conversation_color;
     }
-    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((app: App) => {
-      this.app = app;
+    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration: Integration) => {
+      this.integration = integration;
+      this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
     }, () => {
       this.alertService.error('Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
@@ -83,9 +88,8 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   }
 
   private setConfiguration() {
-    const integration = this.app.getIntegration(Integration.CHANNEL_WEBSITE);
-    if (integration) {
-      this.configuration = _.cloneDeep(integration.configuration) || {};
+    if (this.integration) {
+      this.configuration = _.cloneDeep(this.integration.configuration) || {};
       if (this.configuration.primary_color) {
         this.configuration.primary_color = this.configuration.primary_color.replace('#', '');
       }

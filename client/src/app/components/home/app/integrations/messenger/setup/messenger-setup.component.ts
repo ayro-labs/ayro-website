@@ -20,6 +20,7 @@ import * as _ from 'lodash';
 export class MessengerSetupIntegrationComponent implements OnInit {
 
   public app: App;
+  public integration: Integration;
   public channel: Channel;
   public originalConfiguration: any = {};
   public configuration: any = {};
@@ -34,22 +35,24 @@ export class MessengerSetupIntegrationComponent implements OnInit {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).subscribe((app: App) => {
       this.app = app;
-      this.setupIntegration();
+      this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
+        this.integration = integration;
+        this.setConfiguration();
+      });
+      this.integrationService.listFacebookPages(this.app).subscribe((facebookPages: FacebookPage[]) => {
+        this.facebookPages = facebookPages;
+      });
     });
   }
 
-  public comparePages(page: any, otherPage: any) {
-    return page && otherPage && page.id === otherPage.id;
-  }
-
   public hasIntegration() {
-    return this.app.getIntegration(Integration.CHANNEL_MESSENGER) !== null;
+    return this.integration !== null;
   }
 
   public updateConfiguration() {
-    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((app: App) => {
-      this.app = app;
-      this.setupIntegration();
+    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration: Integration) => {
+      this.integration = integration;
+      this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
     }, () => {
       this.alertService.error('Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
@@ -67,14 +70,14 @@ export class MessengerSetupIntegrationComponent implements OnInit {
     });
   }
 
-  private setupIntegration() {
-    const integration = this.app.getIntegration(Integration.CHANNEL_MESSENGER);
-    if (integration) {
-      this.originalConfiguration = integration.configuration;
-      this.configuration = _.cloneDeep(integration.configuration);
-      this.integrationService.listFacebookPages(this.app).subscribe((facebookPages: FacebookPage[]) => {
-        this.facebookPages = facebookPages;
-      });
+  public comparePages(page: any, otherPage: any) {
+    return page && otherPage && page.id === otherPage.id;
+  }
+
+  private setConfiguration() {
+    if (this.integration) {
+      this.originalConfiguration = this.integration.configuration;
+      this.configuration = _.cloneDeep(this.integration.configuration);
     }
   }
 }

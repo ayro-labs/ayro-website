@@ -16,8 +16,8 @@ export class AppService {
 
   }
 
-  public listApps(): Observable<App[]> {
-    return this.http.get(RequestUtils.getApiUrl('/apps'), RequestUtils.newJsonOptionsWithApiToken())
+  public listApps(withIntegrations?: boolean): Observable<App[]> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps?integrations=${withIntegrations || false}`), RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => {
         const apps: App[] = [];
         (res.json() as any[]).forEach((data: any) => {
@@ -25,6 +25,12 @@ export class AppService {
         });
         return apps;
       })
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+  }
+
+  public getApp(id: string, withIntegrations?: boolean): Observable<App> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}?integrations=${withIntegrations || false}`), RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => new App(res.json()))
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
@@ -48,15 +54,9 @@ export class AppService {
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
-  public deleteApp(app: App): Observable<any> {
+  public deleteApp(app: App): Observable<null> {
     return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}`), RequestUtils.newJsonOptionsWithApiToken())
-      .map((res: Response) => res.json())
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
-  }
-
-  public getApp(id: string): Observable<App> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}`), RequestUtils.newJsonOptionsWithApiToken())
-      .map((res: Response) => new App(res.json()))
+      .map(() => null)
       .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 }
