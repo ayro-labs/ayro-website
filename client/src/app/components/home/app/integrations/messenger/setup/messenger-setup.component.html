@@ -12,9 +12,6 @@
           <a [routerLink]="['/apps', app.id, 'integrations', 'messenger']" class="d-block">
             Ver detalhes
           </a>
-          <a [routerLink]="['/guides', 'messenger']" class="d-block mt-2">
-            Documentação
-          </a>
           <a href="https://www.messenger.com" target="_blank" class="d-block mt-2">
             Website do Messenger
           </a>
@@ -31,7 +28,7 @@
             Canal do Usuário
           </span>
           <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Transforme o Messenger em uma ferramenta de suporte a usuários.</p>
+          <p class="integration-subtitle mb-0">Converse com os usuários do Facebook Messenger direto do canal da empresa.</p>
         </div>
       </div>
       <div *ngIf="!hasIntegration()" class="card mt-4">
@@ -39,7 +36,7 @@
           <div class="row">
             <div class="col-md-12">
               <h5 class="mb-3">Para começar, por favor entre com sua conta do Facebook.</h5>
-              <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
+              <p>Ao conectar sua conta você nos dará permissão de enviar e receber mensagens via Messenger, através de um BOT.</p>
               <a class="btn btn-facebook" href="/apps/{{ app.id }}/integrations/facebook/connect">
                 <i class="fa fa-facebook align-middle"></i>
                 <span class="ml-1 align-middle">Logar com o <b>Facebook</b></span>
@@ -76,7 +73,7 @@
             <div class="row mt-4">
               <div class="col-md-12">
                 <hr/>
-                <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
+                <button (click)="updateConfiguration()" [disabled]="!configuration.page || facebookPages.length === 0" type="button" class="btn btn-primary float-left">
                   Atualizar configuração
                 </button>
                 <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">

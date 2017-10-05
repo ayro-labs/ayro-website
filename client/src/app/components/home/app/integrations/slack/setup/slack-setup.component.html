@@ -78,7 +78,7 @@
             <div class="row mt-4">
               <div class="col-md-12">
                 <hr/>
-                <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
+                <button (click)="updateConfiguration()" [disabled]="!configuration.channel || slackChannels.length === 0" type="button" class="btn btn-primary float-left">
                   Atualizar configuração
                 </button>
                 <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">

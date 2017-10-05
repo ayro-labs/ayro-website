@@ -64,8 +64,9 @@ module.exports = (router, app) => {
   passport.use(new SlackStrategy({
     clientID: settings.slack.clientId,
     clientSecret: settings.slack.clientSecret,
-    skipUserProfile: true,
+    callbackURL: `${settings.websiteUrl}/apps/integrations/slack/connect/callback`,
     scope: ['identify', 'commands', 'users:read.email', 'chat:write:bot', 'channels:write', 'channels:read', 'users:read'],
+    skipUserProfile: true,
   }, (accessToken, refreshToken, profile, done) => {
     done(null, accessToken);
   }));

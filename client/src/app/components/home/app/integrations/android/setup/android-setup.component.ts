@@ -56,7 +56,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
-    const configuration = _.clone(this.configuration);
+    const configuration = _.cloneDeep(this.configuration);
     if (configuration.primary_color) {
       configuration.primary_color = '#' + configuration.primary_color;
     }
@@ -85,7 +85,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   private setConfiguration() {
     const integration = this.app.getIntegration(Integration.CHANNEL_ANDROID);
     if (integration) {
-      this.configuration = _.clone(integration.configuration) || {};
+      this.configuration = _.cloneDeep(integration.configuration) || {};
       if (!this.configuration.fcm) {
         this.configuration.fcm = {};
       }

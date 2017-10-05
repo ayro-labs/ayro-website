@@ -71,7 +71,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
     const integration = this.app.getIntegration(Integration.CHANNEL_MESSENGER);
     if (integration) {
       this.originalConfiguration = integration.configuration;
-      this.configuration = _.cloneDeep(integration.configuration);
+      this.configuration = _.cloneDeepDeep(integration.configuration);
       this.integrationService.listFacebookPages(this.app).subscribe((facebookPages: FacebookPage[]) => {
         this.facebookPages = facebookPages;
       });
