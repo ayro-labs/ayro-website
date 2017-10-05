@@ -82,7 +82,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
     const integration = this.app.getIntegration(Integration.CHANNEL_SLACK);
     if (integration) {
       this.originalConfiguration = integration.configuration;
-      this.configuration = _.cloneDeepDeep(integration.configuration);
+      this.configuration = _.cloneDeep(integration.configuration);
       this.integrationService.listSlackChannels(this.app).subscribe((slackChannels: SlackChannel[]) => {
         this.slackChannels = slackChannels;
       });
