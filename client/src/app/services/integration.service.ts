@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 
 import {App} from 'app/models/app.model';
@@ -39,7 +40,13 @@ export class IntegrationService {
   public getIntegration(app: App, channel: Channel): Observable<Integration> {
     return this.http.get(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/${channel.id}`), RequestUtils.newJsonOptionsWithApiToken())
       .map((res: Response) => new Integration(res.json()))
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        if (apiError.code === ApiError.INTEGRATION_DOES_NOT_EXIST) {
+          return Observable.of(null);
+        }
+        return Observable.throw(ApiError.withResponse(err));
+      });
   }
 
   public updateIntegration(app: App, channel: Channel, configuration: any): Observable<Integration> {
