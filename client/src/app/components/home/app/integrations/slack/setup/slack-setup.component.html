@@ -34,7 +34,7 @@
           <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte a usuários.</p>
         </div>
       </div>
-      <div *ngIf="!hasIntegration()" class="card mt-4">
+      <div *ngIf="!integration" class="card mt-4">
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
@@ -42,16 +42,16 @@
               <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
               <a class="btn btn-slack" href="/apps/{{ app.id }}/integrations/slack/connect">
                 <img src="/assets/img/integrations/slack_micro.png"/>
-                <span class="ml-1 align-middle">Logar com o <b>Slack</b></span>
+                <span class="ml-1 align-middle">Logar com o Slack</span>
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="hasIntegration()" class="card mt-4">
+      <div *ngIf="integration" class="card mt-4">
         <div class="card-body">
           <form novalidate>
-            <div class="row">
+            <div *ngIf="originalConfiguration.user" class="row">
               <div class="col-md-12">
                 <h4 class="mb-2">Conta conectada</h4>
                 <p class="mb-2">Conta do Slack que dá permissão ao Chatz para interagir com o seu time.</p>
@@ -62,7 +62,8 @@
               <div class="col-md-12">
                 <h4 class="mb-2">Canal de suporte</h4>
                 <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos usuários.</p>
-                <p class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
+                <p *ngIf="originalConfiguration.page" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
+                <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não escolheu nenhum canal.</p>
                 <div class="row">
                   <div class="col-md-5">
                     <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="support-channel" class="form-control">

@@ -31,8 +31,4 @@ export class WebsiteIntegrationComponent implements OnInit {
       });
     });
   }
-
-  public hasIntegration() {
-    return this.integration !== null;
-  }
 }

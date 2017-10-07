@@ -46,10 +46,6 @@ export class SlackSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public hasIntegration() {
-    return this.integration !== null;
-  }
-
   public updateConfiguration() {
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration: Integration) => {
       this.integration = integration;

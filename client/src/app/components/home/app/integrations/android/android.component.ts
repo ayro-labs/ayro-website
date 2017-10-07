@@ -27,8 +27,4 @@ export class AndroidIntegrationComponent implements OnInit {
       this.app = app;
     });
   }
-
-  public hasIntegration() {
-    return this.app.getIntegration(Integration.CHANNEL_ANDROID) !== null;
-  }
 }

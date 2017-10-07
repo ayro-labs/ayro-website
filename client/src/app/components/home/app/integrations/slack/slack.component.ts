@@ -31,8 +31,4 @@ export class SlackIntegrationComponent implements OnInit {
       });
     });
   }
-
-  public hasIntegration() {
-    return this.integration !== null;
-  }
 }

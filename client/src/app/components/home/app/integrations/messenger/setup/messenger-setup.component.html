@@ -31,7 +31,7 @@
           <p class="integration-subtitle mb-0">Converse com os usuários do Facebook Messenger direto do canal da empresa.</p>
         </div>
       </div>
-      <div *ngIf="!hasIntegration()" class="card mt-4">
+      <div *ngIf="!integration" class="card mt-4">
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
@@ -39,16 +39,16 @@
               <p>Ao conectar sua conta você nos dará permissão de enviar e receber mensagens via Messenger, através de um BOT.</p>
               <a class="btn btn-facebook" href="/apps/{{ app.id }}/integrations/facebook/connect">
                 <i class="fa fa-facebook align-middle"></i>
-                <span class="ml-1 align-middle">Logar com o <b>Facebook</b></span>
+                <span class="ml-1 align-middle">Logar com o Facebook</span>
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="hasIntegration()" class="card mt-4">
+      <div *ngIf="integration" class="card mt-4">
         <div class="card-body">
           <form novalidate>
-            <div class="row">
+            <div *ngIf="originalConfiguration.profile" class="row">
               <div class="col-md-12">
                 <h4 class="mb-2">Perfil conectado</h4>
                 <p class="mb-2">Perfil do Facebook que dá permissão ao Chatz para interagir com o Messenger.</p>

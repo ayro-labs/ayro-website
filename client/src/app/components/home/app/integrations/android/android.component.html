@@ -7,8 +7,8 @@
         </div>
       </div>
       <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
-        <span *ngIf="!hasIntegration()">Integrar</span>
-        <span *ngIf="hasIntegration()">Configurar</span>
+        <span *ngIf="!integration">Integrar</span>
+        <span *ngIf="integration">Configurar</span>
       </button>
       <div class="card mt-4">
         <div class="card-body">

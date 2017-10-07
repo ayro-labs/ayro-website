@@ -31,8 +31,4 @@ export class MessengerIntegrationComponent implements OnInit {
       });
     });
   }
-
-  public hasIntegration() {
-    return this.integration !== null;
-  }
 }

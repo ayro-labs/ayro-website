@@ -7,8 +7,8 @@
         </div>
       </div>
       <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
-        <span *ngIf="!hasIntegration()">Integrar</span>
-        <span *ngIf="hasIntegration()">Configurar</span>
+        <span *ngIf="!integration">Integrar</span>
+        <span *ngIf="integration">Configurar</span>
       </button>
       <div class="card mt-4">
         <div class="card-body">
@@ -38,7 +38,7 @@
           <p>Simplifique o suporte aos visitantes da sua página no Facebook centralizando as mensagens enviadas via Messenger no canal da empresa.</p>
           <h4>Funcionalidades</h4>
           <ul>
-            <li>Os visitantes da sua página enviam mensagens via Messenger e seu time recebe as mensagens no canal da empresa.</li>
+            <li>Os visitantes da sua página enviam mensagens via Messenger e seu time as recebe no canal da empresa.</li>
             <li>Seu time responde no canal da empresa e o visitante da página recebe a mensagem direto no Messenger.</li>
           </ul>
           <h4>Requerimentos</h4>

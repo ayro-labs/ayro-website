@@ -43,10 +43,6 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     // Copy to Clipboard
   }
 
-  public hasIntegration() {
-    return this.integration !== null;
-  }
-
   public testIntegration() {
     this.integrationService.getIntegration(this.app, this.channel).subscribe((integration: Integration) => {
       this.integration = integration;

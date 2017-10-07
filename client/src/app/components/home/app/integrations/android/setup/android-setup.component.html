@@ -31,7 +31,7 @@
           <p class="integration-subtitle mb-0">Converse em tempo real com os usuários do seu aplicativo Android.</p>
         </div>
       </div>
-      <div *ngIf="!hasIntegration()" class="card">
+      <div *ngIf="!integration" class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
@@ -70,7 +70,7 @@ Chatz.init(this, settings);</code></pre>
           </div>
         </div>
       </div>
-      <div *ngIf="hasIntegration()" class="card">
+      <div *ngIf="integration" class="card">
         <div class="card-body">
           <form novalidate>
             <div class="row">
