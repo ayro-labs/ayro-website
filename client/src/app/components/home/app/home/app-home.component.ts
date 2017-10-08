@@ -28,7 +28,7 @@ export class AppHomeComponent implements OnInit {
     const appId = this.activatedRoute.snapshot.paramMap.get('app');
     this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
       this.account = account;
-      this.appService.getApp(appId).subscribe((app: App) => {
+      this.appService.getApp(appId, true).subscribe((app: App) => {
         this.app = app;
         this.loading = false;
       });
