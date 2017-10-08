@@ -47,7 +47,8 @@ export class SlackSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
-    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration: Integration) => {
+    const configuration = {channel: this.configuration.channel};
+    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration: Integration) => {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');

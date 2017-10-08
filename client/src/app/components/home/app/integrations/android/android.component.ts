@@ -14,6 +14,7 @@ import {Integration} from 'app/models/integration.model';
 export class AndroidIntegrationComponent implements OnInit {
 
   public app: App;
+  public integration: Integration;
   public channel: Channel;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private activatedRoute: ActivatedRoute) {
@@ -25,6 +26,10 @@ export class AndroidIntegrationComponent implements OnInit {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).subscribe((app: App) => {
       this.app = app;
+      this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
+        console.log(integration)
+        this.integration = integration;
+      });
     });
   }
 }

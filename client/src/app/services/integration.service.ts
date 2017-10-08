@@ -37,16 +37,10 @@ export class IntegrationService {
     return this.channelsByType.get(type) || null;
   }
 
-  public getIntegration(app: App, channel: Channel): Observable<Integration> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/${channel.id}`), RequestUtils.newJsonOptionsWithApiToken())
-      .map((res: Response) => new Integration(res.json()))
-      .catch((err: Response) => {
-        const apiError = ApiError.withResponse(err);
-        if (apiError.code === ApiError.INTEGRATION_DOES_NOT_EXIST) {
-          return Observable.of(null);
-        }
-        return Observable.throw(ApiError.withResponse(err));
-      });
+  public getIntegration(app: App, channel: Channel, require?: boolean): Observable<Integration> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${app.id}/integrations/${channel.id}?require=${require || false}`), RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => res.json() ? new Integration(res.json()) : null)
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public updateIntegration(app: App, channel: Channel, configuration: any): Observable<Integration> {

@@ -46,7 +46,8 @@ export class MessengerSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
-    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration: Integration) => {
+    const configuration = {page: this.configuration.page};
+    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration: Integration) => {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
