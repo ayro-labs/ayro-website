@@ -22,6 +22,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   public integration: Integration;
   public channel: Channel;
   public configuration: any = {};
+  public loading: boolean = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
@@ -35,6 +36,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
       this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
         this.integration = integration;
         this.setConfiguration();
+        this.loading = false;
       });
     });
   }

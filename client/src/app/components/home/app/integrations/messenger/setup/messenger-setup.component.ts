@@ -25,6 +25,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
   public originalConfiguration: any = {};
   public configuration: any = {};
   public facebookPages: FacebookPage[] = [];
+  public loading: boolean = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
@@ -38,6 +39,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
       this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
         this.integration = integration;
         this.setConfiguration();
+        this.loading = false;
       });
       this.integrationService.listFacebookPages(this.app).subscribe((facebookPages: FacebookPage[]) => {
         this.facebookPages = facebookPages;

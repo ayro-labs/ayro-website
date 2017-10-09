@@ -16,6 +16,7 @@ export class AndroidIntegrationComponent implements OnInit {
   public app: App;
   public integration: Integration;
   public channel: Channel;
+  public loading: boolean = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private activatedRoute: ActivatedRoute) {
 
@@ -27,8 +28,8 @@ export class AndroidIntegrationComponent implements OnInit {
     this.appService.getApp(appId).subscribe((app: App) => {
       this.app = app;
       this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
-        console.log(integration)
         this.integration = integration;
+        this.loading = false;
       });
     });
   }

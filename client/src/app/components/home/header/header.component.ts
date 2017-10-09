@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private static readonly INTRO_URL = '/';
 
   public account: Account;
+  public loading: boolean = true;
 
   private currentUrl: string;
   private subscriptions: Subscription[] = [];
@@ -31,19 +32,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.currentUrl = event.url;
       }
     });
-    this.accountService.getAuthenticatedAccount().subscribe(
-      (account: Account) => {
-        if (account) {
-          this.account = account;
-          this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event: IEvent) => {
-            this.account.name = event.value;
-          }));
-          this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event: IEvent) => {
-            this.account.logo = event.value;
-          }));
-        }
+    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
+      this.account = account;
+      this.loading = false;
+      if (account) {
+        this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event: IEvent) => {
+          this.account.name = event.value;
+        }));
+        this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event: IEvent) => {
+          this.account.logo = event.value;
+        }));
       }
-    );
+    });
   }
 
   public ngOnDestroy() {

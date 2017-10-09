@@ -1,5 +1,5 @@
 <ng-container *ngIf="!loading">
-  <div *ngIf="app?.integrations.length === 0" class="row mt-4">
+  <div *ngIf="app.integrations.length === 0" class="row mt-4">
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="app?.integrations.length > 0" class="row mt-4">
+  <div *ngIf="app.integrations.length > 0" class="row mt-4">
     <div class="col-md-12">
       <div class="row mb-2">
         <div class="col-md-6">
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="row align-items-center">
-        <div *ngFor="let integration of app?.integrations" class="col-md-6 mt-2 mb-2">
+        <div *ngFor="let integration of app.integrations" class="col-md-6 mt-2 mb-2">
           <div *ngIf="getChannel(integration.channel); let channel" class="card">
             <div class="card-body">
               <div class="d-flex align-items-center">
@@ -55,12 +55,12 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
-          <h4 class="mb-2">Token</h4>
+          <h4 class="mb-2">App token</h4>
           <p class="mb-2">Este é o token que você utilizará para inicializar as integrações com os canais do usuário como por exemplo, Website, Android e iOS.</p>
           <div class="row">
             <div class="col-md-6">
               <div class="input-group">
-                <p class="form-control">{{ app?.token }}</p>
+                <p class="form-control">{{ app.token }}</p>
                 <span class="input-group-btn">
                   <button (click)="copyAppToken()" type="button" class="btn btn-secondary">
                     Copy

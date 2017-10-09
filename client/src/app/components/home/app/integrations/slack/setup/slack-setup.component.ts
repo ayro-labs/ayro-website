@@ -26,6 +26,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
   public originalConfiguration: any = {};
   public configuration: any = {};
   public slackChannels: SlackChannel[] = [];
+  public loading: boolean = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
@@ -39,6 +40,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
       this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
         this.integration = integration;
         this.setConfiguration();
+        this.loading = false;
       });
       this.integrationService.listSlackChannels(this.app).subscribe((slackChannels: SlackChannel[]) => {
         this.slackChannels = slackChannels;

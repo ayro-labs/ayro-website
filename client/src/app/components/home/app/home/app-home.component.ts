@@ -40,7 +40,7 @@ export class AppHomeComponent implements OnInit {
   }
 
   public copyAppToken() {
-    // Copy to Clipboard
+    // Copy to clipboard
   }
 
   public deleteApp() {
