@@ -42,7 +42,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   }
 
   public copyAppToken() {
-    // Copy to Clipboard
+    this.alertService.info('Token copiado!');
   }
 
   public testIntegration() {

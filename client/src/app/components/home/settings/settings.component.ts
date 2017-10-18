@@ -14,6 +14,8 @@ export class SettingsComponent implements OnInit {
   public name: string;
   public email: string;
   public logo: string;
+  public loading: boolean = true;
+
   private account: Account;
 
   constructor(private accountService: AccountService, private alertService: AlertService, private eventService: EventService, private elementRef: ElementRef) {
@@ -23,6 +25,7 @@ export class SettingsComponent implements OnInit {
   public ngOnInit() {
     this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
       this.fillFormFields(account);
+      this.loading = false;
     });
   }
 

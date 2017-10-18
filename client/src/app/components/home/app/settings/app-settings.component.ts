@@ -14,6 +14,8 @@ export class AppSettingsComponent implements OnInit {
 
   public name: string;
   public icon: string;
+  public loading: boolean = true;
+
   private app: App;
 
   constructor(private appService: AppService, private alertService: AlertService, private eventService: EventService, private activatedRoute: ActivatedRoute, private elementRef: ElementRef) {
@@ -24,6 +26,7 @@ export class AppSettingsComponent implements OnInit {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).subscribe((app: App) => {
       this.fillFormFields(app);
+      this.loading = false;
     });
   }
 

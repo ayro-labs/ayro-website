@@ -1,6 +1,7 @@
 export class Account {
 
   private static readonly LOGO_URL = `${process.env.API_URL}/img/accounts/`;
+  private static readonly NO_LOGO_URL = '/assets/img/no_account_logo.jpg';
 
   public name: string;
   public email: string;
@@ -17,6 +18,6 @@ export class Account {
   }
 
   public getLogoUrl() {
-    return this.logo ? Account.LOGO_URL + this.logo : null;
+    return this.logo ? Account.LOGO_URL + this.logo : Account.NO_LOGO_URL;
   }
 }

@@ -65,6 +65,11 @@ module.exports = {
         loader: `file-loader?name=[path][name].[ext]&context=${helpers.root('/client/src')}`,
         include: helpers.root('/client/src/assets/fonts'),
       },
+      {
+        test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
+        loader: 'file-loader?name=/assets/fonts/glyphicons/[name].[ext]',
+        include: helpers.root('/node_modules/bootstrap/dist/fonts'),
+      },
     ],
   },
   plugins: [

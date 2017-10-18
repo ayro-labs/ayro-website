@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ClipboardModule} from 'ngx-clipboard/dist';
 
 import {AppRoutes} from 'app/app.routes';
 import {AppComponent} from 'app/app.component';
@@ -54,6 +55,7 @@ import {EventService} from 'app/services/event.service';
     HttpModule,
     RouterModule.forRoot(AppRoutes),
     NgbModule.forRoot(),
+    ClipboardModule,
   ],
   declarations: [
     AppComponent,

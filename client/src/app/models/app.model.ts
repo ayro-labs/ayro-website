@@ -3,6 +3,7 @@ import {Integration} from 'app/models/integration.model';
 export class App {
 
   private static readonly ICON_URL = `${process.env.API_URL}/img/apps/`;
+  private static readonly NO_ICON_URL = '/assets/img/no_app_icon.png';
 
   public id: string;
   public account: string;
@@ -37,6 +38,6 @@ export class App {
   }
 
   public getIconUrl() {
-    return this.icon ? App.ICON_URL + this.icon : null;
+    return this.icon ? App.ICON_URL + this.icon : App.NO_ICON_URL;
   }
 }

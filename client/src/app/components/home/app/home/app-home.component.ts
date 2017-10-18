@@ -6,6 +6,7 @@ import {DeleteAppComponent} from 'app/components/home/app/delete/delete-app.comp
 import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
+import {AlertService} from 'app/services/alert.service';
 import {Account} from 'app/models/account.model';
 import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
@@ -20,7 +21,7 @@ export class AppHomeComponent implements OnInit {
   public app: App;
   public loading: boolean = true;
 
-  constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
+  constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
   }
 
@@ -40,7 +41,7 @@ export class AppHomeComponent implements OnInit {
   }
 
   public copyAppToken() {
-    // Copy to clipboard
+    this.alertService.info('Token copiado!');
   }
 
   public deleteApp() {
