@@ -38,7 +38,6 @@
     "tslint": "5.7.0",
     "tslint-config-airbnb": "5.3.0",
     "typescript": "2.5.3",
-    "typings": "2.1.1",
     "webpack": "3.6.0",
     "webpack-merge": "4.1.0"
   },
