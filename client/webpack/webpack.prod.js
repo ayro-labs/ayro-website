@@ -11,7 +11,7 @@ module.exports = webpackMerge(webpackCommon, {
     new webpack.DefinePlugin({
       'process.env': {
         API_URL: JSON.stringify('https://api.chatz.io'),
-        PRODUCTION: true,
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
   ],

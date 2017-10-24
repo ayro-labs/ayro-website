@@ -7,6 +7,8 @@ import {AccountService} from 'app/services/account.service';
 import {EventService, IEvent} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
 
+import * as Chatz from 'chatz';
+
 @Component({
   selector: 'chz-header',
   templateUrl: './header.component.html',
@@ -35,6 +37,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
       this.account = account;
       this.loading = false;
+      const appToken = process.env.NODE_ENV === 'production' ? '8b845b96169027add4d7031a5db4a44dcd274473' : 'b38ea487e4d3ee65a7fabf68a98b9b15effb0fe0';
+      Chatz.init({app_token: appToken});
       if (account) {
         this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event: IEvent) => {
           this.account.name = event.value;

@@ -25,20 +25,20 @@ module.exports = {
     ],
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.ts$/,
-        loaders: ['ts-loader', 'angular2-template-loader'],
+        use: ['ts-loader', 'angular2-template-loader'],
         include: helpers.root('/client/src'),
       },
       {
         test: /\.html$/,
-        loader: 'html-loader',
+        use: 'html-loader',
         include: helpers.root('/client/src'),
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader',
         }),
@@ -49,25 +49,42 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'less-loader'],
         }),
-        include: helpers.root('/client/src/assets/css'),
+        include: helpers.root('/client/src/assets/styles'),
       },
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/,
-        loader: `file-loader?name=[path][name].[ext]&context=${helpers.root('/client/src')}`,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            context: helpers.root('/client/src'),
+          },
+        },
         include: helpers.root('/client/src/assets/img'),
       },
       {
         test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
-        loader: `file-loader?name=[path][name].[ext]&context=${helpers.root('/client/src')}`,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            context: helpers.root('/client/src'),
+          },
+        },
         include: helpers.root('/client/src/assets/fonts'),
       },
       {
         test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
-        loader: 'file-loader?name=/assets/fonts/glyphicons/[name].[ext]',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '/assets/fonts/glyphicons/[name].[ext]',
+          },
+        },
         include: helpers.root('/node_modules/bootstrap/dist/fonts'),
       },
     ],
@@ -84,7 +101,7 @@ module.exports = {
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
     }),
-    new ExtractTextPlugin({filename: 'assets/css/[name].css', allChunks: true}),
+    new ExtractTextPlugin({filename: 'assets/styles/[name].css', allChunks: true}),
     new HtmlPlugin({template: helpers.root('/client/src/index.html')}),
   ],
 };

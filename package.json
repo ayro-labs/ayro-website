@@ -1,7 +1,14 @@
 {
   "name": "chatz-website",
+  "description": "Chatz website",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Chatz team",
+    "email": "team@chatz.io",
+    "url": "https://chatz.io"
+  },
+  "homepage": "https://chatz.io",
   "scripts": {
     "client-lint": "tslint -c 'client/tslint.json' 'client/src/**/*.ts?(x)'",
     "client-build": "webpack --config 'client/webpack.config.js'",
@@ -49,6 +56,7 @@
     "bluebird": "3.5.1",
     "body-parser": "1.18.2",
     "bootstrap": "4.0.0-beta",
+    "chatz": "0.0.5",
     "compression": "1.7.1",
     "connect-flash": "0.1.1",
     "connect-redis": "3.3.2",
