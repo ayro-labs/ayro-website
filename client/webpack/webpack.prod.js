@@ -14,5 +14,8 @@ module.exports = webpackMerge(webpackCommon, {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
   ],
 });
