@@ -115,10 +115,11 @@ Chatz.init(this, settings);</code></pre>
                   <label for="fcm-server-key">Server Key</label>
                   <input [(ngModel)]="configuration.fcm.server_key" type="text" id="fcm-server-key" name="fcm-server-key" class="form-control">
                 </div>
-                <div class="form-group mb-0">
+                <div class="form-group mb-2">
                   <label for="fcm-server-key">Sender ID</label>
                   <input [(ngModel)]="configuration.fcm.sender_id" type="text" id="fcm-sender-id" name="fcm-sender-id" class="form-control">
                 </div>
+                <p>Acesse o <a [routerLink]="['/guides', 'android']">guia</a> de integração com aplicativos Android para obter mais informações sobre o FCM.</p>
               </div>
             </div>
             <div class="row mt-4">
