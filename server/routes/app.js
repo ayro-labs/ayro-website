@@ -14,8 +14,7 @@ module.exports = (router, app) => {
 
   function connectFacebookCallback(req, res, next) {
     passport.authorize('facebook', (err, data) => {
-      const apiToken = req.session.apiToken;
-      const app = req.session.app;
+      const {apiToken, app} = req.session;
       const redirectTo = `/apps/${app}/integrations/messenger/setup`;
       const configuration = {
         profile: {
@@ -40,8 +39,7 @@ module.exports = (router, app) => {
 
   function connectSlackCallback(req, res, next) {
     passport.authorize('slack', (err, accessToken) => {
-      const apiToken = req.session.apiToken;
-      const app = req.session.app;
+      const {apiToken, app} = req.session;
       const redirectTo = `/apps/${app}/integrations/slack/setup`;
       appService.addSlackIntegration(apiToken, app, accessToken).then(() => {
         res.redirect(redirectTo);
