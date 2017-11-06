@@ -55,7 +55,7 @@
     "bluebird": "3.5.1",
     "body-parser": "1.18.2",
     "bootstrap": "4.0.0-beta",
-    "chatz": "0.0.20",
+    "chatz": "0.0.21",
     "compression": "1.7.1",
     "connect-flash": "0.1.1",
     "connect-redis": "3.3.2",
