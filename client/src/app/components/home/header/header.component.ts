@@ -37,8 +37,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
       this.account = account;
       this.loading = false;
-      const appToken = process.env.NODE_ENV === 'production' ? '8b845b96169027add4d7031a5db4a44dcd274473' : 'b38ea487e4d3ee65a7fabf68a98b9b15effb0fe0';
-      Chatz.init({app_token: appToken});
+      Chatz.init({
+        app_token: process.env.CHATZ_APP_TOKEN,
+        chatbox: {
+          title: 'Como podemos ajudá-lo?',
+          input_placeholder: 'Digite uma mensagem...',
+        },
+      });
       if (account) {
         this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event: IEvent) => {
           this.account.name = event.value;
