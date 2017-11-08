@@ -1,5 +1,5 @@
-<div class="intro">
-  <section class="blue">
+<div id="intro">
+  <section class="primary">
     <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
@@ -18,12 +18,12 @@
       <div class="row">
         <div class="col-md-12">
           <h2 class="mb-4">Temos uma solução!</h2>
-          <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Crie uma conta gratuitamente</a>
+          <a [routerLink]="['signup']" class="btn btn-info btn-lg">Crie uma conta gratuitamente</a>
         </div>
       </div>
     </div>
   </section>
-  <section class="white">
+  <section class="secondary">
     <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
@@ -35,27 +35,33 @@
       </div>
       <div class="row">
         <div class="col-md-2 col-2">
-          <img [src]="getChannel('website').picture_url" class="w-100"/>
+          <img [src]="getChannel('website').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('website').picture_url" class="d-block d-sm-none w-100"/>
         </div>
         <div class="col-md-2 col-2">
-          <img [src]="getChannel('android').picture_url" class="w-100"/>
+          <img [src]="getChannel('android').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('android').picture_url" class="d-block d-sm-none w-100"/>
         </div>
         <div class="col-md-2 col-2">
-          <img [src]="getChannel('ios').picture_url" class="w-100"/>
+          <img [src]="getChannel('ios').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('ios').picture_url" class="d-block d-sm-none w-100"/>
         </div>
         <div class="col-md-2 col-2">
-          <img [src]="getChannel('messenger').picture_url" class="w-100"/>
+          <img [src]="getChannel('messenger').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('messenger').picture_url" class="d-block d-sm-none w-100"/>
         </div>
         <div class="col-md-2 col-2">
-          <img [src]="getChannel('twitter').picture_url" class="w-100"/>
+          <img [src]="getChannel('twitter').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('twitter').picture_url" class="d-block d-sm-none w-100"/>
         </div>
         <div class="col-md-2 col-2">
-          <img [src]="getChannel('slack').picture_url" class="w-100"/>
+          <img [src]="getChannel('slack').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('slack').picture_url" class="d-block d-sm-none w-100"/>
         </div>
       </div>
     </div>
   </section>
-  <section class="blue">
+  <section class="primary">
     <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
@@ -110,7 +116,62 @@
       </div>
     </div>
   </section>
-  <section class="white">
+  <section class="secondary">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-4">Benefícios</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-commenting fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Chat em tempo real</h3>
+              <p>Converse com seus clientes em tempo real, onde quer que eles estejam. Adicione suporte a Chat no seu website e aplicativo em alguns minutos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-facebook-square fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Redes sociais</h3>
+              <p>Com suporte à redes sociais, você não precisa se preocupar em acessar a rede social para saber se alguém entrou em contato.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-slack fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Ferramentas de comunicação</h3>
+              <p>Escolha as melhores ferramentas de comunicação do mercado para conversar com seus clientes. Centralize suas conversas em um único local.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-usd fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Plano econômico</h3>
+              <p>Pague de acordo com o seu crescimento, começando gratuito. Utilize todos os recursos de forma ilimitada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="primary">
     <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
@@ -118,26 +179,24 @@
           <h4 class="mb-4 text-left">Muito simples! Um único plano que começa gratuito e você paga de acordo com o crescimento do seu negócio.</h4>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <div class="plan row justify-content-center">
         <div class="col-md-4">
           <div class="card mb-4">
             <div class="card-body">
-              <div class="card-title">
-                <h2>R$10</h2>
-                <h3>/ 50 conversas</h3>
-                <hr/>
-                <p>Começa gratuito</p>
-                <hr/>
-                <p>1 projeto incluso</p>
-                <hr/>
-                <p>R$10 para cada projeto adicional</p>
-                <hr/>
-                <p>Acesso a todos os canais do usuário</p>
-                <hr/>
-                <p>Acesso a todos os canais da empresa</p>
-                <hr/>
-                <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Criar conta gratuitamente</a>
-              </div>
+              <h2>R$10</h2>
+              <h3>/ 50 conversas</h3>
+              <hr/>
+              <p>Começa gratuito</p>
+              <hr/>
+              <p>1 projeto incluso</p>
+              <hr/>
+              <p>R$10 para cada projeto adicional</p>
+              <hr/>
+              <p>Acesso a todos os canais do usuário</p>
+              <hr/>
+              <p>Acesso a todos os canais da empresa</p>
+              <hr/>
+              <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Criar conta gratuitamente</a>
             </div>
           </div>
         </div>

@@ -57,32 +57,6 @@
     margin-top: 10px;
   }
 }
-.intro {
-  section {
-    padding: 50px 0px;
-  }
-  .blue {
-    background-color: #007bff;
-    color: @white;
-    .btn-primary {
-      background-color: @white;
-      color: #3a3a3a;
-    }
-  }
-  .white {
-    background-color: @white;
-  }
-  .integration-icon {
-    width: 100px;
-    height: 100px;
-  }
-  .btn-lg {
-    padding: 1rem 2rem;
-  }
-  .fa-thumbs-o-down {
-    font-size: 200px;
-  }
-}
 .btn-slack {
   background-color: @white;
   border: 1px solid #c5c8cc;
@@ -112,12 +86,39 @@
     font-size: 30px;
   }
 }
-
+#intro {
+  section {
+    padding: 50px 0px;
+  }
+  .primary {
+    background-color: #318498;
+    color: @white;
+    .btn-info {
+      background-color: @white;
+      color: #3a3a3a;
+    }
+  }
+  .secondary {
+    background-color: @white;
+  }
+  .plan {
+    color: #333;
+  }
+  .btn-lg {
+    padding: 1rem 2rem;
+  }
+  .fa-thumbs-o-down {
+    font-size: 200px;
+  }
+}
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
-  .intro {
+  #intro {
     h2 {
       font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.2rem;
     }
     h4 {
       font-size: 1rem;
