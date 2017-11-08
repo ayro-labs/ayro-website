@@ -1,8 +1,12 @@
 <div class="intro">
   <section class="blue">
     <div class="container text-center">
-      <h2 class="mb-4">Ainda usa e-mails para dar suporte a seus clientes?</h2>
-      <h2>Precisa gerenciar conversas em várias redes sociais?</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-4">Ainda usa e-mails para dar suporte a seus clientes?</h2>
+          <h2 class="mb-4">Precisa gerenciar conversas em várias redes sociais?</h2>
+        </div>
+      </div>
       <div class="row d-flex align-items-center">
         <div class="col-md-9">
           <h4 class="text-left">Demora horas para entender e solucionar o problema do cliente porque não consegue ter uma conversa eficiente? Já passou pela situação de não saber se seus clientes estão vendo suas mensagens?</h4>
@@ -11,31 +15,55 @@
           <i class="fa fa-thumbs-o-down"></i>
         </div>
       </div>
-      <h2 class="mb-4">Temos uma solução!</h2>
-      <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Crie uma conta gratuitamente</a>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-4">Temos uma solução!</h2>
+          <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Crie uma conta gratuitamente</a>
+        </div>
+      </div>
     </div>
   </section>
   <section class="white">
     <div class="container text-center">
-      <h2 class="mb-4">Evolua em alguns minutos!</h2>
-      <h4 class="mb-4">Converse em tempo real com seus clientes, onde quer que eles estejam.</h4>
-      <h4 class="text-justify">Somos uma empresa que simplificará a forma com que se comunica com seus clientes. Oferecemos uma plataforma de Chat multi canal que integra redes sociais, websites, aplicativos, e-commerces e diversos outros canais.</h4>
-      <h4 class="text-justify mb-4">Todas as conversas são centralizadas em uma ferramenta de comunicação de sua escolha.</h4>
-      <div>
-        <img [src]="getChannel('website').picture_url" class="integration-icon mx-2"/>
-        <img [src]="getChannel('android').picture_url" class="integration-icon mx-2"/>
-        <img [src]="getChannel('ios').picture_url" class="integration-icon mx-2"/>
-        <img [src]="getChannel('messenger').picture_url" class="integration-icon mx-2"/>
-        <img [src]="getChannel('twitter').picture_url" class="integration-icon mx-2"/>
-        <img [src]="getChannel('slack').picture_url" class="integration-icon mx-2"/>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-4">Evolua em alguns minutos!</h2>
+          <h4 class="mb-4">Converse em tempo real com seus clientes, onde quer que eles estejam.</h4>
+          <h4 class="text-justify">Somos uma empresa que simplificará a forma com que se comunica com seus clientes. Oferecemos uma plataforma de Chat multi canal que integra redes sociais, websites, aplicativos, e-commerces e diversos outros canais.</h4>
+          <h4 class="text-justify mb-4">Todas as conversas são centralizadas em uma ferramenta de comunicação de sua escolha.</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-2">
+          <img [src]="getChannel('website').picture_url" class="w-100"/>
+        </div>
+        <div class="col-md-2 col-2">
+          <img [src]="getChannel('android').picture_url" class="w-100"/>
+        </div>
+        <div class="col-md-2 col-2">
+          <img [src]="getChannel('ios').picture_url" class="w-100"/>
+        </div>
+        <div class="col-md-2 col-2">
+          <img [src]="getChannel('messenger').picture_url" class="w-100"/>
+        </div>
+        <div class="col-md-2 col-2">
+          <img [src]="getChannel('twitter').picture_url" class="w-100"/>
+        </div>
+        <div class="col-md-2 col-2">
+          <img [src]="getChannel('slack').picture_url" class="w-100"/>
+        </div>
       </div>
     </div>
   </section>
   <section class="blue">
     <div class="container text-center">
-      <h2 class="mb-4">Conheça nossa plataforma!</h2>
-      <div class="row mb-4">
-        <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-4">Conheça nossa plataforma!</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-4">
           <div class="feature">
             <div class="feature-icon">
               <i class="fa fa-commenting fa-3x"></i>
@@ -46,7 +74,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="feature">
             <div class="feature-icon">
               <i class="fa fa-facebook-square fa-3x"></i>
@@ -57,27 +85,25 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="feature">
             <div class="feature-icon">
               <i class="fa fa-slack fa-3x"></i>
             </div>
             <div class="feature-description">
               <h3>Ferramentas de comunicação</h3>
-              <p>Escolha as melhores ferramentas de comunicação do mercado para conversar com seus clientes.</p>
+              <p>Escolha as melhores ferramentas de comunicação do mercado para conversar com seus clientes. Centralize suas conversas em um único local.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="feature">
             <div class="feature-icon">
               <i class="fa fa-usd fa-3x"></i>
             </div>
             <div class="feature-description">
               <h3>Plano econômico</h3>
-              <p>Pague de acordo com o seu crescimento, começando gratuito.</p>
+              <p>Pague de acordo com o seu crescimento, começando gratuito. Utilize todos os recursos de forma ilimitada.</p>
             </div>
           </div>
         </div>
@@ -86,9 +112,12 @@
   </section>
   <section class="white">
     <div class="container text-center">
-      <h2 class="mb-4">Quanto custa?</h2>
-      <h4 class="mb-4 text-left">Estamos testando o nosso serviço, portanto agora ele é GRATUITO. Crie sua conta agora e comece a usar. Veja como ficará o nosso plano no futuro:</h4>
-      <h4 class="mb-4 text-left">Muito simples! Um único plano que começa gratuito e você paga de acordo com o crescimento do seu negócio.</h4>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-4">Quanto custa?</h2>
+          <h4 class="mb-4 text-left">Muito simples! Um único plano que começa gratuito e você paga de acordo com o crescimento do seu negócio.</h4>
+        </div>
+      </div>
       <div class="row justify-content-center">
         <div class="col-md-4">
           <div class="card mb-4">
@@ -99,13 +128,13 @@
                 <hr/>
                 <p>Começa gratuito</p>
                 <hr/>
-                <p>1 app incluso</p>
+                <p>1 projeto incluso</p>
                 <hr/>
-                <p>R$10 para cada app adicional</p>
+                <p>R$10 para cada projeto adicional</p>
                 <hr/>
-                <p>Todos os canais do usuário inclusos</p>
+                <p>Acesso a todos os canais do usuário</p>
                 <hr/>
-                <p>Todos os canais da empresa inclusos</p>
+                <p>Acesso a todos os canais da empresa</p>
                 <hr/>
                 <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Criar conta gratuitamente</a>
               </div>
