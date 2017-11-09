@@ -11,8 +11,10 @@ module.exports = webpackMerge(webpackCommon, {
     new webpack.DefinePlugin({
       'process.env': {
         API_URL: JSON.stringify('https://api.chatz.io'),
-        CHATZ_APP_TOKEN: JSON.stringify('8b845b96169027add4d7031a5db4a44dcd274473'),
         NODE_ENV: JSON.stringify('production'),
+        CHATZ_APP_TOKEN: JSON.stringify('8b845b96169027add4d7031a5db4a44dcd274473'),
+        CHATZ_JS_VERSION: JSON.stringify('0.0.21'),
+        CHATZ_ANDROID_VERSION: JSON.stringify('0.0.6'),
       },
     }),
     new webpack.optimize.UglifyJsPlugin({

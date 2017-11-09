@@ -6,4 +6,6 @@ import {Component} from '@angular/core';
 })
 export class WebsiteGuideComponent {
 
+  public sdkVersion = process.env.CHATZ_JS_VERSION;
+
 }
