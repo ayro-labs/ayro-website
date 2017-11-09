@@ -15,7 +15,7 @@ export class AlertsComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.alertService.subscribe((alert: IAlert) => {
+    this.alertService.subscribe((alert) => {
       this.alerts.push(alert);
       setTimeout(() => {
         this.close(alert);

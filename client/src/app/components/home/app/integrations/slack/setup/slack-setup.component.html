@@ -62,8 +62,8 @@
               <div class="col-md-12">
                 <h4 class="mb-2">Canal de suporte</h4>
                 <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos usuários.</p>
-                <p *ngIf="originalConfiguration.page" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
-                <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não escolheu nenhum canal.</p>
+                <p *ngIf="originalConfiguration.channel" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
+                <p *ngIf="!originalConfiguration.channel" class="mb-2">Você ainda não escolheu nenhum canal.</p>
                 <div class="row">
                   <div class="col-md-5">
                     <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="support-channel" class="form-control">

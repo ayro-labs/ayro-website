@@ -35,22 +35,19 @@ export class SlackSetupIntegrationComponent implements OnInit {
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_SLACK);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).subscribe((app: App) => {
+    this.appService.getApp(appId).subscribe((app) => {
       this.app = app;
-      this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
+      this.integrationService.getIntegration(app, this.channel).subscribe((integration) => {
         this.integration = integration;
         this.setConfiguration();
         this.loading = false;
-      });
-      this.integrationService.listSlackChannels(this.app).subscribe((slackChannels: SlackChannel[]) => {
-        this.slackChannels = slackChannels;
       });
     });
   }
 
   public updateConfiguration() {
     const configuration = {channel: this.configuration.channel};
-    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration: Integration) => {
+    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
@@ -88,6 +85,11 @@ export class SlackSetupIntegrationComponent implements OnInit {
     if (this.integration) {
       this.originalConfiguration = this.integration.configuration;
       this.configuration = _.cloneDeep(this.integration.configuration);
+      if (_.isEmpty(this.slackChannels)) {
+        this.integrationService.listSlackChannels(this.app).subscribe((slackChannels) => {
+          this.slackChannels = slackChannels;
+        });
+      }
     }
   }
 }

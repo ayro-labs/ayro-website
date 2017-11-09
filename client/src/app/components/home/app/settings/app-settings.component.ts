@@ -24,14 +24,14 @@ export class AppSettingsComponent implements OnInit {
 
   public ngOnInit() {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).subscribe((app: App) => {
+    this.appService.getApp(appId).subscribe((app) => {
       this.fillFormFields(app);
       this.loading = false;
     });
   }
 
   public update() {
-    this.appService.updateApp(this.app, this.name).subscribe((app: App) => {
+    this.appService.updateApp(this.app, this.name).subscribe((app) => {
       this.fillFormFields(app);
       this.eventService.publish('app_name_changed', app.name);
       this.alertService.success('App atualizado com sucesso!');
@@ -46,7 +46,7 @@ export class AppSettingsComponent implements OnInit {
       this.icon = e.target.result;
       const iconElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#icon-input');
       if (iconElement && iconElement.files && iconElement.files.length > 0) {
-        this.appService.updateAppIcon(this.app, iconElement.files.item(0)).subscribe((app: App) => {
+        this.appService.updateAppIcon(this.app, iconElement.files.item(0)).subscribe((app) => {
           this.fillFormFields(app);
           this.eventService.publish('app_icon_changed', app.icon);
           this.alertService.success('Ícone do app atualizado com sucesso!');

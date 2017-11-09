@@ -25,9 +25,9 @@ export class SlackIntegrationComponent implements OnInit {
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_SLACK);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).subscribe((app: App) => {
+    this.appService.getApp(appId).subscribe((app) => {
       this.app = app;
-      this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
+      this.integrationService.getIntegration(app, this.channel).subscribe((integration) => {
         this.integration = integration;
         this.loading = false;
       });

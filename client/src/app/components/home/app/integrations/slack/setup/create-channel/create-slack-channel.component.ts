@@ -4,7 +4,6 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {IntegrationService} from 'app/services/integration.service';
 import {AlertService} from 'app/services/alert.service';
 import {App} from 'app/models/app.model';
-import {SlackChannel} from 'app/models/slack-channel.model';
 
 @Component({
   selector: 'chz-create-slack-channel',
@@ -26,7 +25,7 @@ export class CreateSlackChannelComponent {
   }
 
   public create() {
-    this.integrationService.createSlackChannel(this.app, this.name).subscribe((channel: SlackChannel) => {
+    this.integrationService.createSlackChannel(this.app, this.name).subscribe((channel) => {
       this.ngbActiveModal.close(channel);
       this.alertService.success('Canal criado com sucesso!');
     }, () => {

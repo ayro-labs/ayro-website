@@ -27,9 +27,9 @@ export class AppHomeComponent implements OnInit {
 
   public ngOnInit() {
     const appId = this.activatedRoute.snapshot.paramMap.get('app');
-    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
+    this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.account = account;
-      this.appService.getApp(appId, true).subscribe((app: App) => {
+      this.appService.getApp(appId, true).subscribe((app) => {
         this.app = app;
         this.loading = false;
       });

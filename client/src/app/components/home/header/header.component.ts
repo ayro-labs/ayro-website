@@ -4,8 +4,9 @@ import {Subscription} from 'rxjs/Subscription';
 
 import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
-import {EventService, IEvent} from 'app/services/event.service';
+import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
+import {ErrorUtils} from 'app/utils/error.utils';
 
 import * as Chatz from 'chatz';
 
@@ -33,8 +34,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
       }
+      window.scroll(0, 0);
     });
-    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
+    this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.account = account;
       this.loading = false;
       Chatz.init({
@@ -44,13 +46,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
           input_placeholder: 'Digite uma mensagem...',
         },
       });
-      if (account) {
-        this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event: IEvent) => {
-          this.account.name = event.value;
-        }));
-        this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event: IEvent) => {
-          this.account.logo = event.value;
-        }));
+      this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event) => {
+        this.account.name = event.value;
+      }));
+      this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event) => {
+        this.account.logo = event.value;
+      }));
+    }, (err: any) => {
+      if (err.code === ErrorUtils.ACCOUNT_DOES_NOT_EXIST) {
+        this.signOut();
       }
     });
   }
@@ -72,7 +76,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private unsubscribeEvents() {
-    this.subscriptions.forEach((subscription: Subscription) => {
+    this.subscriptions.forEach((subscription) => {
       subscription.unsubscribe();
     });
   }

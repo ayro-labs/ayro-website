@@ -1,4 +1,4 @@
-<form novalidate (ngSubmit)="create()">
+<form #form="ngForm" (ngSubmit)="create()" novalidate>
   <div class="modal-header">
     <h4 class="modal-title">Criar app</h4>
     <button (click)="close()" type="button" class="close" aria-label="Close">
@@ -10,13 +10,13 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="name">Nome do app</label>
-          <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" required>
+          <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" minlength="3" required>
         </div>
       </div>
     </div>
   </div>
   <div class="modal-footer">
     <button (click)="close()" type="button" class="btn btn-secondary">Fechar</button>
-    <button type="submit" class="btn btn-primary btn-primary">Criar</button>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-primary">Criar</button>
   </div>
 </form>

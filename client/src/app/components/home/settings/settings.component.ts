@@ -16,21 +16,19 @@ export class SettingsComponent implements OnInit {
   public logo: string;
   public loading: boolean = true;
 
-  private account: Account;
-
   constructor(private accountService: AccountService, private alertService: AlertService, private eventService: EventService, private elementRef: ElementRef) {
 
   }
 
   public ngOnInit() {
-    this.accountService.getAuthenticatedAccount().subscribe((account: Account) => {
+    this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.fillFormFields(account);
       this.loading = false;
     });
   }
 
   public update() {
-    this.accountService.updateAccount({name: this.name, email: this.email}).subscribe((account: Account) => {
+    this.accountService.updateAccount({name: this.name, email: this.email}).subscribe((account) => {
       this.fillFormFields(account);
       this.eventService.publish('account_name_changed', account.name);
       this.alertService.success('Conta atualizada com sucesso!');
@@ -45,7 +43,7 @@ export class SettingsComponent implements OnInit {
       this.logo = e.target.result;
       const logoElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#logo-input');
       if (logoElement && logoElement.files && logoElement.files.length > 0) {
-        this.accountService.updateAccountLogo(logoElement.files.item(0)).subscribe((account: Account) => {
+        this.accountService.updateAccountLogo(logoElement.files.item(0)).subscribe((account) => {
           this.fillFormFields(account);
           this.eventService.publish('account_logo_changed', account.logo);
           this.alertService.success('Logo da conta atualizado com sucesso!');
@@ -58,7 +56,6 @@ export class SettingsComponent implements OnInit {
   }
 
   private fillFormFields(account: Account) {
-    this.account = account;
     this.name = account.name;
     this.email = account.email;
     this.logo = account.getLogoUrl();

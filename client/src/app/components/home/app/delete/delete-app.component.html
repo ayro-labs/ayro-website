@@ -1,4 +1,4 @@
-<form novalidate (ngSubmit)="delete()">
+<form #form="ngForm" (ngSubmit)="delete()" novalidate>
   <div class="modal-header">
     <h4 class="modal-title">Remover app</h4>
     <button (click)="close()" type="button" class="close" aria-label="Close">
@@ -16,6 +16,6 @@
   </div>
   <div class="modal-footer">
     <button (click)="close()" type="button" class="btn btn-secondary">Fechar</button>
-    <button type="submit" class="btn btn-danger" [disabled]="!isAppNameMatched()">Remover</button>
+    <button [disabled]="form.invalid || !isAppNameMatched()" type="submit" class="btn btn-danger">Remover</button>
   </div>
 </form>

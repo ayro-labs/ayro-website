@@ -3,7 +3,6 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppService} from 'app/services/app.service';
 import {AlertService} from 'app/services/alert.service';
-import {App} from 'app/models/app.model';
 
 @Component({
   selector: 'chz-create-app',
@@ -22,7 +21,7 @@ export class CreateAppComponent {
   }
 
   public create() {
-    this.appService.createApp(this.name).subscribe((app: App) => {
+    this.appService.createApp(this.name).subscribe((app) => {
       this.ngbActiveModal.close(app);
       this.alertService.success('App criado com sucesso!');
     }, () => {

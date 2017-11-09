@@ -5,21 +5,21 @@
         <div class="col-md-5">
           <div class="card">
             <div class="card-body">
-              <form (ngSubmit)="signUp()" novalidate>
+              <form #form="ngForm" (ngSubmit)="signUp()" novalidate>
                 <h2 class="mb-4">Crie sua conta</h2>
                 <div class="form-group">
                   <label for="name">Nome</label>
-                  <input [(ngModel)]="name" type="text" id="name" name="name" class="form-control" required>
+                  <input [(ngModel)]="name" type="text" id="name" name="name" class="form-control" minlength="3" required>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input [(ngModel)]="email" type="text" id="email" name="email" class="form-control" required>
+                  <input [(ngModel)]="email" type="text" id="email" name="email" class="form-control" email required>
                 </div>
                 <div class="form-group">
                   <label for="password">Senha</label>
-                  <input [(ngModel)]="password" type="password" id="password" name="password" class="form-control" required>
+                  <input [(ngModel)]="password" type="password" id="password" name="password" class="form-control" minlength="4" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block font-weight-bold">Criar conta</button>
+                <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-lg btn-block font-weight-bold">Criar conta</button>
               </form>
             </div>
           </div>

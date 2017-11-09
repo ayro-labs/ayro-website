@@ -1,4 +1,3 @@
-
 import {Component, OnInit} from '@angular/core';
 
 import {IntegrationService} from 'app/services/integration.service';

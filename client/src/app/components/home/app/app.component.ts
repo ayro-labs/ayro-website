@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 import {AppService} from 'app/services/app.service';
-import {EventService, IEvent} from 'app/services/event.service';
+import {EventService} from 'app/services/event.service';
 import {App} from 'app/models/app.model';
 
 @Component({
@@ -22,19 +22,19 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     const appId = this.activatedRoute.snapshot.paramMap.get('app');
-    this.appService.getApp(appId, true).subscribe((app: App) => {
+    this.appService.getApp(appId, true).subscribe((app) => {
       this.app = app;
-      this.subscriptions.push(this.eventService.subscribe('app_name_changed', (event: IEvent) => {
+      this.subscriptions.push(this.eventService.subscribe('app_name_changed', (event) => {
         this.app.name = event.value;
       }));
-      this.subscriptions.push(this.eventService.subscribe('app_icon_changed', (event: IEvent) => {
+      this.subscriptions.push(this.eventService.subscribe('app_icon_changed', (event) => {
         this.app.icon = event.value;
       }));
     });
   }
 
   public ngOnDestroy() {
-    this.subscriptions.forEach((subscription: Subscription) => {
+    this.subscriptions.forEach((subscription) => {
       subscription.unsubscribe();
     });
   }

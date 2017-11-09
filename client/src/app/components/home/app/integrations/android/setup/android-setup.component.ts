@@ -31,9 +31,9 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_ANDROID);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).subscribe((app: App) => {
+    this.appService.getApp(appId).subscribe((app) => {
       this.app = app;
-      this.integrationService.getIntegration(app, this.channel).subscribe((integration: Integration) => {
+      this.integrationService.getIntegration(app, this.channel).subscribe((integration) => {
         this.integration = integration;
         this.setConfiguration();
         this.loading = false;
@@ -46,7 +46,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   }
 
   public testIntegration() {
-    this.integrationService.getIntegration(this.app, this.channel).subscribe((integration: Integration) => {
+    this.integrationService.getIntegration(this.app, this.channel).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();
       if (this.integration) {
@@ -65,7 +65,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
     if (configuration.conversation_color) {
       configuration.conversation_color = '#' + configuration.conversation_color;
     }
-    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration: Integration) => {
+    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
