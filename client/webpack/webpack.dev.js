@@ -13,7 +13,7 @@ module.exports = webpackMerge(webpackCommon, {
         NODE_ENV: JSON.stringify('development'),
         API_URL: JSON.stringify('http://localhost:3000'),
         CHATZ_APP_TOKEN: JSON.stringify('9fc3d6012e0fbe3bb0599ee3c03537a22d6ca2d2'),
-        CHATZ_JS_VERSION: JSON.stringify('0.0.21'),
+        CHATZ_JS_VERSION: JSON.stringify('0.0.22'),
         CHATZ_ANDROID_VERSION: JSON.stringify('0.0.6'),
       },
     }),
