@@ -11,7 +11,7 @@
   "homepage": "https://chatz.io",
   "scripts": {
     "client-lint": "tslint -c 'client/tslint.json' 'client/src/**/*.ts?(x)'",
-    "client-build": "webpack --config 'client/webpack.config.js'",
+    "client-build": "webpack --config 'client/webpack.config.js' --env.development",
     "client-build-prod": "webpack --config 'client/webpack.config.js' --env.production",
     "server-lint": "eslint 'server/**/*.js'",
     "server-start": "node server/app.js"

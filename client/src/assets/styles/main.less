@@ -1,5 +1,6 @@
 @white: #ffffff;
 @code-block: #525252;
+@intro-primary: #318498;
 
 @import "general.less";
 @import "header.less";
@@ -91,7 +92,7 @@
     padding: 50px 0px;
   }
   .primary {
-    background-color: #318498;
+    background-color: @intro-primary;
     color: @white;
     .btn-info {
       background-color: @white;
@@ -100,6 +101,9 @@
   }
   .secondary {
     background-color: @white;
+    .fa {
+      color: @intro-primary;
+    }
   }
   .plan {
     color: #333;

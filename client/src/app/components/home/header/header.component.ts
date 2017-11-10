@@ -30,11 +30,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.currentUrl = this.router.url;
+    this.onRouteChanged();
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.currentUrl = event.url;
-      }
-      window.scroll(0, 0);
+      this.onRouteChanged(event);
     });
     this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.account = account;
@@ -73,6 +71,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.unsubscribeEvents();
       this.router.navigate(['/']);
     });
+  }
+
+  private onRouteChanged(event?: any) {
+    if (event && event instanceof NavigationEnd) {
+      this.currentUrl = event.url;
+    }
+    window.scroll(0, 0);
   }
 
   private unsubscribeEvents() {
