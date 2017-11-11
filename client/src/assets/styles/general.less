@@ -14,21 +14,20 @@ h1, h2, h3, h4, h5, p, small {
 small {
   color: #6f6f6f;
 }
+select {
+  &.form-control {
+    padding: 0.0rem 0.5rem;
+  }
+}
 a {
   &:hover {
     text-decoration: none;
   }
 }
-.text-bold {
-  font-weight: 500;
-}
-.content {
-  min-height: 100%;
-  &::after {
-    content: "";
-    display: block;
-    height: 100px;
-  }
+code {
+  background-color: @code-block;
+  color: @white;
+  padding: 3px 5px;
 }
 .highlight {
   background-color: @code-block;
@@ -46,10 +45,16 @@ a {
     margin: 0px;
   }
 }
-code {
-  background-color: @code-block;
-  color: @white;
-  padding: 3px 5px;
+.text-bold {
+  font-weight: 500;
+}
+.content {
+  min-height: 100%;
+  &::after {
+    content: "";
+    display: block;
+    height: 100px;
+  }
 }
 .card {
   border: none;
