@@ -60,14 +60,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
-    const configuration = _.cloneDeep(this.configuration);
-    if (configuration.primary_color) {
-      configuration.primary_color = '#' + configuration.primary_color;
-    }
-    if (configuration.conversation_color) {
-      configuration.conversation_color = '#' + configuration.conversation_color;
-    }
-    this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration) => {
+    this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
@@ -90,12 +83,6 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   private setConfiguration() {
     if (this.integration) {
       this.configuration = _.cloneDeep(this.integration.configuration) || {};
-      if (this.configuration.primary_color) {
-        this.configuration.primary_color = this.configuration.primary_color.replace('#', '');
-      }
-      if (this.configuration.conversation_color) {
-        this.configuration.conversation_color = this.configuration.conversation_color.replace('#', '');
-      }
     }
   }
 }

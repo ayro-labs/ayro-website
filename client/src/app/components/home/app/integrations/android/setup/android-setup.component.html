@@ -72,7 +72,7 @@ Chatz.init(this, settings);</code></pre>
       </div>
       <div *ngIf="integration" class="card">
         <div class="card-body">
-          <form novalidate>
+          <form #form="ngForm" novalidate>
             <div class="row">
               <div class="col-md-12">
                 <h4 class="mb-2">Token do app</h4>
@@ -92,8 +92,8 @@ Chatz.init(this, settings);</code></pre>
                 <h4 class="mb-2">Cor primária</h4>
                 <p class="mb-2">Cor de fundo do Toolbar.</p>
                 <div class="input-group">
-                  <span [ngStyle]="{'background-color': '#' + configuration.primary_color}" class="input-group-addon color-addon"></span>
-                  <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" minlength="3" maxlength="6">
+                  <span [ngStyle]="{'background-color': configuration.primary_color}" class="input-group-addon color-addon"></span>
+                  <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
                 </div>
               </div>
             </div>
@@ -102,8 +102,8 @@ Chatz.init(this, settings);</code></pre>
                 <h4 class="mb-2">Cor da conversa</h4>
                 <p class="mb-2">Cor de fundo da mensagem do usuário.</p>
                 <div class="input-group">
-                  <span [ngStyle]="{'background-color': '#' + configuration.conversation_color}" class="input-group-addon color-addon"></span>
-                  <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" minlength="3" maxlength="6">
+                  <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-addon color-addon"></span>
+                  <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
                 </div>
               </div>
             </div>
@@ -119,13 +119,13 @@ Chatz.init(this, settings);</code></pre>
                   <label for="fcm-server-key">Sender ID</label>
                   <input [(ngModel)]="configuration.fcm.sender_id" type="text" id="fcm-sender-id" name="fcm-sender-id" class="form-control">
                 </div>
-                <p>Acesse o <a [routerLink]="['/guides', 'android']">guia</a> de integração com aplicativos Android para obter mais informações sobre o FCM.</p>
+                <p class="mb-0">Acesse o <a [routerLink]="['/guides', 'android']">guia</a> de integração com aplicativos Android para obter mais informações sobre o FCM.</p>
               </div>
             </div>
             <div class="row mt-4">
               <div class="col-md-12">
                 <hr/>
-                <button (click)="updateConfiguration()" type="button" class="btn btn-primary float-left">
+                <button (click)="updateConfiguration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
                   Atualizar configuração
                 </button>
                 <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
