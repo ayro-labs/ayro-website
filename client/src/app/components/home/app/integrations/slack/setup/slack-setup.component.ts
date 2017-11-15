@@ -11,6 +11,7 @@ import {Channel} from 'app/models/channel.model';
 import {SlackChannel} from 'app/models/slack-channel.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
+import {ErrorUtils} from 'app/utils/error.utils';
 
 import * as _ from 'lodash';
 
@@ -88,6 +89,11 @@ export class SlackSetupIntegrationComponent implements OnInit {
       if (_.isEmpty(this.slackChannels)) {
         this.integrationService.listSlackChannels(this.app).subscribe((slackChannels) => {
           this.slackChannels = slackChannels;
+        }, (err) => {
+          if (err.code === ErrorUtils.INTERNAL_ERROR && err.cause === ErrorUtils.SLACK_TOKEN_REVOKED) {
+            this.alertService.error('O acesso ao Slack foi revogado, por favor entre novamente com sua conta.');
+            this.integration = null;
+          }
         });
       }
     }

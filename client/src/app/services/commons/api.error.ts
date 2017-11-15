@@ -6,17 +6,19 @@ export class ApiError extends Error {
 
   public static withResponse(err: Response): ApiError {
     const data = err.json();
-    return new ApiError(err.status, data.code, data.message);
+    return new ApiError(err.status, data.code, data.message, data.cause);
   }
 
   public status: number;
   public code: string;
   public message: string;
+  public cause: string;
 
-  constructor(status: number, code: string, message: string) {
+  constructor(status: number, code: string, message: string, cause: any) {
     super();
     this.status = status;
     this.code = code;
     this.message = message;
+    this.cause = cause;
   }
 }
