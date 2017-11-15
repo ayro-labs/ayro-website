@@ -4,6 +4,8 @@ import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
 import {HomeComponent} from 'app/components/home/home.component';
 import {IntroComponent} from 'app/components/home/intro/intro.component';
+import {TermsComponent} from 'app/components/home/terms/terms.component';
+import {PrivacyComponent} from 'app/components/home/privacy/privacy.component';
 import {SettingsComponent} from 'app/components/home/settings/settings.component';
 import {AppsComponent} from 'app/components/home/apps/apps.component';
 import {AppComponent} from 'app/components/home/app/app.component';
@@ -30,6 +32,8 @@ export const AppRoutes: Routes = [
   {path: 'signin', component: SignInComponent},
   {path: '', component: HomeComponent, children: [
     {path: '', component: IntroComponent},
+    {path: 'terms', component: TermsComponent},
+    {path: 'privacy', component: PrivacyComponent},
     {path: 'settings', component: SettingsComponent},
     {path: 'apps', component: AppsComponent},
     {path: 'apps/:app', component: AppComponent, children: [

@@ -16,6 +16,8 @@ import {HeaderComponent} from 'app/components/home/header/header.component';
 import {FooterComponent} from 'app/components/home/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
 import {IntroComponent} from 'app/components/home/intro/intro.component';
+import {TermsComponent} from 'app/components/home/terms/terms.component';
+import {PrivacyComponent} from 'app/components/home/privacy/privacy.component';
 import {SettingsComponent} from 'app/components/home/settings/settings.component';
 import {AppsComponent} from 'app/components/home/apps/apps.component';
 import {CreateAppComponent} from 'app/components/home/apps/create-app/create-app.component';
@@ -66,6 +68,8 @@ import {EventService} from 'app/services/event.service';
     FooterComponent,
     HomeComponent,
     IntroComponent,
+    TermsComponent,
+    PrivacyComponent,
     SettingsComponent,
     AppsComponent,
     CreateAppComponent,
