@@ -12,8 +12,11 @@
           <div class="col-md-12">
             <h4 class="mb-3">Biblioteca Javascript</h4>
             <div class="highlight">
-              <pre><code>Chatz.login({{ '{' }}
-  uid: 'userId'
+              <pre><code>Chatz.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
+  // Função login deve ser chamada após a inicialização do app
+  Chatz.login({{ '{' }}
+    uid: 'userId'
+  {{ '}' }});
 {{ '}' }});</code></pre>
             </div>
           </div>
@@ -24,6 +27,7 @@
             <div class="highlight">
               <pre><code>User user = new User();
 user.setUid("userId");
+// Função login pode ser chamada a qualquer momento
 Chatz.login(user);</code></pre>
             </div>
           </div>
@@ -33,8 +37,26 @@ Chatz.login(user);</code></pre>
     <div class="row">
       <div class="col-md-12">
         <h3 class="mb-3">Removendo identificação</h3>
-        <div class="highlight">
-          <code>Chatz.logout();</code>
+        <p>Para remover a identificação dos usuários, basta seguir os códigos a seguir, de acordo com a biblioteca utilizada.</p>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Biblioteca Javascript</h4>
+            <div class="highlight">
+              <pre><code>Chatz.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
+  // Função logout deve ser chamada após a inicialização do app
+  Chatz.logout();
+{{ '}' }});</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-3">Biblioteca Android</h4>
+            <div class="highlight">
+              <pre><code>// Função logout pode ser chamada a qualquer momento
+Chatz.logout();</code></pre>
+            </div>
+          </div>
         </div>
       </div>
     </div>
