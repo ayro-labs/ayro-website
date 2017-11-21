@@ -1,5 +1,3 @@
-'use strict'
-
 const webpackCommon = require('./webpack.common.js');
 const settings = require('../configs/settings');
 

@@ -1,5 +1,3 @@
-'use strict';
-
 const settings = require('../configs/settings');
 const helpers = require('./helpers');
 

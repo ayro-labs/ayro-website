@@ -1,5 +1,3 @@
-'use strict'
-
 const webpackCommon = require('./webpack.common.js');
 
 const webpackMerge = require('webpack-merge');

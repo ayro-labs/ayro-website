@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = (env) => {
   if (env && env.production) {
     return require('./webpack/webpack.prod.js');
