@@ -3,11 +3,8 @@ const logger = require('../utils/logger');
 const path = require('path');
 
 exports.env = properties.getValue('app.env', 'development');
-
 exports.port = properties.getValue('app.port', 4000);
-
 exports.debug = properties.getValue('app.debug', false);
-
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
 if (this.env === 'production') {

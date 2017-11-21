@@ -9,9 +9,7 @@ if (this.env === 'production') {
 }
 
 exports.chatzAppToken = properties.getValue('app.chatzAppToken');
-
 exports.jsSdkVersion = properties.getValue('app.jsSdkVersion');
-
 exports.androidSdkVersion = properties.getValue('app.androidSdkVersion');
 
 if (!this.chatzAppToken) {
