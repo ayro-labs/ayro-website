@@ -10,9 +10,13 @@ exports.debug = properties.getValue('app.debug', false);
 
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
-exports.apiUrl = this.env === 'production' ? 'https://api.chatz.io' : 'http://localhost:3000';
-
-exports.websiteUrl = this.env === 'production' ? 'https://www.chatz.io' : 'http://localhost:4000';
+if (this.env === 'production') {
+  exports.apiUrl = 'https://api.chatz.io';
+  exports.websiteUrl = 'https://www.chatz.io';
+} else {
+  exports.apiUrl = properties.getValue('api.url', 'http://localhost:3000');
+  exports.websiteUrl = `http://localhost:${this.port}`;
+}
 
 exports.session = {
   secret: 'chatz.io',
