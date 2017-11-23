@@ -76,14 +76,27 @@ Chatz.init(this, settings);</code></pre>
             </ul>
             <p>Para finalizar, adicione essas informações na página da integração Android.</p>
             <img class="w-100 mb-3" src="/assets/img/guides/android/fcm-setup.png">
-            <!-- <h4 class="mb-3">Configurações relacionadas ao FCM</h4>
-            <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService do Chatz. Para isso basta chamar o método <code>disableMessagingService</code> da sua instância de <code>Settings</code>.</p>
-            <p>Fazendo isso,
+            <h4 class="mb-3">Configurando o FCM no seu aplicativo</h4>
+            <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService do Chatz. Para isso basta chamar o método <code>disableMessagingService</code> da classe <code>Settings</code>.</p>
             <div class="highlight">
               <pre><code>Settings settings = new Settings("token");
-    settings.disableMessagingService();
-    Chatz.init(this, settings);</code></pre>
-            </div> -->
+settings.disableMessagingService();
+Chatz.init(this, settings);</code></pre>
+            </div>
+            <p>Em seguida, é necessário desviar as mensagens recebidas para serem tratadas pela biblioteca Chatz. Para isso, edite a sua classe que estende MeessagingService conforme o código a seguir:</p>
+            <div class="highlight">
+              <pre><code>public class MessagingService extends FirebaseMessagingService {{ '{' }}
+  @Override
+  public void onMessageReceived(RemoteMessage remoteMessage) {{ '{' }}
+    super.onMessageReceived(remoteMessage);
+    if (ChatzMessages.fromChatz(remoteMessage)) {{ '{' }}
+      ChatzMessages.receive(this, remoteMessage);
+    {{ '}' }} else {{ '{' }}
+      // Seu código aqui
+    {{ '}' }}
+  {{ '}' }}
+{{ '}' }}</code></pre>
+            </div>
           </div>
         </div>
       </div>
