@@ -106,9 +106,9 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(settings.env),
         API_URL: JSON.stringify(settings.apiUrl),
-        CHATZ_APP_TOKEN: JSON.stringify(settings.chatzAppToken),
-        CHATZ_JS_VERSION: JSON.stringify(settings.jsSdkVersion),
-        CHATZ_ANDROID_VERSION: JSON.stringify(settings.androidSdkVersion),
+        AYRO_APP_TOKEN: JSON.stringify(settings.ayroAppToken),
+        AYRO_JS_VERSION: JSON.stringify(settings.ayroJsSdkVersion),
+        AYRO_ANDROID_VERSION: JSON.stringify(settings.ayroAndroidSdkVersion),
       },
     }),
   ],

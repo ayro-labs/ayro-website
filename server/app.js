@@ -67,10 +67,10 @@ if (settings.https) {
   const cert = fs.readFileSync(settings.https.cert);
   const key = fs.readFileSync(settings.https.key);
   https.createServer({cert, key}, app).listen(app.get('port'), () => {
-    logger.info('Chatz Website server is listening on port %s', app.get('port'));
+    logger.info('Ayro Website server is listening on port %s', app.get('port'));
   });
 } else {
   app.listen(app.get('port'), () => {
-    logger.info('Chatz Website server is listening on port %s', app.get('port'));
+    logger.info('Ayro Website server is listening on port %s', app.get('port'));
   });
 }

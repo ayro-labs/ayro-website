@@ -8,7 +8,7 @@ import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
 import {ErrorUtils} from 'app/utils/error.utils';
 
-import * as Chatz from 'chatz';
+import * as Ayro from 'ayro';
 
 @Component({
   selector: 'chz-header',
@@ -37,8 +37,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.account = account;
       this.loading = false;
-      Chatz.init({
-        app_token: process.env.CHATZ_APP_TOKEN,
+      Ayro.init({
+        app_token: process.env.AYRO_APP_TOKEN,
         chatbox: {
           title: 'Como podemos ajudá-lo?',
           input_placeholder: 'Digite uma mensagem...',

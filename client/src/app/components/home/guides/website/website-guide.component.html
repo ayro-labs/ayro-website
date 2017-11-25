@@ -4,7 +4,7 @@
     <p></p>
     <div class="row">
       <div class="col-md-12">
-        <h3 class="mb-3 text-bold">Integre o Chatz no seu Website</h3>
+        <h3 class="mb-3 text-bold">Integre o Ayro no seu Website</h3>
         <p></p>
         <div class="row">
           <div class="col-md-12">
@@ -14,9 +14,9 @@
                 <h5 class="mb-3">1º Passo - Inclua a biblioteca</h5>
                 <p>Inclua a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada.</p>
                 <div class="highlight">
-                  <code>&lt;script type="text/javascript" src="https://raw.githubusercontent.com/chatz-io/chatz-javascript/master/chatz-{{ sdkVersion }}.min.js"&gt;&lt;/script&gt;</code>
+                  <code>&lt;script type="text/javascript" src="https://raw.githubusercontent.com/ayro-io/ayro-javascript/master/ayro-{{ sdkVersion }}.min.js"&gt;&lt;/script&gt;</code>
                 </div>
-                <p>Você também pode optar por baixar a biblioteca (<a href="https://raw.githubusercontent.com/chatz-io/chatz-javascript/master/chatz-{{ sdkVersion }}.min.js" target="_blank">aqui</a>) e modificar o código acima para referenciar a biblioteca baixada.</p>
+                <p>Você também pode optar por baixar a biblioteca (<a href="https://raw.githubusercontent.com/ayro-io/ayro-javascript/master/ayro-{{ sdkVersion }}.min.js" target="_blank">aqui</a>) e modificar o código acima para referenciar a biblioteca baixada.</p>
               </div>
             </div>
             <div class="row">
@@ -25,7 +25,7 @@
                 <p>Inicialize a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
                 <div class="highlight">
                   <pre><code>&lt;script&gt;
-  Chatz.init({{ '{' }}app_token: 'token'{{ '}' }});
+  Ayro.init({{ '{' }}app_token: 'token'{{ '}' }});
 &lt;/script&gt;</code></pre>
                 </div>
                 <p>O token pode ser obtido acessando a página inicial do seu App.</p>
@@ -40,7 +40,7 @@
               <div class="col-md-12">
                 <h5 class="mb-3">1º Passo - Instale a biblioteca</h5>
                 <div class="highlight">
-                  <code>npm install chatz</code>
+                  <code>npm install ayro</code>
                 </div>
               </div>
             </div>
@@ -49,9 +49,9 @@
                 <h5 class="mb-3">2º Passo - Importe a biblioteca</h5>
                 <div class="highlight">
                   <pre><code>// Usando require
-const Chatz = require('chatz');
+const Ayro = require('ayro');
 // Usando import
-import * as Chatz from 'chatz';</code></pre>
+import * as Ayro from 'ayro';</code></pre>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@ import * as Chatz from 'chatz';</code></pre>
               <div class="col-md-12">
                 <h5 class="mb-3">3º Passo - Inicialize a biblioteca</h5>
                 <div class="highlight">
-                  <pre><code>Chatz.init({{ '{' }}app_token: 'token'{{ '}' }});</code></pre>
+                  <pre><code>Ayro.init({{ '{' }}app_token: 'token'{{ '}' }});</code></pre>
                 </div>
                 <p>O token pode ser obtido acessando a página inicial do seu App.</p>
               </div>
@@ -71,7 +71,7 @@ import * as Chatz from 'chatz';</code></pre>
     <div class="row">
       <div class="col-md-12">
         <h3 class="mb-3 text-bold">Customizações</h3>
-        <p>Você pode customizar o Chatz para que ele fique com a aparência do seu Website.</p>
+        <p>Você pode customizar o Ayro para que ele fique com a aparência do seu Website.</p>
         <div class="row">
           <div class="col-md-12">
             <h4 class="mb-3">Aparência do Widget</h4>
@@ -86,9 +86,9 @@ import * as Chatz from 'chatz';</code></pre>
         <div class="row">
           <div class="col-md-12">
             <h4 class="mb-3">Textos</h4>
-            <p>Português do Brasil é a língua padrão utilizada nos textos que aparecem na caixa de chat. Você pode alterar os textos padrões definindo propriedades na inicialização do Chatz.</p>
+            <p>Português do Brasil é a língua padrão utilizada nos textos que aparecem na caixa de chat. Você pode alterar os textos padrões definindo propriedades na inicialização do Ayro.</p>
             <div class="highlight">
-              <pre><code>Chatz.init({{ '{' }}
+              <pre><code>Ayro.init({{ '{' }}
   app_token: 'token',
   chatbox: {{ '{' }}
     // Título da caixa de chat

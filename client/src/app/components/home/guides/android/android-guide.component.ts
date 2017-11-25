@@ -6,6 +6,6 @@ import {Component} from '@angular/core';
 })
 export class AndroidGuideComponent {
 
-  public sdkVersion = process.env.CHATZ_ANDROID_VERSION;
+  public sdkVersion = process.env.AYRO_ANDROID_VERSION;
 
 }

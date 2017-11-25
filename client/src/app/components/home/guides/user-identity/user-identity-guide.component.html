@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <h1 class="mb-3">Identidade do usuário</h1>
-    <p>Ao integrar a biblioteca Chatz no seu Website ou aplicativo mobile, por padrão seus usuários iniciam conversas sem serem identificados. Você não saberá qual a relação do usuário com o seu sistema.</p>
+    <p>Ao integrar a biblioteca Ayro no seu Website ou aplicativo mobile, por padrão seus usuários iniciam conversas sem serem identificados. Você não saberá qual a relação do usuário com o seu sistema.</p>
     <p>Conhecendo a identidade do usuário, bem como suas informações, te ajuda a oferecer um suporte mais eficiente e direcionado ao usuário.</p>
     <p>Você pode identificar o usuário atribuindo um identificador único de acordo com o seu sistema. Todas as conversas desse usuário serão centralizadas em um único canal, independente de onde ele inicie a conversa (Website, aplicativo mobile, etc...).</p>
     <div class="row">
@@ -12,9 +12,9 @@
           <div class="col-md-12">
             <h4 class="mb-3">Biblioteca Javascript</h4>
             <div class="highlight">
-              <pre><code>Chatz.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
+              <pre><code>Ayro.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
   // Função login deve ser chamada após a inicialização do app
-  Chatz.login({{ '{' }}
+  Ayro.login({{ '{' }}
     uid: 'userId'
   {{ '}' }});
 {{ '}' }});</code></pre>
@@ -28,7 +28,7 @@
               <pre><code>User user = new User();
 user.setUid("userId");
 // Função login pode ser chamada a qualquer momento
-Chatz.login(user);</code></pre>
+Ayro.login(user);</code></pre>
             </div>
           </div>
         </div>
@@ -42,9 +42,9 @@ Chatz.login(user);</code></pre>
           <div class="col-md-12">
             <h4 class="mb-3">Biblioteca Javascript</h4>
             <div class="highlight">
-              <pre><code>Chatz.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
+              <pre><code>Ayro.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
   // Função logout deve ser chamada após a inicialização do app
-  Chatz.logout();
+  Ayro.logout();
 {{ '}' }});</code></pre>
             </div>
           </div>
@@ -54,7 +54,7 @@ Chatz.login(user);</code></pre>
             <h4 class="mb-3">Biblioteca Android</h4>
             <div class="highlight">
               <pre><code>// Função logout pode ser chamada a qualquer momento
-Chatz.logout();</code></pre>
+Ayro.logout();</code></pre>
             </div>
           </div>
         </div>

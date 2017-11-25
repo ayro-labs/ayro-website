@@ -8,15 +8,15 @@ exports.debug = properties.getValue('app.debug', false);
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
 if (this.env === 'production') {
-  exports.apiUrl = 'https://api.chatz.io';
-  exports.websiteUrl = 'https://www.chatz.io';
+  exports.apiUrl = 'https://api.ayro.io';
+  exports.websiteUrl = 'https://www.ayro.io';
 } else {
   exports.apiUrl = properties.getValue('api.url', 'http://localhost:3000');
   exports.websiteUrl = `http://localhost:${this.port}`;
 }
 
 exports.session = {
-  secret: 'chatz.io',
+  secret: 'ayro.io',
   prefix: 'websession:',
   ttl: Number.MAX_SAFE_INTEGER,
 };

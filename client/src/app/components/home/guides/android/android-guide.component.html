@@ -4,7 +4,7 @@
     <p></p>
     <div class="row">
       <div class="col-md-12">
-        <h3 class="mb-3 text-bold">Integre o Chatz no seu aplicativo Android</h3>
+        <h3 class="mb-3 text-bold">Integre o Ayro no seu aplicativo Android</h3>
         <p></p>
         <div class="row">
           <div class="col-md-12">
@@ -12,16 +12,16 @@
             <div class="row">
               <div class="col-md-12">
                 <h5 class="mb-3">1º Passo - Importe a biblioteca</h5>
-                <p>Adicione a biblioteca Android do Chatz como dependência do seu projeto.</p>
+                <p>Adicione a biblioteca Android do Ayro como dependência do seu projeto.</p>
                 <p>Usando Gradle:</p>
                 <div class="highlight mb-3">
-                  <code>compile 'io.chatz:chatz:{{ sdkVersion }}'</code>
+                  <code>compile 'io.ayro:ayro:{{ sdkVersion }}'</code>
                 </div>
                 <p>Usando Maven:</p>
                 <div class="highlight">
                   <pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;io.chatz&lt;/groupId&gt;
-  &lt;artifactId&gt;chatz&lt;/artifactId&gt;
+  &lt;groupId&gt;io.ayro&lt;/groupId&gt;
+  &lt;artifactId&gt;ayro&lt;/artifactId&gt;
   &lt;version&gt;{{ sdkVersion }}&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
                 </div>
@@ -33,7 +33,7 @@
                 <p>Inicialize a biblioteca incluindo o código a seguir no método <code>onCreate</code> da sua classe que estende Application.</p>
                 <div class="highlight">
                   <pre><code>Settings settings = new Settings("token");
-Chatz.init(this, settings);</code></pre>
+Ayro.init(this, settings);</code></pre>
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@ Chatz.init(this, settings);</code></pre>
             <h4 class="mb-3">Abrindo o Chat</h4>
             <p>Para abrir o Chat, basta adicionar o seguinte código na Activity desejada:</p>
             <div class="highlight">
-              <code>Chatz.openChat();</code>
+              <code>Ayro.openChat();</code>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ Chatz.init(this, settings);</code></pre>
       <div class="col-md-12">
         <h3 class="mb-3 text-bold">Firebase Cloud Messaging</h3>
         <p>O Firebase Cloud Messaging (FCM) é uma solução de mensagens e notificações cross-plataforma para Android. Ele é utilizado para enviar mensagens e notificações push aos usuários.</p>
-        <p>Chatz utiliza o FCM para enviar mensagens e notificações para os usuários.</p>
+        <p>Ayro utiliza o FCM para enviar mensagens e notificações para os usuários.</p>
         <div class="row">
           <div class="col-md-12">
             <h4 class="mb-3">Integrando com o FCM</h4>
@@ -67,8 +67,8 @@ Chatz.init(this, settings);</code></pre>
               <li>5. Adicione a seguinte dependência no arquivo build.xml do seu projeto Android:<br/><code>classpath 'com.google.gms:google-services:3.0.0'</code></li>
               <li>6. Ainda no arquivo build.xml, adicione o seguinte plugin no final do arquivo:<br/><code>apply plugin: 'com.google.gms.google-services'</code></li>
             </ul>
-            <h4 class="mb-3">Configurando o FCM no Chatz</h4>
-            <p>A integração do Chatz com aplicativos Android necessita do "Server key" e "Sender ID". Essas informações podem ser obtidas no console do FCM.</p>
+            <h4 class="mb-3">Configurando o FCM no Ayro</h4>
+            <p>A integração do Ayro com aplicativos Android necessita do "Server key" e "Sender ID". Essas informações podem ser obtidas no console do FCM.</p>
             <ul>
               <li>1. Acesse a página inicial do seu projeto no <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</li>
               <li>2. Vá até as configurações do projeto, na aba "Cloud Messaging".</li>
@@ -77,20 +77,20 @@ Chatz.init(this, settings);</code></pre>
             <p>Para finalizar, adicione essas informações na página da integração Android.</p>
             <img class="w-100 mb-3" src="/assets/img/guides/android/fcm-setup.png">
             <h4 class="mb-3">Configurando o FCM no seu aplicativo</h4>
-            <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService do Chatz. Para isso basta chamar o método <code>disableMessagingService</code> da classe <code>Settings</code>.</p>
+            <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService do Ayro. Para isso basta chamar o método <code>disableMessagingService</code> da classe <code>Settings</code>.</p>
             <div class="highlight">
               <pre><code>Settings settings = new Settings("token");
 settings.disableMessagingService();
-Chatz.init(this, settings);</code></pre>
+Ayro.init(this, settings);</code></pre>
             </div>
-            <p>Em seguida, é necessário desviar as mensagens recebidas para serem tratadas pela biblioteca Chatz. Para isso, edite a sua classe que estende MeessagingService conforme o código a seguir:</p>
+            <p>Em seguida, é necessário desviar as mensagens recebidas para serem tratadas pela biblioteca Ayro. Para isso, edite a sua classe que estende MeessagingService conforme o código a seguir:</p>
             <div class="highlight">
               <pre><code>public class MessagingService extends FirebaseMessagingService {{ '{' }}
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {{ '{' }}
     super.onMessageReceived(remoteMessage);
-    if (ChatzMessages.fromChatz(remoteMessage)) {{ '{' }}
-      ChatzMessages.receive(this, remoteMessage);
+    if (AyroMessages.fromAyro(remoteMessage)) {{ '{' }}
+      AyroMessages.receive(this, remoteMessage);
     {{ '}' }} else {{ '{' }}
       // Seu código aqui
     {{ '}' }}
@@ -104,7 +104,7 @@ Chatz.init(this, settings);</code></pre>
     <div class="row">
       <div class="col-md-12">
         <h3 class="mb-3 text-bold">Customizações</h3>
-        <p>Você pode customizar o Chatz para que ele fique com a aparência do seu aplicativo Android.</p>
+        <p>Você pode customizar o Ayro para que ele fique com a aparência do seu aplicativo Android.</p>
         <div class="row">
           <div class="col-md-12">
             <h4 class="mb-3">Aparência da Activity</h4>
@@ -122,10 +122,10 @@ Chatz.init(this, settings);</code></pre>
             <p>As linguagens suportadas até o momento são o Inglês e Português do Brasil. Você pode alterar os textos dos componentes ou adicionar mais línguas ajustando as strings dos arquivos strings.xml, de acordo com as seguintes chaves:</p>
             <div class="highlight">
               <pre><code>&lt;resources&gt;
-  &lt;string name="chatz_activity_title"&gt;Converse conosco&lt;/string&gt;
-  &lt;string name="chatz_activity_input_placeholder"&gt;Digite uma mensagem…&lt;/string&gt;
-  &lt;string name="chatz_activity_status_no_internet_connection"&gt;Sem conexão com Internet&lt;/string&gt;
-  &lt;string name="chatz_activity_status_connecting_to_the_servers"&gt;Conectando aos servidores…&lt;/string&gt;
+  &lt;string name="ayro_activity_title"&gt;Converse conosco&lt;/string&gt;
+  &lt;string name="ayro_activity_input_placeholder"&gt;Digite uma mensagem…&lt;/string&gt;
+  &lt;string name="ayro_activity_status_no_internet_connection"&gt;Sem conexão com Internet&lt;/string&gt;
+  &lt;string name="ayro_activity_status_connecting_to_the_servers"&gt;Conectando aos servidores…&lt;/string&gt;
 &lt;/resources&gt;</code></pre>
           </div>
         </div>

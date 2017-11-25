@@ -51,14 +51,14 @@
             <div *ngIf="originalConfiguration.profile" class="row">
               <div class="col-md-12">
                 <h4 class="mb-2">Perfil conectado</h4>
-                <p class="mb-2">Perfil do Facebook que dá permissão ao Chatz para interagir com o Messenger.</p>
+                <p class="mb-2">Perfil do Facebook que dá permissão ao Ayro para interagir com o Messenger.</p>
                 <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.profile.name }}</code>.</p>
               </div>
             </div>
             <div class="row mt-4">
               <div class="col-md-12">
                 <h4 class="mb-2">Página conectada</h4>
-                <p class="mb-2">Página do Facebook escolhida para integração com o Chatz via Messenger.</p>
+                <p class="mb-2">Página do Facebook escolhida para integração com o Ayro via Messenger.</p>
                 <p *ngIf="originalConfiguration.page" class="mb-2">Você conectou a página <code>{{ originalConfiguration.page.name }}</code>.</p>
                 <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não conectou nenhuma página.</p>
                 <div class="row">

@@ -36,16 +36,16 @@
           <div class="row">
             <div class="col-md-12">
               <h5 class="mb-3">1º Passo - Importe a biblioteca</h5>
-              <p>Adicione a biblioteca Android do Chatz como dependência do seu projeto.</p>
+              <p>Adicione a biblioteca Android do Ayro como dependência do seu projeto.</p>
               <p>Usando Gradle:</p>
               <div class="highlight mb-3">
-                <code>compile 'io.chatz:chatz:{{ sdkVersion }}'</code>
+                <code>compile 'io.ayro:ayro:{{ sdkVersion }}'</code>
               </div>
               <p>Usando Maven:</p>
               <div class="highlight">
                 <pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;io.chatz&lt;/groupId&gt;
-  &lt;artifactId&gt;chatz&lt;/artifactId&gt;
+  &lt;groupId&gt;io.ayro&lt;/groupId&gt;
+  &lt;artifactId&gt;ayro&lt;/artifactId&gt;
   &lt;version&gt;{{ sdkVersion }}&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
               </div>
@@ -57,7 +57,7 @@
               <p>Inicialize a biblioteca incluindo o código a seguir no método <code>onCreate</code> da sua classe que estende Application.</p>
               <div class="highlight">
                 <pre><code>Settings settings = new Settings("{{ app.token }}");
-Chatz.init(this, settings);</code></pre>
+Ayro.init(this, settings);</code></pre>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ Chatz.init(this, settings);</code></pre>
             <div class="row mt-4">
               <div class="col-md-12">
                 <h4 class="mb-2">Firebase Cloud Messaging</h4>
-                <p class="mb-2">Chatz usa o Firebase Cloud Messaging para enviar mensagens e notificações Push diretamente para seus usuários.</p>
+                <p class="mb-2">Ayro usa o Firebase Cloud Messaging para enviar mensagens e notificações Push diretamente para seus usuários.</p>
                 <div class="form-group">
                   <label for="fcm-server-key">Server Key</label>
                   <input [(ngModel)]="configuration.fcm.server_key" type="text" id="fcm-server-key" name="fcm-server-key" class="form-control">
