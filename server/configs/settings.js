@@ -28,14 +28,14 @@ exports.redis = {
 };
 
 exports.facebook = {
-  appId: '1577343385621250',
-  appSecret: '28a2b0321aec6799be5f0e884431f626',
+  appId: '2149355741952296',
+  appSecret: 'ddd354f9a28d85876bda6a03594aae7b',
 };
 
 exports.slack = {
-  clientId: '238285510608.246046996448',
-  clientSecret: 'a10204a6416c5e4b50a1209c6380568f',
-  verificationToken: '5aRssO4wD1yjYeyfDNuA6np2',
+  clientId: '277516112707.277074206417',
+  clientSecret: '62026310b3b8841342854eb14f65ae70',
+  verificationToken: 'BVUOTnQlEn5vBZQG6AaACegL',
 };
 
 if (properties.getValue('prerender')) {
