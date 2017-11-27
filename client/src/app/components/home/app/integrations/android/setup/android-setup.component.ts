@@ -24,7 +24,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public configuration: any = {fcm: {}};
   public loading: boolean = true;
 
-  public sdkVersion = process.env.AYRO_ANDROID_VERSION;
+  public sdkVersion = process.env.ANDROID_SDK_VERSION;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 

@@ -1,49 +1,26 @@
 const settings = require('../configs/settings');
-const restify = require('restify-clients');
-const Promise = require('bluebird');
+const axios = require('axios');
 
-const client = restify.createJsonClient(settings.apiUrl);
+const apiClient = axios.create({
+  baseURL: settings.apiUrl,
+});
 
-function getRequestOptions(path, apiToken) {
-  const options = {path, headers: {}};
-  if (apiToken) {
-    options.headers['X-Token'] = apiToken;
-  }
-  return options;
+function getOptions(apiToken) {
+  return {
+    headers: {
+      'X-Token': apiToken,
+    },
+  };
 }
 
 exports.get = (path, apiToken) => {
-  return new Promise((resolve, reject) => {
-    client.get(getRequestOptions(path, apiToken), (err, req, res, obj) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(obj);
-      }
-    });
-  });
+  return apiClient.get(path, getOptions(apiToken)).then(response => response.data);
 };
 
 exports.post = (path, apiToken, body) => {
-  return new Promise((resolve, reject) => {
-    client.post(getRequestOptions(path, apiToken), body, (err, req, res, obj) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(obj);
-      }
-    });
-  });
+  return apiClient.post(path, body, getOptions(apiToken)).then(response => response.data);
 };
 
 exports.delete = (path, apiToken) => {
-  return new Promise((resolve, reject) => {
-    client.del(getRequestOptions(path, apiToken), (err, req, res, obj) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(obj);
-      }
-    });
-  });
+  return apiClient.delete(path, getOptions(apiToken)).then(response => response.data);
 };

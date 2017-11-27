@@ -1,6 +1,4 @@
-const settings = require('../configs/settings');
 const helpers = require('./helpers');
-
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
@@ -102,14 +100,5 @@ module.exports = {
     }),
     new ExtractTextPlugin({filename: 'assets/styles/[name].css', allChunks: true}),
     new HtmlPlugin({template: helpers.root('/client/src/index.html')}),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(settings.env),
-        API_URL: JSON.stringify(settings.apiUrl),
-        AYRO_APP_TOKEN: JSON.stringify(settings.ayroAppToken),
-        AYRO_JS_VERSION: JSON.stringify(settings.ayroJsSdkVersion),
-        AYRO_ANDROID_VERSION: JSON.stringify(settings.ayroAndroidSdkVersion),
-      },
-    }),
   ],
 };

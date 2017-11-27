@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.account = account;
       this.loading = false;
       Ayro.init({
-        app_token: process.env.AYRO_APP_TOKEN,
+        app_token: process.env.APP_TOKEN,
         chatbox: {
           title: 'Como podemos ajudá-lo?',
           input_placeholder: 'Digite uma mensagem...',

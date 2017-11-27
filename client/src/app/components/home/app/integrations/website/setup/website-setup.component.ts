@@ -24,7 +24,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   public configuration: any = {};
   public loading: boolean = true;
 
-  public sdkVersion = process.env.AYRO_JS_VERSION;
+  public sdkVersion = process.env.JS_SDK_VERSION;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
