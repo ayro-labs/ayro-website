@@ -1,6 +1,6 @@
 node_modules
-npm-debug.log
-client/config.properties
-server/ayro-website.log
-server/config.properties
 client-dist
+npm-debug.log
+ayro-website.log
+client/config.properties
+server/config.properties
