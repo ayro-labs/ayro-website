@@ -5,6 +5,15 @@ Just run the following command:
 npm install
 ````
 
+## Defining required hostnames ##
+
+Define the following hostnames in your hosts file:
+````
+ayro         <IP>
+ayro-website <IP>
+ayro-redis   <IP>
+````
+
 ## Building for development environments ##
 
 Just run the following command:

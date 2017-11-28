@@ -7,13 +7,8 @@ exports.port = properties.getValue('app.port', 4000);
 exports.debug = properties.getValue('app.debug', false);
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
-if (this.env === 'production') {
-  exports.apiUrl = 'https://api.ayro.io';
-  exports.websiteUrl = 'https://www.ayro.io';
-} else {
-  exports.apiUrl = properties.getValue('api.url', 'http://localhost:3000');
-  exports.websiteUrl = `http://localhost:${this.port}`;
-}
+exports.apiUrl = properties.getValue('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://ayro:3000');
+exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://ayro-website:${this.port}`;
 
 exports.session = {
   secret: 'ayro.io',
@@ -22,7 +17,7 @@ exports.session = {
 };
 
 exports.redis = {
-  host: properties.getValue('redis.host', 'localhost'),
+  host: properties.getValue('redis.host', 'ayro-redis'),
   port: properties.getValue('redis.port', 6379),
   password: properties.getValue('redis.password'),
 };

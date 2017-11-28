@@ -1,0 +1,5 @@
+node_modules
+client
+npm-debug.log
+ayro-website.log
+server/config.properties
