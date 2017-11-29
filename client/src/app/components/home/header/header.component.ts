@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs/Subscription';
 
 import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
+import {AppService} from 'app/services/app.service';
 import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
 import {ErrorUtils} from 'app/utils/error.utils';
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private currentUrl: string;
   private subscriptions: Subscription[] = [];
 
-  constructor(private authService: AuthService, private accountService: AccountService, private eventService: EventService, private router: Router) {
+  constructor(private authService: AuthService, private accountService: AccountService, private appService: AppService, private eventService: EventService, private router: Router) {
 
   }
 
@@ -34,11 +35,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.events.subscribe((event) => {
       this.onRouteChanged(event);
     });
-    this.accountService.getAuthenticatedAccount().subscribe((account) => {
+    this.accountService.getAuthenticatedAccount().mergeMap((account) => {
       this.account = account;
+      return this.appService.getConfigs();
+    }).subscribe((configs) => {
       this.loading = false;
       Ayro.init({
-        app_token: process.env.APP_TOKEN,
+        app_token: configs.appToken,
         chatbox: {
           title: 'Como podemos ajudá-lo?',
           input_placeholder: 'Digite uma mensagem...',

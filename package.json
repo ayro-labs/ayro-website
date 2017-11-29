@@ -10,10 +10,9 @@
   },
   "homepage": "https://ayro.io",
   "scripts": {
-    "client-lint": "tslint -c 'client/tslint.json' 'client/src/**/*.ts?(x)'",
+    "lint": "eslint '**/*.js' && tslint '**/*.ts?(x)'",
     "client-build": "webpack --config 'client/webpack.config.js' --env.development",
     "client-build-prod": "webpack --config 'client/webpack.config.js' --env.production",
-    "server-lint": "eslint 'server/**/*.js'",
     "server-start": "node server/app.js"
   },
   "devDependencies": {
@@ -54,6 +53,7 @@
     "@slack/client": "3.14.0",
     "axios": "0.17.1",
     "ayro": "0.0.2",
+    "bluebird": "3.5.1",
     "body-parser": "1.18.2",
     "bootstrap": "4.0.0-beta",
     "compression": "1.7.1",

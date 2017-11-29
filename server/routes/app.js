@@ -7,6 +7,15 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = (router, app) => {
 
+  function getConfigs(req, res) {
+    appService.getConfigs().then((config) => {
+      res.json(config);
+    }).catch((err) => {
+      logger.error(err);
+      res.status(err.statusCode).json(err.body);
+    });
+  }
+
   function connectFacebook(req, res, next) {
     req.session.app = req.params.app;
     passport.authorize('facebook')(req, res, next);
@@ -69,6 +78,7 @@ module.exports = (router, app) => {
     done(null, accessToken);
   }));
 
+  router.get('/configs', getConfigs);
   router.get('/:app/integrations/facebook/connect', connectFacebook);
   router.get('/integrations/facebook/connect/callback', connectFacebookCallback);
   router.get('/:app/integrations/slack/connect', connectSlack);

@@ -7,8 +7,12 @@ exports.port = properties.getValue('app.port', 4000);
 exports.debug = properties.getValue('app.debug', false);
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
-exports.apiUrl = properties.getValue('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://ayro:3000');
-exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://ayro-website:${this.port}`;
+exports.apiUrl = properties.getValue('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
+exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://localhost:${this.port}`;
+
+exports.appToken = properties.getValue('ayro.appToken');
+exports.jsSdkVersion = properties.getValue('ayro.jsSdkVersion');
+exports.androidSdkVersion = properties.getValue('ayro.androidSdkVersion');
 
 exports.session = {
   secret: 'ayro.io',
@@ -17,7 +21,7 @@ exports.session = {
 };
 
 exports.redis = {
-  host: properties.getValue('redis.host', 'ayro-redis'),
+  host: properties.getValue('redis.host', 'localhost'),
   port: properties.getValue('redis.port', 6379),
   password: properties.getValue('redis.password'),
 };
@@ -46,6 +50,15 @@ if (properties.getValue('https')) {
 
 if (this.env === 'production' && !this.https) {
   throw new Error('Https is required when running in production environment');
+}
+if (!this.appToken) {
+  throw new Error('Property ayro.appToken is required');
+}
+if (!this.jsSdkVersion) {
+  throw new Error('Property ayro.jsSdkVersion is required');
+}
+if (!this.androidSdkVersion) {
+  throw new Error('Property ayro.androidSdkVersion is required');
 }
 
 logger.info('Using %s environment settings', this.env);

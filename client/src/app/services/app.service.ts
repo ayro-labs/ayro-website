@@ -1,9 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 
 import {App} from 'app/models/app.model';
 import {ApiError} from 'app/services/commons/api.error';
@@ -14,6 +11,12 @@ export class AppService {
 
   constructor(private http: Http) {
 
+  }
+
+  public getConfigs(): Observable<any> {
+    return this.http.get('/apps/configs', RequestUtils.newJsonOptionsWithApiToken())
+      .map((res: Response) => res.json())
+      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
   }
 
   public listApps(withIntegrations?: boolean): Observable<App[]> {

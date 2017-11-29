@@ -19,12 +19,12 @@ export class SignUpComponent {
   }
 
   public signUp() {
-    this.accountService.createAccount(this.name, this.email, this.password).subscribe(() => {
-      this.authService.signIn(this.email, this.password).subscribe(() => {
-        this.router.navigate(['/apps']);
-      }, () => {
-        this.router.navigate(['/signin']);
-      });
+    this.accountService.createAccount(this.name, this.email, this.password).mergeMap(() => {
+      return this.authService.signIn(this.email, this.password);
+    }).subscribe(() => {
+      this.router.navigate(['/apps']);
+    }, () => {
+      this.router.navigate(['/signin']);
     });
   }
 }

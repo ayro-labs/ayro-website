@@ -1,7 +1,6 @@
+const webpackProd = require('./webpack/webpack.prod.js');
+const webpackDev = require('./webpack/webpack.dev.js');
+
 module.exports = (env) => {
-  if (env && env.production) {
-    return require('./webpack/webpack.prod.js');
-  } else {
-    return require('./webpack/webpack.dev.js');
-  }
+  return env && env.production ? webpackProd : webpackDev;
 };

@@ -34,13 +34,13 @@ export class MessengerSetupIntegrationComponent implements OnInit {
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_MESSENGER);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).subscribe((app) => {
+    this.appService.getApp(appId).mergeMap((app) => {
       this.app = app;
-      this.integrationService.getIntegration(app, this.channel).subscribe((integration) => {
-        this.integration = integration;
-        this.setConfiguration();
-        this.loading = false;
-      });
+      return this.integrationService.getIntegration(app, this.channel);
+    }).subscribe((integration) => {
+      this.integration = integration;
+      this.setConfiguration();
+      this.loading = false;
     });
   }
 
