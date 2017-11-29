@@ -18,7 +18,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
     modules: [
       helpers.root('/client/src'),
-      helpers.root('/node_modules')
+      helpers.root('/node_modules'),
     ],
   },
   module: {
