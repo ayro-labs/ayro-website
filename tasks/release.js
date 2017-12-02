@@ -38,9 +38,9 @@ function updateVersion(versionType, versionNumber) {
 
 function buildProject() {
   return Promise.coroutine(function* () {
-    console.log('Linting project...');
+    utils.log('Linting project...');
     yield exec('npm run lint');
-    console.log('Building project...');
+    utils.log('Building project...');
     yield exec('npm run build-prod');
   })();
 }

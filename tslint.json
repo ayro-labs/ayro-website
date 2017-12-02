@@ -42,7 +42,7 @@
     "template-to-ng-template": true
   },
   "rulesDirectory": [
-    "../node_modules/codelyzer"
+    "./node_modules/codelyzer"
   ],
   "extends": [
     "tslint:recommended",

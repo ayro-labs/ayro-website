@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "target": "es5",
     "module": "commonjs",
     "strict": true,
@@ -16,6 +16,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "lib": ["es6", "dom"],
-    "typeRoots": ["../node_modules/@types", "./types"]
+    "typeRoots": ["./node_modules/@types", "./types"]
   }
 }

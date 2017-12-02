@@ -1,7 +1,7 @@
 {
   "name": "ayro-website",
   "description": "Ayro website",
-  "version": "1.0.0",
+  "version": "0.0.7",
   "private": true,
   "author": {
     "name": "Ayro team",
@@ -10,7 +10,7 @@
   },
   "homepage": "https://ayro.io",
   "scripts": {
-    "lint": "eslint '**/*.js' && tslint '**/*.ts?(x)'",
+    "lint": "eslint '**/*.js' && tslint 'client/src/**/*.ts?(x)'",
     "build": "webpack --config 'client/webpack.config.js' --env.development",
     "build-prod": "webpack --config 'client/webpack.config.js' --env.production",
     "start": "node server/app.js",
@@ -34,6 +34,7 @@
     "bootstrap": "4.0.0-beta",
     "clean-webpack-plugin": "0.1.17",
     "codelyzer": "3.2.1",
+    "colors": "^1.1.2",
     "core-js": "2.5.1",
     "css-loader": "0.28.7",
     "eslint": "4.8.0",
@@ -83,6 +84,6 @@
     "prerender-node": "2.7.4",
     "properties": "1.2.1",
     "redis": "2.8.0",
-    "winston": "2.4.0",
+    "winston": "2.4.0"
   }
 }
