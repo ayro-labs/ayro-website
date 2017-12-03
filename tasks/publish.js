@@ -3,6 +3,7 @@ const utils = require('./utils');
 const path = require('path');
 const Promise = require('bluebird');
 
+const REPOSITORY_NAMESPACE = 'ayro';
 const REPOSITORY_URL = '554511234717.dkr.ecr.us-west-1.amazonaws.com';
 const WORKING_DIR = path.resolve(__dirname, '../');
 
@@ -19,9 +20,9 @@ function checkoutTag(version) {
 
 function buildProject() {
   return Promise.coroutine(function* () {
-    console.log('Linting project...');
+    utils.log('Linting project...');
     yield exec('npm run lint');
-    console.log('Building project...');
+    utils.log('Building project...');
     yield exec('npm run build-prod');
   })();
 }
@@ -29,16 +30,16 @@ function buildProject() {
 function buildImage() {
   return Promise.coroutine(function* () {
     utils.log('Building image...');
-    yield exec(`docker build -t ${projectPackage.name} .`);
+    yield exec(`docker build -t ${REPOSITORY_NAMESPACE}/${projectPackage.name} .`);
     utils.log('Tagging image...');
-    yield exec(`docker tag ${projectPackage.name}:latest ${REPOSITORY_URL}/${projectPackage.name}:latest`);
+    yield exec(`docker tag ${REPOSITORY_NAMESPACE}/${projectPackage.name}:latest ${REPOSITORY_URL}/${REPOSITORY_NAMESPACE}/${projectPackage.name}:latest`);
   })();
 }
 
-function publishToRegistry() {
+function publishToECR() {
   return Promise.coroutine(function* () {
-    utils.log('Publishing to Registry...');
-    yield exec(`docker push ${REPOSITORY_URL}/${projectPackage.name}:latest`);
+    utils.log('Publishing to Amazon ECR...');
+    yield exec(`docker push ${REPOSITORY_URL}/${REPOSITORY_NAMESPACE}/${projectPackage.name}:latest`);
   })();
 }
 
@@ -51,7 +52,7 @@ if (require.main === module) {
       yield checkoutTag(version);
       yield buildProject();
       yield buildImage();
-      yield publishToRegistry();
+      yield publishToECR();
       yield checkoutTag('master');
       utils.log(`Version ${version} published with success!`);
     } catch (err) {
