@@ -41,16 +41,6 @@ if (properties.getValue('prerender')) {
   exports.prerenderUrl = properties.getValue('prerender.url', 'http://localhost:9000');
 }
 
-if (properties.getValue('https')) {
-  exports.https = {
-    key: properties.getValue('https.key'),
-    cert: properties.getValue('https.cert'),
-  };
-}
-
-if (this.env === 'production' && !this.https) {
-  throw new Error('Https is required when running in production environment');
-}
 if (!this.appToken) {
   throw new Error('Property ayro.appToken is required');
 }
