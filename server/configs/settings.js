@@ -7,8 +7,10 @@ exports.port = properties.getValue('app.port', 4000);
 exports.debug = properties.getValue('app.debug', false);
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
-exports.apiUrl = properties.getValue('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
 exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://localhost:${this.port}`;
+exports.apiUrl = properties.getValue('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
+exports.prerenderPort = properties.getValue('prerender.port', 4100);
+exports.prerenderUrl = `http://localhost:${this.prerenderPort}`;
 
 exports.appToken = properties.getValue('ayro.appToken');
 exports.jsSdkVersion = properties.getValue('ayro.jsSdkVersion');
@@ -36,10 +38,6 @@ exports.slack = {
   clientSecret: '62026310b3b8841342854eb14f65ae70',
   verificationToken: 'BVUOTnQlEn5vBZQG6AaACegL',
 };
-
-if (properties.getValue('prerender')) {
-  exports.prerenderUrl = properties.getValue('prerender.url', 'http://localhost:9000');
-}
 
 if (!this.appToken) {
   throw new Error('Property ayro.appToken is required');

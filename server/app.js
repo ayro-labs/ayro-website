@@ -4,6 +4,7 @@ const middlewares = require('./configs/middlewares');
 const routes = require('./configs/routes');
 const logger = require('./utils/logger');
 const loggerServer = require('./utils/logger-server');
+const prerender = require('prerender');
 const express = require('express');
 const cors = require('cors');
 const flash = require('connect-flash');
@@ -64,3 +65,13 @@ routes.configure(express, app);
 app.listen(app.get('port'), () => {
   logger.info('Ayro Website server is listening on port %s', app.get('port'));
 });
+
+const prerenderServer = prerender({
+  port: settings.prerenderPort,
+});
+prerenderServer.use(prerender.sendPrerenderHeader());
+prerenderServer.use(prerender.httpHeaders());
+prerenderServer.use(prerender.removeScriptTags());
+prerenderServer.use(prerender.blockResources());
+prerenderServer.use(prerender.whitelist());
+prerenderServer.start();
