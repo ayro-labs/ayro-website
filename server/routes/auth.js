@@ -1,4 +1,5 @@
 const authService = require('../services/auth');
+const errors = require('../utils/errors');
 const logger = require('../utils/logger');
 
 module.exports = (router, app) => {
@@ -9,7 +10,7 @@ module.exports = (router, app) => {
       res.json(result);
     }).catch((err) => {
       logger.error(err);
-      res.status(err.statusCode).json(err.body);
+      errors.respondWithError(res, err);
     });
   }
 
@@ -19,7 +20,7 @@ module.exports = (router, app) => {
       res.json({});
     }).catch((err) => {
       logger.error(err);
-      res.status(err.statusCode).json(err.body);
+      errors.respondWithError(res, err);
     });
   }
 

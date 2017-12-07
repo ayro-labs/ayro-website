@@ -1,5 +1,6 @@
 node_modules
 client
+tasks
 npm-debug.log
 ayro-website.log
 server/config.properties

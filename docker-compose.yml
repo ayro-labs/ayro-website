@@ -1,0 +1,9 @@
+version: "3.4"
+services:
+  ayro-website:
+    image: "ayro/ayro-website:latest"
+    container_name: "ayro-website"
+    hostname: "ayro-website"
+    network_mode: "host"
+    volumes:
+      - "./server/config.properties:/usr/src/ayro-website/server/config.properties"

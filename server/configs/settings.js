@@ -9,12 +9,16 @@ exports.publicPath = path.join(__dirname, '../../client-dist');
 
 exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://localhost:${this.port}`;
 exports.apiUrl = properties.getValue('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
-exports.prerenderPort = properties.getValue('prerender.port', 4100);
-exports.prerenderUrl = `http://localhost:${this.prerenderPort}`;
 
 exports.appToken = properties.getValue('ayro.appToken');
 exports.jsSdkVersion = properties.getValue('ayro.jsSdkVersion');
 exports.androidSdkVersion = properties.getValue('ayro.androidSdkVersion');
+
+exports.prerender = {
+  port: properties.getValue('prerender.port', 4100),
+  url: `http://localhost:${properties.getValue('prerender.port', 4100)}`,
+  chromeLocation: properties.getValue('prerender.chromeLocation', '/usr/bin/chromium-browser'),
+};
 
 exports.session = {
   secret: 'ayro.io',

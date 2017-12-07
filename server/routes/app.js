@@ -1,5 +1,6 @@
 const settings = require('../configs/settings');
 const appService = require('../services/app');
+const errors = require('../utils/errors');
 const logger = require('../utils/logger');
 const passport = require('passport');
 const SlackStrategy = require('passport-slack').Strategy;
@@ -12,7 +13,7 @@ module.exports = (router, app) => {
       res.json(config);
     }).catch((err) => {
       logger.error(err);
-      res.status(err.statusCode).json(err.body);
+      errors.respondWithError(res, err);
     });
   }
 

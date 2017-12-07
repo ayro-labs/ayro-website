@@ -67,7 +67,8 @@ app.listen(app.get('port'), () => {
 });
 
 const prerenderServer = prerender({
-  port: settings.prerenderPort,
+  port: settings.prerender.port,
+  chromeLocation: settings.prerender.chromeLocation,
 });
 prerenderServer.use(prerender.sendPrerenderHeader());
 prerenderServer.use(prerender.httpHeaders());
