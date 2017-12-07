@@ -30,10 +30,9 @@ exports.internalError = (message, cause) => {
 exports.fromResponseError = (err) => {
   if (!err.response) {
     return this.internalError(err.message);
-  } else {
-    const data = err.response.data;
-    return new AyroError(data.status, data.code, data.message, data.cause);
   }
+  const {data} = err.response;
+  return new AyroError(data.status, data.code, data.message, data.cause);
 };
 
 exports.respondWithError = (res, err) => {
