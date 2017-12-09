@@ -1,7 +1,7 @@
-const logger = require('../utils/logger');
 const authRoutes = require('../routes/auth');
 const appRoutes = require('../routes/app');
 const indexRoutes = require('../routes');
+const {logger} = require('@ayro/commons');
 
 exports.configure = (express, app) => {
 

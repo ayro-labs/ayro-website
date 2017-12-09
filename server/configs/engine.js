@@ -1,4 +1,4 @@
-const logger = require('../utils/logger');
+const {logger} = require('@ayro/commons');
 const nunjucks = require('nunjucks');
 
 exports.configure = (app) => {

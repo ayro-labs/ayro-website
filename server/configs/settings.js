@@ -1,24 +1,18 @@
-const properties = require('./properties');
-const logger = require('../utils/logger');
+const {properties, logger} = require('@ayro/commons');
 const path = require('path');
 
-exports.env = properties.getValue('app.env', 'development');
-exports.port = properties.getValue('app.port', 4000);
-exports.debug = properties.getValue('app.debug', false);
+exports.env = properties.get('app.env', 'development');
+exports.port = properties.get('app.port', 4000);
+exports.debug = properties.get('app.debug', false);
 exports.publicPath = path.join(__dirname, '../../client-dist');
 
 exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://localhost:${this.port}`;
-exports.apiUrl = properties.getValue('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
+exports.apiUrl = properties.get('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
+exports.prerenderUrl = properties.get('prerender.url');
 
-exports.appToken = properties.getValue('ayro.appToken');
-exports.jsSdkVersion = properties.getValue('ayro.jsSdkVersion');
-exports.androidSdkVersion = properties.getValue('ayro.androidSdkVersion');
-
-exports.prerender = {
-  port: properties.getValue('prerender.port', 4100),
-  url: `http://localhost:${properties.getValue('prerender.port', 4100)}`,
-  chromeLocation: properties.getValue('prerender.chromeLocation', '/usr/bin/chromium-browser'),
-};
+exports.appToken = properties.get('ayro.appToken');
+exports.jsSdkVersion = properties.get('ayro.jsSdkVersion');
+exports.androidSdkVersion = properties.get('ayro.androidSdkVersion');
 
 exports.session = {
   secret: 'ayro.io',
@@ -27,9 +21,9 @@ exports.session = {
 };
 
 exports.redis = {
-  host: properties.getValue('redis.host', 'localhost'),
-  port: properties.getValue('redis.port', 6379),
-  password: properties.getValue('redis.password'),
+  host: properties.get('redis.host', 'localhost'),
+  port: properties.get('redis.port', 6379),
+  password: properties.get('redis.password'),
 };
 
 exports.facebook = {

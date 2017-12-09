@@ -1,6 +1,6 @@
 const authService = require('../services/auth');
 const errors = require('../utils/errors');
-const logger = require('../utils/logger');
+const {logger} = require('@ayro/commons');
 
 module.exports = (router, app) => {
 
