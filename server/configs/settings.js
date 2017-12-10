@@ -4,7 +4,8 @@ const path = require('path');
 exports.env = properties.get('app.env', 'development');
 exports.port = properties.get('app.port', 4000);
 exports.debug = properties.get('app.debug', false);
-exports.publicPath = path.join(__dirname, '../../client-dist');
+exports.clientPath = path.join(__dirname, '../../client-dist');
+exports.publicPath = path.join(__dirname, '../public');
 
 exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://localhost:${this.port}`;
 exports.apiUrl = properties.get('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');

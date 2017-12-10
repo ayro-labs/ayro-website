@@ -30,7 +30,7 @@ const app = express();
 
 app.set('env', settings.env);
 app.set('port', settings.port);
-app.set('views', settings.publicPath);
+app.set('views', settings.clientPath);
 app.set('trust proxy', 1);
 
 app.use(flash());
@@ -40,7 +40,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('tiny', {stream: {write: message => loggerServer.debug(message)}}));
 app.use(cors());
-app.use(express.static(settings.publicPath));
+app.use(express.static(settings.clientPath));
+app.use('/public', express.static(settings.publicPath));
 
 const redisClient = redis.createClient({
   host: settings.redis.host,
