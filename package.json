@@ -61,7 +61,7 @@
     "zone.js": "0.8.18"
   },
   "dependencies": {
-    "@ayro/commons": "0.0.4",
+    "@ayro/commons": "0.0.5",
     "axios": "0.17.1",
     "bluebird": "3.5.1",
     "body-parser": "1.18.2",
