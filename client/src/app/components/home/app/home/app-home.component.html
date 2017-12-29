@@ -2,8 +2,8 @@
   <ng-container *ngIf="app.integrations.length === 0">
     <div class="card">
       <div class="card-body">
-        <h2>Converse com seus usuários!</h2>
-        <h5 class="mt-4">Integre seu app com os canais de comunicação que você utiliza e converse com seus usuários onde quer que eles estejam.</h5>
+        <h2>Converse com seus clientes!</h2>
+        <h5 class="mt-4">Integre seu app com os canais de comunicação que você utiliza e converse com seus clientes onde quer que eles estejam.</h5>
         <hr class="my-4">
         <a [routerLink]="['integrations']" class="btn btn-primary btn-lg">
           Ver integrações
@@ -34,7 +34,7 @@
                   Canal da Empresa
                 </span>
                 <span *ngIf="channel.type === 'user'" class="integration-type badge badge-secondary">
-                  Canal do Usuário
+                  Canal do Cliente
                 </span>
               </div>
               <span class="ml-3 mr-3"></span>
@@ -52,7 +52,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="mb-2">App token</h4>
-          <p class="mb-2">Este é o token que você utilizará para inicializar as integrações com os canais do usuário como por exemplo, Website, Android e iOS.</p>
+          <p class="mb-2">Este é o token que você utilizará para inicializar as integrações com os canais do cliente como por exemplo, Website, Android e iOS.</p>
           <div class="row">
             <div class="col-md-6">
               <div class="input-group">

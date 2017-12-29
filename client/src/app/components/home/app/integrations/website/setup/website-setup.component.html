@@ -25,7 +25,7 @@
             Canal da Empresa
           </span>
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-            Canal do Usuário
+            Canal do Cliente
           </span>
           <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
           <p class="integration-subtitle mb-0">Converse em tempo real com os visitantes do seu website.</p>
@@ -96,7 +96,7 @@
             <div class="row mt-4">
               <div class="col-md-12">
                 <h4 class="mb-2">Cor da conversa</h4>
-                <p class="mb-2">Cor de fundo da mensagem do usuário.</p>
+                <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
                 <div class="input-group">
                   <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-addon color-addon"></span>
                   <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">

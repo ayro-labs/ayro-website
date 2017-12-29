@@ -28,10 +28,10 @@
             Canal da Empresa
           </span>
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-            Canal do Usuário
+            Canal do Cliente
           </span>
           <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte a usuários.</p>
+          <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte a clientes.</p>
         </div>
       </div>
       <div *ngIf="!integration" class="card mt-4">
@@ -61,7 +61,7 @@
             <div class="row mt-4">
               <div class="col-md-12">
                 <h4 class="mb-2">Canal de suporte</h4>
-                <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos usuários.</p>
+                <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos clientes.</p>
                 <p *ngIf="originalConfiguration.channel" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
                 <p *ngIf="!originalConfiguration.channel" class="mb-2">Você ainda não escolheu nenhum canal.</p>
                 <div class="row">

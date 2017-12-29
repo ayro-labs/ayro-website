@@ -25,10 +25,10 @@
             Canal da Empresa
           </span>
           <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-            Canal do Usuário
+            Canal do Cliente
           </span>
           <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Converse em tempo real com os usuários do seu aplicativo Android.</p>
+          <p class="integration-subtitle mb-0">Converse em tempo real com os clientes do seu aplicativo Android.</p>
         </div>
       </div>
       <div *ngIf="!integration" class="card">
@@ -100,7 +100,7 @@ Ayro.init(this, settings);</code></pre>
             <div class="row mt-4">
               <div class="col-md-12">
                 <h4 class="mb-2">Cor da conversa</h4>
-                <p class="mb-2">Cor de fundo da mensagem do usuário.</p>
+                <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
                 <div class="input-group">
                   <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-addon color-addon"></span>
                   <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
@@ -110,7 +110,7 @@ Ayro.init(this, settings);</code></pre>
             <div class="row mt-4">
               <div class="col-md-12">
                 <h4 class="mb-2">Firebase Cloud Messaging</h4>
-                <p class="mb-2">Ayro usa o Firebase Cloud Messaging para enviar mensagens e notificações Push diretamente para seus usuários.</p>
+                <p class="mb-2">Ayro usa o Firebase Cloud Messaging para enviar mensagens e notificações Push diretamente para seus clientes.</p>
                 <div class="form-group">
                   <label for="fcm-server-key">Server Key</label>
                   <input [(ngModel)]="configuration.fcm.server_key" type="text" id="fcm-server-key" name="fcm-server-key" class="form-control">
