@@ -6,6 +6,7 @@ exports.getConfigs = () => {
   return Promise.resolve({
     appToken: settings.appToken,
     jsSdkVersion: settings.jsSdkVersion,
+    jsSdkUrl: `${settings.websiteUrl}/libs/ayro-${settings.jsSdkVersion}.min.js`,
     androidSdkVersion: settings.androidSdkVersion,
   });
 };

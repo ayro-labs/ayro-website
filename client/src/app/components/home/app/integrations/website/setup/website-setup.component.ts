@@ -22,7 +22,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
   public integration: Integration;
   public channel: Channel;
   public configuration: any = {};
-  public sdkVersion: string;
+  public sdkUrl: string;
   public loading: boolean = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
@@ -33,7 +33,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_WEBSITE);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getConfigs().mergeMap((configs) => {
-      this.sdkVersion = configs.jsSdkVersion;
+      this.sdkUrl = configs.jsSdkUrl;
       return this.appService.getApp(appId);
     }).mergeMap((app) => {
       this.app = app;

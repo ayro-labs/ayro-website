@@ -8,7 +8,7 @@ import {AppService} from 'app/services/app.service';
 })
 export class WebsiteGuideComponent implements OnInit {
 
-  public sdkVersion: string;
+  public sdkUrl: string;
   public loading: boolean = true;
 
   constructor(private appService: AppService) {
@@ -17,7 +17,7 @@ export class WebsiteGuideComponent implements OnInit {
 
   public ngOnInit() {
     this.appService.getConfigs().subscribe((configs) => {
-      this.sdkVersion = configs.jsSdkVersion;
+      this.sdkUrl = configs.jsSdkUrl;
       this.loading = false;
     });
   }
