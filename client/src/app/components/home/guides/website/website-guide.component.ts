@@ -9,6 +9,7 @@ import {AppService} from 'app/services/app.service';
 export class WebsiteGuideComponent implements OnInit {
 
   public sdkUrl: string;
+  public sdkVersion: string;
   public loading: boolean = true;
 
   constructor(private appService: AppService) {
@@ -18,6 +19,7 @@ export class WebsiteGuideComponent implements OnInit {
   public ngOnInit() {
     this.appService.getConfigs().subscribe((configs) => {
       this.sdkUrl = configs.jsSdkUrl;
+      this.sdkVersion = configs.jsSdkVersion;
       this.loading = false;
     });
   }
