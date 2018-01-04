@@ -8,7 +8,7 @@ import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 
 @Component({
-  selector: 'chz-website',
+  selector: 'ayro-website',
   templateUrl: './website.component.html',
 })
 export class WebsiteIntegrationComponent implements OnInit {

@@ -7,7 +7,7 @@ import {EventService} from 'app/services/event.service';
 import {App} from 'app/models/app.model';
 
 @Component({
-  selector: 'chz-app',
+  selector: 'ayro-app',
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, OnDestroy {

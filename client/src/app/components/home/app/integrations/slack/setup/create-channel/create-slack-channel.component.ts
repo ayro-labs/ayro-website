@@ -6,7 +6,7 @@ import {AlertService} from 'app/services/alert.service';
 import {App} from 'app/models/app.model';
 
 @Component({
-  selector: 'chz-create-slack-channel',
+  selector: 'ayro-create-slack-channel',
   templateUrl: './create-slack-channel.component.html',
 })
 export class CreateSlackChannelComponent {

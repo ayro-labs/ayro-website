@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {AppService} from 'app/services/app.service';
 
 @Component({
-  selector: 'chz-website-guide',
+  selector: 'ayro-website-guide',
   templateUrl: './website-guide.component.html',
 })
 export class WebsiteGuideComponent implements OnInit {

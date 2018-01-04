@@ -21,7 +21,7 @@ import 'assets/img/guides/android/color-setup.png';
 import 'assets/img/guides/android/fcm-setup.png';
 import 'assets/img/guides/slack/signin.png';
 import 'assets/img/guides/slack/channel-setup.png';
-import 'assets/img/guides/slack/cmd-chz.png';
+import 'assets/img/guides/slack/cmd-send.png';
 import 'assets/img/guides/slack/cmd-profile.png';
 
 if (process.env.NODE_ENV === 'production') {

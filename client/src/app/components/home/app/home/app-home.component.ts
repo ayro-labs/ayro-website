@@ -12,7 +12,7 @@ import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
 
 @Component({
-  selector: 'chz-app-home',
+  selector: 'ayro-app-home',
   templateUrl: './app-home.component.html',
 })
 export class AppHomeComponent implements OnInit {

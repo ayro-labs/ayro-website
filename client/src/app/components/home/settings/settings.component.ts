@@ -6,7 +6,7 @@ import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
 
 @Component({
-  selector: 'chz-settings',
+  selector: 'ayro-settings',
   templateUrl: './settings.component.html',
 })
 export class SettingsComponent implements OnInit {

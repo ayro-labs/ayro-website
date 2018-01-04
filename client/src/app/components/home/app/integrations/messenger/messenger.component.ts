@@ -8,7 +8,7 @@ import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 
 @Component({
-  selector: 'chz-messenger',
+  selector: 'ayro-messenger',
   templateUrl: './messenger.component.html',
 })
 export class MessengerIntegrationComponent implements OnInit {

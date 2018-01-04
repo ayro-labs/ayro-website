@@ -14,7 +14,7 @@ import {Integration} from 'app/models/integration.model';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'chz-messenger-setup',
+  selector: 'ayro-messenger-setup',
   templateUrl: './messenger-setup.component.html',
 })
 export class MessengerSetupIntegrationComponent implements OnInit {

@@ -16,7 +16,7 @@ import {ErrorUtils} from 'app/utils/error.utils';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'chz-slack-setup',
+  selector: 'ayro-slack-setup',
   templateUrl: './slack-setup.component.html',
 })
 export class SlackSetupIntegrationComponent implements OnInit {

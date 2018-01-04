@@ -12,7 +12,7 @@ import {ErrorUtils} from 'app/utils/error.utils';
 import * as Ayro from 'ayro';
 
 @Component({
-  selector: 'chz-header',
+  selector: 'ayro-header',
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {

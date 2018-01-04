@@ -6,7 +6,7 @@ import {AlertService} from 'app/services/alert.service';
 import {App} from 'app/models/app.model';
 
 @Component({
-  selector: 'chz-delete-app',
+  selector: 'ayro-delete-app',
   templateUrl: './delete-app.component.html',
 })
 export class DeleteAppComponent {

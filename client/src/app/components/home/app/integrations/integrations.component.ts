@@ -5,7 +5,7 @@ import {Channel} from 'app/models/channel.model';
 import {Integration} from 'app/models/integration.model';
 
 @Component({
-  selector: 'chz-integrations',
+  selector: 'ayro-integrations',
   templateUrl: './integrations.component.html',
 })
 export class IntegrationsComponent implements OnInit {

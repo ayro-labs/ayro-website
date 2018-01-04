@@ -5,7 +5,7 @@ import {AccountService} from 'app/services/account.service';
 import {AuthService} from 'app/services/auth.service';
 
 @Component({
-  selector: 'chz-signup',
+  selector: 'ayro-signup',
   templateUrl: './signup.component.html',
 })
 export class SignUpComponent {

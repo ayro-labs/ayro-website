@@ -7,7 +7,7 @@ import {App} from 'app/models/app.model';
 import {Channel} from 'app/models/channel.model';
 
 @Component({
-  selector: 'chz-remove-integration',
+  selector: 'ayro-remove-integration',
   templateUrl: './remove-integration.component.html',
 })
 export class RemoveIntegrationComponent {

@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {AlertService, IAlert} from 'app/services/alert.service';
 
 @Component({
-  selector: 'chz-alerts',
+  selector: 'ayro-alerts',
   templateUrl: './alerts.component.html',
 })
 export class AlertsComponent implements OnInit {

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'chz-guides',
+  selector: 'ayro-guides',
   templateUrl: './guides.component.html',
 })
 export class GuidesComponent {

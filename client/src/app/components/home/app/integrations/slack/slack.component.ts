@@ -8,7 +8,7 @@ import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 
 @Component({
-  selector: 'chz-slack',
+  selector: 'ayro-slack',
   templateUrl: './slack.component.html',
 })
 export class SlackIntegrationComponent implements OnInit {

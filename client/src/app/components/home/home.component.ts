@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'chz-home',
+  selector: 'ayro-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {

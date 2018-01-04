@@ -8,7 +8,7 @@ import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 
 @Component({
-  selector: 'chz-android',
+  selector: 'ayro-android',
   templateUrl: './android.component.html',
 })
 export class AndroidIntegrationComponent implements OnInit {

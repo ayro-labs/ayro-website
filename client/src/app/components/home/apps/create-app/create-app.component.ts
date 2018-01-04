@@ -5,7 +5,7 @@ import {AppService} from 'app/services/app.service';
 import {AlertService} from 'app/services/alert.service';
 
 @Component({
-  selector: 'chz-create-app',
+  selector: 'ayro-create-app',
   templateUrl: './create-app.component.html',
 })
 export class CreateAppComponent {

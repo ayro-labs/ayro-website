@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {AppService} from 'app/services/app.service';
 
 @Component({
-  selector: 'chz-android-guide',
+  selector: 'ayro-android-guide',
   templateUrl: './android-guide.component.html',
 })
 export class AndroidGuideComponent implements OnInit {

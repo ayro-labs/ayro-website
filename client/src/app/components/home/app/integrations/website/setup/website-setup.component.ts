@@ -13,7 +13,7 @@ import {Integration} from 'app/models/integration.model';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'chz-website-setup',
+  selector: 'ayro-website-setup',
   templateUrl: './website-setup.component.html',
 })
 export class WebsiteSetupIntegrationComponent implements OnInit {

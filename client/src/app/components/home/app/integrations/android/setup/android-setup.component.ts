@@ -13,7 +13,7 @@ import {Integration} from 'app/models/integration.model';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'chz-android-setup',
+  selector: 'ayro-android-setup',
   templateUrl: './android-setup.component.html',
 })
 export class AndroidSetupIntegrationComponent implements OnInit {

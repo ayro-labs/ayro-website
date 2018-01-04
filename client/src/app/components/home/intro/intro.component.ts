@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 import {IntegrationService} from 'app/services/integration.service';
 
 @Component({
-  selector: 'chz-intro',
+  selector: 'ayro-intro',
   templateUrl: './intro.component.html',
 })
 export class IntroComponent {

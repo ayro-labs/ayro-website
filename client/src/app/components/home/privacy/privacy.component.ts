@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'chz-privacy',
+  selector: 'ayro-privacy',
   templateUrl: './privacy.component.html',
 })
 export class PrivacyComponent {

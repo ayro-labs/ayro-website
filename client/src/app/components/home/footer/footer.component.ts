@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'chz-footer',
+  selector: 'ayro-footer',
   templateUrl: './footer.component.html',
 })
 export class FooterComponent  {

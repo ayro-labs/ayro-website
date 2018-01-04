@@ -6,7 +6,7 @@ import {AlertService} from 'app/services/alert.service';
 import {ErrorUtils} from 'app/utils/error.utils';
 
 @Component({
-  selector: 'chz-signin',
+  selector: 'ayro-signin',
   templateUrl: './signin.component.html',
 })
 export class SignInComponent {
