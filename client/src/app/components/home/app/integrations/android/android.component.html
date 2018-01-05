@@ -6,7 +6,7 @@
           <img [src]="channel.picture_url" class="w-100"/>
         </div>
       </div>
-      <button [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
+      <button *ngIf="app" [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
         <span *ngIf="!integration">Integrar</span>
         <span *ngIf="integration">Configurar</span>
       </button>

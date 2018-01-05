@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-toggleable-md">
   <div class="container-fluid">
-    <a *ngIf="account" class="navbar-brand" [routerLink]="['/apps']">Ayro</a>
-    <a *ngIf="!account" class="navbar-brand" [routerLink]="['/']">Ayro</a>
+    <a *ngIf="account" class="navbar-brand" [routerLink]="['/apps']">
+      <img src="/assets/img/logo-header.png">
+    </a>
+    <a *ngIf="!account" class="navbar-brand" [routerLink]="['/']">
+      <img src="/assets/img/logo-header.png">
+    </a>
     <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

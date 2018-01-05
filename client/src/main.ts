@@ -5,6 +5,7 @@ import {AppModule} from './app/app.module';
 
 import 'assets/styles/main.less';
 import 'assets/img/favicon.ico';
+import 'assets/img/logo-header.png';
 import 'assets/img/no_account_logo.jpg';
 import 'assets/img/no_app_icon.png';
 import 'assets/img/integrations/slack.png';

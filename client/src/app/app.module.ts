@@ -10,6 +10,7 @@ import {AppRoutes} from 'app/app.routes';
 import {AppComponent} from 'app/app.component';
 
 import {AlertsComponent} from 'app/components/alerts/alerts.component';
+import {ContainerComponent} from 'app/components/container/container.component';
 import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
 import {HeaderComponent} from 'app/components/home/header/header.component';
@@ -62,6 +63,7 @@ import {EventService} from 'app/services/event.service';
   declarations: [
     AppComponent,
     AlertsComponent,
+    ContainerComponent,
     SignUpComponent,
     SignInComponent,
     HeaderComponent,

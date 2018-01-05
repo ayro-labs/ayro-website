@@ -1,5 +1,6 @@
 import {Routes} from '@angular/router';
 
+import {ContainerComponent} from 'app/components/container/container.component';
 import {SignUpComponent} from 'app/components/signup/signup.component';
 import {SignInComponent} from 'app/components/signin/signin.component';
 import {HomeComponent} from 'app/components/home/home.component';
@@ -36,6 +37,13 @@ export const AppRoutes: Routes = [
     {path: 'privacy', component: PrivacyComponent},
     {path: 'settings', component: SettingsComponent},
     {path: 'apps', component: AppsComponent},
+    {path: 'apps/integrations', component: ContainerComponent, children: [
+      {path: '', component: IntegrationsComponent},
+      {path: 'website', component: WebsiteIntegrationComponent},
+      {path: 'android', component: AndroidIntegrationComponent},
+      {path: 'messenger', component: MessengerIntegrationComponent},
+      {path: 'slack', component: SlackIntegrationComponent},
+    ]},
     {path: 'apps/:app', component: AppComponent, children: [
       {path: '', component: AppHomeComponent},
       {path: 'settings', component: AppSettingsComponent},
