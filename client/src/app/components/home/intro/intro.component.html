@@ -18,7 +18,9 @@
       <div class="row">
         <div class="col-md-12">
           <h2 class="mb-4">Temos uma solução!</h2>
-          <a [routerLink]="['signup']" class="btn btn-info btn-lg">Crie uma conta gratuitamente</a>
+          <a [routerLink]="['signup']" class="btn btn-info btn-lg">
+            Crie uma conta gratuitamente
+          </a>
         </div>
       </div>
     </div>
@@ -33,7 +35,7 @@
           <h4 class="text-justify mb-4">Todas as conversas são centralizadas em uma ferramenta de comunicação de sua escolha.</h4>
         </div>
       </div>
-      <div class="row">
+      <div class="row mb-4">
         <div class="col-md-2 col-2">
           <img [src]="getChannel('website').picture_url" class="d-none d-sm-block w-50"/>
           <img [src]="getChannel('website').picture_url" class="d-block d-sm-none w-100"/>
@@ -57,6 +59,13 @@
         <div class="col-md-2 col-2">
           <img [src]="getChannel('slack').picture_url" class="d-none d-sm-block w-50"/>
           <img [src]="getChannel('slack').picture_url" class="d-block d-sm-none w-100"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <a [routerLink]="['/apps', 'integrations']" class="btn btn-info btn-lg">
+            Confira as integrações
+          </a>
         </div>
       </div>
     </div>
@@ -197,7 +206,9 @@
               <hr/>
               <p>Acesso a todos os canais da empresa</p>
               <hr/>
-              <a [routerLink]="['signup']" class="btn btn-primary btn-lg">Criar conta gratuitamente</a>
+              <a [routerLink]="['signup']" class="btn btn-primary btn-lg">
+                Criar conta gratuitamente
+              </a>
             </div>
           </div>
         </div>
