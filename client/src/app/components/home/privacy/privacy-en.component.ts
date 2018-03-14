@@ -4,6 +4,6 @@ import {Component} from '@angular/core';
   selector: 'ayro-privacy-en',
   templateUrl: './privacy-en.component.html',
 })
-export class PrivacyENComponent {
+export class PrivacyEnglishComponent {
 
 }

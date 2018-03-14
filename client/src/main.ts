@@ -5,9 +5,11 @@ import {AppModule} from './app/app.module';
 
 import 'assets/styles/main.less';
 import 'assets/img/favicon.ico';
-import 'assets/img/logo-header.png';
-import 'assets/img/no_account_logo.jpg';
-import 'assets/img/no_app_icon.png';
+import 'assets/img/logo_header.png';
+import 'assets/img/icon_no_account.jpg';
+import 'assets/img/icon_no_app.png';
+import 'assets/img/flag_brazil.png';
+import 'assets/img/flag_usa.png';
 import 'assets/img/integrations/slack.png';
 import 'assets/img/integrations/slack_micro.png';
 import 'assets/img/integrations/android.png';
@@ -15,15 +17,15 @@ import 'assets/img/integrations/ios.png';
 import 'assets/img/integrations/website.png';
 import 'assets/img/integrations/messenger.png';
 import 'assets/img/integrations/twitter.png';
-import 'assets/img/guides/website/color-setup.png';
-import 'assets/img/guides/website/floating-button.png';
+import 'assets/img/guides/website/setup_color.png';
+import 'assets/img/guides/website/floating_button.png';
 import 'assets/img/guides/website/conversation.png';
-import 'assets/img/guides/android/color-setup.png';
-import 'assets/img/guides/android/fcm-setup.png';
+import 'assets/img/guides/android/setup_color.png';
+import 'assets/img/guides/android/setup_fcm.png';
 import 'assets/img/guides/slack/signin.png';
-import 'assets/img/guides/slack/channel-setup.png';
-import 'assets/img/guides/slack/cmd-send.png';
-import 'assets/img/guides/slack/cmd-profile.png';
+import 'assets/img/guides/slack/setup_channel.png';
+import 'assets/img/guides/slack/cmd_send.png';
+import 'assets/img/guides/slack/cmd_profile.png';
 
 if (process.env.NODE_ENV === 'production') {
   enableProdMode();
