@@ -15,7 +15,7 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "lib": ["es6", "dom"],
+    "lib": ["es7", "dom"],
     "typeRoots": ["./node_modules/@types", "./types"]
   }
 }
