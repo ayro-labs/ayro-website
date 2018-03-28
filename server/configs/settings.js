@@ -14,6 +14,7 @@ exports.prerenderUrl = properties.get('prerender.url');
 exports.appToken = properties.get('ayro.appToken');
 exports.jsSdkVersion = properties.get('ayro.jsSdkVersion');
 exports.androidSdkVersion = properties.get('ayro.androidSdkVersion');
+exports.wpPluginVersion = properties.get('ayro.wpPluginVersion');
 
 exports.session = {
   secret: 'ayro.io',

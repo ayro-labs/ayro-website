@@ -16,6 +16,8 @@ import {AppSettingsComponent} from 'app/components/home/app/settings/app-setting
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
+import {WordPressIntegrationComponent} from 'app/components/home/app/integrations/wordpress/wordpress.component';
+import {WordPressSetupIntegrationComponent} from 'app/components/home/app/integrations/wordpress/setup/wordpress-setup.component';
 import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
 import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
 import {MessengerIntegrationComponent} from 'app/components/home/app/integrations/messenger/messenger.component';
@@ -42,6 +44,7 @@ export const AppRoutes: Routes = [
     {path: 'apps/integrations', component: ContainerComponent, children: [
       {path: '', component: IntegrationsComponent},
       {path: 'website', component: WebsiteIntegrationComponent},
+      {path: 'wordpress', component: WordPressIntegrationComponent},
       {path: 'android', component: AndroidIntegrationComponent},
       {path: 'messenger', component: MessengerIntegrationComponent},
       {path: 'slack', component: SlackIntegrationComponent},
@@ -52,6 +55,8 @@ export const AppRoutes: Routes = [
       {path: 'integrations', component: IntegrationsComponent},
       {path: 'integrations/website', component: WebsiteIntegrationComponent},
       {path: 'integrations/website/setup', component: WebsiteSetupIntegrationComponent},
+      {path: 'integrations/wordpress', component: WordPressIntegrationComponent},
+      {path: 'integrations/wordpress/setup', component: WordPressSetupIntegrationComponent},
       {path: 'integrations/android', component: AndroidIntegrationComponent},
       {path: 'integrations/android/setup', component: AndroidSetupIntegrationComponent},
       {path: 'integrations/messenger', component: MessengerIntegrationComponent},

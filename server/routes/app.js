@@ -2,6 +2,7 @@ const settings = require('../configs/settings');
 const appService = require('../services/app');
 const errors = require('../utils/errors');
 const {logger} = require('@ayro/commons');
+const Promise = require('bluebird');
 const passport = require('passport');
 const SlackStrategy = require('passport-slack').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
@@ -9,12 +10,15 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 module.exports = (router, app) => {
 
   function getConfigs(req, res) {
-    appService.getConfigs().then((config) => {
-      res.json(config);
-    }).catch((err) => {
-      logger.error(err);
-      errors.respondWithError(res, err);
-    });
+    Promise.coroutine(function* () {
+      try {
+        const config = yield appService.getConfigs();
+        res.json(config);
+      } catch (err) {
+        logger.error(err);
+        errors.respondWithError(res, err);
+      }
+    })();
   }
 
   function connectFacebook(req, res, next) {
@@ -24,21 +28,24 @@ module.exports = (router, app) => {
 
   function connectFacebookCallback(req, res, next) {
     passport.authorize('facebook', (err, data) => {
-      const {apiToken, app} = req.session;
-      const redirectTo = `/apps/${app}/integrations/messenger/setup`;
-      const configuration = {
-        profile: {
-          id: data.profile.id,
-          name: data.profile.displayName,
-          access_token: data.accessToken,
-        },
-      };
-      appService.addMessengerIntegration(apiToken, app, configuration).then(() => {
-        res.redirect(redirectTo);
-      }).catch((err) => {
-        logger.error(err);
-        res.redirect(redirectTo);
-      });
+      Promise.coroutine(function* () {
+        try {
+          const {apiToken, app} = req.session;
+          const redirectTo = `/apps/${app}/integrations/messenger/setup`;
+          const configuration = {
+            profile: {
+              id: data.profile.id,
+              name: data.profile.displayName,
+              access_token: data.accessToken,
+            },
+          };
+          yield appService.addMessengerIntegration(apiToken, app, configuration);
+          res.redirect(redirectTo);
+        } catch(err) {
+          logger.error(err);
+          res.redirect(redirectTo);
+        }
+      })();
     })(req, res, next);
   }
 
@@ -49,14 +56,17 @@ module.exports = (router, app) => {
 
   function connectSlackCallback(req, res, next) {
     passport.authorize('slack', (err, accessToken) => {
-      const {apiToken, app} = req.session;
-      const redirectTo = `/apps/${app}/integrations/slack/setup`;
-      appService.addSlackIntegration(apiToken, app, accessToken).then(() => {
-        res.redirect(redirectTo);
-      }).catch((err) => {
-        logger.error(err);
-        res.redirect(redirectTo);
-      });
+      Promise.coroutine(function* () {
+        try {
+          const {apiToken, app} = req.session;
+          const redirectTo = `/apps/${app}/integrations/slack/setup`;
+          yield appService.addSlackIntegration(apiToken, app, accessToken);
+          res.redirect(redirectTo);
+        } catch(err) {
+          logger.error(err);
+          res.redirect(redirectTo);
+        }
+      })();
     })(req, res, next);
   }
 

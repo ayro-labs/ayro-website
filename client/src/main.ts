@@ -15,6 +15,7 @@ import 'assets/img/integrations/slack_micro.png';
 import 'assets/img/integrations/android.png';
 import 'assets/img/integrations/ios.png';
 import 'assets/img/integrations/website.png';
+import 'assets/img/integrations/wordpress.png';
 import 'assets/img/integrations/messenger.png';
 import 'assets/img/integrations/twitter.png';
 import 'assets/img/guides/website/setup_color.png';

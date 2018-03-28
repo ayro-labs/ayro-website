@@ -1,0 +1,56 @@
+<ng-container *ngIf="!loading">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <img [src]="channel.picture_url" class="w-100"/>
+        </div>
+      </div>
+      <button *ngIf="app" [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
+        <span *ngIf="!integration">Integrar</span>
+        <span *ngIf="integration">Configurar</span>
+      </button>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4>Relacionados</h4>
+          <a [routerLink]="['/guides', 'wordpress']" class="d-block">
+            Documentação
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
+            Canal da Empresa
+          </span>
+          <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
+            Canal do Cliente
+          </span>
+          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
+          <p class="integration-subtitle mb-0">Converse em tempo real com os visitantes do seu website WordPress.</p>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-body integration-description">
+          <p>Adicione chat no seu website WordPress em apenas alguns minutos e converse em tempo real com seus visitantes.</p>
+          <h4>Funcionalidades</h4>
+          <ul>
+            <li>Seus visitantes podem iniciar uma conversa em tempo real com você direto do seu Website.</li>
+            <li>Receba as mensagens dos visitantes nos canais de comunicação da empresa.</li>
+            <li>Identifique o visitante e receba as informações do perfil no canal de comunicação da empresa.</li>
+            <li>As conversas são persistidas e sincronizadas entre as sessões e canais do cliente.</li>
+            <li>Customize o visual do chat de acordo com o visual do seu Website.</li>
+          </ul>
+          <h4>Requerimentos</h4>
+          <ul>
+            <li>Conhecimentos básicos em WordPress.</li>
+            <li>Acesso ao painél de administração do WordPress.</li>
+            <li>Permissão para adicionar novos plugins.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

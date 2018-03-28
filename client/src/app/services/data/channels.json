@@ -1,6 +1,7 @@
 {
   "channels": [
     {"type": "user", "id": "website", "name": "Website", "picture_url": "/assets/img/integrations/website.png", "released": true},
+    {"type": "user", "id": "wordpress", "name": "WordPress", "picture_url": "/assets/img/integrations/wordpress.png", "released": true},
     {"type": "user", "id": "android", "name": "Android", "picture_url": "/assets/img/integrations/android.png", "released": true},
     {"type": "user", "id": "messenger", "name": "Messenger", "picture_url": "/assets/img/integrations/messenger.png", "released": true},
     {"type": "user", "id": "ios", "name": "iOS", "picture_url": "/assets/img/integrations/ios.png", "released": false},

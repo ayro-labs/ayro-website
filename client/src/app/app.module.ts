@@ -31,6 +31,8 @@ import {IntegrationsComponent} from 'app/components/home/app/integrations/integr
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
+import {WordPressIntegrationComponent} from 'app/components/home/app/integrations/wordpress/wordpress.component';
+import {WordPressSetupIntegrationComponent} from 'app/components/home/app/integrations/wordpress/setup/wordpress-setup.component';
 import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
 import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
 import {MessengerIntegrationComponent} from 'app/components/home/app/integrations/messenger/messenger.component';
@@ -85,6 +87,8 @@ import {EventService} from 'app/services/event.service';
     RemoveIntegrationComponent,
     WebsiteIntegrationComponent,
     WebsiteSetupIntegrationComponent,
+    WordPressIntegrationComponent,
+    WordPressSetupIntegrationComponent,
     AndroidIntegrationComponent,
     AndroidSetupIntegrationComponent,
     MessengerIntegrationComponent,
