@@ -43,8 +43,9 @@ import {CreateSlackChannelComponent} from 'app/components/home/app/integrations/
 import {GuidesComponent} from 'app/components/home/guides/guides.component';
 import {UserIdentityGuideComponent} from 'app/components/home/guides/user-identity/user-identity-guide.component';
 import {UserInformationGuideComponent} from 'app/components/home/guides/user-information/user-information-guide.component';
-import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
 import {WebsiteGuideComponent} from 'app/components/home/guides/website/website-guide.component';
+import {WordPressGuideComponent} from 'app/components/home/guides/wordpress/wordpress-guide.component';
+import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
 import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
 
 import {AuthService} from 'app/services/auth.service';
@@ -99,8 +100,9 @@ import {EventService} from 'app/services/event.service';
     GuidesComponent,
     UserIdentityGuideComponent,
     UserInformationGuideComponent,
-    AndroidGuideComponent,
     WebsiteGuideComponent,
+    WordPressGuideComponent,
+    AndroidGuideComponent,
     SlackGuideComponent,
   ],
   entryComponents: [

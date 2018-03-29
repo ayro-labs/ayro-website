@@ -7,6 +7,7 @@ exports.getConfigs = () => {
     appToken: settings.appToken,
     jsSdkVersion: settings.jsSdkVersion,
     jsSdkUrl: `${settings.websiteUrl}/libs/ayro-${settings.jsSdkVersion}.min.js`,
+    wpPluginVersion: settings.wpPluginVersion,
     wpPluginUrl: `${settings.websiteUrl}/libs/ayro-wordpress-${settings.wpPluginVersion}.zip`,
     androidSdkVersion: settings.androidSdkVersion,
   });
