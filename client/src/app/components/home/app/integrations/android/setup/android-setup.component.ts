@@ -52,7 +52,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
 
   public removeFCMConfiguration() {
     this.configuration.fcm = {};
-    delete this.originalConfiguration['fcm'];
+    delete this.originalConfiguration.fcm;
   }
 
   public testIntegration() {
@@ -69,13 +69,13 @@ export class AndroidSetupIntegrationComponent implements OnInit {
 
   public updateConfiguration() {
     if (this.originalConfiguration.fcm) {
-      delete this.configuration['fcm'];
+      delete this.configuration.fcm;
     }
     if (this.configuration.fcm && _.isEmpty(this.configuration.fcm.server_key)) {
-      delete this.configuration.fcm['server_key'];
+      delete this.configuration.fcm.server_key;
     }
     if (this.configuration.fcm && _.isEmpty(this.configuration.fcm.sender_id)) {
-      delete this.configuration.fcm['sender_id'];
+      delete this.configuration.fcm.sender_id;
     }
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration) => {
       this.integration = integration;
