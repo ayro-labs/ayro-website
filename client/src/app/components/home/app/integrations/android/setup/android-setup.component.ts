@@ -21,6 +21,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public app: App;
   public integration: Integration;
   public channel: Channel;
+  public originalConfiguration: any = {};
   public configuration: any = {fcm: {}};
   public sdkVersion: string;
   public loading: boolean = true;
@@ -32,7 +33,6 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_ANDROID);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-
     this.appService.getConfigs().mergeMap((configs) => {
       this.sdkVersion = configs.androidSdkVersion;
       return this.appService.getApp(appId);
@@ -50,6 +50,11 @@ export class AndroidSetupIntegrationComponent implements OnInit {
     this.alertService.info('Token copiado!');
   }
 
+  public removeFCMConfiguration() {
+    this.configuration.fcm = {};
+    delete this.originalConfiguration['fcm'];
+  }
+
   public testIntegration() {
     this.integrationService.getIntegration(this.app, this.channel).subscribe((integration) => {
       this.integration = integration;
@@ -63,6 +68,15 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   }
 
   public updateConfiguration() {
+    if (this.originalConfiguration.fcm) {
+      delete this.configuration['fcm'];
+    }
+    if (this.configuration.fcm && _.isEmpty(this.configuration.fcm.server_key)) {
+      delete this.configuration.fcm['server_key'];
+    }
+    if (this.configuration.fcm && _.isEmpty(this.configuration.fcm.sender_id)) {
+      delete this.configuration.fcm['sender_id'];
+    }
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();
@@ -85,7 +99,8 @@ export class AndroidSetupIntegrationComponent implements OnInit {
 
   private setConfiguration() {
     if (this.integration) {
-      this.configuration = _.cloneDeep(this.integration.configuration) || {};
+      this.originalConfiguration = this.integration.configuration;
+      this.configuration = _.cloneDeep(this.integration.configuration);
       if (!this.configuration.fcm) {
         this.configuration.fcm = {};
       }
