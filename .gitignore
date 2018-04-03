@@ -4,4 +4,3 @@ npm-debug.log
 ayro-website.log
 client/config.properties
 server/config.properties
-.npmrc
