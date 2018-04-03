@@ -1,7 +1,7 @@
 {
   "name": "ayro-website",
   "description": "Ayro website",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "private": true,
   "author": {
     "name": "Ayro team",
@@ -61,7 +61,7 @@
     "zone.js": "0.8.18"
   },
   "dependencies": {
-    "@ayro/commons": "0.0.7",
+    "@ayro/commons": "0.0.20",
     "axios": "0.17.1",
     "bluebird": "3.5.1",
     "body-parser": "1.18.2",
