@@ -29,16 +29,16 @@ module.exports = (router, app) => {
   function connectFacebookCallback(req, res, next) {
     passport.authorize('facebook', (err, data) => {
       Promise.coroutine(function* () {
+        const {apiToken, app} = req.session;
         const redirectTo = `/apps/${app}/integrations/messenger/setup`;
+        const configuration = {
+          profile: {
+            id: data.profile.id,
+            name: data.profile.displayName,
+            access_token: data.accessToken,
+          },
+        };
         try {
-          const {apiToken, app} = req.session;
-          const configuration = {
-            profile: {
-              id: data.profile.id,
-              name: data.profile.displayName,
-              access_token: data.accessToken,
-            },
-          };
           yield appService.addMessengerIntegration(apiToken, app, configuration);
           res.redirect(redirectTo);
         } catch (err) {
@@ -57,9 +57,9 @@ module.exports = (router, app) => {
   function connectSlackCallback(req, res, next) {
     passport.authorize('slack', (err, accessToken) => {
       Promise.coroutine(function* () {
+        const {apiToken, app} = req.session;
         const redirectTo = `/apps/${app}/integrations/slack/setup`;
         try {
-          const {apiToken, app} = req.session;
           yield appService.addSlackIntegration(apiToken, app, accessToken);
           res.redirect(redirectTo);
         } catch (err) {

@@ -13,7 +13,7 @@ module.exports = (router, app) => {
   app.get(`/libs/ayro-${settings.jsSdkVersion}.min.js`, (req, res) => {
     Promise.coroutine(function* () {
       try {
-        const libUrl = `/ayrolabs/ayro-javascript/${settings.jsSdkVersion}/ayro-${settings.jsSdkVersion}.min.js`;
+        const libUrl = `/ayrolabs/ayro-javascript/${settings.jsSdkVersion}/ayro.min.js`;
         const response = yield githubContentClient.get(libUrl);
         res.set('Content-Type', 'text/javascript');
         res.send(response.data);
@@ -27,7 +27,7 @@ module.exports = (router, app) => {
   app.get(`/libs/ayro-wordpress-${settings.wpPluginVersion}.zip`, (req, res) => {
     Promise.coroutine(function* () {
       try {
-        const libUrl = `/ayrolabs/ayro-wordpress/${settings.wpPluginVersion}/ayro-wordpress-${settings.wpPluginVersion}.zip`;
+        const libUrl = `/ayrolabs/ayro-wordpress/${settings.wpPluginVersion}/ayro-wordpress.zip`;
         const response = yield githubContentClient.get(libUrl);
         res.set('Content-Type', 'application/octet-stream');
         res.send(response.data);
