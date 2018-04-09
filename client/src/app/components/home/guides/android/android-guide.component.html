@@ -64,10 +64,10 @@ Ayro.init(this, settings);</code></pre>
               <li>2. Se você ainda não tem um projeto, crie um.</li>
               <li>3. Adicione um novo app ao seu projeto e siga as instruções para gerar o arquivo google-services.json.</li>
               <li>4. Copie o arquivo google-services.json para a pasta raíz do seu projeto Android.</li>
-              <li>5. Adicione a seguinte dependência no arquivo build.xml do seu projeto Android:<br/><code>classpath 'com.google.gms:google-services:3.0.0'</code></li>
+              <li>5. Adicione a seguinte dependência no arquivo build.xml do seu projeto Android:<br/><code>classpath 'com.google.gms:google-services:3.2.0'</code></li>
               <li>6. Ainda no arquivo build.xml, adicione o seguinte plugin no final do arquivo:<br/><code>apply plugin: 'com.google.gms.google-services'</code></li>
             </ul>
-            <h4 class="mb-3">Configurando o FCM no Ayro</h4>
+            <h4 class="mb-3">Configurando o FCM na biblioteca</h4>
             <p>A integração do Ayro com aplicativos Android necessita do "Server key" e "Sender ID". Essas informações podem ser obtidas no console do FCM.</p>
             <ul>
               <li>1. Acesse a página inicial do seu projeto no <a href="https://console.firebase.google.com" target="_blank">console do FCM</a>.</li>
@@ -77,13 +77,13 @@ Ayro.init(this, settings);</code></pre>
             <p>Para finalizar, adicione essas informações na página da integração Android.</p>
             <img class="w-100 mb-3" src="/assets/img/guides/android/setup_fcm.png">
             <h4 class="mb-3">Configurando o FCM no seu aplicativo</h4>
-            <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService do Ayro. Para isso basta chamar o método <code>disableMessagingService</code> da classe <code>Settings</code>.</p>
+            <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService da biblioteca. Para isso, basta invocar o método <code>disableMessagingService</code> na instância de <code>Settings</code>.</p>
             <div class="highlight">
               <pre><code>Settings settings = new Settings("token");
 settings.disableMessagingService();
 Ayro.init(this, settings);</code></pre>
             </div>
-            <p>Em seguida, é necessário desviar as mensagens recebidas para serem tratadas pela biblioteca Ayro. Para isso, edite a sua classe que estende MeessagingService conforme o código a seguir:</p>
+            <p>Em seguida, é necessário desviar as mensagens recebidas para serem tratadas pela biblioteca Ayro. Edite a sua classe que estende MessagingService conforme o código a seguir:</p>
             <div class="highlight">
               <pre><code>public class MessagingService extends FirebaseMessagingService {{ '{' }}
   @Override
