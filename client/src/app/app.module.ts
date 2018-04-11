@@ -5,6 +5,8 @@ import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ClipboardModule} from 'ngx-clipboard/dist';
+import {Angulartics2Module} from 'angulartics2';
+import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 
 import {AppRoutes} from 'app/app.routes';
 import {AppComponent} from 'app/app.component';
@@ -62,6 +64,7 @@ import {EventService} from 'app/services/event.service';
     HttpModule,
     RouterModule.forRoot(AppRoutes),
     NgbModule.forRoot(),
+    Angulartics2Module.forRoot([Angulartics2GoogleTagManager]),
     ClipboardModule,
   ],
   declarations: [
