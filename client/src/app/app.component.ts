@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
+import {Angulartics2Facebook} from 'angulartics2/facebook';
 
 @Component({
   selector: 'ayro-app',
@@ -7,7 +8,7 @@ import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 })
 export class AppComponent {
 
-  constructor(private angulartics2GoogleTagManager: Angulartics2GoogleTagManager) {
-    this.angulartics2GoogleTagManager.setUsername(null);
+  constructor(public angulartics2GoogleTagManager: Angulartics2GoogleTagManager, public angulartics2Facebook: Angulartics2Facebook) {
+
   }
 }

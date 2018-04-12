@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {Angulartics2} from 'angulartics2';
 
 import {AccountService} from 'app/services/account.service';
 import {AuthService} from 'app/services/auth.service';
@@ -14,17 +15,29 @@ export class SignUpComponent {
   public email: string;
   public password: string;
 
-  constructor(private accountService: AccountService, private authService: AuthService, private router: Router) {
+  constructor(private accountService: AccountService, private authService: AuthService, private router: Router, private angulartics: Angulartics2) {
 
   }
 
   public signUp() {
     this.accountService.createAccount(this.name, this.email, this.password).mergeMap(() => {
+      this.trackSignUp();
       return this.authService.signIn(this.email, this.password);
     }).subscribe(() => {
       this.router.navigate(['/apps']);
     }, () => {
       this.router.navigate(['/signin']);
+    });
+  }
+
+  private trackSignUp() {
+    this.angulartics.eventTrack.next({
+      action: 'sign_up',
+      properties: {
+        event: 'sign_up',
+        category: 'engagement',
+        label: 'Sign Up',
+      }
     });
   }
 }
