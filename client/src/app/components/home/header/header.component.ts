@@ -33,18 +33,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.events.subscribe((event) => {
       this.onRouteChanged(event);
     });
+    this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event) => {
+      this.account.name = event.value;
+    }));
+    this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event) => {
+      this.account.logo = event.value;
+    }));
+    this.subscriptions.push(this.eventService.subscribe('account_changed', (event) => {
+      this.account = event.value;
+    }));
     this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.account = account;
       this.loading = false;
-      this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event) => {
-        this.account.name = event.value;
-      }));
-      this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event) => {
-        this.account.logo = event.value;
-      }));
-      this.subscriptions.push(this.eventService.subscribe('account_changed', (event) => {
-        this.account = event.value;
-      }));
     }, (err: any) => {
       if (err.code === ErrorUtils.ACCOUNT_DOES_NOT_EXIST) {
         this.signOut();
@@ -53,7 +53,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.unsubscribeEvents();
+    this.subscriptions.forEach((subscription) => {
+      subscription.unsubscribe();
+    });
   }
 
   public isIntroUrl() {
@@ -67,7 +69,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public signOut() {
     this.authService.signOut().subscribe(() => {
       this.account = null;
-      this.unsubscribeEvents();
       this.router.navigate(['/']);
     });
   }
@@ -77,11 +78,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.currentUrl = event.url;
     }
     window.scroll(0, 0);
-  }
-
-  private unsubscribeEvents() {
-    this.subscriptions.forEach((subscription) => {
-      subscription.unsubscribe();
-    });
   }
 }

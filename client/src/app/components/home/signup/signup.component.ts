@@ -4,6 +4,9 @@ import {Angulartics2} from 'angulartics2';
 
 import {AccountService} from 'app/services/account.service';
 import {AuthService} from 'app/services/auth.service';
+import {AlertService} from 'app/services/alert.service';
+import {EventService} from 'app/services/event.service';
+import {ErrorUtils} from 'app/utils/error.utils';
 
 @Component({
   selector: 'ayro-signup',
@@ -15,7 +18,7 @@ export class SignUpComponent {
   public email: string;
   public password: string;
 
-  constructor(private accountService: AccountService, private authService: AuthService, private router: Router, private angulartics: Angulartics2) {
+  constructor(private accountService: AccountService, private authService: AuthService, private eventService: EventService, private alertService: AlertService, private router: Router, private angulartics: Angulartics2) {
 
   }
 
@@ -23,10 +26,12 @@ export class SignUpComponent {
     this.accountService.createAccount(this.name, this.email, this.password).mergeMap(() => {
       this.trackSignUp();
       return this.authService.signIn(this.email, this.password);
-    }).subscribe(() => {
+    }).subscribe((account) => {
+      this.eventService.publish('account_changed', account);
       this.router.navigate(['/apps']);
-    }, () => {
-      this.router.navigate(['/signin']);
+    }, (err) => {
+      const message = ErrorUtils.getErrorMessage(ErrorUtils.CONTEXT_AUTHENTICATION, err);
+      this.alertService.error(message);
     });
   }
 

@@ -1,6 +1,7 @@
 export class ErrorUtils {
 
   public static readonly INTERNAL_ERROR = 'internalError';
+  public static readonly ACCOUNT_ALREADY_EXISTS = 'account.alreadyExists';
   public static readonly ACCOUNT_DOES_NOT_EXIST = 'account.doesNotExist';
   public static readonly ACCOUNT_AUTH_WRONG_PASSWORD = 'account.auth.wrongPassword';
   public static readonly SLACK_TOKEN_REVOKED = 'token_revoked';
@@ -9,6 +10,7 @@ export class ErrorUtils {
 
   public static setup() {
     const authContext = {};
+    authContext[ErrorUtils.ACCOUNT_ALREADY_EXISTS] = 'Já existe uma conta com este email';
     authContext[ErrorUtils.ACCOUNT_DOES_NOT_EXIST] = 'Não existe uma conta com este email';
     authContext[ErrorUtils.ACCOUNT_AUTH_WRONG_PASSWORD] = 'Senha inválida';
 
