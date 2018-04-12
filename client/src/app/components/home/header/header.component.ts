@@ -4,12 +4,9 @@ import {Subscription} from 'rxjs/Subscription';
 
 import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
-import {AppService} from 'app/services/app.service';
 import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
 import {ErrorUtils} from 'app/utils/error.utils';
-
-import * as Ayro from 'ayro';
 
 @Component({
   selector: 'ayro-header',
@@ -18,6 +15,7 @@ import * as Ayro from 'ayro';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private static readonly INTRO_URL = '/';
+  private static readonly SIGN_URLS = ['/signin', '/signup'];
 
   public account: Account;
   public loading: boolean = true;
@@ -25,7 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private currentUrl: string;
   private subscriptions: Subscription[] = [];
 
-  constructor(private authService: AuthService, private accountService: AccountService, private appService: AppService, private eventService: EventService, private router: Router) {
+  constructor(private authService: AuthService, private accountService: AccountService, private eventService: EventService, private router: Router) {
 
   }
 
@@ -35,23 +33,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.events.subscribe((event) => {
       this.onRouteChanged(event);
     });
-    this.accountService.getAuthenticatedAccount().mergeMap((account) => {
+    this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.account = account;
-      return this.appService.getConfigs();
-    }).subscribe((configs) => {
       this.loading = false;
-      Ayro.init({
-        app_token: configs.appToken,
-        chatbox: {
-          title: 'Como podemos ajudá-lo?',
-          input_placeholder: 'Digite uma mensagem...',
-        },
-      });
       this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event) => {
         this.account.name = event.value;
       }));
       this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event) => {
         this.account.logo = event.value;
+      }));
+      this.subscriptions.push(this.eventService.subscribe('account_changed', (event) => {
+        this.account = event.value;
       }));
     }, (err: any) => {
       if (err.code === ErrorUtils.ACCOUNT_DOES_NOT_EXIST) {
@@ -66,6 +58,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public isIntroUrl() {
     return this.currentUrl === HeaderComponent.INTRO_URL;
+  }
+
+  public isSignInOrSignUpUrl() {
+   return HeaderComponent.SIGN_URLS.includes(this.currentUrl);
   }
 
   public signOut() {

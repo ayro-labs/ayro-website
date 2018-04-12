@@ -1,10 +1,10 @@
 import {Routes} from '@angular/router';
 
 import {ContainerComponent} from 'app/components/container/container.component';
-import {SignUpComponent} from 'app/components/signup/signup.component';
-import {SignInComponent} from 'app/components/signin/signin.component';
 import {HomeComponent} from 'app/components/home/home.component';
 import {IntroComponent} from 'app/components/home/intro/intro.component';
+import {SignUpComponent} from 'app/components/home/signup/signup.component';
+import {SignInComponent} from 'app/components/home/signin/signin.component';
 import {TermsComponent} from 'app/components/home/terms/terms.component';
 import {PrivacyComponent} from 'app/components/home/privacy/privacy.component';
 import {PrivacyEnglishComponent} from 'app/components/home/privacy/privacy-en.component';
@@ -33,10 +33,10 @@ import {AndroidGuideComponent} from 'app/components/home/guides/android/android-
 import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
 
 export const AppRoutes: Routes = [
-  {path: 'signup', component: SignUpComponent},
-  {path: 'signin', component: SignInComponent},
   {path: '', component: HomeComponent, children: [
     {path: '', component: IntroComponent},
+    {path: 'signup', component: SignUpComponent},
+    {path: 'signin', component: SignInComponent},
     {path: 'terms', component: TermsComponent},
     {path: 'privacy', component: PrivacyComponent},
     {path: 'en/privacy', component: PrivacyEnglishComponent},

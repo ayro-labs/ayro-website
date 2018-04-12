@@ -1,21 +1,25 @@
-<div class="container-fluid fill-height">
-  <div class="row fill-height align-items-center">
+<div class="container">
+  <div class="row align-items-center my-5">
     <div class="col-md-12">
       <div class="row justify-content-center">
         <div class="col-md-5">
           <div class="card">
             <div class="card-body">
-              <form #form="ngForm" (ngSubmit)="signIn()" novalidate>
-                <h2 class="mb-4">Entre com sua conta</h2>
+              <form #form="ngForm" (ngSubmit)="signUp()" novalidate>
+                <h2 class="mb-4">Crie sua conta</h2>
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input [(ngModel)]="name" type="text" id="name" name="name" class="form-control" minlength="3" required>
+                </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input [(ngModel)]="email" type="email" id="email" name="email" class="form-control" email required>
+                  <input [(ngModel)]="email" type="text" id="email" name="email" class="form-control" email required>
                 </div>
                 <div class="form-group">
                   <label for="password">Senha</label>
                   <input [(ngModel)]="password" type="password" id="password" name="password" class="form-control" minlength="4" required>
                 </div>
-                <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-lg btn-block font-weight-bold">Entrar</button>
+                <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-lg btn-block font-weight-bold">Criar conta</button>
               </form>
             </div>
           </div>
@@ -24,7 +28,7 @@
       <div class="row justify-content-center mt-4">
         <div class="col-md-5 text-center">
           <span>
-            Não tem uma conta? <a [routerLink]="['/signup']">Junte-se a nós</a>.
+            Já possui uma conta? <a [routerLink]="['/signin']">Acesse aqui</a>.
           </span>
         </div>
       </div>

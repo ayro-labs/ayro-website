@@ -14,12 +14,12 @@ import {AppComponent} from 'app/app.component';
 
 import {AlertsComponent} from 'app/components/alerts/alerts.component';
 import {ContainerComponent} from 'app/components/container/container.component';
-import {SignUpComponent} from 'app/components/signup/signup.component';
-import {SignInComponent} from 'app/components/signin/signin.component';
 import {HeaderComponent} from 'app/components/home/header/header.component';
 import {FooterComponent} from 'app/components/home/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
 import {IntroComponent} from 'app/components/home/intro/intro.component';
+import {SignUpComponent} from 'app/components/home/signup/signup.component';
+import {SignInComponent} from 'app/components/home/signin/signin.component';
 import {TermsComponent} from 'app/components/home/terms/terms.component';
 import {PrivacyComponent} from 'app/components/home/privacy/privacy.component';
 import {PrivacyEnglishComponent} from 'app/components/home/privacy/privacy-en.component';

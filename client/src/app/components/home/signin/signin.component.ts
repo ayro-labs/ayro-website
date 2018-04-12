@@ -4,6 +4,7 @@ import {Angulartics2} from 'angulartics2';
 
 import {AuthService} from 'app/services/auth.service';
 import {AlertService} from 'app/services/alert.service';
+import {EventService} from 'app/services/event.service';
 import {ErrorUtils} from 'app/utils/error.utils';
 
 @Component({
@@ -15,12 +16,13 @@ export class SignInComponent {
   public email: string;
   public password: string;
 
-  constructor(private authService: AuthService, private alertService: AlertService, private router: Router, private angulartics: Angulartics2)  {
+  constructor(private authService: AuthService, private alertService: AlertService, private eventService: EventService, private router: Router, private angulartics: Angulartics2)  {
 
   }
 
   public signIn() {
-    this.authService.signIn(this.email, this.password).subscribe(() => {
+    this.authService.signIn(this.email, this.password).subscribe((account) => {
+      this.eventService.publish('account_changed', account);
       this.trackSignIn();
       this.router.navigate(['/apps']);
     }, (err) => {
