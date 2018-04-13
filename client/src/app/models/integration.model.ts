@@ -10,6 +10,7 @@ export class Integration {
   public static readonly CHANNEL_MESSENGER: string = 'messenger';
   public static readonly CHANNEL_SLACK: string = 'slack';
 
+  public id: string;
   public type: string;
   public channel: string;
   public configuration: any;
@@ -17,6 +18,7 @@ export class Integration {
 
   constructor(data?: any) {
     if (data) {
+      this.id = data.id;
       this.type = data.type;
       this.channel = data.channel;
       this.configuration = data.configuration;

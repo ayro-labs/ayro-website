@@ -10,6 +10,7 @@ import {AlertService} from 'app/services/alert.service';
 import {Account} from 'app/models/account.model';
 import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
+import {Integration} from 'app/models/integration.model';
 
 @Component({
   selector: 'ayro-app-home',
@@ -19,7 +20,7 @@ export class AppHomeComponent implements OnInit {
 
   public account: Account;
   public app: App;
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private accountService: AccountService, private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
@@ -34,6 +35,10 @@ export class AppHomeComponent implements OnInit {
       this.app = app;
       this.loading = false;
     });
+  }
+
+  public trackByIntegration(_index: number, integration: Integration) {
+    return integration.id;
   }
 
   public getChannel(id: string): Channel {

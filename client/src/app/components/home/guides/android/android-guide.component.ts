@@ -9,7 +9,7 @@ import {AppService} from 'app/services/app.service';
 export class AndroidGuideComponent implements OnInit {
 
   public sdkVersion: string;
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService) {
 

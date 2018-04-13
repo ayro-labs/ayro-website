@@ -1,5 +1,5 @@
 <div class="alerts">
-  <ngb-alert *ngFor="let alert of alerts" [type]="alert.type" (close)="close(alert)">
+  <ngb-alert *ngFor="let alert of alerts; trackBy: trackByAlert" [type]="alert.type" (close)="close(alert)">
     {{ alert.message }}
   </ngb-alert>
 </div>

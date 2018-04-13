@@ -14,7 +14,7 @@ export class AppSettingsComponent implements OnInit {
 
   public name: string;
   public icon: string;
-  public loading: boolean = true;
+  public loading = true;
 
   private app: App;
 

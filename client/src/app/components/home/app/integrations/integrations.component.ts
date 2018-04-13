@@ -21,4 +21,8 @@ export class IntegrationsComponent implements OnInit {
     this.userChannels = this.integrationService.listChannels(Integration.TYPE_USER);
     this.businessChannels = this.integrationService.listChannels(Integration.TYPE_BUSINESS);
   }
+
+  public trackByChannel(_index: number, channel: Channel) {
+    return channel.id;
+  }
 }

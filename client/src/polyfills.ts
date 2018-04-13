@@ -22,6 +22,7 @@ import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 
 if (process.env.NODE_ENV === 'development') {
-  Error['stackTraceLimit'] = Infinity;
+  Error.stackTraceLimit = Infinity;
+  // tslint:disable-next-line: no-var-requires
   require('zone.js/dist/long-stack-trace-zone');
 }

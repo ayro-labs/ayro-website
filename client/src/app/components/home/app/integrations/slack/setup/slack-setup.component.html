@@ -66,12 +66,12 @@
                 <p *ngIf="!originalConfiguration.channel" class="mb-2">Você ainda não escolheu nenhum canal.</p>
                 <div class="row">
                   <div class="col-md-5">
-                    <select [(ngModel)]="configuration.channel" [compareWith]="compareChannels" name="support-channel" class="form-control">
-                      <option *ngFor="let slackChannel of slackChannels" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
+                    <select [(ngModel)]="configuration.channel" [compareWith]="compareSlackChannels" name="support-channel" class="form-control">
+                      <option *ngFor="let slackChannel of slackChannels; trackBy: trackBySlackChannel" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
                     </select>
                   </div>
                   <div class="col-md-7">
-                    <button (click)="createChannel()" type="button" class="btn btn-primary">Criar canal</button>
+                    <button (click)="createSlackChannel()" type="button" class="btn btn-primary">Criar canal</button>
                   </div>
                 </div>
               </div>

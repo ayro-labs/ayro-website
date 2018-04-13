@@ -25,7 +25,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
   public originalConfiguration: any = {};
   public configuration: any = {};
   public facebookPages: FacebookPage[] = [];
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
@@ -42,6 +42,14 @@ export class MessengerSetupIntegrationComponent implements OnInit {
       this.setConfiguration();
       this.loading = false;
     });
+  }
+
+  public trackByFacebookPage(_index: number, facebookPage: FacebookPage) {
+    return facebookPage.id;
+  }
+
+  public compareFacebookPages(page: FacebookPage, otherPage: FacebookPage) {
+    return page && otherPage && page.id === otherPage.id;
   }
 
   public updateConfiguration() {
@@ -64,10 +72,6 @@ export class MessengerSetupIntegrationComponent implements OnInit {
     }).catch(() => {
       // Nothing to do...
     });
-  }
-
-  public comparePages(page: any, otherPage: any) {
-    return page && otherPage && page.id === otherPage.id;
   }
 
   private setConfiguration() {

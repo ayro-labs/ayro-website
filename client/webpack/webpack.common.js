@@ -90,7 +90,7 @@ module.exports = {
     new CleanPlugin(['client-dist'], {root: helpers.root('/')}),
     new webpack.LoaderOptionsPlugin({debug: true}),
     new webpack.ContextReplacementPlugin(/angular\/core\/@angular/, helpers.root('/client/src')),
-    new webpack.ContextReplacementPlugin(/\@angular(\\|\/)core(\\|\/)esm5/, helpers.root('/client/src')),
+    new webpack.ContextReplacementPlugin(/@angular\/core\/esm5/, helpers.root('/client/src')),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']}),
     new webpack.ProvidePlugin({

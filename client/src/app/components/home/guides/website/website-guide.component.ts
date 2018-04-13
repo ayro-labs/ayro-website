@@ -10,7 +10,7 @@ export class WebsiteGuideComponent implements OnInit {
 
   public sdkUrl: string;
   public sdkVersion: string;
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService) {
 

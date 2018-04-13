@@ -42,7 +42,7 @@ export class SignUpComponent {
         event: 'sign_up',
         category: 'engagement',
         label: 'Sign Up',
-      }
+      },
     });
   }
 }

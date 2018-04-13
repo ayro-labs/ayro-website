@@ -16,7 +16,7 @@ export class AndroidIntegrationComponent implements OnInit {
   public app: App;
   public integration: Integration;
   public channel: Channel;
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private activatedRoute: ActivatedRoute) {
 

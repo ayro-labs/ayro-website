@@ -23,7 +23,7 @@ export class WordPressSetupIntegrationComponent implements OnInit {
   public channel: Channel;
   public configuration: any = {};
   public pluginUrl: string;
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 

@@ -23,6 +23,10 @@ export class AlertsComponent implements OnInit {
     });
   }
 
+  public trackByAlert(index: number) {
+    return index;
+  }
+
   public close(alert: IAlert) {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
   }

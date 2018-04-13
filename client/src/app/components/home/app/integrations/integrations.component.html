@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="row align-center">
-  <div *ngFor="let channel of userChannels" class="col-md-3">
+  <div *ngFor="let channel of userChannels; trackBy: trackByChannel" class="col-md-3">
     <div class="card mt-3">
       <div class="card-body">
         <img [src]="channel.picture_url" class="card-img-top integration-icon"/>
@@ -23,7 +23,7 @@
   </div>
 </div>
 <div class="row align-center">
-  <div *ngFor="let channel of businessChannels" class="col-md-3">
+  <div *ngFor="let channel of businessChannels; trackBy: trackByChannel" class="col-md-3">
     <div class="card mt-3">
       <div class="card-body">
         <img [src]="channel.picture_url" class="card-img-top integration-icon"/>

@@ -10,7 +10,7 @@ export class WordPressGuideComponent implements OnInit {
 
   public pluginUrl: string;
   public pluginVersion: string;
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService) {
 

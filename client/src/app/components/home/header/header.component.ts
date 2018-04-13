@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private static readonly SIGN_URLS = ['/signin', '/signup'];
 
   public account: Account;
-  public loading: boolean = true;
+  public loading = true;
 
   private currentUrl: string;
   private subscriptions: Subscription[] = [];
@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public isSignInOrSignUpUrl() {
-   return HeaderComponent.SIGN_URLS.includes(this.currentUrl);
+    return HeaderComponent.SIGN_URLS.includes(this.currentUrl);
   }
 
   public signOut() {

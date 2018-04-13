@@ -18,7 +18,7 @@
       }
     }],
     // Angular rules
-    "angular-whitespace": [true, "check-interpolation", "check-pipe"],
+    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
     "banana-in-box": true,
     "templates-no-negated-async": true,
     "directive-selector": [true, "attribute", "ayro", "camelCase"],
@@ -26,20 +26,24 @@
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
+    "use-view-encapsulation": true,
     "no-attribute-parameter-decorator": true,
+    "no-output-named-after-standard-event": true,
     "no-input-rename": true,
     "no-output-rename": true,
+    "no-output-on-prefix": true,
     "no-forward-ref": true,
-    "use-view-encapsulation": true,
+    "no-unused-css": true,
     "use-life-cycle-interface": true,
+    "contextual-life-cycle": true,
+    "trackBy-function": true,
     "use-pipe-transform-interface": true,
-    "pipe-naming": [true, "camelCase", "ayro"],
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "templates-use-public": true,
-    "no-access-missing-member": true,
-    "invoke-injectable": true,
-    "template-to-ng-template": true
+    "pipe-impure": true,
+    "i18n": false,
+    "template-cyclomatic-complexity": false,
+    "template-conditional-complexity": false
   },
   "rulesDirectory": [
     "./node_modules/codelyzer"
@@ -47,6 +51,7 @@
   "extends": [
     "tslint:recommended",
     "tslint-eslint-rules",
-    "tslint-config-airbnb"
+    "tslint-config-airbnb",
+    "tslint-angular"
   ]
 }

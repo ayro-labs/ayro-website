@@ -1,5 +1,8 @@
 export class StorageUtils {
 
+  private static readonly API_TOKEN: string = 'API_TOKEN';
+  private static readonly MEMORY_STORAGE: any = {};
+
   public static set(key: string, value: string) {
     try {
       if (localStorage) {
@@ -36,9 +39,6 @@ export class StorageUtils {
   public static getApiToken() {
     return StorageUtils.get(StorageUtils.API_TOKEN);
   }
-
-  private static readonly API_TOKEN: string = 'API_TOKEN';
-  private static readonly MEMORY_STORAGE: any = {};
 
   private constructor() {
 

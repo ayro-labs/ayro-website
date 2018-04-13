@@ -8,6 +8,9 @@ export class ErrorUtils {
 
   public static readonly CONTEXT_AUTHENTICATION = 'authentication';
 
+  private static readonly DEFAULT_ERROR_MESSAGE = 'Não foi possível completar a ação, por favor tente novamente mais tarde.';
+  private static readonly MESSAGES = {};
+
   public static setup() {
     const authContext = {};
     authContext[ErrorUtils.ACCOUNT_ALREADY_EXISTS] = 'Já existe uma conta com este email';
@@ -21,9 +24,6 @@ export class ErrorUtils {
     const messages = ErrorUtils.MESSAGES[context];
     return messages && messages[err.code] ? messages[err.code] : ErrorUtils.DEFAULT_ERROR_MESSAGE;
   }
-
-  private static readonly DEFAULT_ERROR_MESSAGE = 'Não foi possível completar a ação, por favor tente novamente mais tarde.';
-  private static readonly MESSAGES = {};
 
   private constructor() {
 

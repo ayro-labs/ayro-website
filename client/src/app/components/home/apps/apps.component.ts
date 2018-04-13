@@ -7,6 +7,7 @@ import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
 import {Account} from 'app/models/account.model';
 import {App} from 'app/models/app.model';
+import {Integration} from 'app/models/integration.model';
 import {Channel} from 'app/models/channel.model';
 
 @Component({
@@ -17,7 +18,7 @@ export class AppsComponent implements OnInit {
 
   public account: Account;
   public apps: App[] = [];
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private router: Router, private ngbModal: NgbModal) {
 
@@ -28,6 +29,14 @@ export class AppsComponent implements OnInit {
       this.apps = apps;
       this.loading = false;
     });
+  }
+
+  public trackByApp(_index: number, app: App) {
+    return app.id;
+  }
+
+  public trackByIntegration(_index: number, integration: Integration) {
+    return integration.id;
   }
 
   public createApp() {

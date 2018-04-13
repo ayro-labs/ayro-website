@@ -27,7 +27,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
   public originalConfiguration: any = {};
   public configuration: any = {};
   public slackChannels: SlackChannel[] = [];
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
@@ -43,6 +43,24 @@ export class SlackSetupIntegrationComponent implements OnInit {
       this.integration = integration;
       this.setConfiguration();
       this.loading = false;
+    });
+  }
+
+  public trackBySlackChannel(_index: number, slackChannel: SlackChannel) {
+    return slackChannel.id;
+  }
+
+  public compareSlackChannels(channel: SlackChannel, otherChannel: SlackChannel) {
+    return channel && otherChannel && channel.id === otherChannel.id;
+  }
+
+  public createSlackChannel() {
+    const modalRef = this.ngbModal.open(CreateSlackChannelComponent);
+    modalRef.componentInstance.app = this.app;
+    modalRef.result.then((channel: SlackChannel) => {
+      this.slackChannels.push(channel);
+    }).catch(() => {
+      // Nothing to do...
     });
   }
 
@@ -63,20 +81,6 @@ export class SlackSetupIntegrationComponent implements OnInit {
     modalRef.componentInstance.channel = this.channel;
     modalRef.result.then(() => {
       this.router.navigate(['/apps', this.app.id]);
-    }).catch(() => {
-      // Nothing to do...
-    });
-  }
-
-  public compareChannels(channel: any, otherChannel: any) {
-    return channel && otherChannel && channel.id === otherChannel.id;
-  }
-
-  public createChannel() {
-    const modalRef = this.ngbModal.open(CreateSlackChannelComponent);
-    modalRef.componentInstance.app = this.app;
-    modalRef.result.then((channel: SlackChannel) => {
-      this.slackChannels.push(channel);
     }).catch(() => {
       // Nothing to do...
     });

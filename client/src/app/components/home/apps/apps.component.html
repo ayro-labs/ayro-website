@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="row mt-2">
-        <div *ngFor="let app of apps" class="col-md-6 mb-2">
+        <div *ngFor="let app of apps; trackBy: trackByApp" class="col-md-6 mb-2">
           <div class="card">
             <div class="card-body">
               <div class="float-left">
@@ -37,7 +37,7 @@
                   </a>
                 </h3>
                 <div *ngIf="app.integrations.length > 0">
-                  <img *ngFor="let integration of app.integrations" [src]="getChannel(integration.channel).picture_url" class="integration-icon-mc mr-2">
+                  <img *ngFor="let integration of app.integrations; trackBy: trackByIntegration" [src]="getChannel(integration.channel).picture_url" class="integration-icon-mc mr-2">
                 </div>
                 <div *ngIf="app.integrations.length === 0">
                 <a [routerLink]="[app.id, 'integrations']" class="btn btn-primary">

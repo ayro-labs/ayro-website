@@ -63,8 +63,8 @@
                 <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não conectou nenhuma página.</p>
                 <div class="row">
                   <div class="col-md-5">
-                    <select [(ngModel)]="configuration.page" [compareWith]="comparePages" name="connected-page" class="form-control">
-                      <option *ngFor="let facebookPage of facebookPages" [ngValue]="facebookPage" [selected]="configuration.page && configuration.page.id === facebookPage.id">{{ facebookPage.name }}</option>
+                    <select [(ngModel)]="configuration.page" [compareWith]="compareFacebookPages" name="connected-page" class="form-control">
+                      <option *ngFor="let facebookPage of facebookPages; trackBy: trackByFacebookPage" [ngValue]="facebookPage" [selected]="configuration.page && configuration.page.id === facebookPage.id">{{ facebookPage.name }}</option>
                     </select>
                   </div>
                 </div>

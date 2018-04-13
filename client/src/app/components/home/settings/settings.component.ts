@@ -14,7 +14,7 @@ export class SettingsComponent implements OnInit {
   public name: string;
   public email: string;
   public logo: string;
-  public loading: boolean = true;
+  public loading = true;
 
   constructor(private accountService: AccountService, private alertService: AlertService, private eventService: EventService, private elementRef: ElementRef) {
 

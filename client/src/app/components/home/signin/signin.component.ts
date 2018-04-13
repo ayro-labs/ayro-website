@@ -38,7 +38,7 @@ export class SignInComponent {
         event: 'sign_in',
         category: 'engagement',
         label: 'Sign In',
-      }
+      },
     });
   }
 }
