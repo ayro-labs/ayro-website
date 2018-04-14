@@ -3,6 +3,7 @@ export class Account {
   private static readonly LOGO_URL = `${process.env.API_URL}/img/accounts/`;
   private static readonly NO_LOGO_URL = '/assets/img/icon_no_account.jpg';
 
+  public id: string;
   public name: string;
   public email: string;
   public logo: string;
@@ -10,6 +11,7 @@ export class Account {
 
   constructor(data?: any) {
     if (data) {
+      this.id = data.id;
       this.name = data.name;
       this.email = data.email;
       this.logo = data.logo;
