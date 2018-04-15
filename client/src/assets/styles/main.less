@@ -1,6 +1,6 @@
 @white: #ffffff;
 @code-block: #525252;
-@intro-primary: #318498;
+@intro-primary: #7c00bd;
 
 @import "general.less";
 @import "header.less";
@@ -110,6 +110,15 @@
   }
   .btn-lg {
     padding: 1rem 2rem;
+  }
+  .btn-primary {
+    background-color: @intro-primary;
+    border-color: @intro-primary;
+  }
+  .btn-secondary, .btn-secondary:hover, .btn-secondary:active {
+    color: #505050;
+    background-color: @white;
+    border-color: @white;
   }
   .fa-thumbs-o-down {
     font-size: 200px;
