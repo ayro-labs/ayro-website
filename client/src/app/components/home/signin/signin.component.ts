@@ -16,7 +16,7 @@ export class SignInComponent {
   public email: string;
   public password: string;
 
-  constructor(private authService: AuthService, private alertService: AlertService, private eventService: EventService, private router: Router, private angulartics: Angulartics2)  {
+  constructor(private authService: AuthService, private alertService: AlertService, private eventService: EventService, private router: Router, private angulartics: Angulartics2) {
 
   }
 
@@ -33,11 +33,11 @@ export class SignInComponent {
 
   private trackSignIn() {
     this.angulartics.eventTrack.next({
-      action: 'sign_in',
+      action: 'login',
       properties: {
-        event: 'sign_in',
+        event: 'login',
         category: 'engagement',
-        label: 'Sign In',
+        label: 'Login',
       },
     });
   }

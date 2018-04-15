@@ -79,11 +79,11 @@ Ayro.init(this, settings);</code></pre>
                 <p class="mb-2">Token utilizado para inicializar a integração com o seu aplicativo Android.</p>
                 <div class="input-group">
                   <p class="form-control">{{ app.token }}</p>
-                  <span class="input-group-btn">
+                  <div class="input-group-append">
                     <button ngxClipboard [cbContent]="app.token" (click)="copyAppToken()" type="button" class="btn btn-secondary">
                       Copiar
                     </button>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>

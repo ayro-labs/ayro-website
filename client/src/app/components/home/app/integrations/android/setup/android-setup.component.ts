@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Angulartics2} from 'angulartics2';
 
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {AppService} from 'app/services/app.service';
@@ -26,7 +27,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
   public sdkVersion: string;
   public loading = true;
 
-  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
+  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal, private angulartics: Angulartics2) {
 
   }
 
@@ -60,6 +61,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
       this.integration = integration;
       this.setConfiguration();
       if (this.integration) {
+        this.trackTestIntegration();
         this.alertService.success('Integração realizada com sucesso!');
       } else {
         this.alertService.error('O teste falhou, por favor revise os passos novamente.');
@@ -105,5 +107,19 @@ export class AndroidSetupIntegrationComponent implements OnInit {
         this.configuration.fcm = {};
       }
     }
+  }
+
+  private trackTestIntegration() {
+    this.angulartics.eventTrack.next({
+      action: 'integration_test',
+      properties: {
+        event: 'integration_test',
+        category: 'engagement',
+        label: 'Test Integration',
+        gtmCustom: {
+          channel: this.channel.id,
+        }
+      },
+    });
   }
 }

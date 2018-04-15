@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Angulartics2} from 'angulartics2';
 
 import {AppService} from 'app/services/app.service';
 import {AlertService} from 'app/services/alert.service';
@@ -16,7 +17,7 @@ export class DeleteAppComponent {
 
   public name: string;
 
-  constructor(private appService: AppService, private alertService: AlertService, private ngbActiveModal: NgbActiveModal) {
+  constructor(private appService: AppService, private alertService: AlertService, private ngbActiveModal: NgbActiveModal, private angulartics: Angulartics2) {
 
   }
 
@@ -30,10 +31,22 @@ export class DeleteAppComponent {
 
   public delete() {
     this.appService.deleteApp(this.app).subscribe(() => {
+      this.trackDeleteApp();
       this.ngbActiveModal.close();
       this.alertService.success('App removido com sucesso!');
     }, () => {
       this.alertService.error('Não foi possível remover o app, por favor tente novamente mais tarde!');
+    });
+  }
+
+  private trackDeleteApp() {
+    this.angulartics.eventTrack.next({
+      action: 'app_delete',
+      properties: {
+        event: 'app_delete',
+        category: 'engagement',
+        label: 'Delete App',
+      },
     });
   }
 }

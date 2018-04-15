@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Angulartics2} from 'angulartics2';
 
 import {AppService} from 'app/services/app.service';
 import {AlertService} from 'app/services/alert.service';
@@ -12,7 +13,7 @@ export class CreateAppComponent {
 
   public name: string;
 
-  constructor(private appService: AppService, private alertService: AlertService, private ngbActiveModal: NgbActiveModal) {
+  constructor(private appService: AppService, private alertService: AlertService, private ngbActiveModal: NgbActiveModal, private angulartics: Angulartics2) {
 
   }
 
@@ -22,10 +23,22 @@ export class CreateAppComponent {
 
   public create() {
     this.appService.createApp(this.name).subscribe((app) => {
+      this.trackCreateApp();
       this.ngbActiveModal.close(app);
       this.alertService.success('App criado com sucesso!');
     }, () => {
       this.alertService.error('Não foi possível criar o app, por favor tente novamente mais tarde!');
+    });
+  }
+
+  private trackCreateApp() {
+    this.angulartics.eventTrack.next({
+      action: 'app_create',
+      properties: {
+        event: 'app_create',
+        category: 'engagement',
+        label: 'Create App',
+      },
     });
   }
 }

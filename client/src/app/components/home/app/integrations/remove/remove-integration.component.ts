@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Angulartics2} from 'angulartics2';
 
 import {IntegrationService} from 'app/services/integration.service';
 import {AlertService} from 'app/services/alert.service';
@@ -19,7 +20,7 @@ export class RemoveIntegrationComponent {
 
   public name: string;
 
-  constructor(private integrationService: IntegrationService, private alertService: AlertService, private ngbActiveModal: NgbActiveModal) {
+  constructor(private integrationService: IntegrationService, private alertService: AlertService, private ngbActiveModal: NgbActiveModal, private angulartics: Angulartics2) {
 
   }
 
@@ -33,10 +34,25 @@ export class RemoveIntegrationComponent {
 
   public remove() {
     this.integrationService.removeIntegration(this.app, this.channel).subscribe(() => {
+      this.trackRemoveIntegration();
       this.ngbActiveModal.close();
       this.alertService.success('Integração removida com sucesso!');
     }, () => {
       this.alertService.error('Não foi possível remover a integração, por favor tente novamente mais tarde!');
+    });
+  }
+
+  private trackRemoveIntegration() {
+    this.angulartics.eventTrack.next({
+      action: 'integration_remove',
+      properties: {
+        event: 'integration_remove',
+        category: 'engagement',
+        label: 'Remove Integration',
+        gtmCustom: {
+          channel: this.channel.id,
+        }
+      },
     });
   }
 }

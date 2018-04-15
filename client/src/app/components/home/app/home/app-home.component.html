@@ -57,11 +57,11 @@
             <div class="col-md-6">
               <div class="input-group">
                 <p class="form-control">{{ app.token }}</p>
-                <span class="input-group-btn">
+                <div class="input-group-append">
                   <button ngxClipboard [cbContent]="app.token" (click)="copyAppToken()" type="button" class="btn btn-secondary">
                     Copiar
                   </button>
-                </span>
+                </div>
               </div>
             </div>
           </div>
