@@ -51,7 +51,7 @@ export class RemoveIntegrationComponent {
         label: 'Remove Integration',
         gtmCustom: {
           channel: this.channel.id,
-        }
+        },
       },
     });
   }

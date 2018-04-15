@@ -118,7 +118,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
         label: 'Test Integration',
         gtmCustom: {
           channel: this.channel.id,
-        }
+        },
       },
     });
   }
