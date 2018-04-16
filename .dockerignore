@@ -4,3 +4,12 @@ tasks
 npm-debug.log
 ayro-website.log
 server/config.properties
+tslint.json
+tsconfig.json
+docker-compose.yml
+Dockerfile
+.dockerignore
+.eslintignore
+.eslintrc
+.gitignore
+.git
