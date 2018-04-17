@@ -2,23 +2,20 @@ const settings = require('../configs/settings');
 const appService = require('../services/app');
 const errors = require('../utils/errors');
 const {logger} = require('@ayro/commons');
-const Promise = require('bluebird');
 const passport = require('passport');
 const SlackStrategy = require('passport-slack').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = (router, app) => {
 
-  function getConfigs(req, res) {
-    Promise.coroutine(function* () {
-      try {
-        const config = yield appService.getConfigs();
-        res.json(config);
-      } catch (err) {
-        logger.error(err);
-        errors.respondWithError(res, err);
-      }
-    })();
+  async function getConfigs(req, res) {
+    try {
+      const config = await appService.getConfigs();
+      res.json(config);
+    } catch (err) {
+      logger.error(err);
+      errors.respondWithError(res, err);
+    }
   }
 
   function connectFacebook(req, res, next) {
@@ -28,7 +25,7 @@ module.exports = (router, app) => {
 
   function connectFacebookCallback(req, res, next) {
     passport.authorize('facebook', (err, data) => {
-      Promise.coroutine(function* () {
+      (async () => {
         const {apiToken, app} = req.session;
         const redirectTo = `/apps/${app}/integrations/messenger/setup`;
         const configuration = {
@@ -39,7 +36,7 @@ module.exports = (router, app) => {
           },
         };
         try {
-          yield appService.addMessengerIntegration(apiToken, app, configuration);
+          await appService.addMessengerIntegration(apiToken, app, configuration);
           res.redirect(redirectTo);
         } catch (err) {
           logger.error(err);
@@ -56,11 +53,11 @@ module.exports = (router, app) => {
 
   function connectSlackCallback(req, res, next) {
     passport.authorize('slack', (err, accessToken) => {
-      Promise.coroutine(function* () {
+      (async () => {
         const {apiToken, app} = req.session;
         const redirectTo = `/apps/${app}/integrations/slack/setup`;
         try {
-          yield appService.addSlackIntegration(apiToken, app, accessToken);
+          await appService.addSlackIntegration(apiToken, app, accessToken);
           res.redirect(redirectTo);
         } catch (err) {
           logger.error(err);

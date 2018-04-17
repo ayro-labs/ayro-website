@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: 'html-loader',
+        use: ['html-loader'],
         include: helpers.root('/client/src'),
       },
       {
@@ -54,34 +54,34 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/,
-        use: {
+        use: [{
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
             context: helpers.root('/client/src'),
           },
-        },
+        }],
         include: helpers.root('/client/src/assets/img'),
       },
       {
         test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
-        use: {
+        use: [{
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
             context: helpers.root('/client/src'),
           },
-        },
+        }],
         include: helpers.root('/client/src/assets/fonts'),
       },
       {
         test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
-        use: {
+        use: [{
           loader: 'file-loader',
           options: {
             name: '/assets/fonts/glyphicons/[name].[ext]',
           },
-        },
+        }],
         include: helpers.root('/node_modules/bootstrap/dist/fonts'),
       },
     ],

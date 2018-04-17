@@ -82,7 +82,9 @@
                 <h4 class="mb-2">Cor primária</h4>
                 <p class="mb-2">Cor de fundo do botão flutuante e cabeçalho da caixa de chat.</p>
                 <div class="input-group">
-                  <span [ngStyle]="{'background-color': configuration.primary_color}" class="input-group-addon color-addon"></span>
+                  <div class="input-group-prepend">
+                    <span [ngStyle]="{'background-color': configuration.primary_color}" class="input-group-text input-color-prepend"></span>
+                  </div>
                   <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
                 </div>
               </div>
@@ -92,7 +94,9 @@
                 <h4 class="mb-2">Cor da conversa</h4>
                 <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
                 <div class="input-group">
-                  <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-addon color-addon"></span>
+                  <div class="input-group-prepend">
+                    <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-text input-color-prepend"></span>
+                  </div>
                   <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
                 </div>
               </div>

@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ClipboardModule} from 'ngx-clipboard/dist';
+import {ClipboardModule} from 'ngx-clipboard';
 import {Angulartics2Module} from 'angulartics2';
 import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 import {Angulartics2Facebook} from 'angulartics2/facebook';

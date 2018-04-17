@@ -13,10 +13,10 @@ exports.getConfigs = () => {
   });
 };
 
-exports.addMessengerIntegration = (apiToken, app, configuration) => {
+exports.addMessengerIntegration = async (apiToken, app, configuration) => {
   return apiClient.post(`/apps/${app}/integrations/messenger`, apiToken, configuration);
 };
 
-exports.addSlackIntegration = (apiToken, app, accessToken) => {
+exports.addSlackIntegration = async (apiToken, app, accessToken) => {
   return apiClient.post(`/apps/${app}/integrations/slack`, apiToken, {access_token: accessToken});
 };

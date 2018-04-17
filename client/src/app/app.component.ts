@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Angulartics2} from 'angulartics2';
 import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 import {Angulartics2Facebook} from 'angulartics2/facebook';
 
@@ -12,11 +13,14 @@ import * as Ayro from 'ayro';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private appService: AppService, public angulartics2GoogleTagManager: Angulartics2GoogleTagManager, public angulartics2Facebook: Angulartics2Facebook) {
+  private static readonly DEVELOPMENT_MODE = 'development';
+
+  constructor(private appService: AppService, private angulartics: Angulartics2, public angulartics2GoogleTagManager: Angulartics2GoogleTagManager, public angulartics2Facebook: Angulartics2Facebook) {
 
   }
 
   public ngOnInit() {
+    this.angulartics.developerMode(process.env.NODE_ENV === AppComponent.DEVELOPMENT_MODE);
     this.appService.getConfigs().subscribe((configs) => {
       Ayro.init({
         app_token: configs.appToken,

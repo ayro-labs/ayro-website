@@ -14,20 +14,29 @@ function getOptions(apiToken) {
   };
 }
 
-exports.get = (path, apiToken) => {
-  return apiClient.get(path, getOptions(apiToken)).then(response => response.data).catch((err) => {
+exports.get = async (path, apiToken) => {
+  try {
+    const response = await apiClient.get(path, getOptions(apiToken));
+    return response.data;
+  } catch (err) {
     throw errors.fromResponseError(err);
-  });
+  }
 };
 
-exports.post = (path, apiToken, body) => {
-  return apiClient.post(path, body, getOptions(apiToken)).then(response => response.data).catch((err) => {
+exports.post = async (path, apiToken, body) => {
+  try {
+    const response = await apiClient.post(path, body, getOptions(apiToken));
+    return response.data;
+  } catch (err) {
     throw errors.fromResponseError(err);
-  });
+  }
 };
 
-exports.delete = (path, apiToken) => {
-  return apiClient.delete(path, getOptions(apiToken)).then(response => response.data).catch((err) => {
+exports.delete = async (path, apiToken) => {
+  try {
+    const response = await apiClient.delete(path, getOptions(apiToken));
+    return response.data;
+  } catch (err) {
     throw errors.fromResponseError(err);
-  });
+  }
 };
