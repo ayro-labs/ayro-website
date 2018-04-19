@@ -8,8 +8,9 @@ import '@angular/router';
 
 import 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/finally';
 import 'rxjs/add/observable/empty';
 import 'rxjs/add/observable/throw';
 

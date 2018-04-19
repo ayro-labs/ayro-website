@@ -1,12 +1,12 @@
-const authService = require('../services/auth');
+const accountService = require('../services/account');
 const errors = require('../utils/errors');
 const {logger} = require('@ayro/commons');
 
 module.exports = (router, app) => {
 
-  async function signIn(req, res) {
+  async function login(req, res) {
     try {
-      const result = await authService.signIn(req.body.email, req.body.password);
+      const result = await accountService.login(req.body.email, req.body.password);
       req.session.apiToken = result.token;
       res.json(result);
     } catch (err) {
@@ -15,9 +15,9 @@ module.exports = (router, app) => {
     }
   }
 
-  async function signOut(req, res) {
+  async function logout(req, res) {
     try {
-      await authService.signOut(req.session.apiToken);
+      await accountService.logout(req.session.apiToken);
       req.session.destroy();
       res.json({});
     } catch (err) {
@@ -26,9 +26,9 @@ module.exports = (router, app) => {
     }
   }
 
-  router.post('/accounts', signIn);
-  router.delete('/accounts', signOut);
+  router.post('/login', login);
+  router.post('/logout', logout);
 
-  app.use('/auth', router);
+  app.use('/accounts', router);
 
 };

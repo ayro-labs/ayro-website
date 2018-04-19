@@ -3,7 +3,6 @@ import {Router, NavigationEnd} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Angulartics2} from 'angulartics2';
 
-import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
 import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
@@ -24,7 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private currentUrl: string;
   private subscriptions: Subscription[] = [];
 
-  constructor(private authService: AuthService, private accountService: AccountService, private eventService: EventService, private router: Router, private angulartics: Angulartics2) {
+  constructor(private accountService: AccountService, private eventService: EventService, private router: Router, private angulartics: Angulartics2) {
 
   }
 
@@ -52,7 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     }, (err: any) => {
       if (err.code === ErrorUtils.ACCOUNT_DOES_NOT_EXIST) {
-        this.signOut();
+        this.logout();
       }
     });
   }
@@ -71,11 +70,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return HeaderComponent.SIGN_URLS.includes(this.currentUrl);
   }
 
-  public signOut() {
-    this.authService.signOut().subscribe(() => {
+  public logout() {
+    this.accountService.logout().finally(() => {
       this.account = null;
       this.router.navigate(['/']);
-    });
+    }).subscribe(null, null);
   }
 
   private onRouteChanged(event?: any) {

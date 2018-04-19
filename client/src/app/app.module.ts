@@ -51,7 +51,6 @@ import {WordPressGuideComponent} from 'app/components/home/guides/wordpress/word
 import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
 import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
 
-import {AuthService} from 'app/services/auth.service';
 import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
@@ -116,7 +115,6 @@ import {EventService} from 'app/services/event.service';
     CreateSlackChannelComponent,
   ],
   providers: [
-    AuthService,
     AccountService,
     AppService,
     IntegrationService,
