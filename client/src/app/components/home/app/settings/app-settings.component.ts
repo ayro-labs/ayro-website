@@ -33,10 +33,10 @@ export class AppSettingsComponent implements OnInit {
   public update() {
     this.appService.updateApp(this.app, this.name).subscribe((app) => {
       this.fillFormFields(app);
-      this.eventService.publish('app_name_changed', app.name);
+      this.eventService.publish(EventService.EVENT_APP_NAME_CHANGED, app.name);
       this.alertService.success('App atualizado com sucesso!');
-    }, () => {
-      this.alertService.error('Não foi possível atualizar o app, por favor tente novamente mais tarde!');
+    }, (err) => {
+      this.alertService.apiError(null, err, 'Não foi possível atualizar o app, por favor tente novamente mais tarde!');
     });
   }
 
@@ -48,10 +48,10 @@ export class AppSettingsComponent implements OnInit {
       if (iconElement && iconElement.files && iconElement.files.length > 0) {
         this.appService.updateAppIcon(this.app, iconElement.files.item(0)).subscribe((app) => {
           this.fillFormFields(app);
-          this.eventService.publish('app_icon_changed', app.icon);
+          this.eventService.publish(EventService.EVENT_APP_ICON_CHANGED, app.icon);
           this.alertService.success('Ícone do app atualizado com sucesso!');
-        }, () => {
-          this.alertService.error('Não foi possível atualizar o ícone do app, por favor tente novamente mais tarde!');
+        }, (err) => {
+          this.alertService.apiError(null, err, 'Não foi possível atualizar o ícone do app, por favor tente novamente mais tarde!');
         });
       }
     };

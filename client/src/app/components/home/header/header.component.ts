@@ -6,7 +6,6 @@ import {Angulartics2} from 'angulartics2';
 import {AccountService} from 'app/services/account.service';
 import {EventService} from 'app/services/event.service';
 import {Account} from 'app/models/account.model';
-import {ErrorUtils} from 'app/utils/error.utils';
 
 @Component({
   selector: 'ayro-header',
@@ -33,25 +32,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.events.subscribe((event) => {
       this.onRouteChanged(event);
     });
-    this.subscriptions.push(this.eventService.subscribe('account_name_changed', (event) => {
+    this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_ACCOUNT_NAME_CHANGED, (event) => {
       this.account.name = event.value;
     }));
-    this.subscriptions.push(this.eventService.subscribe('account_logo_changed', (event) => {
+    this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_ACCOUNT_LOGO_CHANGED, (event) => {
       this.account.logo = event.value;
     }));
-    this.subscriptions.push(this.eventService.subscribe('account_changed', (event) => {
+    this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_ACCOUNT_CHANGED, (event) => {
       this.account = event.value;
-      this.angulartics.setUsername.next(this.account.id);
+      if (this.account) {
+        this.angulartics.setUsername.next(this.account.id);
+      }
     }));
     this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.account = account;
       this.loading = false;
       if (this.account) {
         this.angulartics.setUsername.next(this.account.id);
-      }
-    }, (err: any) => {
-      if (err.code === ErrorUtils.ACCOUNT_DOES_NOT_EXIST) {
-        this.logout();
       }
     });
   }

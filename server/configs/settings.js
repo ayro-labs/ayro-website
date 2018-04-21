@@ -18,14 +18,6 @@ exports.wpPluginVersion = properties.get('ayro.wpPluginVersion');
 
 exports.session = {
   secret: 'ayro.io',
-  prefix: 'websession:',
-  ttl: Number.MAX_SAFE_INTEGER,
-};
-
-exports.redis = {
-  host: properties.get('redis.host', 'localhost'),
-  port: properties.get('redis.port', 6379),
-  password: properties.get('redis.password'),
 };
 
 exports.facebook = {

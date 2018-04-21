@@ -3,63 +3,91 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 
 import {App} from 'app/models/app.model';
+import {EventService} from 'app/services/event.service';
 import {ApiError} from 'app/services/commons/api.error';
 import {RequestUtils} from 'app/utils/request.utils';
 
 @Injectable()
 export class AppService {
 
-  constructor(private http: Http) {
+  constructor(private eventService: EventService, private http: Http) {
 
   }
 
   public getConfigs(): Observable<any> {
-    return this.http.get('/apps/configs', RequestUtils.newJsonOptionsWithApiToken())
+    return this.http.get('/apps/configs', RequestUtils.getJsonOptions())
       .map((res: Response) => res.json())
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
   }
 
   public listApps(withIntegrations?: boolean): Observable<App[]> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps?integrations=${withIntegrations || false}`), RequestUtils.newJsonOptionsWithApiToken())
+    return this.http.get(RequestUtils.getApiUrl(`/apps?integrations=${withIntegrations || false}`), RequestUtils.getJsonOptions())
       .map((res: Response) => {
         const apps: App[] = [];
         (res.json() as any[]).forEach((data: any) => {
           apps.push(new App(data));
         });
         return apps;
-      })
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      }).catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
   }
 
   public getApp(id: string, withIntegrations?: boolean): Observable<App> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}?integrations=${withIntegrations || false}`), RequestUtils.newJsonOptionsWithApiToken())
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}?integrations=${withIntegrations || false}`), RequestUtils.getJsonOptions())
       .map((res: Response) => new App(res.json()))
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
   }
 
   public createApp(name: string): Observable<App> {
-    return this.http.post(RequestUtils.getApiUrl('/apps'), {name}, RequestUtils.newJsonOptionsWithApiToken())
+    return this.http.post(RequestUtils.getApiUrl('/apps'), {name}, RequestUtils.getJsonOptions())
       .map((res: Response) => new App(res.json()))
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
   }
 
   public updateApp(app: App, name: string): Observable<App> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}`), {name}, RequestUtils.newJsonOptionsWithApiToken())
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}`), {name}, RequestUtils.getJsonOptions())
       .map((res: Response) => new App(res.json()))
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
   }
 
   public updateAppIcon(app: App, icon: File): Observable<App> {
     const formData: FormData = new FormData();
     formData.append('icon', icon);
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/icon`), formData, RequestUtils.newOptionsWithApiToken())
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/icon`), formData, RequestUtils.getOptions())
       .map((res: Response) => new App(res.json()))
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
   }
 
   public deleteApp(app: App): Observable<null> {
-    return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}`), RequestUtils.newJsonOptionsWithApiToken())
+    return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}`), RequestUtils.getJsonOptions())
       .map(() => null)
-      .catch((err: Response) => Observable.throw(ApiError.withResponse(err)));
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
   }
 }

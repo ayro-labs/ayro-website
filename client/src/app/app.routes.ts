@@ -2,6 +2,7 @@ import {Routes} from '@angular/router';
 
 import {ContainerComponent} from 'app/components/container/container.component';
 import {HomeComponent} from 'app/components/home/home.component';
+import {NotFoundComponent} from 'app/components/home/notfound/notfound.component';
 import {IntroComponent} from 'app/components/home/intro/intro.component';
 import {SignUpComponent} from 'app/components/home/signup/signup.component';
 import {SignInComponent} from 'app/components/home/signin/signin.component';
@@ -73,5 +74,6 @@ export const AppRoutes: Routes = [
       {path: 'android', component: AndroidGuideComponent},
       {path: 'slack', component: SlackGuideComponent},
     ]},
+    {path: '**', component: NotFoundComponent},
   ]},
 ];

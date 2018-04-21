@@ -10,6 +10,7 @@ import {Channel} from 'app/models/channel.model';
 import {FacebookPage} from 'app/models/facebook-page.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
+import {StorageUtils} from 'app/utils/storage.utils';
 
 import * as _ from 'lodash';
 
@@ -25,6 +26,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
   public originalConfiguration: any = {};
   public configuration: any = {};
   public facebookPages: FacebookPage[] = [];
+  public apiToken: string;
   public loading = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
@@ -32,6 +34,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.apiToken = StorageUtils.getApiToken();
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_MESSENGER);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).mergeMap((app) => {
@@ -58,8 +61,8 @@ export class MessengerSetupIntegrationComponent implements OnInit {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
-    }, () => {
-      this.alertService.error('Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
+    }, (err) => {
+      this.alertService.apiError(null, err, 'Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
     });
   }
 

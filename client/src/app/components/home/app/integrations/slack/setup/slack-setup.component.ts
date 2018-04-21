@@ -11,6 +11,7 @@ import {Channel} from 'app/models/channel.model';
 import {SlackChannel} from 'app/models/slack-channel.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
+import {StorageUtils} from 'app/utils/storage.utils';
 import {ErrorUtils} from 'app/utils/error.utils';
 
 import * as _ from 'lodash';
@@ -27,6 +28,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
   public originalConfiguration: any = {};
   public configuration: any = {};
   public slackChannels: SlackChannel[] = [];
+  public apiToken: string;
   public loading = true;
 
   constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
@@ -34,6 +36,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.apiToken = StorageUtils.getApiToken();
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_SLACK);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).mergeMap((app) => {
@@ -70,8 +73,8 @@ export class SlackSetupIntegrationComponent implements OnInit {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
-    }, () => {
-      this.alertService.error('Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
+    }, (err) => {
+      this.alertService.apiError(null, err, 'Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
     });
   }
 
@@ -94,7 +97,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
         this.integrationService.listSlackChannels(this.app).subscribe((slackChannels) => {
           this.slackChannels = slackChannels;
         }, (err) => {
-          if (err.code === ErrorUtils.INTERNAL_ERROR && err.cause === ErrorUtils.SLACK_TOKEN_REVOKED) {
+          if (err.code === ErrorUtils.INTERNAL_ERROR && err.cause === ErrorUtils.TOKEN_REVOKED) {
             this.alertService.error('O acesso ao Slack foi revogado, por favor entre novamente com sua conta.');
             this.integration = null;
           }

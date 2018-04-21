@@ -30,10 +30,10 @@ export class SettingsComponent implements OnInit {
   public update() {
     this.accountService.updateAccount({name: this.name, email: this.email}).subscribe((account) => {
       this.fillFormFields(account);
-      this.eventService.publish('account_name_changed', account.name);
+      this.eventService.publish(EventService.EVENT_ACCOUNT_NAME_CHANGED, account.name);
       this.alertService.success('Conta atualizada com sucesso!');
-    }, () => {
-      this.alertService.error('Não foi possível atualizar a conta, por favor tente novamente mais tarde!');
+    }, (err) => {
+      this.alertService.apiError(null, err, 'Não foi possível atualizar a conta, por favor tente novamente mais tarde!');
     });
   }
 
@@ -45,10 +45,10 @@ export class SettingsComponent implements OnInit {
       if (logoElement && logoElement.files && logoElement.files.length > 0) {
         this.accountService.updateAccountLogo(logoElement.files.item(0)).subscribe((account) => {
           this.fillFormFields(account);
-          this.eventService.publish('account_logo_changed', account.logo);
+          this.eventService.publish(EventService.EVENT_ACCOUNT_LOGO_CHANGED, account.logo);
           this.alertService.success('Logo da conta atualizado com sucesso!');
-        }, () => {
-          this.alertService.error('Não foi possível atualizar o logo da conta, por favor tente novamente mais tarde!');
+        }, (err) => {
+          this.alertService.apiError(null, err, 'Não foi possível atualizar o logo da conta, por favor tente novamente mais tarde!');
         });
       }
     };

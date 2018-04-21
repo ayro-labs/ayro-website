@@ -8,25 +8,23 @@ export class RequestUtils {
     return process.env.API_URL + url;
   }
 
-  public static newJsonOptions() {
+  public static getJsonOptions() {
     const headers = new Headers({
       'Content-Type': 'application/json',
     });
+    const apiToken = StorageUtils.getApiToken();
+    if (apiToken) {
+      headers.set('Authorization', `Bearer ${apiToken}`);
+    }
     return new RequestOptions({headers});
   }
 
-  public static newJsonOptionsWithApiToken() {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-      'X-Token': StorageUtils.getApiToken(),
-    });
-    return new RequestOptions({headers});
-  }
-
-  public static newOptionsWithApiToken() {
-    const headers = new Headers({
-      'X-Token': StorageUtils.getApiToken(),
-    });
+  public static getOptions() {
+    const headers = new Headers({});
+    const apiToken = StorageUtils.getApiToken();
+    if (apiToken) {
+      headers.set('Authorization', `Bearer ${apiToken}`);
+    }
     return new RequestOptions({headers});
   }
 

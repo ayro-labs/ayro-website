@@ -22,12 +22,11 @@ export class SignInComponent {
 
   public login() {
     this.accountService.login(this.email, this.password).subscribe((account) => {
-      this.eventService.publish('account_changed', account);
+      this.eventService.publish(EventService.EVENT_ACCOUNT_CHANGED, account);
       this.trackSignIn();
       this.router.navigate(['/apps']);
     }, (err) => {
-      const message = ErrorUtils.getErrorMessage(ErrorUtils.CONTEXT_AUTHENTICATION, err);
-      this.alertService.error(message);
+      this.alertService.apiError(ErrorUtils.CONTEXT_AUTHENTICATION, err);
     });
   }
 

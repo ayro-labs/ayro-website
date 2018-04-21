@@ -68,8 +68,8 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
       this.integration = integration;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
-    }, () => {
-      this.alertService.error('Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
+    }, (err) => {
+      this.alertService.apiError(null, err, 'Não foi possível atualizar a configuração, por favor tente novamente mais tarde!');
     });
   }
 

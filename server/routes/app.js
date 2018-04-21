@@ -5,6 +5,7 @@ const {logger} = require('@ayro/commons');
 const passport = require('passport');
 const SlackStrategy = require('passport-slack').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+const _ = require('lodash');
 
 module.exports = (router, app) => {
 
@@ -19,14 +20,16 @@ module.exports = (router, app) => {
   }
 
   function connectFacebook(req, res, next) {
-    req.session.app = req.params.app;
+    req.flash('app', req.params.app);
+    req.flash('apiToken', req.query.api_token);
     passport.authorize('facebook')(req, res, next);
   }
 
   function connectFacebookCallback(req, res, next) {
     passport.authorize('facebook', (err, data) => {
       (async () => {
-        const {apiToken, app} = req.session;
+        const app = _.last(req.flash('app'));
+        const apiToken = _.last(req.flash('apiToken'));
         const redirectTo = `/apps/${app}/integrations/messenger/setup`;
         const configuration = {
           profile: {
@@ -47,14 +50,16 @@ module.exports = (router, app) => {
   }
 
   function connectSlack(req, res, next) {
-    req.session.app = req.params.app;
+    req.flash('app', req.params.app);
+    req.flash('apiToken', req.query.api_token);
     passport.authorize('slack')(req, res, next);
   }
 
   function connectSlackCallback(req, res, next) {
     passport.authorize('slack', (err, accessToken) => {
       (async () => {
-        const {apiToken, app} = req.session;
+        const app = _.last(req.flash('app'));
+        const apiToken = _.last(req.flash('apiToken'));
         const redirectTo = `/apps/${app}/integrations/slack/setup`;
         try {
           await appService.addSlackIntegration(apiToken, app, accessToken);

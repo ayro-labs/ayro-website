@@ -17,6 +17,7 @@ import {ContainerComponent} from 'app/components/container/container.component';
 import {HeaderComponent} from 'app/components/home/header/header.component';
 import {FooterComponent} from 'app/components/home/footer/footer.component';
 import {HomeComponent} from 'app/components/home/home.component';
+import {NotFoundComponent} from 'app/components/home/notfound/notfound.component';
 import {IntroComponent} from 'app/components/home/intro/intro.component';
 import {SignUpComponent} from 'app/components/home/signup/signup.component';
 import {SignInComponent} from 'app/components/home/signin/signin.component';
@@ -76,6 +77,7 @@ import {EventService} from 'app/services/event.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    NotFoundComponent,
     IntroComponent,
     TermsComponent,
     PrivacyComponent,

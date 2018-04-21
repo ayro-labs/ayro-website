@@ -7,11 +7,11 @@ const apiClient = axios.create({
 });
 
 function getOptions(apiToken) {
-  return {
-    headers: {
-      'X-Token': apiToken,
-    },
-  };
+  const options = {headers: {}};
+  if (apiToken) {
+    options.headers.authorization = `Bearer ${apiToken}`;
+  }
+  return options;
 }
 
 exports.get = async (path, apiToken) => {

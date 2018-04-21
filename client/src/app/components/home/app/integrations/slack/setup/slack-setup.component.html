@@ -40,7 +40,7 @@
             <div class="col-md-12">
               <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
               <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
-              <a class="btn btn-slack" href="/apps/{{ app.id }}/integrations/slack/connect">
+              <a class="btn btn-slack" href="/apps/{{ app.id }}/integrations/slack/connect?api_token={{ apiToken }}">
                 <img src="/assets/img/integrations/slack_micro.png"/>
                 <span class="ml-1 align-middle">Logar com o Slack</span>
               </a>

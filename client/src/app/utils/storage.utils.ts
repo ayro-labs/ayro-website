@@ -36,8 +36,12 @@ export class StorageUtils {
     StorageUtils.set(StorageUtils.API_TOKEN, apiToken);
   }
 
-  public static getApiToken() {
+  public static getApiToken(): string {
     return StorageUtils.get(StorageUtils.API_TOKEN);
+  }
+
+  public static removeApiToken() {
+    StorageUtils.remove(StorageUtils.API_TOKEN);
   }
 
   private constructor() {

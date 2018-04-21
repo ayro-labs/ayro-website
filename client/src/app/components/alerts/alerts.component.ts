@@ -9,6 +9,7 @@ import {AlertService, IAlert} from 'app/services/alert.service';
 export class AlertsComponent implements OnInit {
 
   public alerts: IAlert[] = [];
+  public alertsIds: Set<string> = new Set();
 
   constructor(private alertService: AlertService) {
 
@@ -16,10 +17,15 @@ export class AlertsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.alertService.subscribe((alert) => {
-      this.alerts.push(alert);
-      setTimeout(() => {
-        this.close(alert);
-      }, 5000);
+      if (!alert.id || !this.alertsIds.has(alert.id)) {
+        this.alerts.push(alert);
+        if (alert.id) {
+          this.alertsIds.add(alert.id);
+        }
+        setTimeout(() => {
+          this.close(alert);
+        }, 5000);
+      }
     });
   }
 
@@ -29,5 +35,8 @@ export class AlertsComponent implements OnInit {
 
   public close(alert: IAlert) {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
+    if (alert.id) {
+      this.alertsIds.delete(alert.id);
+    }
   }
 }

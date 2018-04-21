@@ -11,15 +11,13 @@ const middlewares = require('./configs/middlewares');
 const routes = require('./configs/routes');
 const express = require('express');
 const cors = require('cors');
-const flash = require('connect-flash');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const morgan = require('morgan');
-const redis = require('redis');
 const session = require('express-session');
-const RedisStore = require('connect-redis')(session);
+const flash = require('connect-flash');
 
 require('json.date-extensions');
 
@@ -43,23 +41,11 @@ app.use(cors());
 app.use(express.static(settings.clientPath));
 app.use('/public', express.static(settings.publicPath));
 
-const redisClient = redis.createClient({
-  host: settings.redis.host,
-  port: settings.redis.port,
-  password: settings.redis.password,
-});
-
 app.use(session({
-  store: new RedisStore({
-    client: redisClient,
-    prefix: settings.session.prefix,
-    ttl: settings.session.ttl,
-  }),
   secret: settings.session.secret,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 

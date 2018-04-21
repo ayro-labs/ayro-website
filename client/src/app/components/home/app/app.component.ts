@@ -24,10 +24,10 @@ export class AppComponent implements OnInit, OnDestroy {
     const appId = this.activatedRoute.snapshot.paramMap.get('app');
     this.appService.getApp(appId, true).subscribe((app) => {
       this.app = app;
-      this.subscriptions.push(this.eventService.subscribe('app_name_changed', (event) => {
+      this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_APP_NAME_CHANGED, (event) => {
         this.app.name = event.value;
       }));
-      this.subscriptions.push(this.eventService.subscribe('app_icon_changed', (event) => {
+      this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_APP_ICON_CHANGED, (event) => {
         this.app.icon = event.value;
       }));
     });

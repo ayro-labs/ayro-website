@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 
+import {ApiError} from 'app/services/commons/api.error';
+import {ErrorUtils} from 'app/utils/error.utils';
+
 export interface IAlert {
-  message: string;
   type: string;
+  id?: string;
+  message: string;
 }
 
 @Injectable()
@@ -29,6 +33,13 @@ export class AlertService {
 
   public error(message: string) {
     this.subject.next({message, type: 'danger'});
+  }
+
+  public apiError(context: string, err: ApiError, errorMessage?: string) {
+    const message = ErrorUtils.getErrorMessage(context, err, errorMessage);
+    if (message) {
+      this.subject.next({message, id: err.code, type: 'danger'});
+    }
   }
 
   public subscribe(callback: (alert: IAlert) => void) {
