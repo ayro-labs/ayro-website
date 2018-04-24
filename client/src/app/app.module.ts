@@ -31,6 +31,7 @@ import {AppComponent as ChzAppComponent} from 'app/components/home/app/app.compo
 import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
 import {AppSettingsComponent} from 'app/components/home/app/settings/app-settings.component';
 import {DeleteAppComponent} from 'app/components/home/app/delete/delete-app.component';
+import {RemoveAppSecretComponent} from 'app/components/home/app/remove-secret/remove-app-secret.component';
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
@@ -89,6 +90,7 @@ import {EventService} from 'app/services/event.service';
     AppHomeComponent,
     AppSettingsComponent,
     DeleteAppComponent,
+    RemoveAppSecretComponent,
     IntegrationsComponent,
     RemoveIntegrationComponent,
     WebsiteIntegrationComponent,
@@ -113,6 +115,7 @@ import {EventService} from 'app/services/event.service';
   entryComponents: [
     CreateAppComponent,
     DeleteAppComponent,
+    RemoveAppSecretComponent,
     RemoveIntegrationComponent,
     CreateSlackChannelComponent,
   ],

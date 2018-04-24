@@ -10,6 +10,7 @@ import 'assets/img/icon_no_account.jpg';
 import 'assets/img/icon_no_app.png';
 import 'assets/img/flag_brazil.png';
 import 'assets/img/flag_usa.png';
+import 'assets/img/chat_mobile.png';
 import 'assets/img/integrations/slack.png';
 import 'assets/img/integrations/slack_micro.png';
 import 'assets/img/integrations/android.png';

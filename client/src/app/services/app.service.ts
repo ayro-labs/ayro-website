@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 
 import {App} from 'app/models/app.model';
+import {AppSecret} from 'app/models/app-secret.model';
 import {EventService} from 'app/services/event.service';
 import {ApiError} from 'app/services/commons/api.error';
 import {RequestUtils} from 'app/utils/request.utils';
@@ -81,8 +82,43 @@ export class AppService {
       });
   }
 
-  public deleteApp(app: App): Observable<null> {
+  public deleteApp(app: App): Observable<void> {
     return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}`), RequestUtils.getJsonOptions())
+      .map(() => null)
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
+  }
+
+  public listAppSecrets(app: App): Observable<AppSecret[]> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${app.id}/secrets`), RequestUtils.getJsonOptions())
+      .map((res: Response) => {
+        const appSecrets: AppSecret[] = [];
+        (res.json() as any[]).forEach((data: any) => {
+          appSecrets.push(new AppSecret(data));
+        });
+        return appSecrets;
+      }).catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
+  }
+
+  public createAppSecret(app: App): Observable<AppSecret> {
+    return this.http.post(RequestUtils.getApiUrl(`/apps/${app.id}/secrets`), null, RequestUtils.getJsonOptions())
+      .map((res: Response) => new AppSecret(res.json()))
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
+  }
+
+  public removeAppSecret(appSecret: AppSecret): Observable<void> {
+    return this.http.delete(RequestUtils.getApiUrl(`/apps/${appSecret.app}/secrets/${appSecret.id}`), RequestUtils.getJsonOptions())
       .map(() => null)
       .catch((err: Response) => {
         const apiError = ApiError.withResponse(err);
