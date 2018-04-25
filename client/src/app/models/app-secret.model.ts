@@ -1,6 +1,7 @@
 export class AppSecret {
 
   public id: string;
+  public app: string;
   public secret: string;
   public registration_date: Date;
 

@@ -25,7 +25,7 @@
                 <p>Inicialize a biblioteca inserindo o código a seguir no final da tag <code>body</code> do HTML da página desejada, após o código inserido no passo anterior.</p>
                 <div class="highlight">
                   <pre><code>&lt;script&gt;
-  Ayro.init({{ '{' }}app_token: 'token'{{ '}' }});
+  Ayro.init({{ '{' }}app_token: '&lt;app_token&gt;'{{ '}' }});
 &lt;/script&gt;</code></pre>
                 </div>
                 <p>O token pode ser obtido acessando a página inicial do seu App.</p>
@@ -59,7 +59,7 @@ import * as Ayro from 'ayro';</code></pre>
               <div class="col-md-12">
                 <h5 class="mb-3">3º Passo - Inicialize a biblioteca</h5>
                 <div class="highlight">
-                  <pre><code>Ayro.init({{ '{' }}app_token: 'token'{{ '}' }});</code></pre>
+                  <pre><code>Ayro.init({{ '{' }}app_token: '&lt;app_token&gt;'{{ '}' }});</code></pre>
                 </div>
                 <p>O token pode ser obtido acessando a página inicial do seu App.</p>
               </div>
@@ -89,7 +89,7 @@ import * as Ayro from 'ayro';</code></pre>
             <p>Português do Brasil é a língua padrão utilizada nos textos que aparecem na caixa de chat. Você pode alterar os textos padrões definindo propriedades na inicialização do Ayro.</p>
             <div class="highlight">
               <pre><code>Ayro.init({{ '{' }}
-  app_token: 'token',
+  app_token: '&lt;app_token&gt;',
   chatbox: {{ '{' }}
     // Título da caixa de chat
     title: 'Como podemos ajudá-lo?',

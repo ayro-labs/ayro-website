@@ -32,7 +32,7 @@
                 <h5 class="mb-3">2º Passo - Inicialize a biblioteca</h5>
                 <p>Inicialize a biblioteca incluindo o código a seguir no método <code>onCreate</code> da sua classe que estende Application.</p>
                 <div class="highlight">
-                  <pre><code>Settings settings = new Settings("token");
+                  <pre><code>Settings settings = new Settings("&lt;app_token&gt;");
 Ayro.init(this, settings);</code></pre>
                 </div>
               </div>
@@ -79,7 +79,7 @@ Ayro.init(this, settings);</code></pre>
             <h4 class="mb-3">Configurando o FCM no seu aplicativo</h4>
             <p>Se o seu projeto já possui uma classe que implementa MessagingService do FCM, é necessário desabilitar o MessagingService da biblioteca. Para isso, basta invocar o método <code>disableMessagingService</code> na instância de <code>Settings</code>.</p>
             <div class="highlight">
-              <pre><code>Settings settings = new Settings("token");
+              <pre><code>Settings settings = new Settings("&lt;app_token&gt;");
 settings.disableMessagingService();
 Ayro.init(this, settings);</code></pre>
             </div>

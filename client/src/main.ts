@@ -19,6 +19,7 @@ import 'assets/img/integrations/website.png';
 import 'assets/img/integrations/wordpress.png';
 import 'assets/img/integrations/messenger.png';
 import 'assets/img/integrations/twitter.png';
+import 'assets/img/guides/user-identity/app_secrets.png';
 import 'assets/img/guides/website/setup_color.png';
 import 'assets/img/guides/website/floating_button.png';
 import 'assets/img/guides/website/conversation.png';

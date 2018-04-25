@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
 
   private static readonly ERRORS_TO_EXIT = [
     ErrorUtils.AUTHENTICATION_REQUIRED,
-    ErrorUtils.ACCOUNT_NOT_FOUND,
     ErrorUtils.TOKEN_EXPIRED,
   ];
 

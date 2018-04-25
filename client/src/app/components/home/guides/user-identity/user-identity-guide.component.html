@@ -12,11 +12,13 @@
           <div class="col-md-12">
             <h4 class="mb-3">Biblioteca Javascript</h4>
             <div class="highlight">
-              <pre><code>Ayro.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
-  // Função login deve ser chamada após a inicialização do app
-  Ayro.login({{ '{' }}
-    uid: 'userId'
-  {{ '}' }});
+              <pre><code>Ayro.init({{ '{' }}app_token: '&lt;app_token&gt;'{{ '}' }}).then(function() {{ '{' }}
+  // O token JWT deve gerado no seu backend
+  const jwtToken = '&lt;jwt_token&gt;';
+  // A função login deve ser chamada após a inicialização do app
+  return Ayro.login({{ '{' }}
+    uid: '&lt;user_id&gt;'
+  {{ '}' }}, jwtToken);
 {{ '}' }});</code></pre>
             </div>
           </div>
@@ -25,13 +27,38 @@
           <div class="col-md-12">
             <h4 class="mb-3">Biblioteca Android</h4>
             <div class="highlight">
-              <pre><code>User user = new User();
-user.setUid("userId");
-// Função login pode ser chamada a qualquer momento
-Ayro.login(user);</code></pre>
+              <pre><code>// O token JWT deve gerado no seu backend
+String jwtToken = "&lt;jwt_token&gt;";
+User user = new User();
+user.setUid("&lt;user_id&gt;");
+// O método login deve ser invocado após a inicialização do app
+Ayro.login(user, jwtToken);</code></pre>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="mb-3">Obtendo o token JWT</h3>
+        <p>JSON Web Tokens (JWT) é um método padrão para realizar autenticação de forma segura entre duas partes.</p>
+        <p>Para gerar um token primeiramente é necessário criar um "App secret" associado ao seu App.</p>
+        <img class="w-100 mb-3" src="/assets/img/guides/user-identity/app_secrets.png">
+        <p>Utilize o identificador e o secret para gerar o token com as seguintes informações:</p>
+        <div class="highlight">
+          <pre><code>Header: {{ '{' }}
+  "alg": "HS256",
+  "typ": "JWT",
+  "kid": "&lt;identificador&gt;"
+{{ '}' }}
+Payload: {{ '{' }}
+  "scope": "user",
+  "user": "&lt;user_id&gt;"
+{{ '}' }}</code></pre>
+        </div>
+        <p>Utilitário para gerar e verificar tokens: <a href="https://jwt.io">https://jwt.io</a></p>
+        <p>Biblioteca Javascript recomendada: <a href="https://github.com/auth0/node-jsonwebtoken">https://github.com/auth0/node-jsonwebtoken</a></p>
+        <p>Biblioteca Java recomendada: <a href="https://github.com/auth0/java-jwt">https://github.com/auth0/java-jwt</a></p>
       </div>
     </div>
     <div class="row">
@@ -42,7 +69,7 @@ Ayro.login(user);</code></pre>
           <div class="col-md-12">
             <h4 class="mb-3">Biblioteca Javascript</h4>
             <div class="highlight">
-              <pre><code>Ayro.init({{ '{' }}app_token: '&lt;APP_TOKEN&gt;'{{ '}' }}).then(function() {{ '{' }}
+              <pre><code>Ayro.init({{ '{' }}app_token: '&lt;app_token&gt;'{{ '}' }}).then(function() {{ '{' }}
   // Função logout deve ser chamada após a inicialização do app
   Ayro.logout();
 {{ '}' }});</code></pre>
