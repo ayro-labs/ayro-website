@@ -1,6 +1,6 @@
 <ng-container *ngIf="!loading">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="w-100"/>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-sm-9">
       <div class="card mb-4">
         <div class="card-body">
           <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
@@ -34,7 +34,7 @@
       <div *ngIf="!integration" class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <h5 class="mb-3">1º Passo - Importe a biblioteca</h5>
               <p>Adicione a biblioteca Android do Ayro como dependência do seu projeto.</p>
               <p>Usando Gradle:</p>
@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <h5 class="mb-3">2º Passo - Inicialize a biblioteca</h5>
               <p>Inicialize a biblioteca incluindo o código a seguir no método <code>onCreate</code> da sua classe que estende Application.</p>
               <div class="highlight">
@@ -62,7 +62,7 @@ Ayro.init(this, settings);</code></pre>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <h5 class="mb-3">3º Passo - Teste a integração</h5>
               <p>Rode o seu aplicativo Android depois de ter completado todos os passos anteriores e nos deixe saber se sua integração está funcionando corretamente clicando no botão abaixo.</p>
               <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">Testar integração</button>
@@ -74,7 +74,7 @@ Ayro.init(this, settings);</code></pre>
         <div class="card-body">
           <form #form="ngForm" novalidate>
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-sm-12">
                 <h4 class="mb-2">Token do app</h4>
                 <p class="mb-2">Token utilizado para inicializar a integração com o seu aplicativo Android.</p>
                 <div class="input-group">
@@ -88,7 +88,7 @@ Ayro.init(this, settings);</code></pre>
               </div>
             </div>
             <div class="row mt-4">
-              <div class="col-md-12">
+              <div class="col-sm-12">
                 <h4 class="mb-2">Cor primária</h4>
                 <p class="mb-2">Cor de fundo do Toolbar.</p>
                 <div class="input-group">
@@ -100,7 +100,7 @@ Ayro.init(this, settings);</code></pre>
               </div>
             </div>
             <div class="row mt-4">
-              <div class="col-md-12">
+              <div class="col-sm-12">
                 <h4 class="mb-2">Cor da conversa</h4>
                 <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
                 <div class="input-group">
@@ -112,7 +112,7 @@ Ayro.init(this, settings);</code></pre>
               </div>
             </div>
             <div class="row mt-4">
-              <div class="col-md-12">
+              <div class="col-sm-12">
                 <h4 class="mb-2">Firebase Cloud Messaging</h4>
                 <p class="mb-2">O FCM é utilizado para enviar mensagens e notificações Push diretamente para seus clientes. Acesse o <a [routerLink]="['/guides', 'android']">guia</a> de integração com aplicativos Android para obter mais informações.</p>
                 <div class="form-group">
@@ -126,12 +126,14 @@ Ayro.init(this, settings);</code></pre>
                 <a (click)="removeFCMConfiguration()" [hidden]="!originalConfiguration.fcm" class="text-danger cursor-pointer"><i class="fa fa-times mr-2"></i>Remover configuração do FCM</a>
               </div>
             </div>
+            <hr/>
             <div class="row mt-4">
-              <div class="col-md-12">
-                <hr/>
+              <div class="col-md-6">
                 <button (click)="updateConfiguration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
                   Atualizar configuração
                 </button>
+              </div>
+              <div class="col-md-6">
                 <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
                   Remover integração
                 </button>

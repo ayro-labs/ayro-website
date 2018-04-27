@@ -1,6 +1,6 @@
 <div *ngIf="!loading" class="container">
   <div *ngIf="apps.length === 0" class="row my-5">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <div class="card">
         <div class="card-body">
           <h2>Seja bem vindo!</h2>
@@ -12,19 +12,19 @@
     </div>
   </div>
   <div *ngIf="apps.length > 0" class="row my-4">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <div class="row">
-        <div class="col-md-6 col-6">
+        <div class="col-sm-6">
           <h3>Seus apps</h3>
         </div>
-        <div class="col-md-6 col-6">
+        <div class="col-sm-6">
           <button (click)="createApp()" type="button" class="btn btn-primary btn-lg float-right">
             Criar app
           </button>
         </div>
       </div>
       <div class="row mt-2">
-        <div *ngFor="let app of apps; trackBy: trackByApp" class="col-md-6 mb-2">
+        <div *ngFor="let app of apps; trackBy: trackByApp" class="col-lg-6 mb-2">
           <div class="card">
             <div class="card-body">
               <div class="float-left">

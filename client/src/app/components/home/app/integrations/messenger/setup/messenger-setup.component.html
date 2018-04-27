@@ -1,6 +1,6 @@
 <ng-container *ngIf="!loading">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
           <img [src]="channel.picture_url" class="w-100"/>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-sm-9">
       <div class="card">
         <div class="card-body">
           <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
@@ -34,7 +34,7 @@
       <div *ngIf="!integration" class="card mt-4">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <h5 class="mb-3">Para começar, por favor entre com sua conta do Facebook.</h5>
               <p>Ao conectar sua conta você nos dará permissão de enviar e receber mensagens via Messenger, através de um BOT.</p>
               <a class="btn btn-facebook" href="/apps/{{ app.id }}/integrations/facebook/connect">
@@ -49,20 +49,20 @@
         <div class="card-body">
           <form novalidate>
             <div *ngIf="originalConfiguration.profile" class="row">
-              <div class="col-md-12">
+              <div class="col-sm-12">
                 <h4 class="mb-2">Perfil conectado</h4>
                 <p class="mb-2">Perfil do Facebook que dá permissão ao Ayro para interagir com o Messenger.</p>
                 <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.profile.name }}</code>.</p>
               </div>
             </div>
             <div class="row mt-4">
-              <div class="col-md-12">
+              <div class="col-sm-12">
                 <h4 class="mb-2">Página conectada</h4>
                 <p class="mb-2">Página do Facebook escolhida para integração com o Ayro via Messenger.</p>
                 <p *ngIf="originalConfiguration.page" class="mb-2">Você conectou a página <code>{{ originalConfiguration.page.name }}</code>.</p>
                 <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não conectou nenhuma página.</p>
                 <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-sm-5">
                     <select [(ngModel)]="configuration.page" [compareWith]="compareFacebookPages" name="connected-page" class="form-control">
                       <option *ngFor="let facebookPage of facebookPages; trackBy: trackByFacebookPage" [ngValue]="facebookPage" [selected]="configuration.page && configuration.page.id === facebookPage.id">{{ facebookPage.name }}</option>
                     </select>
@@ -70,12 +70,14 @@
                 </div>
               </div>
             </div>
+            <hr/>
             <div class="row mt-4">
-              <div class="col-md-12">
-                <hr/>
+              <div class="col-md-6">
                 <button (click)="updateConfiguration()" [disabled]="!configuration.page || facebookPages.length === 0" type="button" class="btn btn-primary float-left">
                   Atualizar configuração
                 </button>
+              </div>
+              <div class="col-md-6">
                 <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
                   Remover integração
                 </button>

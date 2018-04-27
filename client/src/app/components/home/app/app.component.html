@@ -1,13 +1,13 @@
 <div *ngIf="app" class="navbar-app d-flex align-items-center">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6 col-9">
+      <div class="col-sm-6 col-9">
         <img [src]="app.getIconUrl()" class="navbar-app-icon rounded-circle"/>
         <a [routerLink]="['/apps', app.id]" class="navbar-app-name ml-2">
           {{ app.name }}
         </a>
       </div>
-      <div class="col-md-6 col-3">
+      <div class="col-sm-6 col-3">
         <div class="float-right">
           <a [routerLink]="['settings']" title="App settings">
             <i class="fa fa-cog"></i>
@@ -19,7 +19,7 @@
 </div>
 <div class="container">
   <div class="row my-4">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <router-outlet></router-outlet>
     </div>
   </div>

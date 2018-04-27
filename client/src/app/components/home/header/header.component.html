@@ -1,38 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-toggleable-md">
-  <div class="container-fluid">
-    <a *ngIf="account" class="navbar-brand" [routerLink]="['/apps']">
-      <img src="/assets/img/logo_header.png">
-    </a>
-    <a *ngIf="!account" class="navbar-brand" [routerLink]="['/']">
-      <img src="/assets/img/logo_header.png">
-    </a>
-    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div *ngIf="!loading" id="navbar-content" class="collapse navbar-collapse">
-      <ul *ngIf="!account && !isSignInOrSignUpUrl()" class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a [routerLink]="['/signin']" class="nav-link mr-4">ENTRAR</a>
-        </li>
-        <li class="nav-item">
-          <a [routerLink]="['/signup']" class="nav-link btn btn-primary">CADASTRAR</a>
-        </li>
-      </ul>
-      <ul *ngIf="account" class="navbar-nav d-flex align-items-center ml-auto">
-        <li class="nav-item">
-          <a *ngIf="isIntroUrl()" [routerLink]="['/apps']" class="nav-link btn btn-primary mr-4">VER APPS</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a id="account-menu" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img [src]="account.getLogoUrl()" class="account-logo rounded-circle d-inline-block">
-            <span class="ml-2">{{ account.name }}</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="account-menu">
-            <a [routerLink]="['/settings']" class="dropdown-item">Configurações</a>
-            <a (click)="logout()" class="dropdown-item cursor-pointer">Sair</a>
-          </div>
-        </li>
-      </ul>
-    </div>
+<nav *ngIf="!account" class="navbar navbar-light navbar-expand-md">
+  <a class="navbar-brand" [routerLink]="['/']">
+    <img src="/assets/img/logo_header.png">
+  </a>
+  <button *ngIf="!isSignInOrSignUpUrl()" type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div *ngIf="!loading" id="navbar-content" class="collapse navbar-collapse">
+    <ul *ngIf="!isSignInOrSignUpUrl()" class="navbar-nav ml-auto">
+      <li class="nav-item mr-md-2 mb-sm-2">
+        <a [routerLink]="['/signin']" class="btn btn-secondary">ENTRAR</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/signup']" class="btn btn-primary">CADASTRAR</a>
+      </li>
+    </ul>
   </div>
+</nav>
+<nav *ngIf="account" class="navbar navbar-fixed-height navbar-light navbar-expand-md">
+  <a class="navbar-brand" [routerLink]="['/apps']">
+    <img src="/assets/img/logo_header.png">
+  </a>
+  <ul *ngIf="!loading" class="navbar-nav d-flex align-items-center ml-auto">
+    <li class="nav-item">
+      <a *ngIf="isIntroUrl()" [routerLink]="['/apps']" class="nav-link btn btn-primary mr-4">VER APPS</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a id="account-menu" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img [src]="account.getLogoUrl()" class="account-logo rounded-circle d-inline-block">
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="account-menu">
+        <a [routerLink]="['/settings']" class="dropdown-item">Configurações</a>
+        <a (click)="logout()" class="dropdown-item cursor-pointer">Sair</a>
+      </div>
+    </li>
+  </ul>
 </nav>

@@ -13,10 +13,10 @@
   </ng-container>
   <ng-container *ngIf="app.integrations.length > 0">
     <div class="row">
-      <div class="col-md-6 col-6">
+      <div class="col-sm-6">
         <h4>Integrações</h4>
       </div>
-      <div class="col-md-6 col-6">
+      <div class="col-sm-6">
         <a [routerLink]="['integrations']" class="btn btn-primary float-right">
           Ver integrações
         </a>
@@ -26,21 +26,24 @@
       <div *ngFor="let integration of app.integrations; trackBy: trackByIntegration" class="col-md-6 mt-2 mb-2">
         <div *ngIf="getChannel(integration.channel); let channel" class="card">
           <div class="card-body">
-            <div class="d-flex align-items-center">
-              <img [src]="channel.picture_url" class="integration-icon-sm"/>
-              <div class="d-inline-block ml-3 mr-3">
-                <h4 class="d-block mb-0">{{ channel.name }}</h4>
-                <span *ngIf="channel.type === 'business'" class="integration-type badge badge-secondary">
-                  Canal da Empresa
-                </span>
-                <span *ngIf="channel.type === 'user'" class="integration-type badge badge-secondary">
-                  Canal do Cliente
-                </span>
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-8">
+                <img [src]="channel.picture_url" class="integration-icon-sm align-top"/>
+                <div class="d-inline-block ml-3">
+                  <h4 class="mb-0">{{ channel.name }}</h4>
+                  <span *ngIf="channel.type === 'business'" class="integration-type badge badge-secondary">
+                    Canal da Empresa
+                  </span>
+                  <span *ngIf="channel.type === 'user'" class="integration-type badge badge-secondary">
+                    Canal do Cliente
+                  </span>
+                </div>
               </div>
-              <span class="ml-3 mr-3"></span>
-              <a [routerLink]="['integrations', integration.channel, 'setup']" class="btn btn-primary ml-auto">
-                Configurar
-              </a>
+              <div class="col-lg-4">
+                <a [routerLink]="['integrations', integration.channel, 'setup']" class="btn btn-primary float-right">
+                  Configurar
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -48,13 +51,13 @@
     </div>
   </ng-container>
   <div class="row mt-4">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <div class="card">
         <div class="card-body">
           <h4 class="mb-2">App token</h4>
           <p class="mb-2">Este é o token que você utilizará para inicializar as integrações com os canais do cliente.</p>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-7">
               <div class="input-group">
                 <p class="form-control">{{ app.token }}</p>
                 <div class="input-group-append">
@@ -70,35 +73,35 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <div class="card">
         <div class="card-body">
           <h4 class="mb-2">App secrets</h4>
           <p class="mb-2">Os app secrets são utilizados nos SDKs para adicionar segurança no momento de <a [routerLink]="['/guides', 'user-identity']">autenticar seus usuários</a>.</p>
           <ng-container *ngIf="appSecrets.length > 0">
             <div class="row table-header py-2">
-              <div class="col-md-3">
+              <div class="col-sm-3">
                 Identificador
               </div>
-              <div class="col-md-5">
+              <div class="col-sm-5">
                 Secret
               </div>
-              <div class="col-md-3">
+              <div class="col-sm-3">
                 Creation date (UTC)
               </div>
-              <div class="col-md-1"></div>
+              <div class="col-sm-1"></div>
             </div>
             <div class="row no-gutters table-row py-2" *ngFor="let appSecret of appSecrets; trackBy: trackByAppSecret">
-              <div class="col-md-3 font-light">
+              <div class="col-sm-3 font-light">
                 {{ appSecret.id }}
               </div>
-              <div class="col-md-5 font-light">
+              <div class="col-sm-5 font-light">
                 {{ appSecret.secret }}
               </div>
-              <div class="col-md-3 font-light">
+              <div class="col-sm-3 font-light">
                 {{ formatAppSecretDate(appSecret) }}
               </div>
-              <div class="col-md-1">
+              <div class="col-sm-1">
                 <i (click)="removeAppSecret(appSecret)" class="fa fa-trash cursor-pointer text-danger"></i>
               </div>
             </div>
@@ -109,7 +112,7 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <button (click)="deleteApp()" type="button" class="btn btn-danger float-right">
         Remover app
       </button>
