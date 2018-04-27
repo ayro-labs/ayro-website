@@ -1,15 +1,15 @@
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-12">
     <h1 class="mb-3">Identidade do usuário</h1>
     <p>Ao integrar a biblioteca Ayro no seu Website ou aplicativo mobile, por padrão seus usuários iniciam conversas sem serem identificados. Você não saberá qual a relação do usuário com o seu sistema.</p>
     <p>Conhecendo a identidade do usuário, bem como suas informações, te ajuda a oferecer um suporte mais eficiente e direcionado ao usuário.</p>
     <p>Você pode identificar o usuário atribuindo um identificador único de acordo com o seu sistema. Todas as conversas desse usuário serão centralizadas em um único canal, independente de onde ele inicie a conversa (Website, aplicativo mobile, etc...).</p>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-12">
         <h3 class="mb-3">Identificando o usuário</h3>
         <p>Para identificar seus usuários, basta seguir os códigos a seguir, de acordo com a biblioteca utilizada.</p>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-12">
             <h4 class="mb-3">Biblioteca Javascript</h4>
             <div class="highlight">
               <pre><code>Ayro.init({{ '{' }}app_token: '&lt;app_token&gt;'{{ '}' }}).then(function() {{ '{' }}
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-12">
             <h4 class="mb-3">Biblioteca Android</h4>
             <div class="highlight">
               <pre><code>// O token JWT deve gerado no seu backend
@@ -39,7 +39,7 @@ Ayro.login(user, jwtToken);</code></pre>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-12">
         <h3 class="mb-3">Obtendo o token JWT</h3>
         <p>JSON Web Tokens (JWT) é um método padrão para realizar autenticação de forma segura entre duas partes.</p>
         <p>Para gerar um token primeiramente é necessário criar um "App secret" associado ao seu App.</p>
@@ -62,11 +62,11 @@ Payload: {{ '{' }}
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-12">
         <h3 class="mb-3">Removendo identificação</h3>
         <p>Para remover a identificação dos usuários, basta seguir os códigos a seguir, de acordo com a biblioteca utilizada.</p>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-12">
             <h4 class="mb-3">Biblioteca Javascript</h4>
             <div class="highlight">
               <pre><code>Ayro.init({{ '{' }}app_token: '&lt;app_token&gt;'{{ '}' }}).then(function() {{ '{' }}
@@ -77,7 +77,7 @@ Payload: {{ '{' }}
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-12">
             <h4 class="mb-3">Biblioteca Android</h4>
             <div class="highlight">
               <pre><code>// Função logout pode ser chamada a qualquer momento

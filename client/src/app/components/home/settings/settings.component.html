@@ -1,6 +1,6 @@
 <div *ngIf="!loading" class="container">
   <div class="row my-4">
-    <div class="col-sm-12">
+    <div class="col-12">
       <h4>Configurações da Conta</h4>
       <div class="row mt-4">
         <div class="col-sm-5">
@@ -24,15 +24,15 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-7">
-          <div class="form-group">
-            <div class="card">
-              <div class="card-body">
+        <div class="col-sm-7 mt-3 mt-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <div class="form-group mb-0">
                 <label class="d-block" for="name">
                   <h5>Logo</h5>
                 </label>
-                <img [src]="logo" class="app-icon-lg rounded-circle mt-2"/>
-                <label class="btn btn-primary btn-file ml-2">
+                <img [src]="logo" class="app-icon-lg rounded-circle mr-2 mb-2"/>
+                <label class="btn btn-primary btn-file">
                   Selecionar
                   <input (change)="updateLogo($event)" id="logo-input" type="file" accept="image/*">
                 </label>

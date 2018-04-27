@@ -16,15 +16,15 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-7 mt-3 mt-sm-0">
       <div class="card">
         <div class="card-body">
-          <div class="form-group ml-4">
+          <div class="form-group mb-0">
             <label class="d-block" for="name">
               <h5>Ícone</h5>
             </label>
-            <img [src]="icon" class="app-icon-lg rounded-circle mt-2"/>
-            <label class="btn btn-primary btn-file ml-2">
+            <img [src]="icon" class="app-icon-lg rounded-circle mr-2 mb-2"/>
+            <label class="btn btn-primary btn-file">
               Selecionar
               <input (change)="updateIcon($event)" id="icon-input" type="file" accept="image/*">
             </label>

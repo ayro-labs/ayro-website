@@ -37,7 +37,7 @@
       <div *ngIf="!integration" class="card mt-4">
         <div class="card-body">
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-12">
               <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
               <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
               <a class="btn btn-slack" href="/apps/{{ app.id }}/integrations/slack/connect?api_token={{ apiToken }}">
@@ -52,14 +52,14 @@
         <div class="card-body">
           <form novalidate>
             <div *ngIf="originalConfiguration.user" class="row">
-              <div class="col-sm-12">
+              <div class="col-12">
                 <h4 class="mb-2">Conta conectada</h4>
                 <p class="mb-2">Conta do Slack que dá permissão ao Ayro para interagir com o seu time.</p>
                 <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.user.name }}</code>.</p>
               </div>
             </div>
             <div class="row mt-4">
-              <div class="col-sm-12">
+              <div class="col-12">
                 <h4 class="mb-2">Canal de suporte</h4>
                 <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos clientes.</p>
                 <p *ngIf="originalConfiguration.channel" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>

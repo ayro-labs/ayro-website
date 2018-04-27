@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row align-items-center my-5">
-    <div class="col-sm-12">
+    <div class="col-12">
       <div class="row justify-content-center">
-        <div class="col-sm-5">
+        <div class="col-md-8 col-lg-6">
           <div class="card">
             <div class="card-body">
               <form #form="ngForm" (ngSubmit)="signUp()" novalidate>
@@ -25,8 +25,8 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center mt-4">
-        <div class="col-sm-5 text-center">
+      <div class="row mt-4">
+        <div class="col-12 text-center">
           <span>
             Já possui uma conta? <a [routerLink]="['/signin']">Acesse aqui</a>.
           </span>

@@ -34,7 +34,7 @@
       <div *ngIf="!integration" class="card mt-4">
         <div class="card-body">
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-12">
               <h5 class="mb-3">Para começar, por favor entre com sua conta do Facebook.</h5>
               <p>Ao conectar sua conta você nos dará permissão de enviar e receber mensagens via Messenger, através de um BOT.</p>
               <a class="btn btn-facebook" href="/apps/{{ app.id }}/integrations/facebook/connect">
@@ -49,14 +49,14 @@
         <div class="card-body">
           <form novalidate>
             <div *ngIf="originalConfiguration.profile" class="row">
-              <div class="col-sm-12">
+              <div class="col-12">
                 <h4 class="mb-2">Perfil conectado</h4>
                 <p class="mb-2">Perfil do Facebook que dá permissão ao Ayro para interagir com o Messenger.</p>
                 <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.profile.name }}</code>.</p>
               </div>
             </div>
             <div class="row mt-4">
-              <div class="col-sm-12">
+              <div class="col-12">
                 <h4 class="mb-2">Página conectada</h4>
                 <p class="mb-2">Página do Facebook escolhida para integração com o Ayro via Messenger.</p>
                 <p *ngIf="originalConfiguration.page" class="mb-2">Você conectou a página <code>{{ originalConfiguration.page.name }}</code>.</p>

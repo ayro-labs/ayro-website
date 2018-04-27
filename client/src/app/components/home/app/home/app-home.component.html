@@ -13,10 +13,10 @@
   </ng-container>
   <ng-container *ngIf="app.integrations.length > 0">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-6">
         <h4>Integrações</h4>
       </div>
-      <div class="col-sm-6">
+      <div class="col-6">
         <a [routerLink]="['integrations']" class="btn btn-primary float-right">
           Ver integrações
         </a>
@@ -51,7 +51,7 @@
     </div>
   </ng-container>
   <div class="row mt-4">
-    <div class="col-sm-12">
+    <div class="col-12">
       <div class="card">
         <div class="card-body">
           <h4 class="mb-2">App token</h4>
@@ -73,7 +73,7 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-sm-12">
+    <div class="col-12">
       <div class="card">
         <div class="card-body">
           <h4 class="mb-2">App secrets</h4>
@@ -112,7 +112,7 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-sm-12">
+    <div class="col-12">
       <button (click)="deleteApp()" type="button" class="btn btn-danger float-right">
         Remover app
       </button>
