@@ -27,23 +27,23 @@ a {
 code {
   background-color: @code-block;
   color: @white;
-  border-radius: 3px;
-  padding: 3px 6px;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.4rem;
 }
 .highlight {
   background-color: @code-block;
-  border-radius: 6px;
-  padding: 7px 14px;
+  border-radius: 0.4rem;
+  padding: 0.6rem 1rem;
   margin-top: 0;
   margin-bottom: 1rem;
   pre {
-    margin: 0px;
+    margin: 0rem;
   }
   code {
     background-color: @code-block;
     color: @white;
-    padding: 0px;
-    margin: 0px;
+    padding: 0rem;
+    margin: 0rem;
   }
 }
 .content {
@@ -51,7 +51,7 @@ code {
   &::after {
     content: "";
     display: block;
-    height: 100px;
+    height: 6.25rem;
   }
 }
 .card {
@@ -61,22 +61,22 @@ code {
     .font-light();
     background-color: #6c757d;
     color: white;
-    margin-right: -20px;
-    margin-left: -20px;
+    margin-right: -1.25rem;
+    margin-left: -1.25rem;
     & > [class^="col-"],
     & > [class*=" col-"] {
-      padding-right: 20px;
-      padding-left: 20px;
+      padding-right: 1.25rem;
+      padding-left: 1.25rem;
     }
   }
   .row.table-row {
     border-bottom: 1px solid #ddd;
-    margin-right: -20px;
-    margin-left: -20px;
+    margin-right: -1.25rem;
+    margin-left: -1.25rem;
     & > [class^="col-"],
     & > [class*=" col-"] {
-      padding-right: 20px;
-      padding-left: 20px;
+      padding-right: 1.25rem;
+      padding-left: 1.25rem;
     }
   }
 }
