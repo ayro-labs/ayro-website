@@ -1,122 +1,108 @@
-<ng-container *ngIf="!loading">
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <img [src]="channel.picture_url" class="w-100"/>
-        </div>
-      </div>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h4>Relacionados</h4>
-          <a [routerLink]="['/apps', app.id, 'integrations', 'wordpress']" class="d-block">
-            Ver detalhes
-          </a>
-          <a [routerLink]="['/guides', 'wordpress']" class="d-block mt-2">
-            Documentação
-          </a>
-        </div>
+<div *ngIf="!loading" id="integration" class="row">
+  <div class="col-auto col-left">
+    <div class="card">
+      <div class="card-body">
+        <img [src]="channel.picture_url" class="integration-icon-lg"/>
       </div>
     </div>
-    <div class="col-sm-9">
-      <div class="card">
-        <div class="card-body">
-          <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
-            Canal da Empresa
-          </span>
-          <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-            Canal do Cliente
-          </span>
-          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Converse em tempo real com os visitantes do seu website WordPress.</p>
-        </div>
-      </div>
-      <div *ngIf="!integration" class="card mt-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12">
-              <h5 class="mb-3">1º Passo - Instale o plugin</h5>
-              <p>Faça o download do plugin (<a href="{{ pluginUrl }}" target="_blank">aqui</a>) e extraia o conteúdo do arquivo no diretório de plugins do WordPress em <code>wp-content/plugins</code>.</p>
-              <p>Você também instalar o plugin através do painél de administração do WordPress, na tela <code>Plugins > Adicionar Novo</code>, buscando por <code>Ayro</code>.</p>
-              <p>Em seguida basta acessar a tela <code>Plugins > Plugins Instalados</code> e ativar o plugin Ayro.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <h5 class="mb-3">2º Passo - Configure o plugin</h5>
-              <p>Ao ativar o plugin uma nova tela de configuração aparecerá em <code>Configurações > Ayro</code>.</p>
-              <p>Acessando esta tela, é possível configurar o plugin Ayro.</p>
-              <p>Insira <code>{{ app.token }}</code> no campo App Token e, opcionalmente, altere a tradução dos textos exibidos no Widget do Chat.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <h5 class="mb-3">3º Passo - Teste a integração</h5>
-              <p>Acesse o seu website WordPress depois de ter completado todos os passos anteriores e nos deixe saber se sua integração está funcionando corretamente clicando no botão abaixo.</p>
-              <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">
-                Testar integração
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="integration" class="card mt-4">
-        <div class="card-body">
-          <form #form="ngForm" novalidate>
-            <div class="row">
-              <div class="col-12">
-                <h4 class="mb-2">Token do app</h4>
-                <p class="mb-2">Token utilizado para inicializar a integração com o seu website WordPress.</p>
-                <div class="input-group">
-                  <p class="form-control">{{ app.token }}</p>
-                  <div class="input-group-append">
-                    <button ngxClipboard [cbContent]="app.token" (click)="copyAppToken()" type="button" class="btn btn-secondary">
-                      Copiar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col-12">
-                <h4 class="mb-2">Cor primária</h4>
-                <p class="mb-2">Cor de fundo do botão flutuante e cabeçalho da caixa de chat.</p>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span [ngStyle]="{'background-color': configuration.primary_color}" class="input-group-text input-color-prepend"></span>
-                  </div>
-                  <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
-                </div>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col-12">
-                <h4 class="mb-2">Cor da conversa</h4>
-                <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-text input-color-prepend"></span>
-                  </div>
-                  <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
-                </div>
-              </div>
-            </div>
-            <hr/>
-            <div class="row mt-4">
-              <div class="col-md-6">
-                <button (click)="updateConfiguration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
-                  Atualizar configuração
-                </button>
-              </div>
-              <div class="col-md-6">
-                <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
-                  Remover integração
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+    <a [routerLink]="['/apps', app.id, 'integrations', 'wordpress']" class="btn btn-primary btn-lg btn-block mt-4">
+      Ver detalhes
+    </a>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h4>Relacionados</h4>
+        <a [routerLink]="['/guides', 'wordpress']" class="d-block">
+          Documentação
+        </a>
       </div>
     </div>
   </div>
-</ng-container>
+  <div class="col pl-4">
+    <span class="badge badge-lg badge-secondary">Canal do Cliente</span>
+    <h1>WordPress</h1>
+    <h5 class="subtitle">Converse em tempo real com os visitantes do seu website WordPress.</h5>
+    <hr/>
+    <div *ngIf="!integration">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-3">1º Passo - Instale o plugin</h5>
+          <p>Faça o download do plugin (<a href="{{ pluginUrl }}" target="_blank">aqui</a>) e extraia o conteúdo do arquivo no diretório de plugins do WordPress em <code>wp-content/plugins</code>.</p>
+          <p>Você também instalar o plugin através do painél de administração do WordPress, na tela <code>Plugins > Adicionar Novo</code>, buscando por <code>Ayro</code>.</p>
+          <p>Em seguida basta acessar a tela <code>Plugins > Plugins Instalados</code> e ativar o plugin Ayro.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-3">2º Passo - Configure o plugin</h5>
+          <p>Ao ativar o plugin uma nova tela de configuração aparecerá em <code>Configurações > Ayro</code>.</p>
+          <p>Acessando esta tela, é possível configurar o plugin Ayro.</p>
+          <p>Insira <code>{{ app.token }}</code> no campo App Token e, opcionalmente, altere a tradução dos textos exibidos no Widget do Chat.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-3">3º Passo - Teste a integração</h5>
+          <p>Acesse o seu website WordPress depois de ter completado todos os passos anteriores e nos deixe saber se sua integração está funcionando corretamente clicando no botão abaixo.</p>
+          <button (click)="testIntegration()" type="button" class="btn btn-primary mt-2">
+            Testar integração
+          </button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="integration">
+      <form #form="ngForm" novalidate>
+        <div class="row">
+          <div class="col-12">
+            <h4 class="mb-2">Token do app</h4>
+            <p class="mb-2">Token utilizado para inicializar a integração com o seu website WordPress.</p>
+            <div class="input-group">
+              <p class="form-control">{{ app.token }}</p>
+              <div class="input-group-append">
+                <button ngxClipboard [cbContent]="app.token" (click)="copyAppToken()" type="button" class="btn btn-secondary">
+                  Copiar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <h4 class="mb-2">Cor primária</h4>
+            <p class="mb-2">Cor de fundo do botão flutuante e cabeçalho da caixa de chat.</p>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span [ngStyle]="{'background-color': configuration.primary_color}" class="input-group-text input-color-prepend"></span>
+              </div>
+              <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <h4 class="mb-2">Cor da conversa</h4>
+            <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-text input-color-prepend"></span>
+              </div>
+              <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <button (click)="updateConfiguration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+              Atualizar configuração
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+              Remover integração
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

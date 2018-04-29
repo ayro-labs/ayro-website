@@ -1,13 +1,13 @@
-<div *ngIf="!loading" id="integration" class="row">
+<div *ngIf="!loading" id="plugin" class="row">
   <div class="col-auto col-left">
     <div class="card">
       <div class="card-body">
-        <img [src]="channel.picture_url" class="integration-icon-lg"/>
+        <img [src]="pluginType.picture_url" class="plugin-icon-lg"/>
       </div>
     </div>
     <a *ngIf="app" [routerLink]="['setup']" class="btn btn-primary btn-lg btn-block mt-4">
-      <span *ngIf="!integration">Integrar</span>
-      <span *ngIf="integration">Configurar</span>
+      <span *ngIf="!plugin">Integrar</span>
+      <span *ngIf="plugin">Configurar</span>
     </a>
     <div class="card mt-4">
       <div class="card-body">
@@ -19,8 +19,8 @@
     </div>
   </div>
   <div class="col pl-4">
-    <span class="badge badge-lg badge-secondary">Canal do Cliente</span>
-    <h1>Messenger</h1>
+    <span class="badge badge-lg badge-secondary">Plugin</span>
+    <h1>Horário de trabalho</h1>
     <h5 class="subtitle">Converse com os visitantes da sua página no Facebook, direto do canal da empresa.</h5>
     <hr/>
     <div class="description">

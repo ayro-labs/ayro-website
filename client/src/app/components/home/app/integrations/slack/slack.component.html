@@ -1,62 +1,50 @@
-<ng-container *ngIf="!loading">
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <img [src]="channel.picture_url" class="w-100"/>
-        </div>
-      </div>
-      <button *ngIf="app" [routerLink]="['setup']" type="button" class="btn btn-primary btn-lg btn-block mt-4">
-        <span *ngIf="!integration">Integrar</span>
-        <span *ngIf="integration">Configurar</span>
-      </button>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h4>Relacionados</h4>
-          <a [routerLink]="['/guides', 'slack']" class="d-block">
-            Documentação
-          </a>
-          <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
-            Website do Slack
-          </a>
-        </div>
+<div *ngIf="!loading" id="integration" class="row">
+  <div class="col-auto col-left">
+    <div class="card">
+      <div class="card-body">
+        <img [src]="channel.picture_url" class="integration-icon-lg"/>
       </div>
     </div>
-    <div class="col-sm-9">
-      <div class="card">
-        <div class="card-body">
-          <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
-            Canal da Empresa
-          </span>
-          <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-            Canal do Cliente
-          </span>
-          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte ao cliente</p>
-        </div>
-      </div>
-      <div class="card mt-4">
-        <div class="card-body integration-description">
-          <p>Slack é uma ferramenta de comunicação e colaboração utilizada por milhões de pessoas todos os dias.</p>
-          <p>Transforme esta incrível ferramenta em uma ferramenta de suporte ao cliente</p>
-          <h4>Funcionalidades</h4>
-          <ul>
-            <li>Converse com seus clientes diretamente do Slack.</li>
-            <li>Seja notificado instantaneamente quando seus clientes iniciarem uma conversa.</li>
-            <li>Receba informações do perfil do cliente que iniciou uma conversa.</li>
-            <li>Utilize junto com seu time as funções do Slack para organizar o atendimento ao cliente.</li>
-            <li>As conversas são sincronizadas em todos os canais do cliente.</li>
-          </ul>
-          <h4>Como a integração funciona</h4>
-          <p>Quando um cliente entra em contato com sua empresa através de algum canal de comunicação integrado ao Ayro, você será notificado inicialmente em um canal do Slack de sua escolha.</p>
-          <p>Para cada cliente que entra em contato, é criado um canal especifico para atendê-lo. Você consegue conversar em tempo real dentro do próprio Slack utilizando o comando /send. Suas respostas são entregues imediatamente no canal de comunicação que o cliente utilizou para iniciar a conversa.</p>
-          <p>Você pode utilizar todas as funcionalidades do Slack para organizar e colaborar com o seu time no atendimento aos clientes.</p>
-          <h4>Requerimentos</h4>
-          <ul>
-            <li>Uma conta no Slack. Você pode criar uma conta gratuita em <a href="https://slack.com" target="_blank">https://slack.com</a>.</li>
-          </ul>
-        </div>
+    <a *ngIf="app" [routerLink]="['setup']" class="btn btn-primary btn-lg btn-block mt-4">
+      <span *ngIf="!integration">Integrar</span>
+      <span *ngIf="integration">Configurar</span>
+    </a>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h4>Relacionados</h4>
+        <a [routerLink]="['/guides', 'slack']" class="d-block">
+          Documentação
+        </a>
+        <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
+          Website do Slack
+        </a>
       </div>
     </div>
   </div>
-</ng-container>
+  <div class="col pl-4">
+    <span class="badge badge-lg badge-secondary">Canal da Empresa</span>
+    <h1>Slack</h1>
+    <h5 class="subtitle">Transforme o Slack em uma ferramenta de suporte ao cliente.</h5>
+    <hr/>
+    <div class="description">
+      <p>Slack é uma ferramenta de comunicação e colaboração utilizada por milhões de pessoas todos os dias.</p>
+      <p>Transforme esta incrível ferramenta em uma ferramenta de suporte ao cliente</p>
+      <h4>Funcionalidades</h4>
+      <ul>
+        <li>Converse com seus clientes diretamente do Slack.</li>
+        <li>Seja notificado instantaneamente quando seus clientes iniciarem uma conversa.</li>
+        <li>Receba informações do perfil do cliente que iniciou uma conversa.</li>
+        <li>Utilize junto com seu time as funções do Slack para organizar o atendimento ao cliente.</li>
+        <li>As conversas são sincronizadas em todos os canais do cliente.</li>
+      </ul>
+      <h4>Como a integração funciona</h4>
+      <p>Quando um cliente entra em contato com sua empresa através de algum canal de comunicação integrado ao Ayro, você será notificado inicialmente em um canal do Slack de sua escolha.</p>
+      <p>Para cada cliente que entra em contato, é criado um canal especifico para atendê-lo. Você consegue conversar em tempo real dentro do próprio Slack utilizando o comando /send. Suas respostas são entregues imediatamente no canal de comunicação que o cliente utilizou para iniciar a conversa.</p>
+      <p>Você pode utilizar todas as funcionalidades do Slack para organizar e colaborar com o seu time no atendimento aos clientes.</p>
+      <h4>Requerimentos</h4>
+      <ul>
+        <li>Uma conta no Slack. Você pode criar uma conta gratuita em <a href="https://slack.com" target="_blank">https://slack.com</a>.</li>
+      </ul>
+    </div>
+  </div>
+</div>

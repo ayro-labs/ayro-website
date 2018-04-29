@@ -5,7 +5,6 @@
 @import "general.less";
 @import "header.less";
 @import "footer.less";
-@import "alerts.less";
 @import "utils.less";
 
 .account-logo {
@@ -23,40 +22,25 @@
   height: 160px;
   background: transparent;
 }
-.integration-icon {
+.integration-icon-lg, .plugin-icon-lg {
+  width: 180px;
+  height: 180px;
+  background-color: transparent;
+}
+.integration-icon-md, .plugin-icon-md {
   width: 150px;
   height: 150px;
   background-color: transparent;
 }
-.integration-icon-sm {
+.integration-icon-sm, .plugin-icon-sm {
   width: 75px;
   height: 75px;
   background-color: transparent;
 }
-.integration-icon-mc {
+.integration-icon-mc, .plugin-icon-mc {
   width: 35px;
   height: 35px;
   background-color: transparent;
-}
-.integration-type {
-  &.badge {
-    font-size: 13px;
-  }
-}
-.integration-type-lg {
-  &.badge {
-    font-size: 15px;
-  }
-}
-.integration-subtitle {
-  font-size: 20px;
-  color: #777777;
-}
-.integration-description {
-  li {
-    line-height: 1.5;
-    margin-top: 0.6rem;
-  }
 }
 .btn-slack {
   background-color: @white;
@@ -85,6 +69,21 @@
   i {
     color: @white;
     font-size: 1.8rem;
+  }
+}
+#integration, #plugin {
+  .col-left {
+    width: 250px;
+  }
+  .subtitle {
+    color: #777777;
+  }
+  .description {
+    li {
+      line-height: 1.5;
+      margin-top: 0.6rem;
+      font-weight: 300;
+    }
   }
 }
 #intro {
@@ -159,17 +158,14 @@
     }
   }
 }
-
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
 
 }
-
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
 
 }
-
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
   #intro {
@@ -190,12 +186,10 @@
     }
   }
 }
-
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
 
 }
-
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
   #intro {
@@ -204,7 +198,6 @@
     }
   }
 }
-
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   #intro {
@@ -213,12 +206,10 @@
     }
   }
 }
-
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
 
 }
-
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
 

@@ -25,10 +25,6 @@ export class MessengerIntegrationComponent implements OnInit {
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_MESSENGER);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    if (!appId) {
-      this.loading = false;
-      return;
-    }
     this.appService.getApp(appId).mergeMap((app) => {
       this.app = app;
       return this.integrationService.getIntegration(app, this.channel);

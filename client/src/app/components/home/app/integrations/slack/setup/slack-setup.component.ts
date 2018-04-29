@@ -62,8 +62,6 @@ export class SlackSetupIntegrationComponent implements OnInit {
     modalRef.componentInstance.app = this.app;
     modalRef.result.then((channel: SlackChannel) => {
       this.slackChannels.push(channel);
-    }).catch(() => {
-      // Nothing to do...
     });
   }
 
@@ -84,8 +82,6 @@ export class SlackSetupIntegrationComponent implements OnInit {
     modalRef.componentInstance.channel = this.channel;
     modalRef.result.then(() => {
       this.router.navigate(['/apps', this.app.id]);
-    }).catch(() => {
-      // Nothing to do...
     });
   }
 

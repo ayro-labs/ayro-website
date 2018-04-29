@@ -1,91 +1,77 @@
-<ng-container *ngIf="!loading">
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <img [src]="channel.picture_url" class="w-100"/>
-        </div>
-      </div>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h4>Relacionados</h4>
-          <a [routerLink]="['/apps', app.id, 'integrations', 'messenger']" class="d-block">
-            Ver detalhes
-          </a>
-          <a href="https://www.messenger.com" target="_blank" class="d-block mt-2">
-            Website do Messenger
-          </a>
-        </div>
+<div *ngIf="!loading" id="integration" class="row">
+  <div class="col-auto col-left">
+    <div class="card">
+      <div class="card-body">
+        <img [src]="channel.picture_url" class="integration-icon-lg"/>
       </div>
     </div>
-    <div class="col-sm-9">
-      <div class="card">
-        <div class="card-body">
-          <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
-            Canal da Empresa
-          </span>
-          <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-            Canal do Cliente
-          </span>
-          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Converse com os visitantes da sua página no Facebook, direto do canal da empresa.</p>
-        </div>
-      </div>
-      <div *ngIf="!integration" class="card mt-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12">
-              <h5 class="mb-3">Para começar, por favor entre com sua conta do Facebook.</h5>
-              <p>Ao conectar sua conta você nos dará permissão de enviar e receber mensagens via Messenger, através de um BOT.</p>
-              <a class="btn btn-facebook" href="/apps/{{ app.id }}/integrations/facebook/connect">
-                <i class="fa fa-facebook align-middle"></i>
-                <span class="ml-1 align-middle">Logar com o Facebook</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="integration" class="card mt-4">
-        <div class="card-body">
-          <form novalidate>
-            <div *ngIf="originalConfiguration.profile" class="row">
-              <div class="col-12">
-                <h4 class="mb-2">Perfil conectado</h4>
-                <p class="mb-2">Perfil do Facebook que dá permissão ao Ayro para interagir com o Messenger.</p>
-                <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.profile.name }}</code>.</p>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col-12">
-                <h4 class="mb-2">Página conectada</h4>
-                <p class="mb-2">Página do Facebook escolhida para integração com o Ayro via Messenger.</p>
-                <p *ngIf="originalConfiguration.page" class="mb-2">Você conectou a página <code>{{ originalConfiguration.page.name }}</code>.</p>
-                <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não conectou nenhuma página.</p>
-                <div class="row">
-                  <div class="col-sm-5">
-                    <select [(ngModel)]="configuration.page" [compareWith]="compareFacebookPages" name="connected-page" class="form-control">
-                      <option *ngFor="let facebookPage of facebookPages; trackBy: trackByFacebookPage" [ngValue]="facebookPage" [selected]="configuration.page && configuration.page.id === facebookPage.id">{{ facebookPage.name }}</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr/>
-            <div class="row mt-4">
-              <div class="col-md-6">
-                <button (click)="updateConfiguration()" [disabled]="!configuration.page || facebookPages.length === 0" type="button" class="btn btn-primary float-left">
-                  Atualizar configuração
-                </button>
-              </div>
-              <div class="col-md-6">
-                <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
-                  Remover integração
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+    <a [routerLink]="['/apps', app.id, 'integrations', 'messenger']" class="btn btn-primary btn-lg btn-block mt-4">
+      Ver detalhes
+    </a>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h4>Relacionados</h4>
+        <a href="https://www.messenger.com" target="_blank" class="d-block mt-2">
+          Website do Messenger
+        </a>
       </div>
     </div>
   </div>
-</ng-container>
+  <div class="col pl-4">
+    <span class="badge badge-lg badge-secondary">Canal do Cliente</span>
+    <h1>Messenger</h1>
+    <h5 class="subtitle">Converse com os visitantes da sua página no Facebook, direto do canal da empresa.</h5>
+    <hr/>
+    <div *ngIf="!integration">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-3">Para começar, por favor entre com sua conta do Facebook.</h5>
+          <p>Ao conectar sua conta você nos dará permissão de enviar e receber mensagens via Messenger, através de um BOT.</p>
+          <a class="btn btn-facebook" href="/apps/{{ app.id }}/integrations/facebook/connect?api_token={{ apiToken }}">
+            <i class="fab fa-facebook-square align-middle pr-1"></i>
+            <span class="ml-1 align-middle">Entrar com o Facebook</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="integration">
+      <form novalidate>
+        <div *ngIf="originalConfiguration.profile" class="row">
+          <div class="col-12">
+            <h4 class="mb-2">Perfil conectado</h4>
+            <p class="mb-2">Perfil do Facebook que dá permissão ao Ayro para interagir com o Messenger.</p>
+            <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.profile.name }}</code>.</p>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <h4 class="mb-2">Página conectada</h4>
+            <p class="mb-2">Página do Facebook escolhida para integração com o Ayro via Messenger.</p>
+            <p *ngIf="originalConfiguration.page" class="mb-2">Você conectou a página <code>{{ originalConfiguration.page.name }}</code>.</p>
+            <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não conectou nenhuma página.</p>
+            <div class="row">
+              <div class="col-sm-5">
+                <select [(ngModel)]="configuration.page" [compareWith]="compareFacebookPages" name="connected-page" class="form-control">
+                  <option *ngFor="let facebookPage of facebookPages; trackBy: trackByFacebookPage" [ngValue]="facebookPage" [selected]="configuration.page && configuration.page.id === facebookPage.id">{{ facebookPage.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <button (click)="updateConfiguration()" [disabled]="!configuration.page || facebookPages.length === 0" type="button" class="btn btn-primary float-left">
+              Atualizar configuração
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+              Remover integração
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

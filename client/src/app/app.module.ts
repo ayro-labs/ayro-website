@@ -32,6 +32,8 @@ import {AppHomeComponent} from 'app/components/home/app/home/app-home.component'
 import {AppSettingsComponent} from 'app/components/home/app/settings/app-settings.component';
 import {DeleteAppComponent} from 'app/components/home/app/delete/delete-app.component';
 import {RemoveAppSecretComponent} from 'app/components/home/app/remove-secret/remove-app-secret.component';
+
+// Integrations
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
@@ -45,6 +47,16 @@ import {MessengerSetupIntegrationComponent} from 'app/components/home/app/integr
 import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
 import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
 import {CreateSlackChannelComponent} from 'app/components/home/app/integrations/slack/setup/create-channel/create-slack-channel.component';
+
+// Plugins
+import {PluginsComponent} from 'app/components/home/app/plugins/plugins.component';
+import {RemovePluginComponent} from 'app/components/home/app/plugins/remove/remove-plugin.component';
+import {OfficeHoursPluginComponent} from 'app/components/home/app/plugins/office-hours/office-hours.component';
+import {OfficeHoursSetupPluginComponent} from 'app/components/home/app/plugins/office-hours/setup/office-hours-setup.component';
+import {WelcomeMessagePluginComponent} from 'app/components/home/app/plugins/welcome-message/welcome-message.component';
+import {WelcomeMessageSetupPluginComponent} from 'app/components/home/app/plugins/welcome-message/setup/welcome-message-setup.component';
+
+// Guides
 import {GuidesComponent} from 'app/components/home/guides/guides.component';
 import {UserIdentityGuideComponent} from 'app/components/home/guides/user-identity/user-identity-guide.component';
 import {UserInformationGuideComponent} from 'app/components/home/guides/user-information/user-information-guide.component';
@@ -53,9 +65,11 @@ import {WordPressGuideComponent} from 'app/components/home/guides/wordpress/word
 import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
 import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
 
+// Services
 import {AccountService} from 'app/services/account.service';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
+import {PluginService} from 'app/services/plugin.service';
 import {AlertService} from 'app/services/alert.service';
 import {EventService} from 'app/services/event.service';
 
@@ -104,6 +118,12 @@ import {EventService} from 'app/services/event.service';
     SlackIntegrationComponent,
     SlackSetupIntegrationComponent,
     CreateSlackChannelComponent,
+    PluginsComponent,
+    RemovePluginComponent,
+    OfficeHoursPluginComponent,
+    OfficeHoursSetupPluginComponent,
+    WelcomeMessagePluginComponent,
+    WelcomeMessageSetupPluginComponent,
     GuidesComponent,
     UserIdentityGuideComponent,
     UserInformationGuideComponent,
@@ -123,6 +143,7 @@ import {EventService} from 'app/services/event.service';
     AccountService,
     AppService,
     IntegrationService,
+    PluginService,
     AlertService,
     EventService,
   ],

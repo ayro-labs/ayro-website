@@ -14,6 +14,8 @@ import {AppsComponent} from 'app/components/home/apps/apps.component';
 import {AppComponent} from 'app/components/home/app/app.component';
 import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
 import {AppSettingsComponent} from 'app/components/home/app/settings/app-settings.component';
+
+// Integrations
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
@@ -25,6 +27,15 @@ import {MessengerIntegrationComponent} from 'app/components/home/app/integration
 import {MessengerSetupIntegrationComponent} from 'app/components/home/app/integrations/messenger/setup/messenger-setup.component';
 import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
 import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
+
+// Plugins
+import {PluginsComponent} from 'app/components/home/app/plugins/plugins.component';
+import {OfficeHoursPluginComponent} from 'app/components/home/app/plugins/office-hours/office-hours.component';
+import {OfficeHoursSetupPluginComponent} from 'app/components/home/app/plugins/office-hours/setup/office-hours-setup.component';
+import {WelcomeMessagePluginComponent} from 'app/components/home/app/plugins/welcome-message/welcome-message.component';
+import {WelcomeMessageSetupPluginComponent} from 'app/components/home/app/plugins/welcome-message/setup/welcome-message-setup.component';
+
+// Guides
 import {GuidesComponent} from 'app/components/home/guides/guides.component';
 import {UserIdentityGuideComponent} from 'app/components/home/guides/user-identity/user-identity-guide.component';
 import {UserInformationGuideComponent} from 'app/components/home/guides/user-information/user-information-guide.component';
@@ -65,6 +76,11 @@ export const AppRoutes: Routes = [
       {path: 'integrations/messenger/setup', component: MessengerSetupIntegrationComponent},
       {path: 'integrations/slack', component: SlackIntegrationComponent},
       {path: 'integrations/slack/setup', component: SlackSetupIntegrationComponent},
+      {path: 'plugins', component: PluginsComponent},
+      {path: 'plugins/office-hours', component: OfficeHoursPluginComponent},
+      {path: 'plugins/office-hours/setup', component: OfficeHoursSetupPluginComponent},
+      {path: 'plugins/welcome-message', component: WelcomeMessagePluginComponent},
+      {path: 'plugins/welcome-message/setup', component: WelcomeMessageSetupPluginComponent},
     ]},
     {path: 'guides', component: GuidesComponent, children: [
       {path: 'user-identity', component: UserIdentityGuideComponent},

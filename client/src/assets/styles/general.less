@@ -30,6 +30,28 @@ code {
   border-radius: 0.2rem;
   padding: 0.2rem 0.4rem;
 }
+.alerts {
+  z-index: 1999;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+.alert {
+  display: inline-block;
+  float: right;
+  clear: both;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  .card-body {
+     padding: 0.8rem 1.25rem;
+  }
+}
+.badge {
+  &.badge-lg {
+    font-size: 15px;
+  }
+}
 .highlight {
   background-color: @code-block;
   border-radius: 0.4rem;

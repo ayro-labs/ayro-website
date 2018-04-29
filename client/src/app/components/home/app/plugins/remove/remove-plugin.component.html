@@ -1,0 +1,21 @@
+<form novalidate (ngSubmit)="remove()">
+  <div class="modal-header">
+    <h4 class="modal-title">Remover plugin</h4>
+    <button (click)="close()" type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12">
+        <p>Deseja realmente remover este plugin?</p>
+        <p>Se você tem certeza, por favor digite o nome do app abaixo e confirme a remoção.</p>
+        <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" required>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button (click)="close()" type="button" class="btn btn-secondary">Fechar</button>
+    <button type="submit" class="btn btn-danger" [disabled]="!isAppNameMatched()">Remover</button>
+  </div>
+</form>

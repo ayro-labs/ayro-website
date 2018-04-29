@@ -29,6 +29,7 @@ export class RemoveAppSecretComponent {
       this.ngbActiveModal.close();
       this.alertService.success('App secret removido com sucesso!');
     }, (err) => {
+      this.close();
       this.alertService.apiError(null, err, 'Não foi possível remover o app secret, por favor tente novamente mais tarde!');
     });
   }

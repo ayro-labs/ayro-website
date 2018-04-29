@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-12">
+    <h3>Plugins</h3>
+    <p class="mb-2">Adicione funções inteligentes ao Chat, automatize suas mensagens e ofereça novas experiências para seus clientes.</p>
+  </div>
+</div>
+<div class="row">
+  <div *ngFor="let pluginType of pluginTypes; trackBy: trackByPluginType" class="col-sm-6">
+    <div class="card mt-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-auto">
+            <img [src]="pluginType.picture_url" class="card-img-top plugin-icon-md"/>
+          </div>
+          <div class="col-auto pl-2">
+            <h4 class="card-title">{{ pluginType.name }}</h4>
+            <a *ngIf="pluginType.released" [routerLink]="[pluginType.slug]" class="btn btn-primary">Ver detalhes</a>
+            <a *ngIf="!pluginType.released" class="btn btn-default" disabled>Em breve...</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

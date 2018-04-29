@@ -25,8 +25,8 @@ export class AppService {
       });
   }
 
-  public listApps(withIntegrations?: boolean): Observable<App[]> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps?integrations=${withIntegrations || false}`), RequestUtils.getJsonOptions())
+  public listApps(withIntegrations?: boolean, withPlugins?: boolean): Observable<App[]> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps?integrations=${withIntegrations || false}&plugins=${withPlugins || false}`), RequestUtils.getJsonOptions())
       .map((res: Response) => {
         const apps: App[] = [];
         (res.json() as any[]).forEach((data: any) => {
@@ -40,8 +40,8 @@ export class AppService {
       });
   }
 
-  public getApp(id: string, withIntegrations?: boolean): Observable<App> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}?integrations=${withIntegrations || false}`), RequestUtils.getJsonOptions())
+  public getApp(id: string, withIntegrations?: boolean, withPlugins?: boolean): Observable<App> {
+    return this.http.get(RequestUtils.getApiUrl(`/apps/${id}?integrations=${withIntegrations || false}&plugins=${withPlugins || false}`), RequestUtils.getJsonOptions())
       .map((res: Response) => new App(res.json()))
       .catch((err: Response) => {
         const apiError = ApiError.withResponse(err);

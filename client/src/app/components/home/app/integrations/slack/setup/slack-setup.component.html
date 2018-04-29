@@ -1,97 +1,83 @@
-<ng-container *ngIf="!loading">
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <img [src]="channel.picture_url" class="w-100"/>
-        </div>
-      </div>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h4>Relacionados</h4>
-          <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="d-block">
-            Ver detalhes
-          </a>
-          <a [routerLink]="['/guides', 'slack']" class="d-block mt-2">
-            Documentação
-          </a>
-          <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
-            Website do Slack
-          </a>
-        </div>
+<div *ngIf="!loading" id="integration" class="row">
+  <div class="col-auto col-left">
+    <div class="card">
+      <div class="card-body">
+        <img [src]="channel.picture_url" class="integration-icon-lg"/>
       </div>
     </div>
-    <div class="col-sm-9">
-      <div class="card">
-        <div class="card-body">
-          <span *ngIf="channel.type === 'business'" class="integration-type-lg badge badge-secondary">
-            Canal da Empresa
-          </span>
-          <span *ngIf="channel.type === 'user'" class="integration-type-lg badge badge-secondary">
-            Canal do Cliente
-          </span>
-          <h1 class="mt-0 mb-0">{{ channel.name }}</h1>
-          <p class="integration-subtitle mb-0">Transforme o Slack em uma ferramenta de suporte ao cliente.</p>
-        </div>
-      </div>
-      <div *ngIf="!integration" class="card mt-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12">
-              <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
-              <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
-              <a class="btn btn-slack" href="/apps/{{ app.id }}/integrations/slack/connect?api_token={{ apiToken }}">
-                <img src="/assets/img/integrations/slack_micro.png"/>
-                <span class="ml-1 align-middle">Logar com o Slack</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="integration" class="card mt-4">
-        <div class="card-body">
-          <form novalidate>
-            <div *ngIf="originalConfiguration.user" class="row">
-              <div class="col-12">
-                <h4 class="mb-2">Conta conectada</h4>
-                <p class="mb-2">Conta do Slack que dá permissão ao Ayro para interagir com o seu time.</p>
-                <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.user.name }}</code>.</p>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col-12">
-                <h4 class="mb-2">Canal de suporte</h4>
-                <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos clientes.</p>
-                <p *ngIf="originalConfiguration.channel" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
-                <p *ngIf="!originalConfiguration.channel" class="mb-2">Você ainda não escolheu nenhum canal.</p>
-                <div class="row">
-                  <div class="col-sm-5">
-                    <select [(ngModel)]="configuration.channel" [compareWith]="compareSlackChannels" name="support-channel" class="form-control">
-                      <option *ngFor="let slackChannel of slackChannels; trackBy: trackBySlackChannel" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-7">
-                    <button (click)="createSlackChannel()" type="button" class="btn btn-primary">Criar canal</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr/>
-            <div class="row mt-4">
-              <div class="col-md-6">
-                <button (click)="updateConfiguration()" [disabled]="!configuration.channel || slackChannels.length === 0" type="button" class="btn btn-primary float-left">
-                  Atualizar configuração
-                </button>
-              </div>
-              <div class="col-md-6">
-                <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
-                  Remover integração
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+    <a [routerLink]="['/apps', app.id, 'integrations', 'slack']" class="btn btn-primary btn-lg btn-block mt-4">
+      Ver detalhes
+    </a>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h4>Relacionados</h4>
+        <a [routerLink]="['/guides', 'slack']" class="d-block mt-2">
+          Documentação
+        </a>
+        <a href="https://www.slack.com" target="_blank" class="d-block mt-2">
+          Website do Slack
+        </a>
       </div>
     </div>
   </div>
-</ng-container>
+  <div class="col pl-4">
+    <span class="badge badge-lg badge-secondary">Canal da Empresa</span>
+    <h1>Slack</h1>
+    <h5 class="subtitle">Transforme o Slack em uma ferramenta de suporte ao cliente.</h5>
+    <hr/>
+    <div *ngIf="!integration">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-3">Para começar, por favor entre com sua conta do Slack.</h5>
+          <p>Ao conectar sua conta você nos dará permissão de interagir com o seu time através de um BOT.</p>
+          <a class="btn btn-slack" href="/apps/{{ app.id }}/integrations/slack/connect?api_token={{ apiToken }}">
+            <img src="/assets/img/integrations/slack_micro.png"/>
+            <span class="ml-1 align-middle">Entrar com o Slack</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="integration">
+      <form novalidate>
+        <div *ngIf="originalConfiguration.user" class="row">
+          <div class="col-12">
+            <h4 class="mb-2">Conta conectada</h4>
+            <p class="mb-2">Conta do Slack que dá permissão ao Ayro para interagir com o seu time.</p>
+            <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.user.name }}</code>.</p>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <h4 class="mb-2">Canal de suporte</h4>
+            <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos clientes.</p>
+            <p *ngIf="originalConfiguration.channel" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
+            <p *ngIf="!originalConfiguration.channel" class="mb-2">Você ainda não escolheu nenhum canal.</p>
+            <div class="row">
+              <div class="col-sm-5">
+                <select [(ngModel)]="configuration.channel" [compareWith]="compareSlackChannels" name="support-channel" class="form-control">
+                  <option *ngFor="let slackChannel of slackChannels; trackBy: trackBySlackChannel" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
+                </select>
+              </div>
+              <div class="col-sm-7 pl-0">
+                <button (click)="createSlackChannel()" type="button" class="btn btn-primary">Criar canal</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <button (click)="updateConfiguration()" [disabled]="!configuration.channel || slackChannels.length === 0" type="button" class="btn btn-primary float-left">
+              Atualizar configuração
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+              Remover integração
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

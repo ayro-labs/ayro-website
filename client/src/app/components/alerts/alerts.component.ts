@@ -33,7 +33,7 @@ export class AlertsComponent implements OnInit {
     return index;
   }
 
-  public close(alert: IAlert) {
+  private close(alert: IAlert) {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
     if (alert.id) {
       this.alertsIds.delete(alert.id);

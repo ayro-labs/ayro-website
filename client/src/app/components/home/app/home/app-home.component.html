@@ -1,16 +1,17 @@
 <ng-container *ngIf="!loading">
-  <ng-container *ngIf="app.integrations.length === 0">
-    <div class="card">
-      <div class="card-body">
-        <h2>Converse com seus clientes!</h2>
-        <h5 class="mt-4">Integre seu app com os canais de comunicação que você utiliza e converse com seus clientes onde quer que eles estejam.</h5>
-        <hr class="my-4">
-        <a [routerLink]="['integrations']" class="btn btn-primary btn-lg">
-          Ver integrações
-        </a>
+  <div *ngIf="app.integrations.length === 0" class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Converse com seus clientes</h4>
+          <p class="card-text">Integre seu app com os canais de comunicação que você utiliza e converse com seus clientes onde quer que eles estejam.</p>
+          <a [routerLink]="['integrations']" class="btn btn-primary">
+            Ver integrações
+          </a>
+        </div>
       </div>
     </div>
-  </ng-container>
+  </div>
   <ng-container *ngIf="app.integrations.length > 0">
     <div class="row">
       <div class="col-6">
@@ -27,20 +28,66 @@
         <div *ngIf="getChannel(integration.channel); let channel" class="card">
           <div class="card-body">
             <div class="row d-flex align-items-center">
-              <div class="col-lg-8">
-                <img [src]="channel.picture_url" class="integration-icon-sm align-top"/>
-                <div class="d-inline-block ml-3">
-                  <h4 class="mb-0">{{ channel.name }}</h4>
-                  <span *ngIf="channel.type === 'business'" class="integration-type badge badge-secondary">
-                    Canal da Empresa
-                  </span>
-                  <span *ngIf="channel.type === 'user'" class="integration-type badge badge-secondary">
-                    Canal do Cliente
-                  </span>
-                </div>
+              <div class="col-auto">
+                <img [src]="channel.picture_url" title="{{ channel.name }}" class="integration-icon-sm align-top"/>
               </div>
-              <div class="col-lg-4">
-                <a [routerLink]="['integrations', integration.channel, 'setup']" class="btn btn-primary float-right">
+              <div class="col-auto pl-2">
+                <h4 class="card-title mb-0">{{ channel.name }}</h4>
+                <span *ngIf="channel.type === 'business'" class="badge badge-secondary">
+                  Canal da Empresa
+                </span>
+                <span *ngIf="channel.type === 'user'" class="badge badge-secondary">
+                  Canal do Cliente
+                </span>
+              </div>
+              <div class="col-auto ml-auto">
+                <a [routerLink]="['integrations', channel.slug, 'setup']" class="btn btn-primary float-right">
+                  Configurar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div *ngIf="app.plugins.length === 0" class="row mt-4">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Melhore a experiência do cliente</h4>
+          <p class="card-text">Adicione funções inteligentes ao Chat, automatize suas mensagens e ofereça novas experiências para seus clientes.</p>
+          <a [routerLink]="['plugins']" class="btn btn-primary">
+            Ver plugins
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="app.plugins.length > 0">
+    <div class="row mt-4">
+      <div class="col-6">
+        <h4>Plugins</h4>
+      </div>
+      <div class="col-6">
+        <a [routerLink]="['plugins']" class="btn btn-primary float-right">
+          Ver plugins
+        </a>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div *ngFor="let plugin of app.plugins; trackBy: trackByPlugin" class="col-md-6 mt-2 mb-2">
+        <div *ngIf="getPluginType(plugin.type); let pluginType" class="card">
+          <div class="card-body">
+            <div class="row d-flex align-items-center">
+              <div class="col-auto">
+                <img [src]="pluginType.picture_url" title="{{ pluginType.name }}" class="plugin-icon-sm align-top"/>
+              </div>
+              <div class="col-auto pl-2">
+                <h4 class="cart-title mb-0">{{ pluginType.name }}</h4>
+              </div>
+              <div class="col-auto ml-auto">
+                <a [routerLink]="['plugins', pluginType.slug, 'setup']" class="btn btn-primary float-right">
                   Configurar
                 </a>
               </div>
@@ -54,8 +101,8 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <h4 class="mb-2">App token</h4>
-          <p class="mb-2">Este é o token que você utilizará para inicializar as integrações com os canais do cliente.</p>
+          <h4 class="card-title">App token</h4>
+          <p class="card-text">Este é o token que você utilizará para inicializar as integrações com os canais do cliente.</p>
           <div class="row">
             <div class="col-lg-7">
               <div class="input-group">
@@ -76,8 +123,8 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <h4 class="mb-2">App secrets</h4>
-          <p class="mb-2">Os app secrets são utilizados nos SDKs para adicionar segurança no momento de <a [routerLink]="['/guides', 'user-identity']">autenticar seus usuários</a>.</p>
+          <h4 class="card-title">App secrets</h4>
+          <p class="card-text">Os app secrets são utilizados nos SDKs para adicionar segurança no momento de <a [routerLink]="['/guides', 'user-identity']">autenticar seus usuários</a>.</p>
           <ng-container *ngIf="appSecrets.length > 0">
             <div class="row table-header py-2">
               <div class="col-sm-3">

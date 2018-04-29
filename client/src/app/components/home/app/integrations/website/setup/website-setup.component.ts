@@ -79,8 +79,6 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     modalRef.componentInstance.channel = this.channel;
     modalRef.result.then(() => {
       this.router.navigate(['/apps', this.app.id]);
-    }).catch(() => {
-      // Nothing to do...
     });
   }
 

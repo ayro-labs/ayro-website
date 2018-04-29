@@ -26,12 +26,11 @@ export class IntegrationService {
   }
 
   public getChannel(id: string): Channel {
-    const channel = this.channelById.get(id);
-    return channel;
+    return this.channelById.get(id);
   }
 
-  public listChannels(type: string): Channel[] | null {
-    return this.channelsByType.get(type) || null;
+  public listChannels(type: string): Channel[] {
+    return this.channelsByType.get(type) || [];
   }
 
   public getIntegration(app: App, channel: Channel, require?: boolean): Observable<Integration> {

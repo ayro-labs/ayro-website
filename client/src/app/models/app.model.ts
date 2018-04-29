@@ -1,4 +1,5 @@
 import {Integration} from 'app/models/integration.model';
+import {Plugin} from 'app/models/plugin.model';
 
 export class App {
 
@@ -11,6 +12,7 @@ export class App {
   public icon: string;
   public token: string;
   public integrations: Integration[] = [];
+  public plugins: Plugin[] = [];
   public registration_date: Date;
 
   constructor(data?: any) {
@@ -24,6 +26,12 @@ export class App {
         this.integrations = [];
         for (const integration of data.integrations) {
           this.integrations.push(new Integration(integration));
+        }
+      }
+      if (data.plugins) {
+        this.plugins = [];
+        for (const plugin of data.plugins) {
+          this.plugins.push(new Plugin(plugin));
         }
       }
       this.registration_date = data.registration_date;

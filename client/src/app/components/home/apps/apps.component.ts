@@ -43,8 +43,6 @@ export class AppsComponent implements OnInit {
     const modalRef = this.ngbModal.open(CreateAppComponent);
     modalRef.result.then((app: App) => {
       this.router.navigate(['apps', app.id]);
-    }).catch(() => {
-      // Nothing to do...
     });
   }
 

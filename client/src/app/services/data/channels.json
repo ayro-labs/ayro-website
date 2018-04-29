@@ -1,11 +1,11 @@
 {
   "channels": [
-    {"type": "user", "id": "website", "name": "Website", "picture_url": "/assets/img/integrations/website.png", "released": true},
-    {"type": "user", "id": "wordpress", "name": "WordPress", "picture_url": "/assets/img/integrations/wordpress.png", "released": true},
-    {"type": "user", "id": "android", "name": "Android", "picture_url": "/assets/img/integrations/android.png", "released": true},
-    {"type": "user", "id": "messenger", "name": "Messenger", "picture_url": "/assets/img/integrations/messenger.png", "released": false},
-    {"type": "user", "id": "ios", "name": "iOS", "picture_url": "/assets/img/integrations/ios.png", "released": false},
-    {"type": "user", "id": "twitter", "name": "Twitter", "picture_url": "/assets/img/integrations/twitter.png", "released": false},
-    {"type": "business", "id": "slack", "name": "Slack", "picture_url": "/assets/img/integrations/slack.png", "released": true}
+    {"type": "user", "id": "website", "slug": "website", "name": "Website", "picture_url": "/assets/img/integrations/website.png", "released": true},
+    {"type": "user", "id": "wordpress", "slug": "wordpress", "name": "WordPress", "picture_url": "/assets/img/integrations/wordpress.png", "released": true},
+    {"type": "user", "id": "android", "slug": "android", "name": "Android", "picture_url": "/assets/img/integrations/android.png", "released": true},
+    {"type": "user", "id": "messenger", "slug": "messenger", "name": "Messenger", "picture_url": "/assets/img/integrations/messenger.png", "released": false},
+    {"type": "user", "id": "ios", "slug": "ios", "name": "iOS", "picture_url": "/assets/img/integrations/ios.png", "released": false},
+    {"type": "user", "id": "twitter", "slug": "twitter", "name": "Twitter", "picture_url": "/assets/img/integrations/twitter.png", "released": false},
+    {"type": "business", "id": "slack", "slug": "slack", "name": "Slack", "picture_url": "/assets/img/integrations/slack.png", "released": true}
   ]
 }
