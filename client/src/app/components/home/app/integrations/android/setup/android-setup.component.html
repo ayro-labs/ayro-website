@@ -61,9 +61,11 @@ Ayro.init(this, settings);</code></pre>
     </div>
     <div *ngIf="integration">
       <form #form="ngForm" novalidate>
-        <div class="row">
-          <div class="col-12">
-            <h4 class="mb-2">Token do app</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label>
+              <h4 class="mb-0">Token do app</h4>
+            </label>
             <p class="mb-2">Token utilizado para inicializar a integração com o seu aplicativo Android.</p>
             <div class="input-group">
               <p class="form-control">{{ app.token }}</p>
@@ -75,9 +77,11 @@ Ayro.init(this, settings);</code></pre>
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="mb-2">Cor primária</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label for="primary-color">
+              <h4 class="mb-0">Cor primária</h4>
+            </label>
             <p class="mb-2">Cor de fundo do Toolbar.</p>
             <div class="input-group">
               <div class="input-group-prepend">
@@ -87,37 +91,41 @@ Ayro.init(this, settings);</code></pre>
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="mb-2">Cor da conversa</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label for="conversation-color">
+              <h4 class="mb-0">Cor da conversa</h4>
+            </label>
             <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-text input-color-prepend"></span>
               </div>
-              <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
+              <input [(ngModel)]="configuration.conversation_color" id="conversation-color" name="conversation-color" type="text" class="form-control" maxlength="7" pattern="#\w{4,6}">
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="mb-2">Firebase Cloud Messaging</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label>
+              <h4 class="mb-0">Firebase Cloud Messaging</h4>
+            </label>
             <p class="mb-2">O FCM é utilizado para enviar mensagens e notificações Push diretamente para seus clientes. Acesse o <a [routerLink]="['/guides', 'android']">guia</a> de integração com aplicativos Android para obter mais informações.</p>
             <div class="form-group">
               <label for="fcm-server-key">Server Key</label>
-              <input [(ngModel)]="configuration.fcm.server_key" [disabled]="originalConfiguration.fcm" type="text" id="fcm-server-key" name="fcm-server-key" class="form-control">
+              <input [(ngModel)]="configuration.fcm.server_key" [disabled]="originalConfiguration.fcm" id="fcm-server-key" name="fcm-server-key" type="text" class="form-control">
             </div>
-            <div class="form-group mb-2">
+            <div class="form-group mb-0">
               <label for="fcm-server-key">Sender ID</label>
-              <input [(ngModel)]="configuration.fcm.sender_id" [disabled]="originalConfiguration.fcm" type="text" id="fcm-sender-id" name="fcm-sender-id" class="form-control">
+              <input [(ngModel)]="configuration.fcm.sender_id" [disabled]="originalConfiguration.fcm" id="fcm-sender-id" name="fcm-sender-id" type="text" class="form-control">
             </div>
             <a (click)="removeFCMConfiguration()" [hidden]="!originalConfiguration.fcm" class="text-danger cursor-pointer"><i class="fa fa-times mr-2"></i>Remover configuração do FCM</a>
           </div>
         </div>
         <hr/>
-        <div class="row mt-4">
+        <div class="row">
           <div class="col-md-6">
-            <button (click)="updateConfiguration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+            <button (click)="updateIntegration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
               Atualizar configuração
             </button>
           </div>

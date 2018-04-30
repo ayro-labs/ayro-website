@@ -39,35 +39,39 @@
     </div>
     <div *ngIf="integration">
       <form novalidate>
-        <div *ngIf="originalConfiguration.user" class="row">
-          <div class="col-12">
-            <h4 class="mb-2">Conta conectada</h4>
+        <div *ngIf="originalConfiguration.user" class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label>
+              <h4 class="mb-0">Conta conectada</h4>
+            </label>
             <p class="mb-2">Conta do Slack que dá permissão ao Ayro para interagir com o seu time.</p>
             <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.user.name }}</code>.</p>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="mb-2">Canal de suporte</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label for="support-channel">
+              <h4 class="mb-0">Canal de suporte</h4>
+            </label>
             <p class="mb-2">Canal do Slack usado para publicar informações e mensagens dos clientes.</p>
             <p *ngIf="originalConfiguration.channel" class="mb-2">O canal de suporte atual é <code>#{{ originalConfiguration.channel.name }}</code>.</p>
             <p *ngIf="!originalConfiguration.channel" class="mb-2">Você ainda não escolheu nenhum canal.</p>
-            <div class="row">
-              <div class="col-sm-5">
-                <select [(ngModel)]="configuration.channel" [compareWith]="compareSlackChannels" name="support-channel" class="form-control">
+            <div class="form-row">
+              <div class="form-group col-sm-5 mb-0">
+                <select [(ngModel)]="configuration.channel" [compareWith]="compareSlackChannels" id="support-channel" name="support-channel" class="form-control">
                   <option *ngFor="let slackChannel of slackChannels; trackBy: trackBySlackChannel" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
                 </select>
               </div>
-              <div class="col-sm-7 pl-0">
+              <div class="form-geoup col-sm-7 mb-0">
                 <button (click)="createSlackChannel()" type="button" class="btn btn-primary">Criar canal</button>
               </div>
             </div>
           </div>
         </div>
         <hr/>
-        <div class="row mt-4">
+        <div class="row">
           <div class="col-md-6">
-            <button (click)="updateConfiguration()" [disabled]="!configuration.channel || slackChannels.length === 0" type="button" class="btn btn-primary float-left">
+            <button (click)="updateIntegration()" [disabled]="!configuration.channel || slackChannels.length === 0" type="button" class="btn btn-primary float-left">
               Atualizar configuração
             </button>
           </div>

@@ -24,7 +24,7 @@ export class RemoveAppSecretComponent {
     this.ngbActiveModal.dismiss();
   }
 
-  public delete() {
+  public remove() {
     this.appService.removeAppSecret(this.appSecret).subscribe(() => {
       this.ngbActiveModal.close();
       this.alertService.success('App secret removido com sucesso!');

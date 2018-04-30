@@ -9,15 +9,15 @@
               <form #form="ngForm" (ngSubmit)="update()" novalidate>
                 <div class="form-group">
                   <label for="name">
-                    <h5>Nome</h5>
+                    <h5 class="mb-0">Nome</h5>
                   </label>
-                  <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" minlength="3" required>
+                  <input [(ngModel)]="name" id="name" name="name" type="text" class="form-control" minlength="3" required>
                 </div>
                 <div class="form-group mt-2">
                   <label for="email">
-                    <h5>Email</h5>
+                    <h5 class="mb-0">Email</h5>
                   </label>
-                  <input [(ngModel)]="email" id="email" type="text" name="email" class="form-control" email required>
+                  <input [(ngModel)]="email" id="email" name="email" type="text" class="form-control" email required>
                 </div>
                 <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Atualizar</button>
               </form>
@@ -28,13 +28,13 @@
           <div class="card">
             <div class="card-body">
               <div class="form-group mb-0">
-                <label class="d-block" for="name">
-                  <h5>Logo</h5>
+                <label class="d-block" for="logo">
+                  <h5 class="mb-0">Logo</h5>
                 </label>
                 <img [src]="logo" class="app-icon-lg rounded-circle mr-2 mb-2"/>
                 <label class="btn btn-primary btn-file">
                   Selecionar
-                  <input (change)="updateLogo($event)" id="logo-input" type="file" accept="image/*">
+                  <input (change)="updateLogo($event)" id="logo" name="logo" type="file" accept="image/*">
                 </label>
               </div>
             </div>

@@ -36,22 +36,26 @@
     </div>
     <div *ngIf="integration">
       <form novalidate>
-        <div *ngIf="originalConfiguration.profile" class="row">
-          <div class="col-12">
-            <h4 class="mb-2">Perfil conectado</h4>
+        <div *ngIf="originalConfiguration.profile" class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label>
+              <h4 class="mb-0">Perfil conectado</h4>
+            </label>
             <p class="mb-2">Perfil do Facebook que dá permissão ao Ayro para interagir com o Messenger.</p>
             <p class="mb-0">Você está conectado como <code>{{ originalConfiguration.profile.name }}</code>.</p>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="mb-2">Página conectada</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label for="connected-page">
+              <h4 class="mb-0">Página conectada</h4>
+            </label>
             <p class="mb-2">Página do Facebook escolhida para integração com o Ayro via Messenger.</p>
             <p *ngIf="originalConfiguration.page" class="mb-2">Você conectou a página <code>{{ originalConfiguration.page.name }}</code>.</p>
             <p *ngIf="!originalConfiguration.page" class="mb-2">Você ainda não conectou nenhuma página.</p>
             <div class="row">
               <div class="col-sm-5">
-                <select [(ngModel)]="configuration.page" [compareWith]="compareFacebookPages" name="connected-page" class="form-control">
+                <select [(ngModel)]="configuration.page" [compareWith]="compareFacebookPages" id="connected-page" name="connected-page" class="form-control">
                   <option *ngFor="let facebookPage of facebookPages; trackBy: trackByFacebookPage" [ngValue]="facebookPage" [selected]="configuration.page && configuration.page.id === facebookPage.id">{{ facebookPage.name }}</option>
                 </select>
               </div>
@@ -59,9 +63,9 @@
           </div>
         </div>
         <hr/>
-        <div class="row mt-4">
+        <div class="row">
           <div class="col-md-6">
-            <button (click)="updateConfiguration()" [disabled]="!configuration.page || facebookPages.length === 0" type="button" class="btn btn-primary float-left">
+            <button (click)="updateIntegration()" [disabled]="!configuration.page || facebookPages.length === 0" type="button" class="btn btn-primary float-left">
               Atualizar configuração
             </button>
           </div>

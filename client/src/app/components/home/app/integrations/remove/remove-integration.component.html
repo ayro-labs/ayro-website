@@ -1,4 +1,4 @@
-<form novalidate (ngSubmit)="remove()">
+<form (ngSubmit)="remove()" novalidate>
   <div class="modal-header">
     <h4 class="modal-title">Remover integração</h4>
     <button (click)="close()" type="button" class="close" aria-label="Close">
@@ -6,16 +6,16 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="row">
-      <div class="col-12">
+    <div class="form-row">
+      <div class="form-group col-12">
         <p>Deseja realmente remover esta integração?</p>
         <p>Se você tem certeza, por favor digite o nome do app abaixo e confirme a remoção.</p>
-        <input [(ngModel)]="name" id="name" type="text" name="name" class="form-control" required>
+        <input [(ngModel)]="name" type="text" name="name" class="form-control" required>
       </div>
     </div>
   </div>
   <div class="modal-footer">
     <button (click)="close()" type="button" class="btn btn-secondary">Fechar</button>
-    <button type="submit" class="btn btn-danger" [disabled]="!isAppNameMatched()">Remover</button>
+    <button [disabled]="!isAppNameMatched()" type="submit" class="btn btn-danger">Remover</button>
   </div>
 </form>

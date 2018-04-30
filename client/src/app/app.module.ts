@@ -137,6 +137,7 @@ import {EventService} from 'app/services/event.service';
     DeleteAppComponent,
     RemoveAppSecretComponent,
     RemoveIntegrationComponent,
+    RemovePluginComponent,
     CreateSlackChannelComponent,
   ],
   providers: [

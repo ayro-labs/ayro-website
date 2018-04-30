@@ -63,7 +63,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public updateConfiguration() {
+  public updateIntegration() {
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();

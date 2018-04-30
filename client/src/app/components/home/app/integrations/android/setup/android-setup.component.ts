@@ -69,7 +69,7 @@ export class AndroidSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public updateConfiguration() {
+  public updateIntegration() {
     if (this.originalConfiguration.fcm) {
       delete this.configuration.fcm;
     }

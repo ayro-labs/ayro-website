@@ -41,7 +41,7 @@ export class SettingsComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = (e: any) => {
       this.logo = e.target.result;
-      const logoElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#logo-input');
+      const logoElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#logo');
       if (logoElement && logoElement.files && logoElement.files.length > 0) {
         this.accountService.updateAccountLogo(logoElement.files.item(0)).subscribe((account) => {
           this.fillFormFields(account);

@@ -55,7 +55,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
     return page && otherPage && page.id === otherPage.id;
   }
 
-  public updateConfiguration() {
+  public updateIntegration() {
     const configuration = {page: this.configuration.page};
     this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration) => {
       this.integration = integration;

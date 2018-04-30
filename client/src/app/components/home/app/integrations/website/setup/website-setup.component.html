@@ -57,9 +57,11 @@ Ayro.init({{ '{' }}app_token: '{{ app.token }}'{{ '}' }});
     </div>
     <div *ngIf="integration">
       <form #form="ngForm" novalidate>
-        <div class="row">
-          <div class="col-12">
-            <h4 class="mb-2">Token do app</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label>
+              <h4 class="mb-0">Token do app</h4>
+            </label>
             <p class="mb-2">Token utilizado para inicializar a integração com o seu Website.</p>
             <div class="input-group">
               <p class="form-control">{{ app.token }}</p>
@@ -71,34 +73,38 @@ Ayro.init({{ '{' }}app_token: '{{ app.token }}'{{ '}' }});
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="mb-2">Cor primária</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label for="primary-color">
+              <h4 class="mb-0">Cor primária</h4>
+            </label>
             <p class="mb-2">Cor de fundo do botão flutuante e cabeçalho da caixa de chat.</p>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span [ngStyle]="{'background-color': configuration.primary_color}" class="input-group-text input-color-prepend"></span>
               </div>
-              <input [(ngModel)]="configuration.primary_color" type="text" id="primary-color" name="primary-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
+              <input [(ngModel)]="configuration.primary_color" id="primary-color" name="primary-color" type="text" class="form-control" maxlength="7" pattern="#\w{4,6}">
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <h4 class="mb-2">Cor da conversa</h4>
+        <div class="form-row">
+          <div class="form-group col-12 mb-4">
+            <label for="conversation-color">
+              <h4 class="mb-0">Cor da conversa</h4>
+            </label>
             <p class="mb-2">Cor de fundo da mensagem do cliente.</p>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span [ngStyle]="{'background-color': configuration.conversation_color}" class="input-group-text input-color-prepend"></span>
               </div>
-              <input [(ngModel)]="configuration.conversation_color" type="text" id="conversation-color" name="conversation-color" class="form-control" maxlength="7" pattern="#\w{4,6}">
+              <input [(ngModel)]="configuration.conversation_color" id="conversation-color" name="conversation-color" type="text" class="form-control" maxlength="7" pattern="#\w{4,6}">
             </div>
           </div>
         </div>
         <hr/>
-        <div class="row mt-4">
+        <div class="row">
           <div class="col-md-6">
-            <button (click)="updateConfiguration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+            <button (click)="updateIntegration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
               Atualizar configuração
             </button>
           </div>

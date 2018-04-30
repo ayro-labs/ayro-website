@@ -44,7 +44,7 @@ export class AppSettingsComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = (e: any) => {
       this.icon = e.target.result;
-      const iconElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#icon-input');
+      const iconElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#icon');
       if (iconElement && iconElement.files && iconElement.files.length > 0) {
         this.appService.updateAppIcon(this.app, iconElement.files.item(0)).subscribe((app) => {
           this.fillFormFields(app);

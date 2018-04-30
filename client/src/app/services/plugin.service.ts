@@ -30,7 +30,7 @@ export class PluginService {
     const pluginTypes: PluginType[] = [];
     this.pluginTypeById.forEach((pluginType) => {
       pluginTypes.push(pluginType);
-    })
+    });
     return pluginTypes;
   }
 
@@ -44,8 +44,18 @@ export class PluginService {
       });
   }
 
-  public updatePlugin(app: App, pluginType: PluginType, configuration: any): Observable<Plugin> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), configuration, RequestUtils.getJsonOptions())
+  public addPlugin(app: App, pluginType: PluginType, channels: string[], configuration: any): Observable<Plugin> {
+    return this.http.post(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), {channels, configuration}, RequestUtils.getJsonOptions())
+      .map((res: Response) => new Plugin(res.json()))
+      .catch((err: Response) => {
+        const apiError = ApiError.withResponse(err);
+        this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
+        return Observable.throw(apiError);
+      });
+  }
+
+  public updatePlugin(app: App, pluginType: PluginType, channels: string[], configuration: any): Observable<Plugin> {
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), {channels, configuration}, RequestUtils.getJsonOptions())
       .map((res: Response) => new Plugin(res.json()))
       .catch((err: Response) => {
         const apiError = ApiError.withResponse(err);
