@@ -62,7 +62,7 @@
                   <option *ngFor="let slackChannel of slackChannels; trackBy: trackBySlackChannel" [ngValue]="slackChannel" [selected]="configuration.channel.id === slackChannel.id">{{ slackChannel.name }}</option>
                 </select>
               </div>
-              <div class="form-geoup col-sm-7 mb-0">
+              <div class="form-geoup col-sm-7 mt-2 mt-sm-0 mb-0">
                 <button (click)="createSlackChannel()" type="button" class="btn btn-primary">Criar canal</button>
               </div>
             </div>
