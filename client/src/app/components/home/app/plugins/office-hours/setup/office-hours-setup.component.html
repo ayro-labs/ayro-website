@@ -8,14 +8,6 @@
     <a [routerLink]="['/apps', app.id, 'plugins', 'office-hours']" class="btn btn-primary btn-lg btn-block mt-4">
       Ver detalhes
     </a>
-    <div class="card mt-4">
-      <div class="card-body">
-        <h4>Relacionados</h4>
-        <a href="https://www.messenger.com" target="_blank" class="d-block mt-2">
-          Website do Messenger
-        </a>
-      </div>
-    </div>
   </div>
   <div class="col pl-4">
     <span class="badge badge-lg badge-secondary">Plugin</span>
@@ -32,8 +24,7 @@
             <div class="form-row">
               <div class="form-group col-md-4 mb-0">
                 <select [(ngModel)]="configuration.timezone" id="timezone" name="timezone" class="form-control">
-                  <option *ngFor="let timezone of timezones;" [ngValue]="timezone" [selected]="timezone === configuration.timezone">{{ timezone }}</option>
-                  <option>UTC-12:00</option>
+                  <option *ngFor="let timezone of timezones; trackBy: trackByTimezone" [ngValue]="timezone" [selected]="timezone === configuration.timezone">{{ timezone }}</option>
                 </select>
               </div>
             </div>
@@ -56,13 +47,12 @@
               </div>
               <div class="form-group col-2 mb-0 mt-3">
                 <select [(ngModel)]="configuration.time_range[day].start" [disabled]="configuration.time_range[day].disabled" name="time-range-{{ day }}-start" class="form-control">
-                  {{ configuration.time_range[day].start }}
-                  <option *ngFor="let startTime of startTimes;" [ngValue]="startTime" [selected]="startTime === configuration.time_range[day].start">{{ startTime }}</option>
+                  <option *ngFor="let startTime of startTimes; trackBy: trackByStartTime" [ngValue]="startTime" [selected]="startTime === configuration.time_range[day].start">{{ startTime }}</option>
                 </select>
               </div>
               <div class="form-group col-2 mb-0 mt-3">
                 <select [(ngModel)]="configuration.time_range[day].end" [disabled]="configuration.time_range[day].disabled" name="time-range-{{ day }}-end" class="form-control">
-                  <option *ngFor="let endTime of endTimes;" [ngValue]="endTime" [selected]="endTime === configuration.time_range[day].end">{{ endTime }}</option>
+                  <option *ngFor="let endTime of endTimes; trackBy: trackByEndTime" [ngValue]="endTime" [selected]="endTime === configuration.time_range[day].end">{{ endTime }}</option>
                 </select>
               </div>
               <div class="form-group col-2 mb-0 mt-3">
@@ -78,10 +68,10 @@
         </div>
         <div class="form-row">
           <div class="form-group col-12 mb-4">
-            <label for="automatic-reply">
+            <label for="reply">
               <h4 class="mb-0">Resposta automática</h4>
             </label>
-            <textarea [(ngModel)]="configuration.reply" id="automatic-reply" name="automatic-reply" type="text" class="form-control"></textarea>
+            <textarea [(ngModel)]="configuration.reply" id="reply" name="reply" rows="3" class="form-control" required></textarea>
           </div>
         </div>
         <hr/>

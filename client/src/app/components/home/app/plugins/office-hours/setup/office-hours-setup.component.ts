@@ -129,7 +129,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
 
   private static readonly DEFAULT_START_TIME = '09:00';
   private static readonly DEFAULT_END_TIME = '18:00';
-  private static readonly SUPPORTED_CHANNELS: string[] = ['website', 'wordpress', 'android'];
+  private static readonly DEFAULT_REPLY = 'Olá, obrigado por entrar em contato. Nossa equipe não está disponível agora, mas nós o responderemos assim que voltarmos.';
 
   public app: App;
   public plugin: Plugin;
@@ -137,11 +137,10 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
   public configuration: any = this.getDefaultConfiguration();
   public loading = true;
 
-  public days: string[] = _.clone(OfficeHoursSetupPluginComponent.DAYS);
-  public timezones: string[] = _.clone(OfficeHoursSetupPluginComponent.TIMEZONES);
-  public startTimes: string[] = _.clone(OfficeHoursSetupPluginComponent.START_TIMES);
-  public endTimes: string[] = _.clone(OfficeHoursSetupPluginComponent.END_TIMES);
-  public channels: string[] = _.clone(OfficeHoursSetupPluginComponent.SUPPORTED_CHANNELS);
+  public days = _.clone(OfficeHoursSetupPluginComponent.DAYS);
+  public timezones = _.clone(OfficeHoursSetupPluginComponent.TIMEZONES);
+  public startTimes = _.clone(OfficeHoursSetupPluginComponent.START_TIMES);
+  public endTimes = _.clone(OfficeHoursSetupPluginComponent.END_TIMES);
 
   constructor(private appService: AppService, private pluginService: PluginService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
 
@@ -160,7 +159,19 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
     });
   }
 
+  public trackByTimezone(index: number) {
+    return index;
+  }
+
   public trackByDay(index: number) {
+    return index;
+  }
+
+  public trackByStartTime(index: number) {
+    return index;
+  }
+
+  public trackByEndTime(index: number) {
     return index;
   }
 
@@ -174,7 +185,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
 
   public addPlugin() {
     const configuration = this.formatConfiguration();
-    this.pluginService.addPlugin(this.app, this.pluginType, this.channels, configuration).subscribe((plugin) => {
+    this.pluginService.addPlugin(this.app, this.pluginType, configuration).subscribe((plugin) => {
       this.plugin = plugin;
       this.setConfiguration();
       this.alertService.success('Plugin adicionado com sucesso!');
@@ -185,7 +196,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
 
   public updatePlugin() {
     const configuration = this.formatConfiguration();
-    this.pluginService.updatePlugin(this.app, this.pluginType, this.channels, configuration).subscribe((plugin) => {
+    this.pluginService.updatePlugin(this.app, this.pluginType, configuration).subscribe((plugin) => {
       this.plugin = plugin;
       this.setConfiguration();
       this.alertService.success('Configuração atualizada com sucesso!');
@@ -204,15 +215,12 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
   }
 
   private setConfiguration() {
-    if (this.plugin) {
-      this.configuration = _.cloneDeep(this.plugin.configuration) || this.getDefaultConfiguration();
-    } else {
-      this.configuration = this.getDefaultConfiguration();
-    }
+    this.configuration = this.plugin ? _.cloneDeep(this.plugin.configuration) : this.getDefaultConfiguration();
     this.setDefaultTimezoneIfNeeded();
     this.days.forEach((day) => {
       this.setDefaultTimeRangeIfNeeded(day);
     });
+    this.setDefaultReplyIfNeeded();
   }
 
   private getDefaultConfiguration() {
@@ -238,6 +246,12 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
         end: OfficeHoursSetupPluginComponent.DEFAULT_END_TIME,
         disabled: this.plugin ? true : false,
       };
+    }
+  }
+
+  private setDefaultReplyIfNeeded() {
+    if (!this.configuration.reply) {
+      this.configuration.reply = OfficeHoursSetupPluginComponent.DEFAULT_REPLY;
     }
   }
 

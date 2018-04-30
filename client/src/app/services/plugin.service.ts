@@ -44,8 +44,8 @@ export class PluginService {
       });
   }
 
-  public addPlugin(app: App, pluginType: PluginType, channels: string[], configuration: any): Observable<Plugin> {
-    return this.http.post(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), {channels, configuration}, RequestUtils.getJsonOptions())
+  public addPlugin(app: App, pluginType: PluginType, configuration: any): Observable<Plugin> {
+    return this.http.post(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), configuration, RequestUtils.getJsonOptions())
       .map((res: Response) => new Plugin(res.json()))
       .catch((err: Response) => {
         const apiError = ApiError.withResponse(err);
@@ -54,8 +54,8 @@ export class PluginService {
       });
   }
 
-  public updatePlugin(app: App, pluginType: PluginType, channels: string[], configuration: any): Observable<Plugin> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), {channels, configuration}, RequestUtils.getJsonOptions())
+  public updatePlugin(app: App, pluginType: PluginType, configuration: any): Observable<Plugin> {
+    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), configuration, RequestUtils.getJsonOptions())
       .map((res: Response) => new Plugin(res.json()))
       .catch((err: Response) => {
         const apiError = ApiError.withResponse(err);
