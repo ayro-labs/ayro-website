@@ -8,10 +8,10 @@ import {App} from 'app/models/app.model';
 import {Plugin} from 'app/models/plugin.model';
 
 @Component({
-  selector: 'ayro-welcome-message',
-  templateUrl: './welcome-message.component.html',
+  selector: 'ayro-greetings-message',
+  templateUrl: './greetings-message.component.html',
 })
-export class WelcomeMessagePluginComponent implements OnInit {
+export class GreetingsMessagePluginComponent implements OnInit {
 
   public app: App;
   public plugin: Plugin;
@@ -23,7 +23,7 @@ export class WelcomeMessagePluginComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_WELCOME_MESSAGE);
+    this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_GREETINGS_MESSAGE);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).mergeMap((app) => {
       this.app = app;

@@ -53,8 +53,8 @@ import {PluginsComponent} from 'app/components/home/app/plugins/plugins.componen
 import {RemovePluginComponent} from 'app/components/home/app/plugins/remove/remove-plugin.component';
 import {OfficeHoursPluginComponent} from 'app/components/home/app/plugins/office-hours/office-hours.component';
 import {OfficeHoursSetupPluginComponent} from 'app/components/home/app/plugins/office-hours/setup/office-hours-setup.component';
-import {WelcomeMessagePluginComponent} from 'app/components/home/app/plugins/welcome-message/welcome-message.component';
-import {WelcomeMessageSetupPluginComponent} from 'app/components/home/app/plugins/welcome-message/setup/welcome-message-setup.component';
+import {GreetingsMessagePluginComponent} from 'app/components/home/app/plugins/greetings-message/greetings-message.component';
+import {GreetingsMessageSetupPluginComponent} from 'app/components/home/app/plugins/greetings-message/setup/greetings-message-setup.component';
 
 // Guides
 import {GuidesComponent} from 'app/components/home/guides/guides.component';
@@ -122,8 +122,8 @@ import {EventService} from 'app/services/event.service';
     RemovePluginComponent,
     OfficeHoursPluginComponent,
     OfficeHoursSetupPluginComponent,
-    WelcomeMessagePluginComponent,
-    WelcomeMessageSetupPluginComponent,
+    GreetingsMessagePluginComponent,
+    GreetingsMessageSetupPluginComponent,
     GuidesComponent,
     UserIdentityGuideComponent,
     UserInformationGuideComponent,

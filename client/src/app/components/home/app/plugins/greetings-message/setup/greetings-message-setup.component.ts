@@ -13,12 +13,12 @@ import {Plugin} from 'app/models/plugin.model';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'ayro-welcome-message-setup',
-  templateUrl: './welcome-message-setup.component.html',
+  selector: 'ayro-greetings-message-setup',
+  templateUrl: './greetings-message-setup.component.html',
 })
-export class WelcomeMessageSetupPluginComponent implements OnInit {
+export class GreetingsMessageSetupPluginComponent implements OnInit {
 
-  private static readonly DEFAULT_MESSAGE = 'Seja bem vindo! Sinta-se a vontade para perguntar o que quiser, estamos aqui para ajudar.';
+  private static readonly DEFAULT_MESSAGE = 'Seja bem vindo! Sinta-se a vontade para perguntar o que quiser. Estamos aqui para ajudar.';
 
   public app: App;
   public plugin: Plugin;
@@ -31,7 +31,7 @@ export class WelcomeMessageSetupPluginComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_WELCOME_MESSAGE);
+    this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_GREETINGS_MESSAGE);
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).mergeMap((app) => {
       this.app = app;
@@ -75,7 +75,7 @@ export class WelcomeMessageSetupPluginComponent implements OnInit {
   private setConfiguration() {
     this.configuration = this.plugin ? _.cloneDeep(this.plugin.configuration) : {};
     if (!this.configuration.message) {
-      this.configuration.message = WelcomeMessageSetupPluginComponent.DEFAULT_MESSAGE;
+      this.configuration.message = GreetingsMessageSetupPluginComponent.DEFAULT_MESSAGE;
     }
   }
 }

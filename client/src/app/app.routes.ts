@@ -32,8 +32,8 @@ import {SlackSetupIntegrationComponent} from 'app/components/home/app/integratio
 import {PluginsComponent} from 'app/components/home/app/plugins/plugins.component';
 import {OfficeHoursPluginComponent} from 'app/components/home/app/plugins/office-hours/office-hours.component';
 import {OfficeHoursSetupPluginComponent} from 'app/components/home/app/plugins/office-hours/setup/office-hours-setup.component';
-import {WelcomeMessagePluginComponent} from 'app/components/home/app/plugins/welcome-message/welcome-message.component';
-import {WelcomeMessageSetupPluginComponent} from 'app/components/home/app/plugins/welcome-message/setup/welcome-message-setup.component';
+import {GreetingsMessagePluginComponent} from 'app/components/home/app/plugins/greetings-message/greetings-message.component';
+import {GreetingsMessageSetupPluginComponent} from 'app/components/home/app/plugins/greetings-message/setup/greetings-message-setup.component';
 
 // Guides
 import {GuidesComponent} from 'app/components/home/guides/guides.component';
@@ -79,8 +79,8 @@ export const AppRoutes: Routes = [
       {path: 'plugins', component: PluginsComponent},
       {path: 'plugins/office-hours', component: OfficeHoursPluginComponent},
       {path: 'plugins/office-hours/setup', component: OfficeHoursSetupPluginComponent},
-      {path: 'plugins/welcome-message', component: WelcomeMessagePluginComponent},
-      {path: 'plugins/welcome-message/setup', component: WelcomeMessageSetupPluginComponent},
+      {path: 'plugins/greetings-message', component: GreetingsMessagePluginComponent},
+      {path: 'plugins/greetings-message/setup', component: GreetingsMessageSetupPluginComponent},
     ]},
     {path: 'guides', component: GuidesComponent, children: [
       {path: 'user-identity', component: UserIdentityGuideComponent},

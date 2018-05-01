@@ -1,7 +1,7 @@
 export class Plugin {
 
   public static readonly TYPE_OFFICE_HOURS: string = 'office_hours';
-  public static readonly TYPE_WELCOME_MESSAGE: string = 'welcome_message';
+  public static readonly TYPE_GREETINGS_MESSAGE: string = 'greetings_message';
 
   public static readonly CHANNEL_WEBSITE: string = 'website';
   public static readonly CHANNEL_WORDPRESS: string = 'wordpress';
