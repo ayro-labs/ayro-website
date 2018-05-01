@@ -1,3 +1,5 @@
+'use strict';
+
 const helpers = require('./helpers');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
@@ -42,7 +44,7 @@ module.exports = (env) => {
               loader: 'css-loader',
               options: {
                 minimize: env === 'production',
-              }
+              },
             }],
           }),
           include: [
@@ -58,7 +60,7 @@ module.exports = (env) => {
               loader: 'css-loader',
               options: {
                 minimize: env === 'production',
-              }
+              },
             }, 'less-loader'],
           }),
           include: helpers.root('/client/src/assets/styles'),

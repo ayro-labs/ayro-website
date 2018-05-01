@@ -1,3 +1,5 @@
+'use strict';
+
 const settings = require('../configs/settings');
 const appService = require('../services/app');
 const errors = require('../utils/errors');
@@ -7,71 +9,76 @@ const SlackStrategy = require('passport-slack').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const _ = require('lodash');
 
-module.exports = (router, app) => {
+async function getConfigs(req, res) {
+  try {
+    const config = await appService.getConfigs();
+    res.json(config);
+  } catch (err) {
+    logger.error(err);
+    errors.respondWithError(res, err);
+  }
+}
 
-  async function getConfigs(req, res) {
-    try {
-      const config = await appService.getConfigs();
-      res.json(config);
-    } catch (err) {
+function connectFacebook(req, res, next) {
+  req.flash('app', req.params.app);
+  req.flash('apiToken', req.query.api_token);
+  passport.authorize('facebook')(req, res, next);
+}
+
+function connectFacebookCallback(req, res, next) {
+  passport.authorize('facebook', async (err, data) => {
+    const app = _.last(req.flash('app'));
+    const redirectTo = `/apps/${app}/integrations/messenger/setup`;
+    if (err) {
       logger.error(err);
-      errors.respondWithError(res, err);
+      res.redirect(redirectTo);
+      return;
     }
-  }
+    try {
+      const configuration = {
+        profile: {
+          id: data.profile.id,
+          name: data.profile.displayName,
+          access_token: data.accessToken,
+        },
+      };
+      const apiToken = _.last(req.flash('apiToken'));
+      await appService.addMessengerIntegration(apiToken, app, configuration);
+      res.redirect(redirectTo);
+    } catch (apiError) {
+      logger.error(apiError);
+      res.redirect(redirectTo);
+    }
+  })(req, res, next);
+}
 
-  function connectFacebook(req, res, next) {
-    req.flash('app', req.params.app);
-    req.flash('apiToken', req.query.api_token);
-    passport.authorize('facebook')(req, res, next);
-  }
+function connectSlack(req, res, next) {
+  req.flash('app', req.params.app);
+  req.flash('apiToken', req.query.api_token);
+  passport.authorize('slack')(req, res, next);
+}
 
-  function connectFacebookCallback(req, res, next) {
-    passport.authorize('facebook', (err, data) => {
-      (async () => {
-        const app = _.last(req.flash('app'));
-        const apiToken = _.last(req.flash('apiToken'));
-        const redirectTo = `/apps/${app}/integrations/messenger/setup`;
-        const configuration = {
-          profile: {
-            id: data.profile.id,
-            name: data.profile.displayName,
-            access_token: data.accessToken,
-          },
-        };
-        try {
-          await appService.addMessengerIntegration(apiToken, app, configuration);
-          res.redirect(redirectTo);
-        } catch (err) {
-          logger.error(err);
-          res.redirect(redirectTo);
-        }
-      })();
-    })(req, res, next);
-  }
+function connectSlackCallback(req, res, next) {
+  passport.authorize('slack', async (err, accessToken) => {
+    const app = _.last(req.flash('app'));
+    const redirectTo = `/apps/${app}/integrations/slack/setup`;
+    if (err) {
+      logger.error(err);
+      res.redirect(redirectTo);
+      return;
+    }
+    try {
+      const apiToken = _.last(req.flash('apiToken'));
+      await appService.addSlackIntegration(apiToken, app, accessToken);
+      res.redirect(redirectTo);
+    } catch (apiError) {
+      logger.error(apiError);
+      res.redirect(redirectTo);
+    }
+  })(req, res, next);
+}
 
-  function connectSlack(req, res, next) {
-    req.flash('app', req.params.app);
-    req.flash('apiToken', req.query.api_token);
-    passport.authorize('slack')(req, res, next);
-  }
-
-  function connectSlackCallback(req, res, next) {
-    passport.authorize('slack', (err, accessToken) => {
-      (async () => {
-        const app = _.last(req.flash('app'));
-        const apiToken = _.last(req.flash('apiToken'));
-        const redirectTo = `/apps/${app}/integrations/slack/setup`;
-        try {
-          await appService.addSlackIntegration(apiToken, app, accessToken);
-          res.redirect(redirectTo);
-        } catch (err) {
-          logger.error(err);
-          res.redirect(redirectTo);
-        }
-      })();
-    })(req, res, next);
-  }
-
+module.exports = (router, app) => {
   passport.use(new FacebookStrategy({
     clientID: settings.facebook.appId,
     clientSecret: settings.facebook.appSecret,
@@ -98,5 +105,4 @@ module.exports = (router, app) => {
   router.get('/integrations/slack/connect/callback', connectSlackCallback);
 
   app.use('/apps', router);
-
 };

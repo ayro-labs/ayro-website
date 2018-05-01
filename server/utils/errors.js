@@ -1,3 +1,5 @@
+'use strict';
+
 const settings = require('../configs/settings');
 const util = require('util');
 
