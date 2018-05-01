@@ -1,6 +1,6 @@
 {
   "types": [
     {"id": "office_hours", "slug": "office-hours", "name": "Horário de trabalho", "picture_url": "/assets/img/integrations/website.png", "released": true},
-    {"id": "greetings_message", "slug": "greetings-message", "name": "Mensagem de saudações", "picture_url": "/assets/img/integrations/wordpress.png", "released": true}
+    {"id": "greetings_message", "slug": "greetings-message", "name": "Saudações", "picture_url": "/assets/img/integrations/wordpress.png", "released": true}
   ]
 }

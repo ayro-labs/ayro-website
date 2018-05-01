@@ -23,31 +23,22 @@
         </a>
       </div>
     </div>
-    <div class="row align-items-center">
-      <div *ngFor="let integration of app.integrations; trackBy: trackByIntegration" class="col-md-6 mt-2 mb-2">
-        <div *ngIf="getChannel(integration.channel); let channel" class="card">
-          <div class="card-body">
-            <div class="row d-flex align-items-center">
-              <div class="col-auto">
-                <img [src]="channel.picture_url" title="{{ channel.name }}" class="integration-icon-sm align-top"/>
-              </div>
-              <div class="col-auto pl-2">
-                <h4 class="card-title mb-0">{{ channel.name }}</h4>
-                <span *ngIf="channel.type === 'business'" class="badge badge-secondary">
-                  Canal da Empresa
-                </span>
-                <span *ngIf="channel.type === 'user'" class="badge badge-secondary">
-                  Canal do Cliente
-                </span>
-              </div>
-              <div class="col-auto ml-auto">
-                <a [routerLink]="['integrations', channel.slug, 'setup']" class="btn btn-primary float-right">
-                  Configurar
-                </a>
-              </div>
+    <div class="row">
+      <div *ngFor="let integration of app.integrations; trackBy: trackByIntegration" class="col-lg-3 col-md-4 col-sm-6 my-2">
+        <a *ngIf="getChannel(integration.channel); let channel" [routerLink]="['integrations', channel.slug, 'setup']">
+          <div class="card">
+            <div class="card-body text-center">
+              <img [src]="channel.picture_url" title="{{ channel.name }}" class="integration-icon-sm align-top"/>
+              <h4 class="card-title text-gray mt-2 mb-0">{{ channel.name }}</h4>
+              <span *ngIf="channel.type === 'business'" class="badge badge-secondary">
+                Canal da Empresa
+              </span>
+              <span *ngIf="channel.type === 'user'" class="badge badge-secondary">
+                Canal do Cliente
+              </span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </ng-container>
@@ -75,25 +66,16 @@
         </a>
       </div>
     </div>
-    <div class="row align-items-center">
-      <div *ngFor="let plugin of app.plugins; trackBy: trackByPlugin" class="col-md-6 mt-2 mb-2">
-        <div *ngIf="getPluginType(plugin.type); let pluginType" class="card">
-          <div class="card-body">
-            <div class="row d-flex align-items-center">
-              <div class="col-auto">
-                <img [src]="pluginType.picture_url" title="{{ pluginType.name }}" class="plugin-icon-sm align-top"/>
-              </div>
-              <div class="col-auto pl-2">
-                <h4 class="cart-title mb-0">{{ pluginType.name }}</h4>
-              </div>
-              <div class="col-auto ml-auto">
-                <a [routerLink]="['plugins', pluginType.slug, 'setup']" class="btn btn-primary float-right">
-                  Configurar
-                </a>
-              </div>
+    <div class="row">
+      <div *ngFor="let plugin of app.plugins; trackBy: trackByPlugin" class="col-lg-4 col-md-6 my-2">
+        <a *ngIf="getPluginType(plugin.type); let pluginType" [routerLink]="['plugins', pluginType.slug, 'setup']">
+          <div class="card">
+            <div class="card-body text-center">
+              <img [src]="pluginType.picture_url" title="{{ pluginType.name }}" class="plugin-icon-sm align-top"/>
+              <h4 class="cart-title text-gray mt-2 mb-0">{{ pluginType.name }}</h4>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </ng-container>

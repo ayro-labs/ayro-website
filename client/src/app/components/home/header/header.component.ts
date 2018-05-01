@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private static readonly INTRO_URL = '/';
   private static readonly SIGN_URLS = ['/signin', '/signup'];
 
+  public navbarCollapsed = true;
   public account: Account;
   public loading = true;
 

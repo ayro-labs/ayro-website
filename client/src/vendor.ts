@@ -14,7 +14,6 @@ import 'rxjs/add/operator/finally';
 import 'rxjs/add/observable/empty';
 import 'rxjs/add/observable/throw';
 
-import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import 'assets/styles/fontawesome/fontawesome.less';
