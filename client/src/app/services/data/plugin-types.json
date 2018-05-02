@@ -4,8 +4,8 @@
       "id": "office_hours",
       "slug": "office-hours",
       "name": "Horário de trabalho",
-      "summary": "Defina horários de trabalho para responder automaticamente quando seu time estiver offline.",
-      "description": "Não deixe seu cliente criar expectativas enquanto aguarda por uma resposta. Defina os horários de trabalho de sua equipe e crie uma resposta automática para enviar quando o seu time estiver offline.",
+      "summary": "Envie uma resposta automática ao cliente quando sua equipe não estiver disponível para atendê-lo.",
+      "description": "Não deixe seu cliente criar expectativas enquanto aguarda por uma resposta. Defina os horários de trabalho de sua equipe e crie uma resposta automática para ser enviada quando seu time não estiver disponível para atendê-lo.",
       "picture_url": "/assets/img/integrations/website.png",
       "released": true
     },
@@ -14,7 +14,7 @@
       "slug": "greetings-message",
       "name": "Saudações",
       "summary": "Envie uma mensagem automática de boas vindas quando o cliente visualizar o chat pela primeira vez.",
-      "description": "Seja gentil com seus clientes e deixe uma mensagem de boas vindas. Crie uma mensagem automática para ser enviada na primeira vez em que o usuário visualizar o chat. Esta é uma ótima maneira de chamar a atenção do cliente.",
+      "description": "Seja gentil com seus clientes e deixe mensagens de boas vindas. Crie uma mensagem automática para ser enviada na primeira vez que o chat for visualizado. Esta é uma ótima maneira de chamar a atenção do cliente.",
       "picture_url": "/assets/img/integrations/wordpress.png",
       "released": true
     }
