@@ -1,4 +1,4 @@
-<ayro-integration [channel]="channel" [setupPage]="true" (onLoaded)="onLoaded($event)">
+<ayro-integration [channel]="channel" [setupPage]="true" (loaded)="onLoaded($event)">
   <div *ngIf="app" content>
     <div *ngIf="!integration">
       <div class="row">
