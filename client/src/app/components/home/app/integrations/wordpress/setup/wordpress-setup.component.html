@@ -1,27 +1,5 @@
-<div *ngIf="!loading" id="integration" class="row">
-  <div class="col-auto col-left">
-    <div class="card">
-      <div class="card-body">
-        <img [src]="channel.picture_url" class="integration-icon-lg"/>
-      </div>
-    </div>
-    <a [routerLink]="['/apps', app.id, 'integrations', 'wordpress']" class="btn btn-primary btn-lg btn-block mt-4">
-      Ver detalhes
-    </a>
-    <div class="card mt-4">
-      <div class="card-body">
-        <h4>Relacionados</h4>
-        <a [routerLink]="['/guides', 'wordpress']" class="d-block">
-          Documentação
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="col pl-4">
-    <span class="badge badge-lg badge-secondary">Canal do Cliente</span>
-    <h1>WordPress</h1>
-    <h5 class="subtitle">Converse em tempo real com os visitantes do seu website WordPress.</h5>
-    <hr/>
+<ayro-integration [channel]="channel" [setupPage]="true" (onLoaded)="onLoaded($event)">
+  <div *ngIf="app && !loading" content>
     <div *ngIf="!integration">
       <div class="row">
         <div class="col-12">
@@ -111,4 +89,4 @@
       </form>
     </div>
   </div>
-</div>
+</ayro-integration>

@@ -11,7 +11,7 @@
         <img [src]="channel.picture_url" class="card-img-top integration-icon-md"/>
         <h4 class="card-title mt-2">{{ channel.name }}</h4>
         <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
-        <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
+        <a *ngIf="!channel.released" class="btn btn-light" disabled>Em breve...</a>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
         <img [src]="channel.picture_url" class="card-img-top integration-icon-md"/>
         <h4 class="card-title mt-2">{{ channel.name }}</h4>
         <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
-        <a *ngIf="!channel.released" class="btn btn-default" disabled>Em breve...</a>
+        <a *ngIf="!channel.released" class="btn btn-light" disabled>Em breve...</a>
       </div>
     </div>
   </div>

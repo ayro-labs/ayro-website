@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+import {OnLoaded} from 'app/components/home/app/integrations/integration/integration.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {CreateSlackChannelComponent} from 'app/components/home/app/integrations/slack/setup/create-channel/create-slack-channel.component';
-import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
 import {AlertService} from 'app/services/alert.service';
 import {Channel} from 'app/models/channel.model';
@@ -22,31 +22,27 @@ import * as _ from 'lodash';
 })
 export class SlackSetupIntegrationComponent implements OnInit {
 
+  public channel: Channel;
   public app: App;
   public integration: Integration;
-  public channel: Channel;
   public originalConfiguration: any = {};
   public configuration: any = {};
   public slackChannels: SlackChannel[] = [];
   public apiToken: string;
-  public loading = true;
 
-  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
+  constructor(private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private ngbModal: NgbModal) {
 
   }
 
   public ngOnInit() {
     this.apiToken = StorageUtils.getApiToken();
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_SLACK);
-    const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).mergeMap((app) => {
-      this.app = app;
-      return this.integrationService.getIntegration(app, this.channel);
-    }).subscribe((integration) => {
-      this.integration = integration;
-      this.setConfiguration();
-      this.loading = false;
-    });
+  }
+
+  public onLoaded(data: OnLoaded) {
+    this.app = data.app;
+    this.integration = data.integration;
+    this.setConfiguration();
   }
 
   public trackBySlackChannel(_index: number, slackChannel: SlackChannel) {

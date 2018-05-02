@@ -1,100 +1,84 @@
-<div *ngIf="!loading" id="plugin" class="row">
-  <div class="col-auto col-left">
-    <div class="card">
-      <div class="card-body">
-        <img [src]="pluginType.picture_url" class="plugin-icon-lg"/>
+<ayro-plugin [pluginType]="pluginType" [setupPage]="true" (onLoaded)="onLoaded($event)">
+  <div *ngIf="app" content>
+    <form #form="ngForm" novalidate>
+      <div class="form-row">
+        <div class="form-group col-12 mb-4">
+          <label for="timezone">
+            <h4 class="mb-0">Fuso horário</h4>
+          </label>
+          <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+              <select [(ngModel)]="configuration.timezone" id="timezone" name="timezone" class="form-control">
+                <option *ngFor="let timezone of timezones; trackBy: trackByTimezone" [ngValue]="timezone" [selected]="timezone === configuration.timezone">{{ timezone }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <a [routerLink]="['/apps', app.id, 'plugins', 'office-hours']" class="btn btn-primary btn-lg btn-block mt-4">
-      Ver detalhes
-    </a>
-  </div>
-  <div class="col pl-4">
-    <span class="badge badge-lg badge-secondary">Plugin</span>
-    <h1>Horário de trabalho</h1>
-    <h5 class="subtitle">Converse com os visitantes da sua página no Facebook, direto do canal da empresa.</h5>
-    <hr/>
-    <div>
-      <form #form="ngForm" novalidate>
-        <div class="form-row">
-          <div class="form-group col-12 mb-4">
-            <label for="timezone">
-              <h4 class="mb-0">Fuso horário</h4>
-            </label>
-            <div class="form-row">
-              <div class="form-group col-md-4 mb-0">
-                <select [(ngModel)]="configuration.timezone" id="timezone" name="timezone" class="form-control">
-                  <option *ngFor="let timezone of timezones; trackBy: trackByTimezone" [ngValue]="timezone" [selected]="timezone === configuration.timezone">{{ timezone }}</option>
-                </select>
-              </div>
+      <div class="form-row">
+        <div class="form-group col-12 mb-4">
+          <label>
+            <h4 class="mb-0">Horário de funcionamento</h4>
+          </label>
+          <div *ngFor="let day of days; trackBy: trackByDay" class="form-row">
+            <div class="form-group col-2 mb-0 mt-3 d-flex align-items-center">
+              <p *ngIf="day === 'sunday'" class="mb-0">Domingo</p>
+              <p *ngIf="day === 'monday'" class="mb-0">Segunda</p>
+              <p *ngIf="day === 'tuesday'" class="mb-0">Terça</p>
+              <p *ngIf="day === 'wednesday'" class="mb-0">Quarta</p>
+              <p *ngIf="day === 'thursday'" class="mb-0">Quinta</p>
+              <p *ngIf="day === 'friday'" class="mb-0">Sexta</p>
+              <p *ngIf="day === 'saturday'" class="mb-0">Sábado</p>
+            </div>
+            <div class="form-group col-2 mb-0 mt-3">
+              <select [(ngModel)]="configuration.time_range[day].start" [disabled]="configuration.time_range[day].disabled" name="time-range-{{ day }}-start" class="form-control">
+                <option *ngFor="let startTime of startTimes; trackBy: trackByStartTime" [ngValue]="startTime" [selected]="startTime === configuration.time_range[day].start">{{ startTime }}</option>
+              </select>
+            </div>
+            <div class="form-group col-2 mb-0 mt-3">
+              <select [(ngModel)]="configuration.time_range[day].end" [disabled]="configuration.time_range[day].disabled" name="time-range-{{ day }}-end" class="form-control">
+                <option *ngFor="let endTime of endTimes; trackBy: trackByEndTime" [ngValue]="endTime" [selected]="endTime === configuration.time_range[day].end">{{ endTime }}</option>
+              </select>
+            </div>
+            <div class="form-group col-2 mb-0 mt-3">
+              <button (click)="disableTimeRange(day)" [hidden]="configuration.time_range[day].disabled" type="button" class="btn btn-success">
+                Ligado
+              </button>
+              <button (click)="enableTimeRange(day)" [hidden]="!configuration.time_range[day].disabled" type="button" class="btn btn-secondary">
+                Desligado
+              </button>
             </div>
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-group col-12 mb-4">
-            <label>
-              <h4 class="mb-0">Horário de funcionamento</h4>
-            </label>
-            <div *ngFor="let day of days; trackBy: trackByDay" class="form-row">
-              <div class="form-group col-2 mb-0 mt-3 d-flex align-items-center">
-                <p *ngIf="day === 'sunday'" class="mb-0">Domingo</p>
-                <p *ngIf="day === 'monday'" class="mb-0">Segunda</p>
-                <p *ngIf="day === 'tuesday'" class="mb-0">Terça</p>
-                <p *ngIf="day === 'wednesday'" class="mb-0">Quarta</p>
-                <p *ngIf="day === 'thursday'" class="mb-0">Quinta</p>
-                <p *ngIf="day === 'friday'" class="mb-0">Sexta</p>
-                <p *ngIf="day === 'saturday'" class="mb-0">Sábado</p>
-              </div>
-              <div class="form-group col-2 mb-0 mt-3">
-                <select [(ngModel)]="configuration.time_range[day].start" [disabled]="configuration.time_range[day].disabled" name="time-range-{{ day }}-start" class="form-control">
-                  <option *ngFor="let startTime of startTimes; trackBy: trackByStartTime" [ngValue]="startTime" [selected]="startTime === configuration.time_range[day].start">{{ startTime }}</option>
-                </select>
-              </div>
-              <div class="form-group col-2 mb-0 mt-3">
-                <select [(ngModel)]="configuration.time_range[day].end" [disabled]="configuration.time_range[day].disabled" name="time-range-{{ day }}-end" class="form-control">
-                  <option *ngFor="let endTime of endTimes; trackBy: trackByEndTime" [ngValue]="endTime" [selected]="endTime === configuration.time_range[day].end">{{ endTime }}</option>
-                </select>
-              </div>
-              <div class="form-group col-2 mb-0 mt-3">
-                <button (click)="disableTimeRange(day)" [hidden]="configuration.time_range[day].disabled" type="button" class="btn btn-success">
-                  Ligado
-                </button>
-                <button (click)="enableTimeRange(day)" [hidden]="!configuration.time_range[day].disabled" type="button" class="btn btn-secondary">
-                  Desligado
-                </button>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12 mb-4">
+          <label for="reply">
+            <h4 class="mb-0">Resposta automática</h4>
+          </label>
+          <textarea [(ngModel)]="configuration.reply" id="reply" name="reply" rows="3" class="form-control" required></textarea>
         </div>
-        <div class="form-row">
-          <div class="form-group col-12 mb-4">
-            <label for="reply">
-              <h4 class="mb-0">Resposta automática</h4>
-            </label>
-            <textarea [(ngModel)]="configuration.reply" id="reply" name="reply" rows="3" class="form-control" required></textarea>
-          </div>
+      </div>
+      <hr/>
+      <div *ngIf="!plugin" class="row">
+        <div class="col-md-6">
+          <button (click)="addPlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+            Salvar configuração
+          </button>
         </div>
-        <hr/>
-        <div *ngIf="!plugin" class="row">
-          <div class="col-md-6">
-            <button (click)="addPlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
-              Salvar configuração
-            </button>
-          </div>
+      </div>
+      <div *ngIf="plugin" class="row">
+        <div class="col-md-6">
+          <button (click)="updatePlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+            Atualizar configuração
+          </button>
         </div>
-        <div *ngIf="plugin" class="row">
-          <div class="col-md-6">
-            <button (click)="updatePlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
-              Atualizar configuração
-            </button>
-          </div>
-          <div class="col-md-6">
-            <button (click)="removePlugin()" type="button" class="btn btn-danger float-right">
-              Remover integração
-            </button>
-          </div>
+        <div class="col-md-6">
+          <button (click)="removePlugin()" type="button" class="btn btn-danger float-right">
+            Remover integração
+          </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
-</div>
+</ayro-plugin>

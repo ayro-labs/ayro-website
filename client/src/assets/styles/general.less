@@ -47,6 +47,11 @@ code {
      padding: 0.8rem 1.25rem;
   }
 }
+.dropdown-toggle {
+  &::after {
+    display: none;
+  }
+}
 .badge {
   &.badge-lg {
     font-size: 15px;
@@ -101,7 +106,4 @@ code {
       padding-left: 1.25rem;
     }
   }
-}
-.cursor-pointer {
-  cursor: pointer;
 }

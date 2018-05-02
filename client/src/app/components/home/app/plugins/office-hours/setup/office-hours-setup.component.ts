@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+import {OnLoaded} from 'app/components/home/app/plugins/plugin/plugin.component';
 import {RemovePluginComponent} from 'app/components/home/app/plugins/remove/remove-plugin.component';
-import {AppService} from 'app/services/app.service';
 import {PluginService} from 'app/services/plugin.service';
 import {AlertService} from 'app/services/alert.service';
 import {PluginType} from 'app/models/plugin-type.model';
@@ -135,28 +135,24 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
   public plugin: Plugin;
   public pluginType: PluginType;
   public configuration: any = this.getDefaultConfiguration();
-  public loading = true;
 
   public days = _.clone(OfficeHoursSetupPluginComponent.DAYS);
   public timezones = _.clone(OfficeHoursSetupPluginComponent.TIMEZONES);
   public startTimes = _.clone(OfficeHoursSetupPluginComponent.START_TIMES);
   public endTimes = _.clone(OfficeHoursSetupPluginComponent.END_TIMES);
 
-  constructor(private appService: AppService, private pluginService: PluginService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal) {
+  constructor(private pluginService: PluginService, private alertService: AlertService, private router: Router, private ngbModal: NgbModal) {
 
   }
 
   public ngOnInit() {
     this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_OFFICE_HOURS);
-    const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).mergeMap((app) => {
-      this.app = app;
-      return this.pluginService.getPlugin(app, this.pluginType);
-    }).subscribe((plugin) => {
-      this.plugin = plugin;
-      this.setConfiguration();
-      this.loading = false;
-    });
+  }
+
+  public onLoaded(data: OnLoaded) {
+    this.app = data.app;
+    this.plugin = data.plugin;
+    this.setConfiguration();
   }
 
   public trackByTimezone(index: number) {

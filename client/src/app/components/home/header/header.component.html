@@ -22,11 +22,11 @@
         <li class="nav-item nav-item mr-sm-2 float-left">
           <a *ngIf="isIntroUrl()" [routerLink]="['/apps']" class="btn btn-primary">VER APPS</a>
         </li>
-        <li class="nav-item dropdown float-right mt-1 mt-sm-0">
-          <a id="account-menu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li ngbDropdown placement="bottom-right" class="nav-item float-right mt-1 mt-sm-0">
+          <button ngbDropdownToggle id="account-menu" class="btn btn-link p-0">
             <img [src]="account.getLogoUrl()" class="account-logo rounded-circle d-inline-block">
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="account-menu">
+          </button>
+          <div ngbDropdownMenu aria-labelledby="account-menu">
             <a [routerLink]="['/settings']" class="dropdown-item">Configurações</a>
             <a (click)="logout()" class="dropdown-item cursor-pointer">Sair</a>
           </div>

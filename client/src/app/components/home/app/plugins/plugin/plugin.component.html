@@ -1,0 +1,25 @@
+<div *ngIf="!loading" id="plugin" class="row">
+  <div class="col-auto col-left">
+    <div class="card">
+      <div class="card-body">
+        <img [src]="pluginType.picture_url" class="plugin-icon-lg"/>
+      </div>
+    </div>
+    <a *ngIf="!setupPage" [routerLink]="['setup']" class="btn btn-primary btn-lg btn-block mt-4">
+      <span *ngIf="!plugin">Integrar</span>
+      <span *ngIf="plugin">Configurar</span>
+    </a>
+    <a *ngIf="setupPage" [routerLink]="['/apps', app.id, 'plugins', pluginType.slug]" class="btn btn-primary btn-lg btn-block mt-4">
+      Ver detalhes
+    </a>
+  </div>
+  <div class="col pl-4">
+    <span class="badge badge-lg badge-secondary">Plugin</span>
+    <h1>{{ pluginType.name }}</h1>
+    <h5 class="summary">{{ pluginType.summary }}</h5>
+    <hr/>
+    <div class="description">
+      <ng-content select="[content]"></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,22 @@
 {
   "types": [
-    {"id": "office_hours", "slug": "office-hours", "name": "Horário de trabalho", "picture_url": "/assets/img/integrations/website.png", "released": true},
-    {"id": "greetings_message", "slug": "greetings-message", "name": "Saudações", "picture_url": "/assets/img/integrations/wordpress.png", "released": true}
+    {
+      "id": "office_hours",
+      "slug": "office-hours",
+      "name": "Horário de trabalho",
+      "summary": "Defina horários de trabalho para responder automaticamente quando seu time estiver offline.",
+      "description": "Não deixe seu cliente criar expectativas enquanto aguarda por uma resposta. Defina os horários de trabalho de sua equipe e crie uma resposta automática para enviar quando o seu time estiver offline.",
+      "picture_url": "/assets/img/integrations/website.png",
+      "released": true
+    },
+    {
+      "id": "greetings_message",
+      "slug": "greetings-message",
+      "name": "Saudações",
+      "summary": "Envie uma mensagem automática de boas vindas quando o cliente visualizar o chat pela primeira vez.",
+      "description": "Seja gentil com seus clientes e deixe uma mensagem de boas vindas. Crie uma mensagem automática para ser enviada na primeira vez em que o usuário visualizar o chat. Esta é uma ótima maneira de chamar a atenção do cliente.",
+      "picture_url": "/assets/img/integrations/wordpress.png",
+      "released": true
+    }
   ]
 }

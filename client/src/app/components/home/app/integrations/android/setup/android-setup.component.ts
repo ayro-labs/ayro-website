@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Angulartics2} from 'angulartics2';
 
+import {OnLoaded} from 'app/components/home/app/integrations/integration/integration.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
@@ -19,32 +20,30 @@ import * as _ from 'lodash';
 })
 export class AndroidSetupIntegrationComponent implements OnInit {
 
+  public channel: Channel;
   public app: App;
   public integration: Integration;
-  public channel: Channel;
   public originalConfiguration: any = {};
   public configuration: any = {fcm: {}};
   public sdkVersion: string;
   public loading = true;
 
-  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private activatedRoute: ActivatedRoute, private ngbModal: NgbModal, private angulartics: Angulartics2) {
+  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private router: Router, private ngbModal: NgbModal, private angulartics: Angulartics2) {
 
   }
 
   public ngOnInit() {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_ANDROID);
-    const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getConfigs().mergeMap((configs) => {
+    this.appService.getConfigs().subscribe((configs) => {
       this.sdkVersion = configs.androidSdkVersion;
-      return this.appService.getApp(appId);
-    }).mergeMap((app) => {
-      this.app = app;
-      return this.integrationService.getIntegration(this.app, this.channel);
-    }).subscribe((integration) => {
-      this.integration = integration;
-      this.setConfiguration();
       this.loading = false;
     });
+  }
+
+  public onLoaded(data: OnLoaded) {
+    this.app = data.app;
+    this.integration = data.integration;
+    this.setConfiguration();
   }
 
   public copyAppToken() {

@@ -35,6 +35,7 @@ import {RemoveAppSecretComponent} from 'app/components/home/app/remove-secret/re
 
 // Integrations
 import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
+import {IntegrationComponent} from 'app/components/home/app/integrations/integration/integration.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
 import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
 import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
@@ -50,6 +51,7 @@ import {CreateSlackChannelComponent} from 'app/components/home/app/integrations/
 
 // Plugins
 import {PluginsComponent} from 'app/components/home/app/plugins/plugins.component';
+import {PluginComponent} from 'app/components/home/app/plugins/plugin/plugin.component';
 import {RemovePluginComponent} from 'app/components/home/app/plugins/remove/remove-plugin.component';
 import {OfficeHoursPluginComponent} from 'app/components/home/app/plugins/office-hours/office-hours.component';
 import {OfficeHoursSetupPluginComponent} from 'app/components/home/app/plugins/office-hours/setup/office-hours-setup.component';
@@ -106,6 +108,7 @@ import {EventService} from 'app/services/event.service';
     DeleteAppComponent,
     RemoveAppSecretComponent,
     IntegrationsComponent,
+    IntegrationComponent,
     RemoveIntegrationComponent,
     WebsiteIntegrationComponent,
     WebsiteSetupIntegrationComponent,
@@ -119,6 +122,7 @@ import {EventService} from 'app/services/event.service';
     SlackSetupIntegrationComponent,
     CreateSlackChannelComponent,
     PluginsComponent,
+    PluginComponent,
     RemovePluginComponent,
     OfficeHoursPluginComponent,
     OfficeHoursSetupPluginComponent,
