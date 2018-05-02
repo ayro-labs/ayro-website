@@ -15,7 +15,7 @@
     <div class="card d-none d-lg-block mt-4">
       <div class="card-body">
         <h4>Relacionados</h4>
-        <ng-container *ngFor="let relatedLink of channel.related_links">
+        <ng-container *ngFor="let relatedLink of channel.related_links; trackBy: trackByRelatedLink">
           <a *ngIf="!relatedLink.external" [routerLink]="relatedLink.url" class="d-block mb-2">
             {{ relatedLink.name }}
           </a>

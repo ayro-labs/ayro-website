@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
 
-export interface IEvent {
+export interface Event {
   name: string;
   value: any;
 }
@@ -17,7 +17,7 @@ export class EventService {
   public static readonly EVENT_APP_NAME_CHANGED = 'app_name_changed';
   public static readonly EVENT_APP_ICON_CHANGED = 'app_icon_changed';
 
-  private subjects: Map<string, Subject<IEvent>> = new Map<string, Subject<IEvent>>();
+  private subjects: Map<string, Subject<Event>> = new Map<string, Subject<Event>>();
 
   public publish(event: string, value: any) {
     const subject = this.subjects.get(event);
@@ -26,10 +26,10 @@ export class EventService {
     }
   }
 
-  public subscribe(event: string, callback: (event: IEvent) => void): Subscription {
+  public subscribe(event: string, callback: (event: Event) => void): Subscription {
     let subject = this.subjects.get(event);
     if (!subject) {
-      subject = new Subject<IEvent>();
+      subject = new Subject<Event>();
       this.subjects.set(event, subject);
     }
     return subject.subscribe(callback);

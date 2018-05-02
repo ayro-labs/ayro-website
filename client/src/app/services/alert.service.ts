@@ -4,7 +4,7 @@ import {Subject} from 'rxjs/Subject';
 import {ApiError} from 'app/services/commons/api.error';
 import {ErrorUtils} from 'app/utils/error.utils';
 
-export interface IAlert {
+export interface Alert {
   type: string;
   id?: string;
   message: string;
@@ -13,7 +13,7 @@ export interface IAlert {
 @Injectable()
 export class AlertService {
 
-  private subject: Subject<IAlert>;
+  private subject: Subject<Alert>;
 
   constructor() {
     this.subject = new Subject();
@@ -42,7 +42,7 @@ export class AlertService {
     }
   }
 
-  public subscribe(callback: (alert: IAlert) => void) {
+  public subscribe(callback: (alert: Alert) => void) {
     return this.subject.subscribe(callback);
   }
 }

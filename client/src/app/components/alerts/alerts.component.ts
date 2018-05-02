@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import {AlertService, IAlert} from 'app/services/alert.service';
+import {AlertService, Alert} from 'app/services/alert.service';
 
 @Component({
   selector: 'ayro-alerts',
@@ -8,7 +8,7 @@ import {AlertService, IAlert} from 'app/services/alert.service';
 })
 export class AlertsComponent implements OnInit {
 
-  public alerts: IAlert[] = [];
+  public alerts: Alert[] = [];
   public alertsIds: Set<string> = new Set();
 
   constructor(private alertService: AlertService) {
@@ -33,7 +33,7 @@ export class AlertsComponent implements OnInit {
     return index;
   }
 
-  private close(alert: IAlert) {
+  private close(alert: Alert) {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
     if (alert.id) {
       this.alertsIds.delete(alert.id);

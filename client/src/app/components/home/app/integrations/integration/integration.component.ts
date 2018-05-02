@@ -23,7 +23,7 @@ export class IntegrationComponent implements OnInit {
   @Input()
   public setupPage: boolean;
   @Output()
-  public onLoaded = new EventEmitter<OnLoaded>();
+  public loaded = new EventEmitter<OnLoaded>();
 
   public app: App;
   public integration: Integration;
@@ -41,7 +41,11 @@ export class IntegrationComponent implements OnInit {
     }).subscribe((integration) => {
       this.integration = integration;
       this.loading = false;
-      this.onLoaded.emit({app: this.app, integration: this.integration});
+      this.loaded.emit({app: this.app, integration: this.integration});
     });
+  }
+
+  public trackByRelatedLink(index: number) {
+    return index;
   }
 }

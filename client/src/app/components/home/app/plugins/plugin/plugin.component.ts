@@ -23,7 +23,7 @@ export class PluginComponent implements OnInit {
   @Input()
   public setupPage: boolean;
   @Output()
-  public onLoaded = new EventEmitter<OnLoaded>();
+  public loaded = new EventEmitter<OnLoaded>();
 
   public app: App;
   public plugin: Plugin;
@@ -41,7 +41,7 @@ export class PluginComponent implements OnInit {
     }).subscribe((plugin) => {
       this.plugin = plugin;
       this.loading = false;
-      this.onLoaded.emit({app: this.app, plugin: this.plugin});
+      this.loaded.emit({app: this.app, plugin: this.plugin});
     });
   }
 }
