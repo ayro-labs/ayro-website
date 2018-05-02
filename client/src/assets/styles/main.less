@@ -22,11 +22,6 @@
   height: 160px;
   background: transparent;
 }
-.integration-icon-lg, .plugin-icon-lg {
-  width: 180px;
-  height: 180px;
-  background-color: transparent;
-}
 .integration-icon-md {
   width: 150px;
   height: 150px;
@@ -77,9 +72,6 @@
   }
 }
 #integration, #plugin {
-  .col-left {
-    width: 250px;
-  }
   .summary {
     color: #777777;
   }
@@ -165,7 +157,10 @@
 }
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
-
+  .btn-block-xs-only {
+    display: block;
+    width: 100%;
+  }
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -188,6 +183,22 @@
     }
     .btn-lg {
       padding: 0.5rem 1rem;
+    }
+  }
+  #integration {
+    .channel-icon {
+      text-align: center;
+      img {
+        width: 40%!important;
+      }
+    }
+  }
+  #plugin {
+    .plugin-icon {
+      text-align: center;
+      img {
+        width: 40%!important;
+      }
     }
   }
 }

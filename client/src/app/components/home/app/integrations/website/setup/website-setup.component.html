@@ -66,7 +66,7 @@ Ayro.init({{ '{' }}app_token: '{{ app.token }}'{{ '}' }});
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-12 mb-4">
+          <div class="form-group col-12">
             <label for="conversation-color">
               <h4 class="mb-0">Cor da conversa</h4>
             </label>
@@ -81,13 +81,13 @@ Ayro.init({{ '{' }}app_token: '{{ app.token }}'{{ '}' }});
         </div>
         <hr/>
         <div class="row">
-          <div class="col-md-6">
-            <button (click)="updateIntegration()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+          <div class="col-sm-6">
+            <button (click)="updateIntegration()" [disabled]="form.invalid" type="button" class="btn btn-primary btn-block-xs-only float-left">
               Atualizar configuração
             </button>
           </div>
-          <div class="col-md-6">
-            <button (click)="removeIntegration()" type="button" class="btn btn-danger float-right">
+          <div class="col-sm-6">
+            <button (click)="removeIntegration()" type="button" class="btn btn-danger btn-block-xs-only mt-2 mt-sm-0 float-right">
               Remover integração
             </button>
           </div>

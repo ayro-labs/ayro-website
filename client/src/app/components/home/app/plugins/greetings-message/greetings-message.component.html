@@ -1,5 +1,20 @@
 <ayro-plugin [pluginType]="pluginType">
-  <div content>
-
+  <div *ngIf="pluginType" content>
+    <p>{{ pluginType.description }}</p>
+    <h4>Como funciona?</h4>
+    <ul>
+      <li>Cadastre uma mensagem de boas vindas.</li>
+      <li>Quando o cliente acessar visualizar o chat pela primeira vez, a mensagem de boas vindas será enviada automaticamente.</li>
+      <li>A mensagem de boas vindas só é enviada uma única vez, por cliente.</li>
+    </ul>
+    <h4>Requerimentos</h4>
+    <ul>
+      <li>Integração com um dos seguintes canais do cliente:</li>
+      <ul>
+        <li>Website</li>
+        <li>WordPress</li>
+        <li>Android</li>
+      </ul>
+    </ul>
   </div>
 </ayro-plugin>

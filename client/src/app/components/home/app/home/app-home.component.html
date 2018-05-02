@@ -30,11 +30,11 @@
             <div class="card-body text-center">
               <img [src]="channel.picture_url" title="{{ channel.name }}" class="integration-icon-sm align-top"/>
               <h4 class="card-title text-gray mt-2 mb-0">{{ channel.name }}</h4>
-              <span *ngIf="channel.type === 'business'" class="badge badge-secondary">
-                Canal da Empresa
-              </span>
-              <span *ngIf="channel.type === 'user'" class="badge badge-secondary">
+              <span *ngIf="channel.type === 'user'" class="badge badge-info">
                 Canal do Cliente
+              </span>
+              <span *ngIf="channel.type === 'business'" class="badge badge-success">
+                Canal da Empresa
               </span>
             </div>
           </div>

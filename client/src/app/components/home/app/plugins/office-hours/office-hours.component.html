@@ -1,5 +1,21 @@
 <ayro-plugin [pluginType]="pluginType">
-  <div content>
-
+  <div *ngIf="pluginType" content>
+    <p>{{ pluginType.description }}</p>
+    <h4>Como funciona?</h4>
+    <ul>
+      <li>Cadastre os dias e horários que sua equipe está disponível para dar suporte aos clientes.</li>
+      <li>Defina uma mensagem de resposta.</li>
+      <li>Quando o cliente enviar uma mensagem fora da faixa de dias e horários que você cadastrou, a mensagem de resposta será enviada automaticamente em seguida.</li>
+      <li>A resposta automática é enviada uma vez ao dia, por cliente.</li>
+    </ul>
+    <h4>Requerimentos</h4>
+    <ul>
+      <li>Integração com um dos seguintes canais do cliente:</li>
+      <ul>
+        <li>Website</li>
+        <li>WordPress</li>
+        <li>Android</li>
+      </ul>
+    </ul>
   </div>
 </ayro-plugin>

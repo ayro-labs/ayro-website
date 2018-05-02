@@ -56,25 +56,26 @@
           <label for="reply">
             <h4 class="mb-0">Resposta automática</h4>
           </label>
+          <p class="mb-2">Mensagem que será enviada automaticamente quando o cliente entrar em contato fora da faixa de dias e horários definido acima.</p>
           <textarea [(ngModel)]="configuration.reply" id="reply" name="reply" rows="3" class="form-control" required></textarea>
         </div>
       </div>
       <hr/>
       <div *ngIf="!plugin" class="row">
-        <div class="col-md-6">
+        <div class="col-12">
           <button (click)="addPlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
             Salvar configuração
           </button>
         </div>
       </div>
       <div *ngIf="plugin" class="row">
-        <div class="col-md-6">
-          <button (click)="updatePlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+        <div class="col-sm-6">
+          <button (click)="updatePlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary btn-block-xs-only float-left">
             Atualizar configuração
           </button>
         </div>
-        <div class="col-md-6">
-          <button (click)="removePlugin()" type="button" class="btn btn-danger float-right">
+        <div class="col-sm-6">
+          <button (click)="removePlugin()" type="button" class="btn btn-danger btn-block-xs-only mt-2 mt-sm-0 float-right">
             Remover integração
           </button>
         </div>

@@ -1,8 +1,8 @@
 <div *ngIf="!loading" id="integration" class="row">
-  <div class="col-auto col-left">
-    <div class="card">
+  <div class="col-md-3">
+    <div class="card channel-icon">
       <div class="card-body">
-        <img [src]="channel.picture_url" class="integration-icon-lg"/>
+        <img [src]="channel.picture_url" class="w-100"/>
       </div>
     </div>
     <a *ngIf="!setupPage" [routerLink]="['setup']" class="btn btn-primary btn-lg btn-block mt-4">
@@ -12,7 +12,7 @@
     <a *ngIf="setupPage" [routerLink]="['/apps', app.id, 'integrations', channel.slug]" class="btn btn-primary btn-lg btn-block mt-4">
       Ver detalhes
     </a>
-    <div class="card mt-4">
+    <div class="card d-none d-lg-block mt-4">
       <div class="card-body">
         <h4>Relacionados</h4>
         <ng-container *ngFor="let relatedLink of channel.related_links">
@@ -26,14 +26,21 @@
       </div>
     </div>
   </div>
-  <div class="col pl-4">
-    <span *ngIf="channel.type === 'user'" class="badge badge-lg badge-secondary">Canal do Cliente</span>
-    <span *ngIf="channel.type === 'business'" class="badge badge-lg badge-secondary">Canal da Empresa</span>
-    <h1>{{ channel.name }}</h1>
-    <h5 class="summary">{{ channel.summary }}</h5>
-    <hr/>
-    <div class="description">
-      <ng-content select="[content]"></ng-content>
+  <div class="col-md-9 mt-4 mt-md-0">
+    <div class="card">
+      <div class="card-body">
+        <span *ngIf="channel.type === 'user'" class="badge badge-lg badge-info">Canal do Cliente</span>
+        <span *ngIf="channel.type === 'business'" class="badge badge-lg badge-success">Canal da Empresa</span>
+        <h1 class="my-0">{{ channel.name }}</h1>
+        <h5 class="summary my-0">{{ channel.summary }}</h5>
+      </div>
+    </div>
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="description">
+          <ng-content select="[content]"></ng-content>
+        </div>
+      </div>
     </div>
   </div>
 </div>

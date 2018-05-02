@@ -11,20 +11,20 @@
       </div>
       <hr/>
       <div *ngIf="!plugin" class="row">
-        <div class="col-md-6">
+        <div class="col-12">
           <button (click)="addPlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
             Salvar configuração
           </button>
         </div>
       </div>
       <div *ngIf="plugin" class="row">
-        <div class="col-md-6">
-          <button (click)="updatePlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary float-left">
+        <div class="col-sm-6">
+          <button (click)="updatePlugin()" [disabled]="form.invalid" type="button" class="btn btn-primary btn-block-xs-only float-left">
             Atualizar configuração
           </button>
         </div>
-        <div class="col-md-6">
-          <button (click)="removePlugin()" type="button" class="btn btn-danger float-right">
+        <div class="col-sm-6">
+          <button (click)="removePlugin()" type="button" class="btn btn-danger btn-block-xs-only mt-2 mt-sm-0 float-right">
             Remover integração
           </button>
         </div>
