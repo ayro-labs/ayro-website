@@ -129,7 +129,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
 
   private static readonly DEFAULT_START_TIME = '09:00';
   private static readonly DEFAULT_END_TIME = '18:00';
-  private static readonly DEFAULT_REPLY = 'Olá, obrigado por entrar em contato. Nossa equipe não está disponível agora, mas nós o responderemos assim que voltarmos.';
+  private static readonly DEFAULT_REPLY = 'Olá, obrigado por entrar em contato. Nossa equipe não está disponível no momento, mas nós o responderemos assim que voltarmos.';
 
   public app: App;
   public plugin: Plugin;
