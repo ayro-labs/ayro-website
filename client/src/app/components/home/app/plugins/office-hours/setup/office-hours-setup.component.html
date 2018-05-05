@@ -22,13 +22,13 @@
           </label>
           <div *ngFor="let day of days; trackBy: trackByDay" class="form-row">
             <div class="form-group col-2 mb-0 mt-3 d-flex align-items-center">
-              <p *ngIf="day === 'sunday'" class="mb-0">Domingo</p>
               <p *ngIf="day === 'monday'" class="mb-0">Segunda</p>
               <p *ngIf="day === 'tuesday'" class="mb-0">Terça</p>
               <p *ngIf="day === 'wednesday'" class="mb-0">Quarta</p>
               <p *ngIf="day === 'thursday'" class="mb-0">Quinta</p>
               <p *ngIf="day === 'friday'" class="mb-0">Sexta</p>
               <p *ngIf="day === 'saturday'" class="mb-0">Sábado</p>
+              <p *ngIf="day === 'sunday'" class="mb-0">Domingo</p>
             </div>
             <div class="form-group col-2 mb-0 mt-3">
               <select [(ngModel)]="configuration.time_range[day].start" [disabled]="configuration.time_range[day].disabled" name="time-range-{{ day }}-start" class="form-control">

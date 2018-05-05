@@ -20,13 +20,13 @@ import * as moment from 'moment';
 export class OfficeHoursSetupPluginComponent implements OnInit {
 
   private static readonly DAYS: string[] = [
-    'sunday',
     'monday',
     'tuesday',
     'wednesday',
     'thursday',
     'friday',
     'saturday',
+    'sunday',
   ];
 
   private static readonly TIMEZONES: string[] = [

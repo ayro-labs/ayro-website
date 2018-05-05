@@ -83,7 +83,10 @@ module.exports = (router, app) => {
     clientID: settings.facebook.appId,
     clientSecret: settings.facebook.appSecret,
     callbackURL: `${settings.websiteUrl}/apps/integrations/facebook/connect/callback`,
+    scope: ['manage_pages'],
     profileFields: ['id', 'displayName'],
+    enableProof: true,
+    authType: 'rerequest',
   }, (accessToken, refreshToken, profile, done) => {
     done(null, {profile, accessToken});
   }));

@@ -18,7 +18,7 @@ import * as _ from 'lodash';
 })
 export class GreetingsMessageSetupPluginComponent implements OnInit {
 
-  private static readonly DEFAULT_MESSAGE = 'Seja bem vindo! Sinta-se a vontade para perguntar o que quiser. Estamos aqui para ajudar.';
+  private static readonly DEFAULT_MESSAGE = 'Seja bem vindo! Sinta-se a vontade para nos perguntar qualquer coisa. Estamos aqui para ajudar.';
 
   public app: App;
   public plugin: Plugin;
