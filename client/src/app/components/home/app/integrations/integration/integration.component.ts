@@ -3,9 +3,11 @@ import {ActivatedRoute} from '@angular/router';
 
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
+import {AlertService} from 'app/services/alert.service';
 import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
+import {ApiError} from 'app/services/commons/api.error';
 
 export interface OnLoaded {
   app: App;
@@ -29,12 +31,16 @@ export class IntegrationComponent implements OnInit {
   public integration: Integration;
   public loading = true;
 
-  constructor(private appService: AppService, private integrationService: IntegrationService, private activatedRoute: ActivatedRoute) {
+  constructor(private appService: AppService, private integrationService: IntegrationService, private alertService: AlertService, private activatedRoute: ActivatedRoute) {
 
   }
 
   public ngOnInit() {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
+    const error = this.activatedRoute.snapshot.queryParamMap.get('error');
+    if (error) {
+      this.alertService.apiError(null, new ApiError(error));
+    }
     this.appService.getApp(appId).mergeMap((app) => {
       this.app = app;
       return this.integrationService.getIntegration(app, this.channel);

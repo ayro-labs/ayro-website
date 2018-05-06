@@ -10,6 +10,8 @@ export class ErrorUtils {
   public static readonly WRONG_PASSWORD = 'wrong_password';
   public static readonly TOKEN_REVOKED = 'token_revoked';
   public static readonly TOKEN_EXPIRED = 'token_expired';
+  public static readonly FACEBOOK_PAGE_ALREADY_INTEGRATED = 'facebook_page_already_integrated';
+  public static readonly SLACK_WORKSPACE_ALREADY_INTEGRATED = 'slack_workspace_already_integrated';
 
   private static readonly MESSAGES = {};
 
@@ -21,8 +23,11 @@ export class ErrorUtils {
     ErrorUtils.MESSAGES[ErrorUtils.CONTEXT_AUTHENTICATION] = authContext;
 
     const defaultContext = {};
+    defaultContext[ErrorUtils.TOKEN_REVOKED] = 'Seu acesso foi revogado, por favor conecte-se novamente.';
     defaultContext[ErrorUtils.TOKEN_EXPIRED] = 'Sua sessão expirou, por favor atualize a página.';
     defaultContext[ErrorUtils.AUTHENTICATION_REQUIRED] = 'Por favor acesse sua conta para continuar';
+    defaultContext[ErrorUtils.FACEBOOK_PAGE_ALREADY_INTEGRATED] = 'Esta página já está sendo utilizada por outra integração, por favor escolha outra.';
+    defaultContext[ErrorUtils.SLACK_WORKSPACE_ALREADY_INTEGRATED] = 'Este workspace já está sendo utilizado por outra integração, por favor escolha outro.';
     ErrorUtils.MESSAGES[ErrorUtils.CONTEXT_DEFAULT] = defaultContext;
   }
 

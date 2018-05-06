@@ -47,7 +47,7 @@ function connectFacebookCallback(req, res, next) {
       res.redirect(redirectTo);
     } catch (apiError) {
       logger.error(apiError);
-      res.redirect(redirectTo);
+      res.redirect(`${redirectTo}?error=${apiError.code}`);
     }
   })(req, res, next);
 }
@@ -73,7 +73,7 @@ function connectSlackCallback(req, res, next) {
       res.redirect(redirectTo);
     } catch (apiError) {
       logger.error(apiError);
-      res.redirect(redirectTo);
+      res.redirect(`${redirectTo}?error=${apiError.code}`);
     }
   })(req, res, next);
 }

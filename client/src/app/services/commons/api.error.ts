@@ -4,17 +4,17 @@ export class ApiError extends Error {
 
   public static INTEGRATION_DOES_NOT_EXIST = 'integration.doesNotExist';
 
-  public status: number;
+  public status?: number;
   public code: string;
   public message: string;
-  public cause: string;
+  public cause?: string;
 
   public static withResponse(err: Response): ApiError {
     const data = err.json();
-    return new ApiError(err.status, data.code, data.message, data.cause);
+    return new ApiError(data.code, data.message, err.status, data.cause);
   }
 
-  constructor(status: number, code: string, message: string, cause: any) {
+  constructor(code: string, message?: string, status?: number, cause?: any) {
     super();
     this.status = status;
     this.code = code;
