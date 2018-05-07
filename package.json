@@ -11,7 +11,7 @@
   "homepage": "https://ayro.io",
   "scripts": {
     "lint": "eslint '**/*.js' && tslint 'client/src/**/*.ts?(x)'",
-    "build": "webpack --config 'client/webpack-config.js' --env.development",
+    "build": "webpack --config 'client/webpack-config.js'",
     "build-prod": "webpack --config 'client/webpack-config.js' --env.production",
     "start": "node server/app.js",
     "release-dist": "node tasks/release.js",

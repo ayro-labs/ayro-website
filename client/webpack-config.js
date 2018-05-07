@@ -5,8 +5,8 @@ const path = require('path');
 
 properties.setup(path.join(__dirname, 'config.properties'));
 
-const webpackProd = require('./webpack/webpack-prod');
 const webpackDev = require('./webpack/webpack-dev');
+const webpackProd = require('./webpack/webpack-prod');
 
 module.exports = (env) => {
   return env && env.production ? webpackProd : webpackDev;
