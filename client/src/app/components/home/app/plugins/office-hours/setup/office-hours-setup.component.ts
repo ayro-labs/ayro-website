@@ -207,6 +207,8 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
     modalRef.componentInstance.pluginType = this.pluginType;
     modalRef.result.then(() => {
       this.router.navigate(['/apps', this.app.id]);
+    }).catch(() => {
+      // Nothing to do...
     });
   }
 

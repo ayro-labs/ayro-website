@@ -77,6 +77,8 @@ export class AppHomeComponent implements OnInit {
     modalRef.componentInstance.app = this.app;
     modalRef.result.then(() => {
       this.router.navigate(['/apps']);
+    }).catch(() => {
+      // Nothing to do...
     });
   }
 
@@ -94,6 +96,8 @@ export class AppHomeComponent implements OnInit {
     modalRef.componentInstance.appSecret = appSecret;
     modalRef.result.then(() => {
       this.appSecrets.splice(this.appSecrets.indexOf(appSecret), 1);
+    }).catch(() => {
+      // Nothing to do...
     });
   }
 
