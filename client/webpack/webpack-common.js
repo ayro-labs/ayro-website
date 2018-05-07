@@ -47,10 +47,7 @@ module.exports = (env) => {
               },
             }],
           }),
-          include: [
-            helpers.root('/node_modules/bootstrap'),
-            helpers.root('/node_modules/pkginfo'),
-          ],
+          include: helpers.root('/node_modules/bootstrap'),
         },
         {
           test: /\.less$/,
