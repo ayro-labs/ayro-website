@@ -8,6 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (env) => {
   return {
+    devtool: 'source-map',
     entry: {
       app: helpers.root('/client/src/main.ts'),
       vendor: helpers.root('/client/src/vendor.ts'),

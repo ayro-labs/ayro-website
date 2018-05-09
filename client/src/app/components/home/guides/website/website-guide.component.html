@@ -71,15 +71,28 @@ import * as Ayro from 'ayro';</code></pre>
     <div class="row">
       <div class="col-12">
         <h3 class="mb-3 font-bold">Customizações</h3>
-        <p>Você pode customizar o Chat para que ele fique com a aparência do seu Website.</p>
+        <p>Você pode customizar o Chat para que ele fique com a aparência do seu Website, além de poder modificar seus diversos comportamentos.</p>
         <div class="row">
           <div class="col-12">
             <h4 class="mb-3">Aparência do Widget</h4>
-            <p>Ao acessar a tela de configurações da integração com WordPress, você consegue customizar as cores de fundo do botão flutuante, cabeçalho da caixa de chat e balão da mensagem.</p>
+            <p>Ao acessar a tela de configurações da integração com Website, você consegue customizar as cores de fundo do botão flutuante, cabeçalho da caixa de chat e balão da mensagem.</p>
             <div class="text-center">
               <img class="w-100" src="/assets/img/guides/website/setup_color.png">
               <img src="/assets/img/guides/website/floating_button.png">
               <img src="/assets/img/guides/website/conversation.png">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h4 class="mb-3">Sons de notificações</h4>
+            <p>Por padrão, sempre que o usuário receber uma mensagem e o Chat estiver fechado ou a janela do seu Website não estiver em foco, a mensagem virá acompanhada por um som de notificação.</p>
+            <p>Você pode desabilitar essa função definindo a propriedade <code>sounds</code> na invocação da função <code>Ayro.init</code>.</p>
+            <div class="highlight">
+              <pre><code>Ayro.init({{ '{' }}
+  app_token: '&lt;app_token&gt;',
+  sounds: false
+{{ '}' }});</code></pre>
             </div>
           </div>
         </div>
@@ -97,6 +110,7 @@ import * as Ayro from 'ayro';</code></pre>
     input_placeholder: 'Digite uma mensagem...'
   {{ '}' }}
 {{ '}' }});</code></pre>
+            </div>
           </div>
         </div>
       </div>

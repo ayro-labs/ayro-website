@@ -28,6 +28,7 @@ import 'assets/img/guides/website/conversation.png';
 import 'assets/img/guides/wordpress/setup_color.png';
 import 'assets/img/guides/wordpress/floating_button.png';
 import 'assets/img/guides/wordpress/conversation.png';
+import 'assets/img/guides/wordpress/notification_sound.png';
 import 'assets/img/guides/wordpress/default_texts.png';
 import 'assets/img/guides/android/setup_color.png';
 import 'assets/img/guides/android/setup_fcm.png';

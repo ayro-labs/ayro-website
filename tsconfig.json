@@ -3,6 +3,7 @@
     "baseUrl": "./client/src",
     "target": "es5",
     "module": "commonjs",
+    "sourceMap": true,
     "strict": true,
     "strictNullChecks": false,
     "noImplicitAny": true,
