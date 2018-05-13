@@ -18,7 +18,7 @@ async function buildProject() {
 // Run this if call directly from command line
 if (require.main === module) {
   publishTask.withWorkingDir(WORKING_DIR);
-  publishTask.withLinkTask(lintProject);
+  publishTask.withLintTask(lintProject);
   publishTask.withBuildTask(buildProject);
   publishTask.isDockerProject(true);
   publishTask.run();
