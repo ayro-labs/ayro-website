@@ -33,10 +33,6 @@ export class AppComponent implements OnInit {
     this.appService.getConfigs().subscribe((configs) => {
       Ayro.init({
         app_token: configs.appToken,
-        chatbox: {
-          title: 'Como podemos ajudá-lo?',
-          input_placeholder: 'Digite uma mensagem...',
-        },
       });
     });
     this.eventService.subscribe(EventService.EVENT_API_ERROR, (event) => {
