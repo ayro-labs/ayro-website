@@ -5,13 +5,15 @@
         <img [src]="channel.picture_url" class="w-100"/>
       </div>
     </div>
-    <a *ngIf="!setupPage" [routerLink]="['setup']" class="btn btn-primary btn-lg btn-block mt-4">
-      <span *ngIf="!integration">Integrar</span>
-      <span *ngIf="integration">Configurar</span>
-    </a>
-    <a *ngIf="setupPage" [routerLink]="['/apps', app.id, 'integrations', channel.slug]" class="btn btn-primary btn-lg btn-block mt-4">
-      Ver detalhes
-    </a>
+    <ng-container *ngIf="app">
+      <a *ngIf="!setupPage" [routerLink]="['setup']" class="btn btn-primary btn-lg btn-block mt-4">
+        <span *ngIf="!integration">Integrar</span>
+        <span *ngIf="integration">Configurar</span>
+      </a>
+      <a *ngIf="setupPage" [routerLink]="['/apps', app.id, 'integrations', channel.slug]" class="btn btn-primary btn-lg btn-block mt-4">
+        Ver detalhes
+      </a>
+    </ng-container>
     <div class="card d-none d-lg-block mt-4">
       <div class="card-body">
         <h4>Relacionados</h4>

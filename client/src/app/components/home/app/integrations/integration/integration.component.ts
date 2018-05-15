@@ -41,6 +41,14 @@ export class IntegrationComponent implements OnInit {
     if (error) {
       this.alertService.apiError(null, new ApiError(error));
     }
+    if (this.setupPage && !appId) {
+      throw new Error('App not found');
+    }
+    if (!appId) {
+      this.loading = false;
+      this.loaded.emit({app: null, integration: null});
+      return;
+    }
     this.appService.getApp(appId).mergeMap((app) => {
       this.app = app;
       return this.integrationService.getIntegration(app, this.channel);
