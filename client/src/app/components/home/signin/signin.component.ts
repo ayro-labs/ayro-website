@@ -20,7 +20,7 @@ export class SignInComponent {
 
   }
 
-  public login() {
+  public login(): void {
     this.accountService.login(this.email, this.password).subscribe((account) => {
       this.eventService.publish(EventService.EVENT_ACCOUNT_CHANGED, account);
       this.trackSignIn();
@@ -30,7 +30,7 @@ export class SignInComponent {
     });
   }
 
-  private trackSignIn() {
+  private trackSignIn(): void {
     this.angulartics.eventTrack.next({
       action: 'login',
       properties: {

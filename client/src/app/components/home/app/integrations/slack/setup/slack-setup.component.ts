@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import * as isEmpty from 'lodash/isEmpty';
+import * as cloneDeep from 'lodash/cloneDeep';
 
 import {OnLoaded} from 'app/components/home/app/integrations/integration/integration.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
@@ -13,8 +15,6 @@ import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 import {StorageUtils} from 'app/utils/storage.utils';
 import {ErrorUtils} from 'app/utils/error.utils';
-
-import * as _ from 'lodash';
 
 @Component({
   selector: 'ayro-slack-setup',
@@ -34,26 +34,26 @@ export class SlackSetupIntegrationComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.apiToken = StorageUtils.getApiToken();
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_SLACK);
   }
 
-  public onLoaded(data: OnLoaded) {
+  public onLoaded(data: OnLoaded): void {
     this.app = data.app;
     this.integration = data.integration;
     this.setConfiguration();
   }
 
-  public trackBySlackChannel(_index: number, slackChannel: SlackChannel) {
+  public trackBySlackChannel(_index: number, slackChannel: SlackChannel): string {
     return slackChannel.id;
   }
 
-  public compareSlackChannels(channel: SlackChannel, otherChannel: SlackChannel) {
+  public compareSlackChannels(channel: SlackChannel, otherChannel: SlackChannel): boolean {
     return channel && otherChannel && channel.id === otherChannel.id;
   }
 
-  public createSlackChannel() {
+  public createSlackChannel(): void {
     const modalRef = this.ngbModal.open(CreateSlackChannelComponent);
     modalRef.componentInstance.app = this.app;
     modalRef.result.then((channel: SlackChannel) => {
@@ -63,7 +63,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public updateIntegration() {
+  public updateIntegration(): void {
     const configuration = {channel: this.configuration.channel};
     this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration) => {
       this.integration = integration;
@@ -74,7 +74,7 @@ export class SlackSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public removeIntegration() {
+  public removeIntegration(): void {
     const modalRef = this.ngbModal.open(RemoveIntegrationComponent);
     modalRef.componentInstance.app = this.app;
     modalRef.componentInstance.channel = this.channel;
@@ -85,11 +85,11 @@ export class SlackSetupIntegrationComponent implements OnInit {
     });
   }
 
-  private setConfiguration() {
+  private setConfiguration(): void {
     if (this.integration) {
       this.originalConfiguration = this.integration.configuration;
-      this.configuration = _.cloneDeep(this.integration.configuration);
-      if (_.isEmpty(this.slackChannels)) {
+      this.configuration = cloneDeep(this.integration.configuration);
+      if (isEmpty(this.slackChannels)) {
         this.integrationService.listSlackChannels(this.app).subscribe((slackChannels) => {
           this.slackChannels = slackChannels;
         }, (err) => {

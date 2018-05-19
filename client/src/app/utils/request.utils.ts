@@ -1,31 +1,33 @@
-import {Headers, RequestOptions} from '@angular/http';
+import {HttpHeaders} from '@angular/common/http';
 
 import {StorageUtils} from 'app/utils/storage.utils';
 
+interface HttpOptions {
+  headers: HttpHeaders;
+}
+
 export class RequestUtils {
 
-  public static getApiUrl(url: string) {
+  public static getApiUrl(url: string): string {
     return process.env.API_URL + url;
   }
 
-  public static getJsonOptions() {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-    });
+  public static getJsonOptions(): HttpOptions {
+    const headers: any = {'Content-Type': 'application/json'};
     const apiToken = StorageUtils.getApiToken();
     if (apiToken) {
-      headers.set('Authorization', `Bearer ${apiToken}`);
+      headers.authorization = `Bearer ${apiToken}`;
     }
-    return new RequestOptions({headers});
+    return {headers: new HttpHeaders(headers)};
   }
 
-  public static getOptions() {
-    const headers = new Headers({});
+  public static getOptions(): HttpOptions {
+    const headers = new HttpHeaders({});
     const apiToken = StorageUtils.getApiToken();
     if (apiToken) {
       headers.set('Authorization', `Bearer ${apiToken}`);
     }
-    return new RequestOptions({headers});
+    return {headers};
   }
 
   private constructor() {

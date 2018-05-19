@@ -16,7 +16,7 @@ export class WebsiteGuideComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.appService.getConfigs().subscribe((configs) => {
       this.sdkUrl = configs.jsSdkUrl;
       this.sdkVersion = configs.jsSdkVersion;

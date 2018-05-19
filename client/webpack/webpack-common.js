@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const rxPaths = require('rxjs/_esm5/path-mapping');
 
 module.exports = (env) => {
   return {
@@ -24,6 +25,7 @@ module.exports = (env) => {
         helpers.root('/client/src'),
         helpers.root('/node_modules'),
       ],
+      alias: rxPaths(),
     },
     module: {
       rules: [
@@ -100,8 +102,7 @@ module.exports = (env) => {
     plugins: [
       new CleanPlugin(['client-dist'], {root: helpers.root('/')}),
       new webpack.LoaderOptionsPlugin({debug: true}),
-      new webpack.ContextReplacementPlugin(/angular\/core\/@angular/, helpers.root('/client/src')),
-      new webpack.ContextReplacementPlugin(/@angular\/core\/esm5/, helpers.root('/client/src')),
+      new webpack.ContextReplacementPlugin(/@angular\/core\/fesm5/, helpers.root('/client/src')),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']}),
       new ExtractTextPlugin({filename: 'assets/styles/[name].css', allChunks: true}),

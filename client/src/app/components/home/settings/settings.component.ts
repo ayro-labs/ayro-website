@@ -20,14 +20,14 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.accountService.getAuthenticatedAccount().subscribe((account) => {
       this.fillFormFields(account);
       this.loading = false;
     });
   }
 
-  public update() {
+  public update(): void {
     this.accountService.updateAccount({name: this.name, email: this.email}).subscribe((account) => {
       this.fillFormFields(account);
       this.eventService.publish(EventService.EVENT_ACCOUNT_NAME_CHANGED, account.name);
@@ -37,7 +37,7 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  public updateLogo(event: any) {
+  public updateLogo(event: any): void {
     const reader = new FileReader();
     reader.onload = (e: any) => {
       this.logo = e.target.result;
@@ -55,7 +55,7 @@ export class SettingsComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
   }
 
-  private fillFormFields(account: Account) {
+  private fillFormFields(account: Account): void {
     this.name = account.name;
     this.email = account.email;
     this.logo = account.getLogoUrl();

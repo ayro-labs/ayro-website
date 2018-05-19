@@ -15,11 +15,11 @@ export class PluginsComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.pluginTypes = this.pluginService.listPluginTypes();
   }
 
-  public trackByPluginType(_index: number, pluginType: PluginType) {
+  public trackByPluginType(_index: number, pluginType: PluginType): string {
     return pluginType.id;
   }
 }

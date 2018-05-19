@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Angulartics2} from 'angulartics2';
+import {mergeMap} from 'rxjs/operators/mergeMap';
 
 import {AccountService} from 'app/services/account.service';
 import {AlertService} from 'app/services/alert.service';
@@ -21,11 +22,13 @@ export class SignUpComponent {
 
   }
 
-  public signUp() {
-    this.accountService.createAccount(this.name, this.email, this.password).mergeMap(() => {
-      this.trackSignUp();
-      return this.accountService.login(this.email, this.password);
-    }).subscribe((account) => {
+  public signUp(): void {
+    this.accountService.createAccount(this.name, this.email, this.password).pipe(
+      mergeMap(() => {
+        this.trackSignUp();
+        return this.accountService.login(this.email, this.password);
+      })
+    ).subscribe((account) => {
       this.eventService.publish(EventService.EVENT_ACCOUNT_CHANGED, account);
       this.router.navigate(['/apps']);
     }, (err) => {
@@ -33,7 +36,7 @@ export class SignUpComponent {
     });
   }
 
-  private trackSignUp() {
+  private trackSignUp(): void {
     this.angulartics.eventTrack.next({
       action: 'sign_up',
       properties: {

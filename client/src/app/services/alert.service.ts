@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
 import {Subject} from 'rxjs/Subject';
 
 import {ApiError} from 'app/services/commons/api.error';
@@ -19,30 +20,30 @@ export class AlertService {
     this.subject = new Subject();
   }
 
-  public success(message: string) {
+  public subscribe(callback: (alert: Alert) => void): Subscription {
+    return this.subject.subscribe(callback);
+  }
+
+  public success(message: string): void {
     this.subject.next({message, type: 'success'});
   }
 
-  public info(message: string) {
+  public info(message: string): void {
     this.subject.next({message, type: 'info'});
   }
 
-  public warn(message: string) {
+  public warn(message: string): void {
     this.subject.next({message, type: 'warning'});
   }
 
-  public error(message: string) {
+  public error(message: string): void {
     this.subject.next({message, type: 'danger'});
   }
 
-  public apiError(context: string, err: ApiError, errorMessage?: string) {
+  public apiError(context: string, err: ApiError, errorMessage?: string): void {
     const message = ErrorUtils.getErrorMessage(context, err, errorMessage);
     if (message) {
       this.subject.next({message, id: err.code, type: 'danger'});
     }
-  }
-
-  public subscribe(callback: (alert: Alert) => void) {
-    return this.subject.subscribe(callback);
   }
 }

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {mergeMap} from 'rxjs/operators/mergeMap';
+import * as parseDate from 'date-fns/parse';
+import * as formatDate from 'date-fns/format';
 
 import {DeleteAppComponent} from 'app/components/home/app/delete/delete-app.component';
 import {RemoveAppSecretComponent} from 'app/components/home/app/remove-secret/remove-app-secret.component';
@@ -17,8 +20,6 @@ import {Integration} from 'app/models/integration.model';
 import {Plugin} from 'app/models/plugin.model';
 import {PluginType} from 'app/models/plugin-type.model';
 
-import * as moment from 'moment';
-
 @Component({
   selector: 'ayro-app-home',
   templateUrl: './app-home.component.html',
@@ -34,29 +35,32 @@ export class AppHomeComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     const appId = this.activatedRoute.snapshot.paramMap.get('app');
-    this.accountService.getAuthenticatedAccount().mergeMap((account) => {
-      this.account = account;
-      return this.appService.getApp(appId, true, true);
-    }).mergeMap((app) => {
-      this.app = app;
-      return this.appService.listAppSecrets(this.app);
-    }).subscribe((appSecrets) => {
+    this.accountService.getAuthenticatedAccount().pipe(
+      mergeMap((account) => {
+        this.account = account;
+        return this.appService.getApp(appId, true, true);
+      }),
+      mergeMap((app) => {
+        this.app = app;
+        return this.appService.listAppSecrets(this.app);
+      })
+    ).subscribe((appSecrets) => {
       this.appSecrets = appSecrets;
       this.loading = false;
     });
   }
 
-  public trackByIntegration(_index: number, integration: Integration) {
+  public trackByIntegration(_index: number, integration: Integration): string {
     return integration.id;
   }
 
-  public trackByApp(_index: number, appSecret: AppSecret) {
+  public trackByApp(_index: number, appSecret: AppSecret): string {
     return appSecret.id;
   }
 
-  public trackByPlugin(_index: number, plugin: Plugin) {
+  public trackByPlugin(_index: number, plugin: Plugin): string {
     return plugin.id;
   }
 
@@ -68,11 +72,11 @@ export class AppHomeComponent implements OnInit {
     return this.pluginService.getPluginType(id);
   }
 
-  public copyAppToken() {
+  public copyAppToken(): void {
     this.alertService.info('Token copiado!');
   }
 
-  public deleteApp() {
+  public deleteApp(): void {
     const modalRef = this.ngbModal.open(DeleteAppComponent);
     modalRef.componentInstance.app = this.app;
     modalRef.result.then(() => {
@@ -82,7 +86,7 @@ export class AppHomeComponent implements OnInit {
     });
   }
 
-  public createAppSecret() {
+  public createAppSecret(): void {
     this.appService.createAppSecret(this.app).subscribe((appSecret) => {
       this.appSecrets.push(appSecret);
       this.alertService.success('App secret criado com sucesso!');
@@ -91,7 +95,7 @@ export class AppHomeComponent implements OnInit {
     });
   }
 
-  public removeAppSecret(appSecret: AppSecret) {
+  public removeAppSecret(appSecret: AppSecret): void {
     const modalRef = this.ngbModal.open(RemoveAppSecretComponent);
     modalRef.componentInstance.appSecret = appSecret;
     modalRef.result.then(() => {
@@ -102,6 +106,6 @@ export class AppHomeComponent implements OnInit {
   }
 
   public formatAppSecretDate(appSecret: AppSecret): string {
-    return moment(appSecret.registration_date).format('DD/MM/YYYY HH:mm');
+    return formatDate(parseDate(appSecret.registration_date), 'dd/MM/yyyy HH:mm');
   }
 }

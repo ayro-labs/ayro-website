@@ -22,7 +22,7 @@ export class AppSettingsComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     this.appService.getApp(appId).subscribe((app) => {
       this.fillFormFields(app);
@@ -30,7 +30,7 @@ export class AppSettingsComponent implements OnInit {
     });
   }
 
-  public update() {
+  public update(): void {
     this.appService.updateApp(this.app, this.name).subscribe((app) => {
       this.fillFormFields(app);
       this.eventService.publish(EventService.EVENT_APP_NAME_CHANGED, app.name);
@@ -40,7 +40,7 @@ export class AppSettingsComponent implements OnInit {
     });
   }
 
-  public updateIcon(event: any) {
+  public updateIcon(event: any): void {
     const reader = new FileReader();
     reader.onload = (e: any) => {
       this.icon = e.target.result;
@@ -58,7 +58,7 @@ export class AppSettingsComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
   }
 
-  private fillFormFields(app: App) {
+  private fillFormFields(app: App): void {
     this.app = app;
     this.name = app.name;
     this.icon = app.getIconUrl();

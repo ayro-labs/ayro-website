@@ -24,15 +24,15 @@ export class RemoveIntegrationComponent {
 
   }
 
-  public close() {
+  public close(): void {
     this.ngbActiveModal.dismiss();
   }
 
-  public isAppNameMatched() {
+  public isAppNameMatched(): boolean {
     return this.name === this.app.name;
   }
 
-  public remove() {
+  public remove(): void {
     this.integrationService.removeIntegration(this.app, this.channel).subscribe(() => {
       this.trackRemoveIntegration();
       this.ngbActiveModal.close();
@@ -43,7 +43,7 @@ export class RemoveIntegrationComponent {
     });
   }
 
-  private trackRemoveIntegration() {
+  private trackRemoveIntegration(): void {
     this.angulartics.eventTrack.next({
       action: 'integration_remove',
       properties: {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import * as cloneDeep from 'lodash/cloneDeep';
 
 import {OnLoaded} from 'app/components/home/app/plugins/plugin/plugin.component';
 import {RemovePluginComponent} from 'app/components/home/app/plugins/remove/remove-plugin.component';
@@ -9,8 +10,6 @@ import {AlertService} from 'app/services/alert.service';
 import {PluginType} from 'app/models/plugin-type.model';
 import {App} from 'app/models/app.model';
 import {Plugin} from 'app/models/plugin.model';
-
-import * as _ from 'lodash';
 
 @Component({
   selector: 'ayro-greetings-message-setup',
@@ -30,17 +29,17 @@ export class GreetingsMessageSetupPluginComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_GREETINGS_MESSAGE);
   }
 
-  public onLoaded(data: OnLoaded) {
+  public onLoaded(data: OnLoaded): void {
     this.app = data.app;
     this.plugin = data.plugin;
     this.setConfiguration();
   }
 
-  public addPlugin() {
+  public addPlugin(): void {
     this.pluginService.addPlugin(this.app, this.pluginType, this.configuration).subscribe((plugin) => {
       this.plugin = plugin;
       this.setConfiguration();
@@ -50,7 +49,7 @@ export class GreetingsMessageSetupPluginComponent implements OnInit {
     });
   }
 
-  public updatePlugin() {
+  public updatePlugin(): void {
     this.pluginService.updatePlugin(this.app, this.pluginType, this.configuration).subscribe((plugin) => {
       this.plugin = plugin;
       this.setConfiguration();
@@ -60,7 +59,7 @@ export class GreetingsMessageSetupPluginComponent implements OnInit {
     });
   }
 
-  public removePlugin() {
+  public removePlugin(): void {
     const modalRef = this.ngbModal.open(RemovePluginComponent);
     modalRef.componentInstance.app = this.app;
     modalRef.componentInstance.pluginType = this.pluginType;
@@ -71,8 +70,8 @@ export class GreetingsMessageSetupPluginComponent implements OnInit {
     });
   }
 
-  private setConfiguration() {
-    this.configuration = this.plugin ? _.cloneDeep(this.plugin.configuration) : {};
+  private setConfiguration(): void {
+    this.configuration = this.plugin ? cloneDeep(this.plugin.configuration) : {};
     if (!this.configuration.message) {
       this.configuration.message = GreetingsMessageSetupPluginComponent.DEFAULT_MESSAGE;
     }

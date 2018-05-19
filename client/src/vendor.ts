@@ -1,18 +1,33 @@
-import '@angular/common';
 import '@angular/core';
-import '@angular/forms';
-import '@angular/http';
 import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';
+import '@angular/common';
+import '@angular/common/http';
 import '@angular/router';
+import '@angular/forms';
+
+import '@ng-bootstrap/ng-bootstrap';
 
 import 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/finally';
-import 'rxjs/add/observable/empty';
-import 'rxjs/add/observable/throw';
+import 'rxjs/Subscription';
+import 'rxjs/Subject';
+import 'rxjs/observable/throw';
+import 'rxjs/operators/map';
+import 'rxjs/operators/mergeMap';
+import 'rxjs/operators/catchError';
+import 'rxjs/operators/finalize';
+
+import 'lodash/isEmpty';
+import 'lodash/cloneDeep';
+import 'lodash/clone';
+import 'lodash/pickBy';
+import 'lodash/forOwn';
+
+import 'ayro';
+import 'date-fns/parse';
+import 'date-fns/format';
+import 'ngx-clipboard';
+import 'angulartics2';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

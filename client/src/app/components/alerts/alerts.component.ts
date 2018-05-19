@@ -29,11 +29,11 @@ export class AlertsComponent implements OnInit {
     });
   }
 
-  public trackByAlert(index: number) {
+  public trackByAlert(index: number): number {
     return index;
   }
 
-  private close(alert: Alert) {
+  private close(alert: Alert): void {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
     if (alert.id) {
       this.alertsIds.delete(alert.id);

@@ -15,7 +15,7 @@ export class ErrorUtils {
 
   private static readonly MESSAGES = {};
 
-  public static setup() {
+  public static setup(): void {
     const authContext = {};
     authContext[ErrorUtils.ACCOUNT_ALREADY_EXISTS] = 'Já existe uma conta com este email';
     authContext[ErrorUtils.ACCOUNT_NOT_FOUND] = 'Não existe uma conta com este email';
@@ -31,7 +31,7 @@ export class ErrorUtils {
     ErrorUtils.MESSAGES[ErrorUtils.CONTEXT_DEFAULT] = defaultContext;
   }
 
-  public static getErrorMessage(context: string, err: any, message?: string) {
+  public static getErrorMessage(context: string, err: any, message?: string): string {
     if (context) {
       const contextMessages = ErrorUtils.MESSAGES[context];
       if (contextMessages && contextMessages[err.code]) {
@@ -49,4 +49,5 @@ export class ErrorUtils {
 
   }
 }
+
 ErrorUtils.setup();

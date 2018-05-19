@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import {_throw} from 'rxjs/observable/throw';
+import {map} from 'rxjs/operators/map';
+import {catchError} from 'rxjs/operators/catchError';
 
 import {App} from 'app/models/app.model';
 import {Plugin} from 'app/models/plugin.model';
@@ -18,7 +21,7 @@ export class PluginService {
 
   private pluginTypeById: Map<string, PluginType> = new Map<string, PluginType>();
 
-  constructor(private eventService: EventService, private http: Http) {
+  constructor(private eventService: EventService, private http: HttpClient) {
     this.indexPluginTypes();
   }
 
@@ -35,46 +38,50 @@ export class PluginService {
   }
 
   public getPlugin(app: App, pluginType: PluginType, require?: boolean): Observable<Plugin> {
-    return this.http.get(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}?require=${require || false}`), RequestUtils.getJsonOptions())
-      .map((res: Response) => res.json() ? new Plugin(res.json()) : null)
-      .catch((err: Response) => {
+    return this.http.get<Plugin>(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}?require=${require || false}`), RequestUtils.getJsonOptions()).pipe(
+      map((data: Plugin) => data ? new Plugin(data) : null),
+      catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return Observable.throw(apiError);
-      });
+        return _throw(apiError);
+      })
+    );
   }
 
   public addPlugin(app: App, pluginType: PluginType, configuration: any): Observable<Plugin> {
-    return this.http.post(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), configuration, RequestUtils.getJsonOptions())
-      .map((res: Response) => new Plugin(res.json()))
-      .catch((err: Response) => {
+    return this.http.post<Plugin>(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), configuration, RequestUtils.getJsonOptions()).pipe(
+      map((data: Plugin) => new Plugin(data)),
+      catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return Observable.throw(apiError);
-      });
+        return _throw(apiError);
+      })
+    );
   }
 
   public updatePlugin(app: App, pluginType: PluginType, configuration: any): Observable<Plugin> {
-    return this.http.put(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), configuration, RequestUtils.getJsonOptions())
-      .map((res: Response) => new Plugin(res.json()))
-      .catch((err: Response) => {
+    return this.http.put<Plugin>(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), configuration, RequestUtils.getJsonOptions()).pipe(
+      map((data: Plugin) => new Plugin(data)),
+      catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return Observable.throw(apiError);
-      });
+        return _throw(apiError);
+      })
+    );
   }
 
   public removePlugin(app: App, pluginType: PluginType): Observable<void> {
-    return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), RequestUtils.getJsonOptions())
-      .map(() => null)
-      .catch((err: Response) => {
+    return this.http.delete(RequestUtils.getApiUrl(`/apps/${app.id}/plugins/${pluginType.id}`), RequestUtils.getJsonOptions()).pipe(
+      map(() => null),
+      catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return Observable.throw(apiError);
-      });
+        return _throw(apiError);
+      })
+    );
   }
 
-  private indexPluginTypes() {
+  private indexPluginTypes(): void {
     (pluginTypesData[PluginService.TYPES] as any[]).forEach((data: any) => {
       const pluginType = new PluginType(data);
       this.pluginTypeById.set(data.id, pluginType);

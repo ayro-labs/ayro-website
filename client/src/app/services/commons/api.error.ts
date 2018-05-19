@@ -1,4 +1,4 @@
-import {Response} from '@angular/http';
+import {HttpErrorResponse} from '@angular/common/http';
 
 export class ApiError extends Error {
 
@@ -9,9 +9,8 @@ export class ApiError extends Error {
   public message: string;
   public cause?: string;
 
-  public static withResponse(err: Response): ApiError {
-    const data = err.json();
-    return new ApiError(data.code, data.message, err.status, data.cause);
+  public static withResponse(err: HttpErrorResponse): ApiError {
+    return new ApiError(err.error.code, err.error.message, err.status, err.error.cause);
   }
 
   constructor(code: string, message?: string, status?: number, cause?: any) {

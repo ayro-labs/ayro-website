@@ -15,7 +15,7 @@ export class AndroidGuideComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.appService.getConfigs().subscribe((configs) => {
       this.sdkVersion = configs.androidSdkVersion;
       this.loading = false;

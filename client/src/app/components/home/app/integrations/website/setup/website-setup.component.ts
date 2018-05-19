@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Angulartics2} from 'angulartics2';
+import * as cloneDeep from 'lodash/cloneDeep';
 
 import {OnLoaded} from 'app/components/home/app/integrations/integration/integration.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
@@ -11,8 +12,6 @@ import {AlertService} from 'app/services/alert.service';
 import {Channel} from 'app/models/channel.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
-
-import * as _ from 'lodash';
 
 @Component({
   selector: 'ayro-website-setup',
@@ -31,7 +30,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_WEBSITE);
     this.appService.getConfigs().subscribe((configs) => {
       this.sdkUrl = configs.jsSdkUrl;
@@ -39,17 +38,17 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public onLoaded(data: OnLoaded) {
+  public onLoaded(data: OnLoaded): void {
     this.app = data.app;
     this.integration = data.integration;
     this.setConfiguration();
   }
 
-  public copyAppToken() {
+  public copyAppToken(): void {
     this.alertService.info('Token copiado!');
   }
 
-  public testIntegration() {
+  public testIntegration(): void {
     this.integrationService.getIntegration(this.app, this.channel).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();
@@ -62,7 +61,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public updateIntegration() {
+  public updateIntegration(): void {
     this.integrationService.updateIntegration(this.app, this.channel, this.configuration).subscribe((integration) => {
       this.integration = integration;
       this.setConfiguration();
@@ -72,7 +71,7 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public removeIntegration() {
+  public removeIntegration(): void {
     const modalRef = this.ngbModal.open(RemoveIntegrationComponent);
     modalRef.componentInstance.app = this.app;
     modalRef.componentInstance.channel = this.channel;
@@ -83,13 +82,13 @@ export class WebsiteSetupIntegrationComponent implements OnInit {
     });
   }
 
-  private setConfiguration() {
+  private setConfiguration(): void {
     if (this.integration) {
-      this.configuration = _.cloneDeep(this.integration.configuration) || {};
+      this.configuration = cloneDeep(this.integration.configuration) || {};
     }
   }
 
-  private trackTestIntegration() {
+  private trackTestIntegration(): void {
     this.angulartics.eventTrack.next({
       action: 'integration_test',
       properties: {

@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {mergeMap} from 'rxjs/operators/mergeMap';
 
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';
@@ -35,7 +36,7 @@ export class IntegrationComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
     const error = this.activatedRoute.snapshot.queryParamMap.get('error');
     if (error) {
@@ -49,17 +50,19 @@ export class IntegrationComponent implements OnInit {
       this.loaded.emit({app: null, integration: null});
       return;
     }
-    this.appService.getApp(appId).mergeMap((app) => {
-      this.app = app;
-      return this.integrationService.getIntegration(app, this.channel);
-    }).subscribe((integration) => {
+    this.appService.getApp(appId).pipe(
+      mergeMap((app) => {
+        this.app = app;
+        return this.integrationService.getIntegration(app, this.channel);
+      })
+    ).subscribe((integration) => {
       this.integration = integration;
       this.loading = false;
       this.loaded.emit({app: this.app, integration: this.integration});
     });
   }
 
-  public trackByRelatedLink(index: number) {
+  public trackByRelatedLink(index: number): number {
     return index;
   }
 }

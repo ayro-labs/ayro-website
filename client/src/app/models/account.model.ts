@@ -19,7 +19,7 @@ export class Account {
     }
   }
 
-  public getLogoUrl() {
+  public getLogoUrl(): string {
     return this.logo ? Account.LOGO_URL + this.logo : Account.NO_LOGO_URL;
   }
 }

@@ -1,8 +1,8 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ClipboardModule} from 'ngx-clipboard';
 import {Angulartics2Module} from 'angulartics2';
@@ -78,9 +78,9 @@ import {EventService} from 'app/services/event.service';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(AppRoutes),
+    FormsModule,
     NgbModule.forRoot(),
     Angulartics2Module.forRoot([Angulartics2GoogleTagManager, Angulartics2Facebook]),
     ClipboardModule,

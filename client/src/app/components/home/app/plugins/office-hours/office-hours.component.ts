@@ -16,7 +16,7 @@ export class OfficeHoursPluginComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_OFFICE_HOURS);
   }
 }

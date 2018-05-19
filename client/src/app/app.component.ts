@@ -28,8 +28,8 @@ export class AppComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
-    this.angulartics.developerMode(process.env.NODE_ENV === AppComponent.DEVELOPMENT_MODE);
+  public ngOnInit(): void {
+    this.angulartics.settings.developerMode = process.env.NODE_ENV === AppComponent.DEVELOPMENT_MODE;
     this.appService.getConfigs().subscribe((configs) => {
       Ayro.init({
         app_token: configs.appToken,

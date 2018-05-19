@@ -1,7 +1,8 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
-import {Subscription} from 'rxjs/Subscription';
 import {Angulartics2} from 'angulartics2';
+import {Subscription} from 'rxjs/Subscription';
+import {finalize} from 'rxjs/operators/finalize';
 
 import {AccountService} from 'app/services/account.service';
 import {EventService} from 'app/services/event.service';
@@ -27,7 +28,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.currentUrl = this.router.url;
     this.onRouteChanged();
     this.router.events.subscribe((event) => {
@@ -54,28 +55,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => {
       subscription.unsubscribe();
     });
   }
 
-  public isIntroUrl() {
+  public isIntroUrl(): boolean {
     return this.currentUrl === HeaderComponent.INTRO_URL;
   }
 
-  public isSignInOrSignUpUrl() {
+  public isSignInOrSignUpUrl(): boolean {
     return HeaderComponent.SIGN_URLS.includes(this.currentUrl);
   }
 
-  public logout() {
-    this.accountService.logout().finally(() => {
-      this.account = null;
-      this.router.navigate(['/']);
-    }).subscribe(null, null);
+  public logout(): void {
+    this.accountService.logout().pipe(
+      finalize(() => {
+        this.account = null;
+        this.router.navigate(['/']);
+      })
+    ).subscribe(null, null);
   }
 
-  private onRouteChanged(event?: any) {
+  private onRouteChanged(event?: any): void {
     if (event && event instanceof NavigationEnd) {
       this.currentUrl = event.url;
     }

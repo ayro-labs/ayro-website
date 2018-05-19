@@ -20,11 +20,11 @@ export class CreateSlackChannelComponent {
 
   }
 
-  public close() {
+  public close(): void {
     this.ngbActiveModal.dismiss();
   }
 
-  public create() {
+  public create(): void {
     this.integrationService.createSlackChannel(this.app, this.name).subscribe((channel) => {
       this.ngbActiveModal.close(channel);
       this.alertService.success('Canal criado com sucesso!');

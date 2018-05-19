@@ -17,11 +17,11 @@ export class CreateAppComponent {
 
   }
 
-  public close() {
+  public close(): void {
     this.ngbActiveModal.dismiss();
   }
 
-  public create() {
+  public create(): void {
     this.appService.createApp(this.name).subscribe((app) => {
       this.trackCreateApp();
       this.ngbActiveModal.close(app);
@@ -31,7 +31,7 @@ export class CreateAppComponent {
     });
   }
 
-  private trackCreateApp() {
+  private trackCreateApp(): void {
     this.angulartics.eventTrack.next({
       action: 'app_create',
       properties: {

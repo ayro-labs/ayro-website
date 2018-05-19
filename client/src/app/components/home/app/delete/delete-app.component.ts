@@ -21,15 +21,15 @@ export class DeleteAppComponent {
 
   }
 
-  public close() {
+  public close(): void {
     this.ngbActiveModal.dismiss();
   }
 
-  public isAppNameMatched() {
+  public isAppNameMatched(): boolean {
     return this.name === this.app.name;
   }
 
-  public delete() {
+  public delete(): void {
     this.appService.deleteApp(this.app).subscribe(() => {
       this.trackDeleteApp();
       this.ngbActiveModal.close();
@@ -40,7 +40,7 @@ export class DeleteAppComponent {
     });
   }
 
-  private trackDeleteApp() {
+  private trackDeleteApp(): void {
     this.angulartics.eventTrack.next({
       action: 'app_delete',
       properties: {

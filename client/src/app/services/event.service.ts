@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
+import {Subject} from 'rxjs/Subject';
 
 export interface Event {
   name: string;
@@ -19,7 +19,7 @@ export class EventService {
 
   private subjects: Map<string, Subject<Event>> = new Map<string, Subject<Event>>();
 
-  public publish(event: string, value: any) {
+  public publish(event: string, value: any): void {
     const subject = this.subjects.get(event);
     if (subject) {
       subject.next({value, name: event});

@@ -24,22 +24,22 @@ export class AppsComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.appService.listApps(true).subscribe((apps: App[]) => {
       this.apps = apps;
       this.loading = false;
     });
   }
 
-  public trackByApp(_index: number, app: App) {
+  public trackByApp(_index: number, app: App): string {
     return app.id;
   }
 
-  public trackByIntegration(_index: number, integration: Integration) {
+  public trackByIntegration(_index: number, integration: Integration): string {
     return integration.id;
   }
 
-  public createApp() {
+  public createApp(): void {
     const modalRef = this.ngbModal.open(CreateAppComponent);
     modalRef.result.then((app: App) => {
       this.router.navigate(['apps', app.id]);

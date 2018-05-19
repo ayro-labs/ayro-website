@@ -16,7 +16,7 @@ export class WordPressIntegrationComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_WORDPRESS);
   }
 }

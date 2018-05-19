@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import * as cloneDeep from 'lodash/cloneDeep';
+import * as clone from 'lodash/clone';
+import * as pickBy from 'lodash/pickBy';
+import * as forOwn from 'lodash/forOwn';
+import * as formatDate from 'date-fns/format';
 
 import {OnLoaded} from 'app/components/home/app/plugins/plugin/plugin.component';
 import {RemovePluginComponent} from 'app/components/home/app/plugins/remove/remove-plugin.component';
@@ -10,14 +15,13 @@ import {PluginType} from 'app/models/plugin-type.model';
 import {App} from 'app/models/app.model';
 import {Plugin} from 'app/models/plugin.model';
 
-import * as _ from 'lodash';
-import * as moment from 'moment';
-
 @Component({
   selector: 'ayro-office-hours-setup',
   templateUrl: './office-hours-setup.component.html',
 })
 export class OfficeHoursSetupPluginComponent implements OnInit {
+
+  private static readonly UTC = '+00:00';
 
   private static readonly DAYS: string[] = [
     'monday',
@@ -136,50 +140,50 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
   public pluginType: PluginType;
   public configuration: any = this.getDefaultConfiguration();
 
-  public days = _.clone(OfficeHoursSetupPluginComponent.DAYS);
-  public timezones = _.clone(OfficeHoursSetupPluginComponent.TIMEZONES);
-  public startTimes = _.clone(OfficeHoursSetupPluginComponent.START_TIMES);
-  public endTimes = _.clone(OfficeHoursSetupPluginComponent.END_TIMES);
+  public days = clone(OfficeHoursSetupPluginComponent.DAYS);
+  public timezones = clone(OfficeHoursSetupPluginComponent.TIMEZONES);
+  public startTimes = clone(OfficeHoursSetupPluginComponent.START_TIMES);
+  public endTimes = clone(OfficeHoursSetupPluginComponent.END_TIMES);
 
   constructor(private pluginService: PluginService, private alertService: AlertService, private router: Router, private ngbModal: NgbModal) {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.pluginType = this.pluginService.getPluginType(Plugin.TYPE_OFFICE_HOURS);
   }
 
-  public onLoaded(data: OnLoaded) {
+  public onLoaded(data: OnLoaded): void {
     this.app = data.app;
     this.plugin = data.plugin;
     this.setConfiguration();
   }
 
-  public trackByTimezone(index: number) {
+  public trackByTimezone(index: number): number {
     return index;
   }
 
-  public trackByDay(index: number) {
+  public trackByDay(index: number): number {
     return index;
   }
 
-  public trackByStartTime(index: number) {
+  public trackByStartTime(index: number): number {
     return index;
   }
 
-  public trackByEndTime(index: number) {
+  public trackByEndTime(index: number): number {
     return index;
   }
 
-  public disableTimeRange(day: string) {
+  public disableTimeRange(day: string): void {
     this.configuration.time_range[day].disabled = true;
   }
 
-  public enableTimeRange(day: string) {
+  public enableTimeRange(day: string): void {
     this.configuration.time_range[day].disabled = false;
   }
 
-  public addPlugin() {
+  public addPlugin(): void {
     const configuration = this.formatConfiguration();
     this.pluginService.addPlugin(this.app, this.pluginType, configuration).subscribe((plugin) => {
       this.plugin = plugin;
@@ -190,7 +194,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
     });
   }
 
-  public updatePlugin() {
+  public updatePlugin(): void {
     const configuration = this.formatConfiguration();
     this.pluginService.updatePlugin(this.app, this.pluginType, configuration).subscribe((plugin) => {
       this.plugin = plugin;
@@ -201,7 +205,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
     });
   }
 
-  public removePlugin() {
+  public removePlugin(): void {
     const modalRef = this.ngbModal.open(RemovePluginComponent);
     modalRef.componentInstance.app = this.app;
     modalRef.componentInstance.pluginType = this.pluginType;
@@ -212,24 +216,23 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
     });
   }
 
-  private setConfiguration() {
-    this.configuration = this.plugin ? _.cloneDeep(this.plugin.configuration) : this.getDefaultConfiguration();
+  private setConfiguration(): void {
+    this.configuration = this.plugin ? cloneDeep(this.plugin.configuration) : this.getDefaultConfiguration();
     this.setDefaultTimezoneIfNeeded();
-    this.days.forEach((day) => {
+    this.days.forEach((day: any) => {
       this.setDefaultTimeRangeIfNeeded(day);
     });
     this.setDefaultReplyIfNeeded();
   }
 
-  private getDefaultConfiguration() {
+  private getDefaultConfiguration(): any {
     return {time_range: {}};
   }
 
-  private setDefaultTimezoneIfNeeded() {
+  private setDefaultTimezoneIfNeeded(): void {
     if (!this.configuration.timezone) {
-      const now = moment();
-      const timezone = now.format('Z');
-      if (now.creationData().isUTC) {
+      const timezone = formatDate(new Date(), 'xxx');
+      if (timezone === OfficeHoursSetupPluginComponent.UTC) {
         this.configuration.timezone = 'UTC';
       } else {
         this.configuration.timezone = 'UTC' + timezone;
@@ -237,7 +240,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
     }
   }
 
-  private setDefaultTimeRangeIfNeeded(day: string) {
+  private setDefaultTimeRangeIfNeeded(day: string): void {
     if (!this.configuration.time_range[day]) {
       this.configuration.time_range[day] = {
         start: OfficeHoursSetupPluginComponent.DEFAULT_START_TIME,
@@ -247,21 +250,21 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
     }
   }
 
-  private setDefaultReplyIfNeeded() {
+  private setDefaultReplyIfNeeded(): void {
     if (!this.configuration.reply) {
       this.configuration.reply = OfficeHoursSetupPluginComponent.DEFAULT_REPLY;
     }
   }
 
-  private formatConfiguration() {
+  private formatConfiguration(): any {
     const configuration = {
       timezone: this.configuration.timezone,
-      time_range: _.pickBy(this.configuration.time_range, (range) => {
+      time_range: pickBy(this.configuration.time_range, (range: any) => {
         return !range.disabled;
       }),
       reply: this.configuration.reply,
     };
-    _.forOwn(configuration.time_range, (range) => {
+    forOwn(configuration.time_range, (range: any) => {
       delete range.disabled;
     });
     return configuration;

@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {mergeMap} from 'rxjs/operators/mergeMap';
 
 import {AppService} from 'app/services/app.service';
 import {PluginService} from 'app/services/plugin.service';
@@ -33,12 +34,14 @@ export class PluginComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     const appId = this.activatedRoute.parent.snapshot.paramMap.get('app');
-    this.appService.getApp(appId).mergeMap((app) => {
-      this.app = app;
-      return this.pluginService.getPlugin(app, this.pluginType);
-    }).subscribe((plugin) => {
+    this.appService.getApp(appId).pipe(
+      mergeMap((app) => {
+        this.app = app;
+        return this.pluginService.getPlugin(app, this.pluginType);
+      })
+    ).subscribe((plugin) => {
       this.plugin = plugin;
       this.loading = false;
       this.loaded.emit({app: this.app, plugin: this.plugin});

@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     const appId = this.activatedRoute.snapshot.paramMap.get('app');
     this.appService.getApp(appId, true).subscribe((app) => {
       this.app = app;
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => {
       subscription.unsubscribe();
     });

@@ -38,14 +38,14 @@ export class App {
     }
   }
 
-  public getIntegration(channel: string) {
+  public getIntegration(channel: string): Integration {
     const found = this.integrations.find((integration) => {
       return integration.channel === channel;
     });
     return found || null;
   }
 
-  public getIconUrl() {
+  public getIconUrl(): string {
     return this.icon ? App.ICON_URL + this.icon : App.NO_ICON_URL;
   }
 }

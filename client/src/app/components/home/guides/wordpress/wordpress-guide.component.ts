@@ -16,7 +16,7 @@ export class WordPressGuideComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.appService.getConfigs().subscribe((configs) => {
       this.pluginUrl = configs.wpPluginUrl;
       this.pluginVersion = configs.wpPluginVersion;

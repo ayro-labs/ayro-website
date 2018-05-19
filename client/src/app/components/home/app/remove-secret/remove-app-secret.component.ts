@@ -1,11 +1,11 @@
 import {Component, Input} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import * as parseDate from 'date-fns/parse';
+import * as formatDate from 'date-fns/format';
 
 import {AppService} from 'app/services/app.service';
 import {AlertService} from 'app/services/alert.service';
 import {AppSecret} from 'app/models/app-secret.model';
-
-import * as moment from 'moment';
 
 @Component({
   selector: 'ayro-remove-app-secret',
@@ -20,11 +20,11 @@ export class RemoveAppSecretComponent {
 
   }
 
-  public close() {
+  public close(): void {
     this.ngbActiveModal.dismiss();
   }
 
-  public remove() {
+  public remove(): void {
     this.appService.removeAppSecret(this.appSecret).subscribe(() => {
       this.ngbActiveModal.close();
       this.alertService.success('App secret removido com sucesso!');
@@ -35,6 +35,6 @@ export class RemoveAppSecretComponent {
   }
 
   public formatAppSecretDate(appSecret: AppSecret): string {
-    return moment(appSecret.registration_date).format('DD/MM/YYYY HH:mm');
+    return formatDate(parseDate(appSecret.registration_date), 'dd/MM/yyyy HH:mm');
   }
 }

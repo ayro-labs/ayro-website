@@ -8,9 +8,9 @@ exports.getConfigs = () => {
   return Promise.resolve({
     appToken: settings.appToken,
     jsSdkVersion: settings.jsSdkVersion,
-    jsSdkUrl: `${settings.websiteUrl}/libs/ayro-${settings.jsSdkVersion}.min.js`,
+    jsSdkUrl: `https://cdn.ayro.io/sdks/ayro-${settings.jsSdkVersion}.min.js`,
     wpPluginVersion: settings.wpPluginVersion,
-    wpPluginUrl: `${settings.websiteUrl}/libs/ayro-wordpress-${settings.wpPluginVersion}.zip`,
+    wpPluginUrl: `https://cdn.ayro.io/wordpress/ayro-wordpress-${settings.wpPluginVersion}.zip`,
     androidSdkVersion: settings.androidSdkVersion,
   });
 };

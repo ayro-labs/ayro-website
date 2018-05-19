@@ -3,7 +3,7 @@ export class StorageUtils {
   private static readonly API_TOKEN: string = 'API_TOKEN';
   private static readonly MEMORY_STORAGE: any = {};
 
-  public static set(key: string, value: string) {
+  public static set(key: string, value: string): void {
     try {
       if (localStorage) {
         localStorage.setItem(key, value);
@@ -25,14 +25,14 @@ export class StorageUtils {
     return value || null;
   }
 
-  public static remove(key: string) {
+  public static remove(key: string): void {
     if (localStorage) {
       localStorage.removeItem(key);
     }
     delete StorageUtils.MEMORY_STORAGE[key];
   }
 
-  public static setApiToken(apiToken: string) {
+  public static setApiToken(apiToken: string): void {
     StorageUtils.set(StorageUtils.API_TOKEN, apiToken);
   }
 
@@ -40,7 +40,7 @@ export class StorageUtils {
     return StorageUtils.get(StorageUtils.API_TOKEN);
   }
 
-  public static removeApiToken() {
+  public static removeApiToken(): void {
     StorageUtils.remove(StorageUtils.API_TOKEN);
   }
 

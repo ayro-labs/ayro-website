@@ -24,15 +24,15 @@ export class RemovePluginComponent {
 
   }
 
-  public close() {
+  public close(): void {
     this.ngbActiveModal.dismiss();
   }
 
-  public isAppNameMatched() {
+  public isAppNameMatched(): boolean {
     return this.name === this.app.name;
   }
 
-  public remove() {
+  public remove(): void {
     this.pluginService.removePlugin(this.app, this.pluginType).subscribe(() => {
       this.trackRemovePlugin();
       this.ngbActiveModal.close();
@@ -43,7 +43,7 @@ export class RemovePluginComponent {
     });
   }
 
-  private trackRemovePlugin() {
+  private trackRemovePlugin(): void {
     this.angulartics.eventTrack.next({
       action: 'plugin_remove',
       properties: {

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import * as isEmpty from 'lodash/isEmpty';
+import * as cloneDeep from 'lodash/cloneDeep';
 
 import {OnLoaded} from 'app/components/home/app/integrations/integration/integration.component';
 import {RemoveIntegrationComponent} from 'app/components/home/app/integrations/remove/remove-integration.component';
@@ -11,8 +13,6 @@ import {FacebookPage} from 'app/models/facebook-page.model';
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';
 import {StorageUtils} from 'app/utils/storage.utils';
-
-import * as _ from 'lodash';
 
 @Component({
   selector: 'ayro-messenger-setup',
@@ -32,26 +32,26 @@ export class MessengerSetupIntegrationComponent implements OnInit {
 
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.apiToken = StorageUtils.getApiToken();
     this.channel = this.integrationService.getChannel(Integration.CHANNEL_MESSENGER);
   }
 
-  public onLoaded(data: OnLoaded) {
+  public onLoaded(data: OnLoaded): void {
     this.app = data.app;
     this.integration = data.integration;
     this.setConfiguration();
   }
 
-  public trackByFacebookPage(_index: number, facebookPage: FacebookPage) {
+  public trackByFacebookPage(_index: number, facebookPage: FacebookPage): string {
     return facebookPage.id;
   }
 
-  public compareFacebookPages(page: FacebookPage, otherPage: FacebookPage) {
+  public compareFacebookPages(page: FacebookPage, otherPage: FacebookPage): boolean {
     return page && otherPage && page.id === otherPage.id;
   }
 
-  public updateIntegration() {
+  public updateIntegration(): void {
     const configuration = {page: this.configuration.page};
     this.integrationService.updateIntegration(this.app, this.channel, configuration).subscribe((integration) => {
       this.integration = integration;
@@ -62,7 +62,7 @@ export class MessengerSetupIntegrationComponent implements OnInit {
     });
   }
 
-  public removeIntegration() {
+  public removeIntegration(): void {
     const modalRef = this.ngbModal.open(RemoveIntegrationComponent);
     modalRef.componentInstance.app = this.app;
     modalRef.componentInstance.channel = this.channel;
@@ -73,11 +73,11 @@ export class MessengerSetupIntegrationComponent implements OnInit {
     });
   }
 
-  private setConfiguration() {
+  private setConfiguration(): void {
     if (this.integration) {
       this.originalConfiguration = this.integration.configuration;
-      this.configuration = _.cloneDeep(this.integration.configuration);
-      if (_.isEmpty(this.facebookPages)) {
+      this.configuration = cloneDeep(this.integration.configuration);
+      if (isEmpty(this.facebookPages)) {
         this.integrationService.listFacebookPages(this.app).subscribe((facebookPages) => {
           this.facebookPages = facebookPages;
         });
