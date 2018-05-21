@@ -3,11 +3,11 @@
 const helpers = require('./helpers');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
-const HtmlPlugin = require('html-webpack-plugin');
-const CssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PurgeCssPlugin = require('purgecss-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const rxjsPaths = require('rxjs/_esm5/path-mapping');
 const glob = require('glob');
 
@@ -39,7 +39,7 @@ module.exports = (settings) => {
   return {
     optimization,
     mode: settings.env,
-    devtool: 'source-map',
+    devtool: isProduction() ? false : 'source-map',
     entry: {
       vendor: helpers.root('/client/src/vendor.ts'),
       main: helpers.root('/client/src/main.ts'),
