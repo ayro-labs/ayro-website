@@ -3,10 +3,10 @@
 const helpers = require('./helpers');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const JsUglifyPlugin = require('uglifyjs-webpack-plugin');
 const CssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const PurgeCssPlugin = require('purgecss-webpack-plugin');
+const CssOptimizePlugin = require('optimize-css-assets-webpack-plugin');
+const CssPurgePlugin = require('purgecss-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const rxjsPaths = require('rxjs/_esm5/path-mapping');
 const glob = require('glob');
@@ -31,8 +31,8 @@ module.exports = (settings) => {
   };
   if (isProduction()) {
     optimization.minimizer = [
-      new UglifyJsPlugin({cache: true, parallel: true}),
-      new OptimizeCssAssetsPlugin({}),
+      new JsUglifyPlugin({cache: true, parallel: true}),
+      new CssOptimizePlugin({}),
     ];
   }
 
@@ -111,7 +111,7 @@ module.exports = (settings) => {
         },
       }),
       new CssExtractPlugin({filename: 'assets/styles/[name].css'}),
-      new PurgeCssPlugin({
+      new CssPurgePlugin({
         paths: glob.sync(`${helpers.root('/client/src')}/**/*`, {nodir: true}),
         whitelist: ['modal', 'dropdown', 'alert', 'show', 'fade', 'collapse'],
         whitelistPatterns: [/^modal-/, /^dropdown-/, /^alert-/, /^bg-/],
