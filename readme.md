@@ -1,39 +1,35 @@
-## Installing the project ##
+## Installing dependencies ##
 
-Just run the following command:
 ````
 npm install
 ````
 
-## Building for development environments ##
+## Building for development environment ##
 
-Just run the following command:
 ````
-npm run client-build
+npm run build
 ````
 
-## Building for production environments ##
+## Building for production environment ##
 
-Just run the following command:
 ````
-npm run client-build-prod
+npm run build-prod
 ````
 
 ## Running the project ##
 
-Just run the following command:
 ````
-npm run server-start
+npm run start
 ````
 
 ## Releasing a new version ##
 
-Just run the following command:
 ````
-npm run release-lib -- major|minor|patch|version <version>
+npm run release-dist -- major|minor|patch|version <version>
 ````
 
 ## Publishing the new version to Amazon ECR ##
+
 ````
-npm run publish-lib
+npm run publish-dist
 ````
