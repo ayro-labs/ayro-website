@@ -1,3 +1,5 @@
+/* tslint:disable:variable-name */
+
 export class Plugin {
 
   public static readonly TYPE_OFFICE_HOURS: string = 'office_hours';

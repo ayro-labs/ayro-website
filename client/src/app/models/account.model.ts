@@ -1,3 +1,5 @@
+/* tslint:disable:variable-name */
+
 export class Account {
 
   private static readonly LOGO_URL = `${process.env.API_URL}/img/accounts/`;

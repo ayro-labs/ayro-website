@@ -1,3 +1,5 @@
+/* tslint:disable:variable-name */
+
 export class PluginType {
 
   public id: string;

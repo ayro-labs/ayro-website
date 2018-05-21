@@ -1,3 +1,5 @@
+/* tslint:disable:variable-name */
+
 import {Integration} from 'app/models/integration.model';
 import {Plugin} from 'app/models/plugin.model';
 

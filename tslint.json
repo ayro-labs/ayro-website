@@ -19,7 +19,7 @@
       }
     }],
     "typedef": [true, "call-signature", "parameter"],
-    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-snake-case", "allow-pascal-case"],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     // Angular rules
     "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
     "banana-in-box": true,

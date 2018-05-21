@@ -44,52 +44,57 @@ import {WordPressGuideComponent} from 'app/components/home/guides/wordpress/word
 import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
 import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
 
-export const AppRoutes: Routes = [
-  {path: '', component: HomeComponent, children: [
-    {path: '', component: IntroComponent},
-    {path: 'signup', component: SignUpComponent},
-    {path: 'signin', component: SignInComponent},
-    {path: 'terms', component: TermsComponent},
-    {path: 'privacy', component: PrivacyComponent},
-    {path: 'en/privacy', component: PrivacyEnglishComponent},
-    {path: 'settings', component: SettingsComponent},
-    {path: 'apps', component: AppsComponent},
-    {path: 'apps/integrations', component: ContainerComponent, children: [
-      {path: '', component: IntegrationsComponent},
-      {path: 'website', component: WebsiteIntegrationComponent},
-      {path: 'wordpress', component: WordPressIntegrationComponent},
-      {path: 'android', component: AndroidIntegrationComponent},
-      {path: 'messenger', component: MessengerIntegrationComponent},
-      {path: 'slack', component: SlackIntegrationComponent},
-    ]},
-    {path: 'apps/:app', component: AppComponent, children: [
-      {path: '', component: AppHomeComponent},
-      {path: 'settings', component: AppSettingsComponent},
-      {path: 'integrations', component: IntegrationsComponent},
-      {path: 'integrations/website', component: WebsiteIntegrationComponent},
-      {path: 'integrations/website/setup', component: WebsiteSetupIntegrationComponent},
-      {path: 'integrations/wordpress', component: WordPressIntegrationComponent},
-      {path: 'integrations/wordpress/setup', component: WordPressSetupIntegrationComponent},
-      {path: 'integrations/android', component: AndroidIntegrationComponent},
-      {path: 'integrations/android/setup', component: AndroidSetupIntegrationComponent},
-      {path: 'integrations/messenger', component: MessengerIntegrationComponent},
-      {path: 'integrations/messenger/setup', component: MessengerSetupIntegrationComponent},
-      {path: 'integrations/slack', component: SlackIntegrationComponent},
-      {path: 'integrations/slack/setup', component: SlackSetupIntegrationComponent},
-      {path: 'plugins', component: PluginsComponent},
-      {path: 'plugins/office-hours', component: OfficeHoursPluginComponent},
-      {path: 'plugins/office-hours/setup', component: OfficeHoursSetupPluginComponent},
-      {path: 'plugins/greetings-message', component: GreetingsMessagePluginComponent},
-      {path: 'plugins/greetings-message/setup', component: GreetingsMessageSetupPluginComponent},
-    ]},
-    {path: 'guides', component: GuidesComponent, children: [
-      {path: 'user-identity', component: UserIdentityGuideComponent},
-      {path: 'user-information', component: UserInformationGuideComponent},
-      {path: 'website', component: WebsiteGuideComponent},
-      {path: 'wordpress', component: WordPressGuideComponent},
-      {path: 'android', component: AndroidGuideComponent},
-      {path: 'slack', component: SlackGuideComponent},
-    ]},
-    {path: '**', component: NotFoundComponent},
-  ]},
-];
+export class AppRoutes {
+
+  public static listRoutes(): Routes {
+    return [
+      {path: '', component: HomeComponent, children: [
+        {path: '', component: IntroComponent},
+        {path: 'signup', component: SignUpComponent},
+        {path: 'signin', component: SignInComponent},
+        {path: 'terms', component: TermsComponent},
+        {path: 'privacy', component: PrivacyComponent},
+        {path: 'en/privacy', component: PrivacyEnglishComponent},
+        {path: 'settings', component: SettingsComponent},
+        {path: 'apps', component: AppsComponent},
+        {path: 'apps/integrations', component: ContainerComponent, children: [
+          {path: '', component: IntegrationsComponent},
+          {path: 'website', component: WebsiteIntegrationComponent},
+          {path: 'wordpress', component: WordPressIntegrationComponent},
+          {path: 'android', component: AndroidIntegrationComponent},
+          {path: 'messenger', component: MessengerIntegrationComponent},
+          {path: 'slack', component: SlackIntegrationComponent},
+        ]},
+        {path: 'apps/:app', component: AppComponent, children: [
+          {path: '', component: AppHomeComponent},
+          {path: 'settings', component: AppSettingsComponent},
+          {path: 'integrations', component: IntegrationsComponent},
+          {path: 'integrations/website', component: WebsiteIntegrationComponent},
+          {path: 'integrations/website/setup', component: WebsiteSetupIntegrationComponent},
+          {path: 'integrations/wordpress', component: WordPressIntegrationComponent},
+          {path: 'integrations/wordpress/setup', component: WordPressSetupIntegrationComponent},
+          {path: 'integrations/android', component: AndroidIntegrationComponent},
+          {path: 'integrations/android/setup', component: AndroidSetupIntegrationComponent},
+          {path: 'integrations/messenger', component: MessengerIntegrationComponent},
+          {path: 'integrations/messenger/setup', component: MessengerSetupIntegrationComponent},
+          {path: 'integrations/slack', component: SlackIntegrationComponent},
+          {path: 'integrations/slack/setup', component: SlackSetupIntegrationComponent},
+          {path: 'plugins', component: PluginsComponent},
+          {path: 'plugins/office-hours', component: OfficeHoursPluginComponent},
+          {path: 'plugins/office-hours/setup', component: OfficeHoursSetupPluginComponent},
+          {path: 'plugins/greetings-message', component: GreetingsMessagePluginComponent},
+          {path: 'plugins/greetings-message/setup', component: GreetingsMessageSetupPluginComponent},
+        ]},
+        {path: 'guides', component: GuidesComponent, children: [
+          {path: 'user-identity', component: UserIdentityGuideComponent},
+          {path: 'user-information', component: UserInformationGuideComponent},
+          {path: 'website', component: WebsiteGuideComponent},
+          {path: 'wordpress', component: WordPressGuideComponent},
+          {path: 'android', component: AndroidGuideComponent},
+          {path: 'slack', component: SlackGuideComponent},
+        ]},
+        {path: '**', component: NotFoundComponent},
+      ]},
+    ];
+  }
+}

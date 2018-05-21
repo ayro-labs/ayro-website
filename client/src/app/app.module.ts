@@ -82,7 +82,7 @@ import {EventService} from 'app/services/event.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes.listRoutes()),
     FormsModule,
     NgbAlertModule.forRoot(),
     NgbModalModule.forRoot(),

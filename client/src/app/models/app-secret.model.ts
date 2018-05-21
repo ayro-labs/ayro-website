@@ -1,3 +1,5 @@
+/* tslint:disable:variable-name */
+
 export class AppSecret {
 
   public id: string;
