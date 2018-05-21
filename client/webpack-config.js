@@ -3,7 +3,7 @@
 const {properties} = require('@ayro/commons');
 const helpers = require('./webpack/helpers');
 
-properties.setup(helpers.root('/client/config.properties'));
+properties.setup(helpers.root('client', 'config.properties'));
 
 const settings = require('./configs/settings');
 const webpackCommon = require('./webpack/webpack-common.js');
