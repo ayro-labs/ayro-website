@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 import {Angulartics2} from 'angulartics2';
 
 import {PluginService} from 'app/services/plugin.service';

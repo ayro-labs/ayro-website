@@ -1,13 +1,17 @@
 'use strict';
 
 const {properties} = require('@ayro/commons');
-const path = require('path');
+const helpers = require('./webpack/helpers');
 
-properties.setup(path.join(__dirname, 'config.properties'));
+properties.setup(helpers.root('/client/config.properties'));
 
-const webpackDev = require('./webpack/webpack-dev');
-const webpackProd = require('./webpack/webpack-prod');
+const settings = require('./configs/settings');
+const webpackCommon = require('./webpack/webpack-common.js');
+
+const devSettings = settings('development');
+const prodSettings = settings('production');
 
 module.exports = (env) => {
-  return env && env.production ? webpackProd : webpackDev;
+  const choosedSettings = env && env.production ? prodSettings : devSettings;
+  return webpackCommon(choosedSettings);
 };

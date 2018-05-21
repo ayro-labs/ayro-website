@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {mergeMap} from 'rxjs/operators/mergeMap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
+import {mergeMap} from 'rxjs/operators';
 import * as parseDate from 'date-fns/parse';
 import * as formatDate from 'date-fns/format';
 

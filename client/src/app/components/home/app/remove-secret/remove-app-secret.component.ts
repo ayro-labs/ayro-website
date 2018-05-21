@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 import * as parseDate from 'date-fns/parse';
 import * as formatDate from 'date-fns/format';
 

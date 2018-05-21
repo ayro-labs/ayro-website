@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {mergeMap} from 'rxjs/operators/mergeMap';
+import {mergeMap} from 'rxjs/operators';
 
 import {AppService} from 'app/services/app.service';
 import {IntegrationService} from 'app/services/integration.service';

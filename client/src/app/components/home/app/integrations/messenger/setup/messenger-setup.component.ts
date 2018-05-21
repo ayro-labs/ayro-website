@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 import * as isEmpty from 'lodash/isEmpty';
 import * as cloneDeep from 'lodash/cloneDeep';
 

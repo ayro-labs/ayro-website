@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {Angulartics2} from 'angulartics2';
-import {mergeMap} from 'rxjs/operators/mergeMap';
+import {mergeMap} from 'rxjs/operators';
 
 import {AccountService} from 'app/services/account.service';
 import {AlertService} from 'app/services/alert.service';

@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {_throw} from 'rxjs/observable/throw';
-import {map} from 'rxjs/operators/map';
-import {catchError} from 'rxjs/operators/catchError';
+import {map, catchError} from 'rxjs/operators';
 
 import {App} from 'app/models/app.model';
 import {Integration} from 'app/models/integration.model';

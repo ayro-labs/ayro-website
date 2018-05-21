@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 
 import {CreateAppComponent} from 'app/components/home/apps/create-app/create-app.component';
 import {AppService} from 'app/services/app.service';

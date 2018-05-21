@@ -4,16 +4,45 @@ const helpers = require('./helpers');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const rxPaths = require('rxjs/_esm5/path-mapping');
+const CssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const PurgeCssPlugin = require('purgecss-webpack-plugin');
+const rxjsPaths = require('rxjs/_esm5/path-mapping');
+const glob = require('glob');
 
-module.exports = (env) => {
+module.exports = (settings) => {
+  function isProduction() {
+    return settings.env === 'production';
+  }
+
+  const optimization = {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendor',
+          test: /\/node_modules\//,
+          chunks: 'all',
+          priority: 0,
+          enforce: true,
+        },
+      },
+    },
+  };
+  if (isProduction()) {
+    optimization.minimizer = [
+      new UglifyJsPlugin({cache: true, parallel: true}),
+      new OptimizeCssAssetsPlugin({}),
+    ];
+  }
+
   return {
+    optimization,
+    mode: settings.env,
     devtool: 'source-map',
     entry: {
-      app: helpers.root('/client/src/main.ts'),
       vendor: helpers.root('/client/src/vendor.ts'),
-      polyfills: helpers.root('/client/src/polyfills.ts'),
+      main: helpers.root('/client/src/main.ts'),
     },
     output: {
       path: helpers.root('/client-dist'),
@@ -25,7 +54,7 @@ module.exports = (env) => {
         helpers.root('/client/src'),
         helpers.root('/node_modules'),
       ],
-      alias: rxPaths(),
+      alias: rxjsPaths(),
     },
     module: {
       rules: [
@@ -41,28 +70,12 @@ module.exports = (env) => {
         },
         {
           test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [{
-              loader: 'css-loader',
-              options: {
-                minimize: env === 'production',
-              },
-            }],
-          }),
+          use: [CssExtractPlugin.loader, 'css-loader'],
           include: helpers.root('/node_modules/bootstrap'),
         },
         {
           test: /\.less$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [{
-              loader: 'css-loader',
-              options: {
-                minimize: env === 'production',
-              },
-            }, 'less-loader'],
-          }),
+          use: [CssExtractPlugin.loader, 'css-loader', 'less-loader'],
           include: helpers.root('/client/src/assets/styles'),
         },
         {
@@ -87,25 +100,22 @@ module.exports = (env) => {
           }],
           include: helpers.root('/client/src/assets/fonts'),
         },
-        {
-          test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
-          use: [{
-            loader: 'file-loader',
-            options: {
-              name: '/assets/fonts/glyphicons/[name].[ext]',
-            },
-          }],
-          include: helpers.root('/node_modules/bootstrap/dist/fonts'),
-        },
       ],
     },
     plugins: [
       new CleanPlugin(['client-dist'], {root: helpers.root('/')}),
-      new webpack.LoaderOptionsPlugin({debug: true}),
-      new webpack.ContextReplacementPlugin(/@angular\/core\/fesm5/, helpers.root('/client/src')),
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']}),
-      new ExtractTextPlugin({filename: 'assets/styles/[name].css', allChunks: true}),
+      new webpack.DefinePlugin({
+        'process.env': {
+          API_URL: JSON.stringify(settings.apiUrl),
+        },
+      }),
+      new CssExtractPlugin({filename: 'assets/styles/[name].css'}),
+      new PurgeCssPlugin({
+        paths: glob.sync(`${helpers.root('/client/src')}/**/*`, {nodir: true}),
+        whitelist: ['modal', 'dropdown', 'alert', 'show', 'fade', 'collapse'],
+        whitelistPatterns: [/^modal-/, /^dropdown-/, /^alert-/, /^bg-/],
+      }),
       new HtmlPlugin({template: helpers.root('/client/src/index.html')}),
     ],
   };

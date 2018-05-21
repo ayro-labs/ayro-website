@@ -20,8 +20,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "typeRoots": ["./node_modules/@types", "./types"]
-  },
-  "angularCompilerOptions": {
-    "preserveWhitespaces": false
   }
 }

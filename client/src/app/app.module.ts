@@ -3,7 +3,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap/alert/alert.module';
+import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap/dropdown/dropdown.module';
+import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap/collapse/collapse.module';
 import {ClipboardModule} from 'ngx-clipboard';
 import {Angulartics2Module} from 'angulartics2';
 import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
@@ -81,7 +84,10 @@ import {EventService} from 'app/services/event.service';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
-    NgbModule.forRoot(),
+    NgbAlertModule.forRoot(),
+    NgbModalModule.forRoot(),
+    NgbDropdownModule.forRoot(),
+    NgbCollapseModule.forRoot(),
     Angulartics2Module.forRoot([Angulartics2GoogleTagManager, Angulartics2Facebook]),
     ClipboardModule,
   ],
