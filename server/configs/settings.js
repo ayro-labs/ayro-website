@@ -7,7 +7,7 @@ exports.env = properties.get('app.env', 'development');
 exports.port = properties.get('app.port', 4000);
 exports.debug = properties.get('app.debug', false);
 exports.distPath = path.root('dist');
-exports.publicPath = path.root('public');
+exports.publicPath = path.root('server', 'public');
 
 exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://localhost:${this.port}`;
 exports.apiUrl = properties.get('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
