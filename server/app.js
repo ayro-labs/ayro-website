@@ -1,10 +1,10 @@
 'use strict';
 
+const path = require('../utils/path');
 const {properties, logger, loggerServer} = require('@ayro/commons');
-const path = require('path');
 
-properties.setup(path.join(__dirname, 'config.properties'));
-logger.setup(path.join(__dirname, 'ayro-website.log'));
+properties.setup(path.root('server', 'config.properties'));
+logger.setup(path.root('server', 'ayro-website.log'));
 loggerServer.setup();
 
 const settings = require('./configs/settings');
@@ -30,7 +30,7 @@ const app = express();
 
 app.set('env', settings.env);
 app.set('port', settings.port);
-app.set('views', settings.clientPath);
+app.set('views', settings.distPath);
 app.set('trust proxy', 1);
 
 app.use(flash());
@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(morgan('tiny', {stream: {write: message => loggerServer.debug(message)}}));
 app.use(cors());
-app.use(express.static(settings.clientPath));
+app.use(express.static(settings.distPath));
 app.use('/public', express.static(settings.publicPath));
 
 app.use(session({
