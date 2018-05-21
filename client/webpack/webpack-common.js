@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require('../../utils/path');
+const helpers = require('../../utils/helpers');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const JsUglifyPlugin = require('uglifyjs-webpack-plugin');
@@ -41,18 +41,18 @@ module.exports = (settings) => {
     mode: settings.env,
     devtool: isProduction() ? false : 'source-map',
     entry: {
-      vendor: path.root('client', 'src', 'vendor.ts'),
-      main: path.root('client', 'src', 'main.ts'),
+      vendor: helpers.root('client', 'src', 'vendor.ts'),
+      main: helpers.root('client', 'src', 'main.ts'),
     },
     output: {
-      path: path.root('dist'),
+      path: helpers.root('dist'),
       filename: '[name].js',
     },
     resolve: {
       extensions: ['.ts', '.js'],
       modules: [
-        path.root('client', 'src'),
-        path.root('node_modules'),
+        helpers.root('client', 'src'),
+        helpers.root('node_modules'),
       ],
       alias: rxjsPaths(),
     },
@@ -61,22 +61,22 @@ module.exports = (settings) => {
         {
           test: /\.ts$/,
           use: ['ts-loader', 'angular2-template-loader'],
-          include: path.root('client', 'src'),
+          include: helpers.root('client', 'src'),
         },
         {
           test: /\.html$/,
           use: ['html-loader'],
-          include: path.root('client', 'src'),
+          include: helpers.root('client', 'src'),
         },
         {
           test: /\.css$/,
           use: [CssExtractPlugin.loader, 'css-loader'],
-          include: path.root('node_modules', 'bootstrap'),
+          include: helpers.root('node_modules', 'bootstrap'),
         },
         {
           test: /\.less$/,
           use: [CssExtractPlugin.loader, 'css-loader', 'less-loader'],
-          include: path.root('client', 'src', 'assets', 'styles'),
+          include: helpers.root('client', 'src', 'assets', 'styles'),
         },
         {
           test: /\.(png|jpe?g|gif|svg|ico)$/,
@@ -84,10 +84,10 @@ module.exports = (settings) => {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              context: path.root('client', 'src'),
+              context: helpers.root('client', 'src'),
             },
           }],
-          include: path.root('client', 'src', 'assets', 'img'),
+          include: helpers.root('client', 'src', 'assets', 'img'),
         },
         {
           test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
@@ -95,15 +95,15 @@ module.exports = (settings) => {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              context: path.root('client', 'src'),
+              context: helpers.root('client', 'src'),
             },
           }],
-          include: path.root('client', 'src', 'assets', 'fonts'),
+          include: helpers.root('client', 'src', 'assets', 'fonts'),
         },
       ],
     },
     plugins: [
-      new CleanPlugin(['dist'], {root: path.root()}),
+      new CleanPlugin(['dist'], {root: helpers.root()}),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.DefinePlugin({
         'process.env': {
@@ -112,11 +112,11 @@ module.exports = (settings) => {
       }),
       new CssExtractPlugin({filename: 'assets/styles/[name].css'}),
       new CssPurgePlugin({
-        paths: glob.sync(`${path.root('client', 'src')}/**/*`, {nodir: true}),
+        paths: glob.sync(`${helpers.root('client', 'src')}/**/*`, {nodir: true}),
         whitelist: ['modal', 'dropdown', 'alert', 'show', 'fade', 'collapse'],
         whitelistPatterns: [/^modal-/, /^dropdown-/, /^alert-/, /^bg-/],
       }),
-      new HtmlPlugin({template: path.root('client', 'src', 'index.html')}),
+      new HtmlPlugin({template: helpers.root('client', 'src', 'index.html')}),
     ],
   };
 };

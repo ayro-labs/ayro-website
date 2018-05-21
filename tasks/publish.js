@@ -1,9 +1,9 @@
 'use strict';
 
-const path = require('../utils/path');
+const helpers = require('../utils/helpers');
 const {publishTask, commands} = require('@ayro/commons');
 
-const WORKING_DIR = path.root();
+const WORKING_DIR = helpers.root();
 
 async function lintProject() {
   commands.log('Linting project...');

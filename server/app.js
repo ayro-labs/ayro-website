@@ -1,10 +1,10 @@
 'use strict';
 
-const path = require('../utils/path');
+const helpers = require('../utils/helpers');
 const {properties, logger, loggerServer} = require('@ayro/commons');
 
-properties.setup(path.root('server', 'config.properties'));
-logger.setup(path.root('server', 'ayro-website.log'));
+properties.setup(helpers.root('server', 'config.properties'));
+logger.setup(helpers.root('server', 'ayro-website.log'));
 loggerServer.setup();
 
 const settings = require('./configs/settings');
