@@ -10,7 +10,7 @@ exports.getConfigs = () => {
     jsSdkVersion: settings.jsSdkVersion,
     jsSdkUrl: `https://cdn.ayro.io/sdks/ayro-${settings.jsSdkVersion}.min.js`,
     wpPluginVersion: settings.wpPluginVersion,
-    wpPluginUrl: `https://cdn.ayro.io/wordpress/ayro-wordpress-${settings.wpPluginVersion}.zip`,
+    wpPluginUrl: `/libs/ayro-wordpress-${settings.wpPluginVersion}.zip`,
     androidSdkVersion: settings.androidSdkVersion,
   });
 };

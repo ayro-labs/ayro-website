@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
 import {Angulartics2} from 'angulartics2';
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 
 import {AccountService} from 'app/services/account.service';

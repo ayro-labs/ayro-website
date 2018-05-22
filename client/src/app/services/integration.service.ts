@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {_throw} from 'rxjs/observable/throw';
+import {Observable, throwError} from 'rxjs';
 import {map, catchError} from 'rxjs/operators';
 
 import {App} from 'app/models/app.model';
@@ -41,7 +40,7 @@ export class IntegrationService {
       catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return _throw(apiError);
+        return throwError(apiError);
       })
     );
   }
@@ -52,7 +51,7 @@ export class IntegrationService {
       catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return _throw(apiError);
+        return throwError(apiError);
       })
     );
   }
@@ -63,7 +62,7 @@ export class IntegrationService {
       catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return _throw(apiError);
+        return throwError(apiError);
       })
     );
   }
@@ -80,7 +79,7 @@ export class IntegrationService {
       catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return _throw(apiError);
+        return throwError(apiError);
       })
     );
   }
@@ -91,7 +90,7 @@ export class IntegrationService {
       catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return _throw(apiError);
+        return throwError(apiError);
       })
     );
   }
@@ -108,7 +107,7 @@ export class IntegrationService {
       catchError((err: HttpErrorResponse) => {
         const apiError = ApiError.withResponse(err);
         this.eventService.publish(EventService.EVENT_API_ERROR, apiError);
-        return _throw(apiError);
+        return throwError(apiError);
       })
     );
   }

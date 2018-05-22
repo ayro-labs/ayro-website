@@ -51,7 +51,7 @@
     "rxjs-collapse-imports": true,
     "rxjs-no-static-observable-methods": true,
     "rxjs-pipeable-operators-only": true,
-    "rxjs-proper-imports": false
+    "rxjs-proper-imports": true
   },
   "rulesDirectory": [
     "./node_modules/codelyzer",

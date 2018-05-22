@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-import {Subject} from 'rxjs/Subject';
+import {Subscription, Subject} from 'rxjs';
 
 import {ApiError} from 'app/services/commons/api.error';
 import {ErrorUtils} from 'app/utils/error.utils';
