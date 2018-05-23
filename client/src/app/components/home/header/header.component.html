@@ -18,7 +18,7 @@
           <a [routerLink]="['/signup']" class="btn btn-primary">CADASTRAR</a>
         </li>
       </ul>
-      <ul *ngIf="account && !isSignInOrSignUpUrl()" class="navbar-nav d-block ml-auto">
+      <ul *ngIf="account && !isSignInOrSignUpUrl()" class="navbar-nav align-items-center ml-auto">
         <li class="nav-item nav-item mr-sm-2 float-left">
           <a *ngIf="isIntroUrl()" [routerLink]="['/apps']" class="btn btn-primary">VER APPS</a>
         </li>

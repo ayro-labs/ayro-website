@@ -231,7 +231,7 @@ export class OfficeHoursSetupPluginComponent implements OnInit {
 
   private setDefaultTimezoneIfNeeded(): void {
     if (!this.configuration.timezone) {
-      const timezone = formatDate(new Date(), 'xxx');
+      const timezone = formatDate(new Date(), 'Z');
       if (timezone === OfficeHoursSetupPluginComponent.UTC) {
         this.configuration.timezone = 'UTC';
       } else {
