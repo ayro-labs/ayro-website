@@ -2,7 +2,7 @@ import {Routes} from '@angular/router';
 
 import {ContainerComponent} from 'app/components/container/container.component';
 import {MainComponent} from 'app/components/main/main.component';
-import {NotFoundComponent} from 'app/components/main/notfound/notfound.component';
+import {NotFoundComponent} from 'app/components/main/not-found/not-found.component';
 import {HomeComponent} from 'app/components/main/home/home.component';
 import {SignUpComponent} from 'app/components/main/signup/signup.component';
 import {SignInComponent} from 'app/components/main/signin/signin.component';

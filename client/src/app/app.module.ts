@@ -20,7 +20,7 @@ import {MainComponent} from 'app/components/main/main.component';
 import {HeaderComponent} from 'app/components/main/header/header.component';
 import {FooterComponent} from 'app/components/main/footer/footer.component';
 import {AlertsComponent} from 'app/components/main/alerts/alerts.component';
-import {NotFoundComponent} from 'app/components/main/notfound/notfound.component';
+import {NotFoundComponent} from 'app/components/main/not-found/not-found.component';
 import {HomeComponent} from 'app/components/main/home/home.component';
 import {SignUpComponent} from 'app/components/main/signup/signup.component';
 import {SignInComponent} from 'app/components/main/signin/signin.component';
