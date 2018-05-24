@@ -2,8 +2,6 @@ import {HttpErrorResponse} from '@angular/common/http';
 
 export class ApiError extends Error {
 
-  public static INTEGRATION_DOES_NOT_EXIST = 'integration.doesNotExist';
-
   public status?: number;
   public code: string;
   public message: string;

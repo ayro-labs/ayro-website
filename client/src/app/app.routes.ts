@@ -1,55 +1,55 @@
 import {Routes} from '@angular/router';
 
 import {ContainerComponent} from 'app/components/container/container.component';
-import {HomeComponent} from 'app/components/home/home.component';
-import {NotFoundComponent} from 'app/components/home/notfound/notfound.component';
-import {IntroComponent} from 'app/components/home/intro/intro.component';
-import {SignUpComponent} from 'app/components/home/signup/signup.component';
-import {SignInComponent} from 'app/components/home/signin/signin.component';
-import {TermsComponent} from 'app/components/home/terms/terms.component';
-import {PrivacyComponent} from 'app/components/home/privacy/privacy.component';
-import {PrivacyEnglishComponent} from 'app/components/home/privacy/privacy-en.component';
-import {SettingsComponent} from 'app/components/home/settings/settings.component';
-import {AppsComponent} from 'app/components/home/apps/apps.component';
-import {AppComponent} from 'app/components/home/app/app.component';
-import {AppHomeComponent} from 'app/components/home/app/home/app-home.component';
-import {AppSettingsComponent} from 'app/components/home/app/settings/app-settings.component';
+import {MainComponent} from 'app/components/main/main.component';
+import {NotFoundComponent} from 'app/components/main/notfound/notfound.component';
+import {HomeComponent} from 'app/components/main/home/home.component';
+import {SignUpComponent} from 'app/components/main/signup/signup.component';
+import {SignInComponent} from 'app/components/main/signin/signin.component';
+import {TermsComponent} from 'app/components/main/terms/terms.component';
+import {PrivacyComponent} from 'app/components/main/privacy/privacy.component';
+import {PrivacyEnglishComponent} from 'app/components/main/privacy/privacy-en.component';
+import {SettingsComponent} from 'app/components/main/settings/settings.component';
+import {AppsComponent} from 'app/components/main/apps/apps.component';
+import {AppComponent} from 'app/components/main/app/app.component';
+import {AppDashboardComponent} from 'app/components/main/app/dashboard/app-dashboard.component';
+import {AppSettingsComponent} from 'app/components/main/app/settings/app-settings.component';
 
 // Integrations
-import {IntegrationsComponent} from 'app/components/home/app/integrations/integrations.component';
-import {WebsiteIntegrationComponent} from 'app/components/home/app/integrations/website/website.component';
-import {WebsiteSetupIntegrationComponent} from 'app/components/home/app/integrations/website/setup/website-setup.component';
-import {WordPressIntegrationComponent} from 'app/components/home/app/integrations/wordpress/wordpress.component';
-import {WordPressSetupIntegrationComponent} from 'app/components/home/app/integrations/wordpress/setup/wordpress-setup.component';
-import {AndroidIntegrationComponent} from 'app/components/home/app/integrations/android/android.component';
-import {AndroidSetupIntegrationComponent} from 'app/components/home/app/integrations/android/setup/android-setup.component';
-import {MessengerIntegrationComponent} from 'app/components/home/app/integrations/messenger/messenger.component';
-import {MessengerSetupIntegrationComponent} from 'app/components/home/app/integrations/messenger/setup/messenger-setup.component';
-import {SlackIntegrationComponent} from 'app/components/home/app/integrations/slack/slack.component';
-import {SlackSetupIntegrationComponent} from 'app/components/home/app/integrations/slack/setup/slack-setup.component';
+import {IntegrationsComponent} from 'app/components/main/app/integrations/integrations.component';
+import {WebsiteIntegrationComponent} from 'app/components/main/app/integrations/website/website.component';
+import {WebsiteSetupIntegrationComponent} from 'app/components/main/app/integrations/website/setup/website-setup.component';
+import {WordPressIntegrationComponent} from 'app/components/main/app/integrations/wordpress/wordpress.component';
+import {WordPressSetupIntegrationComponent} from 'app/components/main/app/integrations/wordpress/setup/wordpress-setup.component';
+import {AndroidIntegrationComponent} from 'app/components/main/app/integrations/android/android.component';
+import {AndroidSetupIntegrationComponent} from 'app/components/main/app/integrations/android/setup/android-setup.component';
+import {MessengerIntegrationComponent} from 'app/components/main/app/integrations/messenger/messenger.component';
+import {MessengerSetupIntegrationComponent} from 'app/components/main/app/integrations/messenger/setup/messenger-setup.component';
+import {SlackIntegrationComponent} from 'app/components/main/app/integrations/slack/slack.component';
+import {SlackSetupIntegrationComponent} from 'app/components/main/app/integrations/slack/setup/slack-setup.component';
 
 // Plugins
-import {PluginsComponent} from 'app/components/home/app/plugins/plugins.component';
-import {OfficeHoursPluginComponent} from 'app/components/home/app/plugins/office-hours/office-hours.component';
-import {OfficeHoursSetupPluginComponent} from 'app/components/home/app/plugins/office-hours/setup/office-hours-setup.component';
-import {GreetingsMessagePluginComponent} from 'app/components/home/app/plugins/greetings-message/greetings-message.component';
-import {GreetingsMessageSetupPluginComponent} from 'app/components/home/app/plugins/greetings-message/setup/greetings-message-setup.component';
+import {PluginsComponent} from 'app/components/main/app/plugins/plugins.component';
+import {OfficeHoursPluginComponent} from 'app/components/main/app/plugins/office-hours/office-hours.component';
+import {OfficeHoursSetupPluginComponent} from 'app/components/main/app/plugins/office-hours/setup/office-hours-setup.component';
+import {GreetingsMessagePluginComponent} from 'app/components/main/app/plugins/greetings-message/greetings-message.component';
+import {GreetingsMessageSetupPluginComponent} from 'app/components/main/app/plugins/greetings-message/setup/greetings-message-setup.component';
 
 // Guides
-import {GuidesComponent} from 'app/components/home/guides/guides.component';
-import {UserIdentityGuideComponent} from 'app/components/home/guides/user-identity/user-identity-guide.component';
-import {UserInformationGuideComponent} from 'app/components/home/guides/user-information/user-information-guide.component';
-import {WebsiteGuideComponent} from 'app/components/home/guides/website/website-guide.component';
-import {WordPressGuideComponent} from 'app/components/home/guides/wordpress/wordpress-guide.component';
-import {AndroidGuideComponent} from 'app/components/home/guides/android/android-guide.component';
-import {SlackGuideComponent} from 'app/components/home/guides/slack/slack-guide.component';
+import {GuidesComponent} from 'app/components/main/guides/guides.component';
+import {UserIdentityGuideComponent} from 'app/components/main/guides/user-identity/user-identity-guide.component';
+import {UserInformationGuideComponent} from 'app/components/main/guides/user-information/user-information-guide.component';
+import {WebsiteGuideComponent} from 'app/components/main/guides/website/website-guide.component';
+import {WordPressGuideComponent} from 'app/components/main/guides/wordpress/wordpress-guide.component';
+import {AndroidGuideComponent} from 'app/components/main/guides/android/android-guide.component';
+import {SlackGuideComponent} from 'app/components/main/guides/slack/slack-guide.component';
 
 export class AppRoutes {
 
   public static listRoutes(): Routes {
     return [
-      {path: '', component: HomeComponent, children: [
-        {path: '', component: IntroComponent},
+      {path: '', component: MainComponent, children: [
+        {path: '', component: HomeComponent},
         {path: 'signup', component: SignUpComponent},
         {path: 'signin', component: SignInComponent},
         {path: 'terms', component: TermsComponent},
@@ -66,7 +66,7 @@ export class AppRoutes {
           {path: 'slack', component: SlackIntegrationComponent},
         ]},
         {path: 'apps/:app', component: AppComponent, children: [
-          {path: '', component: AppHomeComponent},
+          {path: '', component: AppDashboardComponent},
           {path: 'settings', component: AppSettingsComponent},
           {path: 'integrations', component: IntegrationsComponent},
           {path: 'integrations/website', component: WebsiteIntegrationComponent},

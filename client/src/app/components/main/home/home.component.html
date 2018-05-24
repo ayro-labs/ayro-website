@@ -1,0 +1,209 @@
+<div id="home">
+  <section class="primary">
+    <div class="container">
+      <h1 class="text-center">Ainda usa e-mails para dar suporte a seus clientes?</h1>
+      <div class="row">
+        <img class="mobile-chat mt-5" src="/assets/img/chat_mobile.png">
+        <div class="col-lg-7 offset-lg-5 my-5">
+          <h2>Demora para entender e solucionar o problema do cliente porque não consegue ter uma conversa eficiente?</h2>
+          <div class="text-center">
+            <h2 class="my-4">Temos uma solução!</h2>
+            <a [routerLink]="['signup']" class="btn btn-secondary btn-lg">
+              Crie uma conta gratuitamente
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="secondary">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mb-4">Evolua em alguns minutos!</h2>
+          <h4 class="mb-4">Converse em tempo real com seus clientes, onde quer que eles estejam.</h4>
+          <h4 class="text-justify">Somos uma empresa que simplificará a forma com que se comunica com seus clientes. Oferecemos uma plataforma multi canal de suporte ao cliente que integra redes sociais, websites, aplicativos mobiles, e-commerces e diversos outros canais.</h4>
+          <h4 class="text-justify mb-4">Todas as conversas são centralizadas em uma ferramenta de comunicação de sua escolha.</h4>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-2 col-sm-2">
+          <img [src]="getChannel('website').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('website').picture_url" class="d-block d-sm-none w-100"/>
+        </div>
+        <div class="col-2 col-sm-2">
+          <img [src]="getChannel('android').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('android').picture_url" class="d-block d-sm-none w-100"/>
+        </div>
+        <div class="col-2 col-sm-2">
+          <img [src]="getChannel('wordpress').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('wordpress').picture_url" class="d-block d-sm-none w-100"/>
+        </div>
+        <div class="col-2 col-sm-2">
+          <img [src]="getChannel('messenger').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('messenger').picture_url" class="d-block d-sm-none w-100"/>
+        </div>
+        <div class="col-2 col-sm-2">
+          <img [src]="getChannel('twitter').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('twitter').picture_url" class="d-block d-sm-none w-100"/>
+        </div>
+        <div class="col-2 col-sm-2">
+          <img [src]="getChannel('slack').picture_url" class="d-none d-sm-block w-50"/>
+          <img [src]="getChannel('slack').picture_url" class="d-block d-sm-none w-100"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a [routerLink]="['/apps', 'integrations']" class="btn btn-primary btn-lg">
+            Confira as integrações
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="primary">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mb-4">Conheça nossa plataforma!</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-comments fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Chat em tempo real</h3>
+              <p>Converse com seus clientes em tempo real, onde quer que eles estejam. Adicione suporte a Chat no seu website e aplicativo em alguns minutos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fab fa-facebook fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Redes sociais</h3>
+              <p>Com suporte à redes sociais, você não precisa se preocupar em acessar a rede social para saber se alguém entrou em contato.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fab fa-slack-hash fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Ferramentas de comunicação</h3>
+              <p>Escolha as melhores ferramentas de comunicação do mercado para conversar com seus clientes. Centralize suas conversas em um único local.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-dollar-sign fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Plano econômico</h3>
+              <p>Pague de acordo com o seu crescimento, começando gratuito. Utilize todos os recursos de forma ilimitada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="secondary">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mb-4">Benefícios</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-heart fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Conversas eficientes</h3>
+              <p>Tire dúvidas e resolva problemas de forma mais rápida conversando em tempo real com seus clientes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-life-ring fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Suporte centralizado</h3>
+              <p>Converse com seus clientes, onde quer que eles estejam. Todas as conversas são centralizadas no canal da empresa (Slack, por exemplo).</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-users fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Equipe organizada</h3>
+              <p>Utilize todas as funções que o canal da empresa oferece para organizar e dividir as conversas entre os membros de sua equipe.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fa fa-rocket fa-3x"></i>
+            </div>
+            <div class="feature-description">
+              <h3>Automatizado (Em breve)</h3>
+              <p>Automatize suas conversas e atenda um número maior de pessoas sem muito esforço, graças aos populares Chatbots.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="primary">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mb-4">Quanto custa?</h2>
+          <h4 class="mb-4 text-left">Muito simples! Um único plano que começa gratuito e você paga de acordo com o crescimento do seu negócio.</h4>
+        </div>
+      </div>
+      <div class="plan row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h2><b>R$15</b></h2>
+              <h4>Para cada 50 conversas</h4>
+              <h3>Mensal</h3>
+              <hr/>
+              <p>Começa gratuito</p>
+              <hr/>
+              <p>1 projeto incluso</p>
+              <hr/>
+              <p>R$10 para cada projeto adicional</p>
+              <hr/>
+              <p>Acesso a todos os canais do cliente</p>
+              <hr/>
+              <p>Acesso a todos os canais da empresa</p>
+              <hr/>
+              <a [routerLink]="['signup']" class="btn btn-primary btn-lg">
+                Criar conta gratuitamente
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
