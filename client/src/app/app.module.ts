@@ -13,13 +13,14 @@ import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 import {Angulartics2Facebook} from 'angulartics2/facebook';
 
 import {AppRoutes} from 'app/app.routes';
-import {AppComponent} from 'app/app.component';
 
-import {ContainerComponent} from 'app/components/container/container.component';
+import {AppComponent} from 'app/app.component';
 import {MainComponent} from 'app/components/main/main.component';
 import {HeaderComponent} from 'app/components/main/header/header.component';
 import {FooterComponent} from 'app/components/main/footer/footer.component';
 import {AlertsComponent} from 'app/components/main/alerts/alerts.component';
+import {ContainerComponent} from 'app/components/container/container.component';
+
 import {NotFoundComponent} from 'app/components/main/not-found/not-found.component';
 import {HomeComponent} from 'app/components/main/home/home.component';
 import {SignUpComponent} from 'app/components/main/signup/signup.component';
@@ -28,9 +29,11 @@ import {TermsComponent} from 'app/components/main/terms/terms.component';
 import {PrivacyComponent} from 'app/components/main/privacy/privacy.component';
 import {PrivacyEnglishComponent} from 'app/components/main/privacy/privacy-en.component';
 import {SettingsComponent} from 'app/components/main/settings/settings.component';
+
+// Apps
 import {AppsComponent} from 'app/components/main/apps/apps.component';
 import {CreateAppComponent} from 'app/components/main/apps/create-app/create-app.component';
-import {AppComponent as AppContainerComponent} from 'app/components/main/app/app.component';
+import {AppComponent as AppTemplateComponent} from 'app/components/main/app/app.component';
 import {AppDashboardComponent} from 'app/components/main/app/dashboard/app-dashboard.component';
 import {AppSettingsComponent} from 'app/components/main/app/settings/app-settings.component';
 import {DeleteAppComponent} from 'app/components/main/app/delete/delete-app.component';
@@ -93,22 +96,22 @@ import {EventService} from 'app/services/event.service';
   ],
   declarations: [
     AppComponent,
-    AlertsComponent,
-    ContainerComponent,
-    SignUpComponent,
-    SignInComponent,
+    MainComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent,
+    AlertsComponent,
+    ContainerComponent,
     NotFoundComponent,
     HomeComponent,
+    SignUpComponent,
+    SignInComponent,
     TermsComponent,
     PrivacyComponent,
     PrivacyEnglishComponent,
     SettingsComponent,
     AppsComponent,
     CreateAppComponent,
-    AppContainerComponent,
+    AppTemplateComponent,
     AppDashboardComponent,
     AppSettingsComponent,
     DeleteAppComponent,
