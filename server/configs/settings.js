@@ -1,22 +1,24 @@
 'use strict';
 
-const helpers = require('../../utils/helpers');
-const {properties, logger} = require('@ayro/commons');
+const {configs} = require('@ayro/commons');
+const path = require('path');
 
-exports.env = properties.get('app.env', 'development');
-exports.port = properties.get('app.port', 4000);
-exports.debug = properties.get('app.debug', false);
-exports.distPath = helpers.root('dist');
-exports.publicPath = helpers.root('server', 'public');
+const config = configs.load(path.resolve('server', 'config.yml'));
+
+exports.env = config.get('app.env', 'development');
+exports.port = config.get('app.port', 4000);
+exports.debug = config.get('app.debug', false);
+exports.distPath = path.resolve('dist');
+exports.publicPath = path.resolve('server', 'public');
 
 exports.websiteUrl = this.env === 'production' ? 'https://www.ayro.io' : `http://localhost:${this.port}`;
-exports.apiUrl = properties.get('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
-exports.prerenderUrl = properties.get('prerender.url');
+exports.apiUrl = config.get('api.url', this.env === 'production' ? 'https://api.ayro.io' : 'http://localhost:3000');
+exports.prerenderUrl = config.get('prerender.url');
 
-exports.appToken = properties.get('ayro.appToken');
-exports.jsSdkVersion = properties.get('ayro.jsSdkVersion');
-exports.androidSdkVersion = properties.get('ayro.androidSdkVersion');
-exports.wpPluginVersion = properties.get('ayro.wpPluginVersion');
+exports.appToken = config.get('ayro.appToken');
+exports.jsSdkVersion = config.get('ayro.jsSdkVersion');
+exports.androidSdkVersion = config.get('ayro.androidSdkVersion');
+exports.wpPluginVersion = config.get('ayro.wpPluginVersion');
 
 exports.session = {
   secret: 'ayro.io',
@@ -42,6 +44,3 @@ if (!this.jsSdkVersion) {
 if (!this.androidSdkVersion) {
   throw new Error('Property ayro.androidSdkVersion is required');
 }
-
-logger.info('Using %s environment settings', this.env);
-logger.info('Debug mode is %s', this.debug ? 'ON' : 'OFF');

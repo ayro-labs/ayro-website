@@ -6,4 +6,4 @@ services:
     hostname: "ayro-website"
     network_mode: "host"
     volumes:
-      - "./server/config.properties:/usr/src/ayro-website/server/config.properties"
+      - "./server/config.yml:/usr/src/ayro-website/server/config.yml"

@@ -1,27 +1,29 @@
 'use strict';
 
-const helpers = require('../utils/helpers');
-const {properties, logger, loggerServer} = require('@ayro/commons');
+require('newrelic');
 
-properties.setup(helpers.root('server', 'config.properties'));
-logger.setup(helpers.root('server', 'ayro-website.log'));
-loggerServer.setup();
+const {logger} = require('@ayro/commons');
 
 const settings = require('./configs/settings');
 const engine = require('./configs/engine');
 const middlewares = require('./configs/middlewares');
 const routes = require('./configs/routes');
+const path = require('path');
 const express = require('express');
-const cors = require('cors');
-const compression = require('compression');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const passport = require('passport');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const compression = require('compression');
+const cors = require('cors');
 const session = require('express-session');
 const flash = require('connect-flash');
-
+const passport = require('passport');
 require('json.date-extensions');
+
+logger.setup({
+  file: path.resolve('ayro-website.log'),
+  level: settings.debug ? 'debug' : 'info',
+});
 
 // Parse string to date when call JSON.parse
 JSON.useDateParser();
@@ -33,16 +35,15 @@ app.set('port', settings.port);
 app.set('views', settings.distPath);
 app.set('trust proxy', 1);
 
-app.use(flash());
-app.use(compression());
+app.use(express.static(settings.distPath));
+app.use('/public', express.static(settings.publicPath));
+app.use(morgan('tiny', {stream: {write: message => logger.console.debug(message)}}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(morgan('tiny', {stream: {write: message => loggerServer.debug(message)}}));
+app.use(compression());
 app.use(cors());
-app.use(express.static(settings.distPath));
-app.use('/public', express.static(settings.publicPath));
-
+app.use(flash());
 app.use(session({
   secret: settings.session.secret,
   resave: false,
@@ -50,6 +51,9 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+logger.info('Using %s environment settings', settings.env);
+logger.info('Debug mode is %s', settings.debug ? 'ON' : 'OFF');
 
 engine.configure(app);
 middlewares.configure(app);

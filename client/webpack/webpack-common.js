@@ -2,7 +2,6 @@
 
 'use strict';
 
-const helpers = require('../../utils/helpers');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const JsUglifyPlugin = require('uglifyjs-webpack-plugin');
@@ -11,6 +10,7 @@ const CssOptimizePlugin = require('optimize-css-assets-webpack-plugin');
 const CssPurgePlugin = require('purgecss-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const rxjsPaths = require('rxjs/_esm5/path-mapping');
+const path = require('path');
 const glob = require('glob');
 
 module.exports = (settings) => {
@@ -43,18 +43,18 @@ module.exports = (settings) => {
     mode: settings.env,
     devtool: isProduction() ? false : 'source-map',
     entry: {
-      vendor: helpers.root('client', 'src', 'vendor.ts'),
-      main: helpers.root('client', 'src', 'main.ts'),
+      vendor: path.resolve('client', 'src', 'vendor.ts'),
+      main: path.resolve('client', 'src', 'main.ts'),
     },
     output: {
-      path: helpers.root('dist'),
+      path: path.resolve('dist'),
       filename: '[name].js',
     },
     resolve: {
       extensions: ['.ts', '.js'],
       modules: [
-        helpers.root('client', 'src'),
-        helpers.root('node_modules'),
+        path.resolve('client', 'src'),
+        path.resolve('node_modules'),
       ],
       alias: rxjsPaths(),
     },
@@ -63,22 +63,22 @@ module.exports = (settings) => {
         {
           test: /\.ts$/,
           use: ['ts-loader', 'angular2-template-loader'],
-          include: helpers.root('client', 'src'),
+          include: path.resolve('client', 'src'),
         },
         {
           test: /\.html$/,
           use: ['html-loader'],
-          include: helpers.root('client', 'src'),
+          include: path.resolve('client', 'src'),
         },
         {
           test: /\.css$/,
           use: [CssExtractPlugin.loader, 'css-loader'],
-          include: helpers.root('node_modules', 'bootstrap'),
+          include: path.resolve('node_modules', 'bootstrap'),
         },
         {
           test: /\.less$/,
           use: [CssExtractPlugin.loader, 'css-loader', 'less-loader'],
-          include: helpers.root('client', 'src', 'assets', 'styles'),
+          include: path.resolve('client', 'src', 'assets', 'styles'),
         },
         {
           test: /\.(png|jpe?g|gif|svg|ico)$/,
@@ -86,10 +86,10 @@ module.exports = (settings) => {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              context: helpers.root('client', 'src'),
+              context: path.resolve('client', 'src'),
             },
           }],
-          include: helpers.root('client', 'src', 'assets', 'img'),
+          include: path.resolve('client', 'src', 'assets', 'img'),
         },
         {
           test: /\.(woff(2)?|ttf|otf|eot|svg)$/,
@@ -97,15 +97,15 @@ module.exports = (settings) => {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              context: helpers.root('client', 'src'),
+              context: path.resolve('client', 'src'),
             },
           }],
-          include: helpers.root('client', 'src', 'assets', 'fonts'),
+          include: path.resolve('client', 'src', 'assets', 'fonts'),
         },
       ],
     },
     plugins: [
-      new CleanPlugin(['dist'], {root: helpers.root()}),
+      new CleanPlugin(['dist'], {root: path.resolve()}),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.DefinePlugin({
         'process.env': {
@@ -114,11 +114,11 @@ module.exports = (settings) => {
       }),
       new CssExtractPlugin({filename: 'assets/styles/[name].css'}),
       new CssPurgePlugin({
-        paths: glob.sync(`${helpers.root('client', 'src')}/**/*`, {nodir: true}),
+        paths: glob.sync(`${path.resolve('client', 'src')}/**/*`, {nodir: true}),
         whitelist: ['modal', 'dropdown', 'alert', 'show', 'fade', 'collapse'],
         whitelistPatterns: [/^modal-/, /^dropdown-/, /^alert-/, /^bg-/],
       }),
-      new HtmlPlugin({template: helpers.root('client', 'src', 'index.html')}),
+      new HtmlPlugin({template: path.resolve('client', 'src', 'index.html')}),
     ],
   };
 };

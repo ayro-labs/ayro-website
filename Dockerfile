@@ -13,7 +13,7 @@ RUN \
   apk del .build-deps && \
   rm -rf /var/cache/apk/* /tmp/* && \
   mkdir server && \
-  touch server/config.properties
+  touch server/config.yml
 COPY . .
 EXPOSE 4000
 CMD ["pm2-docker", "process.json", "--only", "Ayro Website"]

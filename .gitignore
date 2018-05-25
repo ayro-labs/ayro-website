@@ -1,6 +1,7 @@
-/node_modules
+/ayro-website.log
+/client/config.yml
 /dist
+/newrelic_agent.log
+/node_modules
 /npm-debug.log
-/server/ayro-website.log
-/client/config.properties
-/server/config.properties
+/server/config.yml
