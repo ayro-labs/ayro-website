@@ -1,9 +1,9 @@
 'use strict';
 
-const helpers = require('../utils/helpers');
-const {publishTask, commands} = require('@ayro/commons');
+const {commands, publish} = require('@ayro/commons');
+const path = require('path');
 
-const WORKING_DIR = helpers.root();
+const WORKING_DIR = path.resolve();
 
 async function lintProject() {
   commands.log('Linting project...');
@@ -17,9 +17,9 @@ async function buildProject() {
 
 // Run this if call directly from command line
 if (require.main === module) {
-  publishTask.withWorkingDir(WORKING_DIR);
-  publishTask.withLintTask(lintProject);
-  publishTask.withBuildTask(buildProject);
-  publishTask.isDockerProject(true);
-  publishTask.run();
+  publish.withWorkingDir(WORKING_DIR);
+  publish.withLintTask(lintProject);
+  publish.withBuildTask(buildProject);
+  publish.isDockerProject(true);
+  publish.run();
 }
