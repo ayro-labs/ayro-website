@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = (router, app) => {
-  app.get('/sitemap.xml', function(req, res, next) {
+  app.get('/sitemap.xml', (req, res) => {
     res.header('Content-Type', 'application/xml');
     res.render('sitemap.xml');
   });
 
-  app.get('/robots.txt', function(req, res, next) {
+  app.get('/robots.txt', (req, res) => {
     res.header('Content-Type', 'text/plain');
     res.render('robots.txt');
   });

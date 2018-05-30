@@ -5,7 +5,6 @@ require('newrelic');
 const {logger} = require('@ayro/commons');
 
 const settings = require('./configs/settings');
-const engine = require('./configs/engine');
 const middlewares = require('./configs/middlewares');
 const routes = require('./configs/routes');
 const path = require('path');
