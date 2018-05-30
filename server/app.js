@@ -36,7 +36,7 @@ app.set('views', settings.distPath);
 app.set('trust proxy', 1);
 
 app.use(express.static(settings.distPath));
-app.use('/public', express.static(settings.publicPath));
+app.use(express.static(settings.publicPath));
 app.use(morgan('tiny', {stream: {write: message => logger.console.debug(message)}}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -55,7 +55,6 @@ app.use(passport.session());
 logger.info('Using %s environment settings', settings.env);
 logger.info('Debug mode is %s', settings.debug ? 'ON' : 'OFF');
 
-engine.configure(app);
 middlewares.configure(app);
 routes.configure(express, app);
 
