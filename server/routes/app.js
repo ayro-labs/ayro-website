@@ -1,8 +1,8 @@
 'use strict';
 
-const settings = require('../configs/settings');
-const appService = require('../services/app');
-const errors = require('../utils/errors');
+const settings = require('configs/settings');
+const appService = require('services/app');
+const errors = require('utils/errors');
 const {logger} = require('@ayro/commons');
 const passport = require('passport');
 const SlackStrategy = require('passport-slack').Strategy;

@@ -1,7 +1,7 @@
 'use strict';
 
-const settings = require('../configs/settings');
-const apiClient = require('../utils/api-client');
+const settings = require('configs/settings');
+const apiClient = require('utils/api-client');
 const Promise = require('bluebird');
 
 exports.getConfigs = () => {

@@ -1,7 +1,7 @@
 'use strict';
 
-const settings = require('../configs/settings');
-const errors = require('../utils/errors');
+const settings = require('configs/settings');
+const errors = require('utils/errors');
 const axios = require('axios');
 
 const apiClient = axios.create({

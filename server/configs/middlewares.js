@@ -1,6 +1,6 @@
 'use strict';
 
-const settings = require('./settings');
+const settings = require('configs/settings');
 const {logger} = require('@ayro/commons');
 const prerender = require('prerender-node');
 

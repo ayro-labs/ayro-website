@@ -1,8 +1,8 @@
 'use strict';
 
-const libsRoutes = require('../routes/libs');
-const appRoutes = require('../routes/app');
-const indexRoutes = require('../routes');
+const libsRoutes = require('routes/libs');
+const appRoutes = require('routes/app');
+const indexRoutes = require('routes');
 const {logger} = require('@ayro/commons');
 
 exports.configure = (express, app) => {
