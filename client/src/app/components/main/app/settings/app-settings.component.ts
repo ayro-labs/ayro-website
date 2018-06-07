@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {AppService} from 'app/services/app.service';
@@ -18,7 +18,7 @@ export class AppSettingsComponent implements OnInit {
 
   private app: App;
 
-  constructor(private appService: AppService, private alertService: AlertService, private eventService: EventService, private activatedRoute: ActivatedRoute, private elementRef: ElementRef) {
+  constructor(private appService: AppService, private alertService: AlertService, private eventService: EventService, private activatedRoute: ActivatedRoute) {
 
   }
 
@@ -41,21 +41,19 @@ export class AppSettingsComponent implements OnInit {
   }
 
   public updateIcon(event: any): void {
+    const file = event.target.files[0];
     const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.icon = e.target.result;
-      const iconElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#icon');
-      if (iconElement && iconElement.files && iconElement.files.length > 0) {
-        this.appService.updateAppIcon(this.app, iconElement.files.item(0)).subscribe((app) => {
-          this.fillFormFields(app);
-          this.eventService.publish(EventService.EVENT_APP_ICON_CHANGED, app.icon);
-          this.alertService.success('Ícone do app atualizado com sucesso!');
-        }, (err) => {
-          this.alertService.apiError(null, err, 'Não foi possível atualizar o ícone do app, por favor tente novamente mais tarde!');
-        });
-      }
+    reader.onload = (readEvent: any) => {
+      this.icon = readEvent.target.result;
+      this.appService.updateAppIcon(this.app, file).subscribe((app) => {
+        this.fillFormFields(app);
+        this.eventService.publish(EventService.EVENT_APP_ICON_CHANGED, app.icon);
+        this.alertService.success('Ícone do app atualizado com sucesso!');
+      }, (err) => {
+        this.alertService.apiError(null, err, 'Não foi possível atualizar o ícone do app, por favor tente novamente mais tarde!');
+      });
     };
-    reader.readAsDataURL(event.target.files[0]);
+    reader.readAsDataURL(file);
   }
 
   private fillFormFields(app: App): void {

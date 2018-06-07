@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {AccountService} from 'app/services/account.service';
 import {AlertService} from 'app/services/alert.service';
@@ -16,7 +16,7 @@ export class SettingsComponent implements OnInit {
   public logo: string;
   public loading = true;
 
-  constructor(private accountService: AccountService, private alertService: AlertService, private eventService: EventService, private elementRef: ElementRef) {
+  constructor(private accountService: AccountService, private alertService: AlertService, private eventService: EventService) {
 
   }
 
@@ -38,21 +38,19 @@ export class SettingsComponent implements OnInit {
   }
 
   public updateLogo(event: any): void {
+    const file = event.target.files[0];
     const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.logo = e.target.result;
-      const logoElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#logo');
-      if (logoElement && logoElement.files && logoElement.files.length > 0) {
-        this.accountService.updateAccountLogo(logoElement.files.item(0)).subscribe((account) => {
-          this.fillFormFields(account);
-          this.eventService.publish(EventService.EVENT_ACCOUNT_LOGO_CHANGED, account.logo);
-          this.alertService.success('Logo da conta atualizado com sucesso!');
-        }, (err) => {
-          this.alertService.apiError(null, err, 'Não foi possível atualizar o logo da conta, por favor tente novamente mais tarde!');
-        });
-      }
+    reader.onload = (readEvent: any) => {
+      this.logo = readEvent.target.result;
+      this.accountService.updateAccountLogo(file).subscribe((account) => {
+        this.fillFormFields(account);
+        this.eventService.publish(EventService.EVENT_ACCOUNT_LOGO_CHANGED, account.logo);
+        this.alertService.success('Logo da conta atualizado com sucesso!');
+      }, (err) => {
+        this.alertService.apiError(null, err, 'Não foi possível atualizar o logo da conta, por favor tente novamente mais tarde!');
+      });
     };
-    reader.readAsDataURL(event.target.files[0]);
+    reader.readAsDataURL(file);
   }
 
   private fillFormFields(account: Account): void {
