@@ -5,7 +5,6 @@ import {Plugin} from 'app/models/plugin.model';
 
 export class App {
 
-  private static readonly ICON_URL = `${process.env.API_URL}/img/apps/`;
   private static readonly NO_ICON_URL = '/assets/img/icon_no_app.png';
 
   public id: string;
@@ -48,6 +47,6 @@ export class App {
   }
 
   public getIconUrl(): string {
-    return this.icon ? App.ICON_URL + this.icon : App.NO_ICON_URL;
+    return this.icon || App.NO_ICON_URL;
   }
 }
