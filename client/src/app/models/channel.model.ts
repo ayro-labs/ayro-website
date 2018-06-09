@@ -7,7 +7,7 @@ export class Channel {
   public slug: string;
   public name: string;
   public summary: string;
-  public picture_url: string;
+  public picture: string;
   public related_links: any[];
   public released: boolean;
 
@@ -18,7 +18,7 @@ export class Channel {
       this.slug = data.slug;
       this.name = data.name;
       this.summary = data.summary;
-      this.picture_url = data.picture_url;
+      this.picture = data.picture;
       this.related_links = data.related_links;
       this.released = data.released;
     }
