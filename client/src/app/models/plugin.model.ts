@@ -2,15 +2,15 @@
 
 export class Plugin {
 
-  public static readonly TYPE_OFFICE_HOURS: string = 'office_hours';
-  public static readonly TYPE_GREETINGS_MESSAGE: string = 'greetings_message';
+  public static readonly TYPE_OFFICE_HOURS = 'office_hours';
+  public static readonly TYPE_GREETINGS_MESSAGE = 'greetings_message';
 
-  public static readonly CHANNEL_WEBSITE: string = 'website';
-  public static readonly CHANNEL_WORDPRESS: string = 'wordpress';
-  public static readonly CHANNEL_ANDROID: string = 'android';
-  public static readonly CHANNEL_IOS: string = 'ios';
-  public static readonly CHANNEL_MESSENGER: string = 'messenger';
-  public static readonly CHANNEL_SLACK: string = 'slack';
+  public static readonly CHANNEL_WEBSITE = 'website';
+  public static readonly CHANNEL_WORDPRESS = 'wordpress';
+  public static readonly CHANNEL_ANDROID = 'android';
+  public static readonly CHANNEL_IOS = 'ios';
+  public static readonly CHANNEL_MESSENGER = 'messenger';
+  public static readonly CHANNEL_SLACK = 'slack';
 
   public id: string;
   public type: string;

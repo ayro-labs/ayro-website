@@ -77,7 +77,7 @@ export class AppService {
   }
 
   public updateAppIcon(app: App, icon: File): Observable<App> {
-    const formData: FormData = new FormData();
+    const formData = new FormData();
     formData.append('icon', icon);
     return this.http.put<App>(RequestUtils.getApiUrl(`/apps/${app.id}/icon`), formData, RequestUtils.getOptions()).pipe(
       map((data: App) => new App(data)),

@@ -9,7 +9,7 @@ import {AlertService, Alert} from 'app/services/alert.service';
 export class AlertsComponent implements OnInit {
 
   public alerts: Alert[] = [];
-  public alertsIds: Set<string> = new Set();
+  public alertsIds = new Set<string>();
 
   constructor(private alertService: AlertService) {
 

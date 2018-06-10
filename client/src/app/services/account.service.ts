@@ -44,7 +44,7 @@ export class AccountService {
   }
 
   public updateAccountLogo(logo: File): Observable<Account> {
-    const formData: FormData = new FormData();
+    const formData = new FormData();
     formData.append('logo', logo);
     return this.http.put<Account>(RequestUtils.getApiUrl('/accounts/logo'), formData, RequestUtils.getOptions()).pipe(
       map((data: Account) => new Account(data)),

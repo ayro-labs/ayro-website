@@ -1,6 +1,6 @@
 export class StorageUtils {
 
-  private static readonly API_TOKEN: string = 'API_TOKEN';
+  private static readonly API_TOKEN = 'API_TOKEN';
   private static readonly MEMORY_STORAGE: any = {};
 
   public static set(key: string, value: string): void {

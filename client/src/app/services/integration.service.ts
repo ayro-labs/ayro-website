@@ -19,8 +19,8 @@ export class IntegrationService {
 
   private static readonly CHANNELS = 'channels';
 
-  private channelById: Map<string, Channel> = new Map<string, Channel>();
-  private channelsByType: Map<string, Channel[]> = new Map<string, Channel[]>();
+  private channelById = new Map<string, Channel>();
+  private channelsByType = new Map<string, Channel[]>();
 
   constructor(private eventService: EventService, private http: HttpClient) {
     this.indexChannels();

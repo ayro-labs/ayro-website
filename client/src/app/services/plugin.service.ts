@@ -17,7 +17,7 @@ export class PluginService {
 
   private static readonly TYPES = 'types';
 
-  private pluginTypeById: Map<string, PluginType> = new Map<string, PluginType>();
+  private pluginTypeById = new Map<string, PluginType>();
 
   constructor(private eventService: EventService, private http: HttpClient) {
     this.indexPluginTypes();

@@ -16,7 +16,7 @@ export class EventService {
   public static readonly EVENT_APP_NAME_CHANGED = 'app_name_changed';
   public static readonly EVENT_APP_ICON_CHANGED = 'app_icon_changed';
 
-  private subjects: Map<string, Subject<Event>> = new Map<string, Subject<Event>>();
+  private subjects = new Map<string, Subject<Event>>();
 
   public publish(event: string, value: any): void {
     const subject = this.subjects.get(event);
