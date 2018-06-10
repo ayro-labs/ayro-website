@@ -7,7 +7,7 @@ export class PluginType {
   public name: string;
   public summary: string;
   public description: string;
-  public picture: string;
+  public picture_url: string;
   public released: boolean;
 
   constructor(data?: any) {
@@ -17,7 +17,7 @@ export class PluginType {
       this.name = data.name;
       this.summary = data.summary;
       this.description = data.description;
-      this.picture = data.picture;
+      this.picture_url = data.picture_url;
       this.released = data.released;
     }
   }

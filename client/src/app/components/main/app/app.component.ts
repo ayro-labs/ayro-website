@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.app.name = event.value;
       }));
       this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_APP_ICON_CHANGED, (event) => {
-        this.app.icon = event.value;
+        this.app.icon_url = event.value;
       }));
     });
   }

@@ -10,7 +10,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-sm-auto text-center">
-            <img [src]="pluginType.picture" class="plugin-icon-md"/>
+            <img [src]="pluginType.picture_url" class="plugin-icon-md"/>
             <div class="mt-3">
               <a *ngIf="pluginType.released" [routerLink]="[pluginType.slug]" class="btn btn-primary">Ver detalhes</a>
               <a *ngIf="!pluginType.released" class="btn btn-light" disabled>Em breve...</a>

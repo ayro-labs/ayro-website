@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.account.name = event.value;
     }));
     this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_ACCOUNT_LOGO_CHANGED, (event) => {
-      this.account.logo = event.value;
+      this.account.logo_url = event.value;
     }));
     this.subscriptions.push(this.eventService.subscribe(EventService.EVENT_ACCOUNT_CHANGED, (event) => {
       this.account = event.value;

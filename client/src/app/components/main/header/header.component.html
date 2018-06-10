@@ -24,7 +24,7 @@
         </li>
         <li ngbDropdown placement="bottom-right" class="nav-item float-right mt-1 mt-sm-0">
           <button ngbDropdownToggle id="account-menu" class="btn btn-link p-0">
-            <img [src]="account.getLogoUrl()" class="account-logo rounded-circle d-inline-block">
+            <img [src]="account.logo_url" class="account-logo rounded-circle d-inline-block">
           </button>
           <div ngbDropdownMenu aria-labelledby="account-menu">
             <a [routerLink]="['/settings']" class="dropdown-item">Configurações</a>

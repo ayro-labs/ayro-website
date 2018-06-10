@@ -5,12 +5,10 @@ import {Plugin} from 'app/models/plugin.model';
 
 export class App {
 
-  private static readonly NO_ICON_URL = '/assets/img/icon_no_app.png';
-
   public id: string;
   public account: string;
   public name: string;
-  public icon: string;
+  public icon_url: string;
   public token: string;
   public integrations: Integration[] = [];
   public plugins: Plugin[] = [];
@@ -20,7 +18,7 @@ export class App {
     if (data) {
       this.id = data.id;
       this.account = data.account;
-      this.icon = data.icon;
+      this.icon_url = data.icon_url;
       this.name = data.name;
       this.token = data.token;
       if (data.integrations) {
@@ -44,9 +42,5 @@ export class App {
       return integration.channel === channel;
     });
     return found || null;
-  }
-
-  public getIconUrl(): string {
-    return this.icon || App.NO_ICON_URL;
   }
 }

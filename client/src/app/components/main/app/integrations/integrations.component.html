@@ -8,7 +8,7 @@
   <div *ngFor="let channel of userChannels; trackBy: trackByChannel" class="col-lg-3 col-md-4 col-sm-6">
     <div class="card mt-3">
       <div class="card-body">
-        <img [src]="channel.picture" class="card-img-top integration-icon-md"/>
+        <img [src]="channel.picture_url" class="card-img-top integration-icon-md"/>
         <h4 class="card-title mt-2">{{ channel.name }}</h4>
         <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
         <a *ngIf="!channel.released" class="btn btn-light" disabled>Em breve...</a>
@@ -26,7 +26,7 @@
   <div *ngFor="let channel of businessChannels; trackBy: trackByChannel" class="col-lg-3 col-md-4 col-sm-6">
     <div class="card mt-3">
       <div class="card-body">
-        <img [src]="channel.picture" class="card-img-top integration-icon-md"/>
+        <img [src]="channel.picture_url" class="card-img-top integration-icon-md"/>
         <h4 class="card-title mt-2">{{ channel.name }}</h4>
         <a *ngIf="channel.released" [routerLink]="[channel.id]" class="btn btn-primary">Ver detalhes</a>
         <a *ngIf="!channel.released" class="btn btn-light" disabled>Em breve...</a>

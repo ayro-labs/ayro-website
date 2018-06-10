@@ -28,7 +28,7 @@
         <a *ngIf="getChannel(integration.channel); let channel" [routerLink]="['integrations', channel.slug, 'setup']">
           <div class="card">
             <div class="card-body text-center">
-              <img [src]="channel.picture" title="{{ channel.name }}" class="integration-icon-sm align-top"/>
+              <img [src]="channel.picture_url" title="{{ channel.name }}" class="integration-icon-sm align-top"/>
               <h4 class="card-title text-gray mt-2 mb-0">{{ channel.name }}</h4>
               <span *ngIf="channel.type === 'user'" class="badge badge-info">
                 Canal do Cliente
@@ -71,7 +71,7 @@
         <a *ngIf="getPluginType(plugin.type); let pluginType" [routerLink]="['plugins', pluginType.slug, 'setup']">
           <div class="card">
             <div class="card-body text-center">
-              <img [src]="pluginType.picture" title="{{ pluginType.name }}" class="plugin-icon-sm align-top"/>
+              <img [src]="pluginType.picture_url" title="{{ pluginType.name }}" class="plugin-icon-sm align-top"/>
               <h4 class="cart-title text-gray mt-2 mb-0">{{ pluginType.name }}</h4>
             </div>
           </div>

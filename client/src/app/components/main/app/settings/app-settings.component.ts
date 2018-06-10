@@ -47,7 +47,7 @@ export class AppSettingsComponent implements OnInit {
       this.icon = readEvent.target.result;
       this.appService.updateAppIcon(this.app, file).subscribe((app) => {
         this.fillFormFields(app);
-        this.eventService.publish(EventService.EVENT_APP_ICON_CHANGED, app.icon);
+        this.eventService.publish(EventService.EVENT_APP_ICON_CHANGED, app.icon_url);
         this.alertService.success('Ícone do app atualizado com sucesso!');
       }, (err) => {
         this.alertService.apiError(null, err, 'Não foi possível atualizar o ícone do app, por favor tente novamente mais tarde!');
@@ -59,6 +59,6 @@ export class AppSettingsComponent implements OnInit {
   private fillFormFields(app: App): void {
     this.app = app;
     this.name = app.name;
-    this.icon = app.getIconUrl();
+    this.icon = app.icon_url;
   }
 }

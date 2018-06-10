@@ -2,8 +2,6 @@ import 'assets/styles/main.less';
 
 import 'assets/img/favicon.ico';
 import 'assets/img/logo_header.png';
-import 'assets/img/icon_no_account.jpg';
-import 'assets/img/icon_no_app.png';
 import 'assets/img/flag_brazil.png';
 import 'assets/img/flag_usa.png';
 import 'assets/img/chat_mobile.png';

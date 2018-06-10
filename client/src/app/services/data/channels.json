@@ -6,7 +6,7 @@
       "slug": "website",
       "name": "Website",
       "summary": "Converse em tempo real com os visitantes do seu Website.",
-      "picture": "/assets/img/integrations/website.png",
+      "picture_url": "/assets/img/integrations/website.png",
       "related_links": [
         {
           "name": "Documentação",
@@ -21,7 +21,7 @@
       "slug": "wordpress",
       "name": "WordPress",
       "summary": "Converse em tempo real com os visitantes do seu website WordPress.",
-      "picture": "/assets/img/integrations/wordpress.png",
+      "picture_url": "/assets/img/integrations/wordpress.png",
       "related_links": [
         {
           "name": "Documentação",
@@ -36,7 +36,7 @@
       "slug": "android",
       "name": "Android",
       "summary": "Converse em tempo real com os clientes do seu aplicativo Android.",
-      "picture": "/assets/img/integrations/android.png",
+      "picture_url": "/assets/img/integrations/android.png",
       "related_links": [
         {
           "name": "Documentação",
@@ -51,7 +51,7 @@
       "slug": "messenger",
       "name": "Messenger",
       "summary": "Converse com os visitantes da sua página no Facebook, direto do canal da empresa.",
-      "picture": "/assets/img/integrations/messenger.png",
+      "picture_url": "/assets/img/integrations/messenger.png",
       "related_links": [
         {
           "name": "Website do Messenger",
@@ -66,7 +66,7 @@
       "id": "ios",
       "slug": "ios",
       "name": "iOS",
-      "picture": "/assets/img/integrations/ios.png",
+      "picture_url": "/assets/img/integrations/ios.png",
       "released": false
     },
     {
@@ -74,7 +74,7 @@
       "id": "twitter",
       "slug": "twitter",
       "name": "Twitter",
-      "picture": "/assets/img/integrations/twitter.png",
+      "picture_url": "/assets/img/integrations/twitter.png",
       "released": false
     },
     {
@@ -83,7 +83,7 @@
       "slug": "slack",
       "name": "Slack",
       "summary": "Transforme o Slack em uma ferramenta de suporte ao cliente.",
-      "picture": "/assets/img/integrations/slack.png",
+      "picture_url": "/assets/img/integrations/slack.png",
       "related_links": [
         {
           "name": "Documentação",

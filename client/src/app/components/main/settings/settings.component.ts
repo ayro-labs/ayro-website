@@ -44,7 +44,7 @@ export class SettingsComponent implements OnInit {
       this.logo = readEvent.target.result;
       this.accountService.updateAccountLogo(file).subscribe((account) => {
         this.fillFormFields(account);
-        this.eventService.publish(EventService.EVENT_ACCOUNT_LOGO_CHANGED, account.logo);
+        this.eventService.publish(EventService.EVENT_ACCOUNT_LOGO_CHANGED, account.logo_url);
         this.alertService.success('Logo da conta atualizado com sucesso!');
       }, (err) => {
         this.alertService.apiError(null, err, 'Não foi possível atualizar o logo da conta, por favor tente novamente mais tarde!');
@@ -56,6 +56,6 @@ export class SettingsComponent implements OnInit {
   private fillFormFields(account: Account): void {
     this.name = account.name;
     this.email = account.email;
-    this.logo = account.getLogoUrl();
+    this.logo = account.logo_url;
   }
 }

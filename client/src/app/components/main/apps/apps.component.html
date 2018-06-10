@@ -29,12 +29,12 @@
             <div class="card">
               <div class="card-body">
                 <div class="float-left">
-                  <img [src]="app.getIconUrl()" class="app-icon rounded">
+                  <img [src]="app.icon_url" class="app-icon rounded">
                 </div>
                 <div class="float-left ml-3">
                   <h3 class="card-title text-gray">{{ app.name }}</h3>
                   <div *ngIf="app.integrations.length > 0">
-                    <img *ngFor="let integration of app.integrations; trackBy: trackByIntegration" [src]="getChannel(integration.channel).picture" class="integration-icon-mc mr-2">
+                    <img *ngFor="let integration of app.integrations; trackBy: trackByIntegration" [src]="getChannel(integration.channel).picture_url" class="integration-icon-mc mr-2">
                   </div>
                   <div *ngIf="app.integrations.length === 0">
                     <a [routerLink]="[app.id, 'integrations']" class="btn btn-primary">

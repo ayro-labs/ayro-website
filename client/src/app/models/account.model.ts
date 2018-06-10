@@ -2,12 +2,10 @@
 
 export class Account {
 
-  private static readonly NO_LOGO_URL = '/assets/img/icon_no_account.jpg';
-
   public id: string;
   public name: string;
   public email: string;
-  public logo: string;
+  public logo_url: string;
   public registration_date: Date;
 
   constructor(data?: any) {
@@ -15,12 +13,8 @@ export class Account {
       this.id = data.id;
       this.name = data.name;
       this.email = data.email;
-      this.logo = data.logo;
+      this.logo_url = data.logo_url;
       this.registration_date = data.registration_date;
     }
-  }
-
-  public getLogoUrl(): string {
-    return this.logo || Account.NO_LOGO_URL;
   }
 }
