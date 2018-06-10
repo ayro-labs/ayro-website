@@ -35,6 +35,6 @@ export class RemoveAppSecretComponent {
   }
 
   public formatAppSecretDate(appSecret: AppSecret): string {
-    return formatDate(parseDate(appSecret.registration_date), 'dd/MM/yyyy HH:mm');
+    return formatDate(parseDate(appSecret.registration_date), 'DD/MM/YYYY HH:mm');
   }
 }
