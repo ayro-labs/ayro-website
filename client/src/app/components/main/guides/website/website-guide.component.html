@@ -108,8 +108,18 @@ import * as Ayro from 'ayro';</code></pre>
     title: 'Como podemos ajudá-lo?',
     // Placeholder do campo de texto da mensagem
     input_placeholder: 'Digite uma mensagem...',
-    // Mensagem para incentivar conexão com outros aplicativos
-    connect_channels_message: 'Conecte seus aplicativos e seja notificado dentro deles quando for respondido.'
+    // Mensagem para solicitar email
+    connect_channels_message: {{ '{' }}
+      ask_for_email: 'Deixe seu email:',
+      email_provided: 'Agora também podemos trocar mensagens por e-mail.',
+      email_input_placeholder: 'Email',
+      send_email_button: 'Enviar',
+      edit_email_button: 'Editar',
+    {{ '}' }},
+    // Mensagens de erro
+    errors: {{ '{' }}
+      file_size_limit_exceeded: 'Arquivo deve possuir no máximo 5 MB',
+    {{ '}' }},
   {{ '}' }}
 {{ '}' }});</code></pre>
             </div>
