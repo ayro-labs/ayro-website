@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 import {Angulartics2} from 'angulartics2';
-import * as isEmpty from 'lodash/isEmpty';
-import * as cloneDeep from 'lodash/cloneDeep';
+import isEmpty from 'lodash-es/isEmpty';
+import cloneDeep from 'lodash-es/cloneDeep';
 
 import {OnLoaded} from 'app/components/main/app/integrations/integration/integration.component';
 import {RemoveIntegrationComponent} from 'app/components/main/app/integrations/remove/remove-integration.component';

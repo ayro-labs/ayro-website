@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
-import * as cloneDeep from 'lodash/cloneDeep';
-import * as clone from 'lodash/clone';
-import * as pickBy from 'lodash/pickBy';
-import * as forOwn from 'lodash/forOwn';
+import cloneDeep from 'lodash-es/cloneDeep';
+import clone from 'lodash-es/clone';
+import pickBy from 'lodash-es/pickBy';
+import forOwn from 'lodash-es/forOwn';
 import * as formatDate from 'date-fns/format';
 
 import {OnLoaded} from 'app/components/main/app/plugins/plugin/plugin.component';

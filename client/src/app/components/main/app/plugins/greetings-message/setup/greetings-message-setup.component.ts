@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
-import * as cloneDeep from 'lodash/cloneDeep';
+import cloneDeep from 'lodash-es/cloneDeep';
 
 import {OnLoaded} from 'app/components/main/app/plugins/plugin/plugin.component';
 import {RemovePluginComponent} from 'app/components/main/app/plugins/remove/remove-plugin.component';
