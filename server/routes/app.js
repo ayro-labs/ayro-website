@@ -95,7 +95,7 @@ module.exports = (router, app) => {
     clientID: settings.slack.clientId,
     clientSecret: settings.slack.clientSecret,
     callbackURL: `${settings.websiteUrl}/apps/integrations/slack/connect/callback`,
-    scope: ['commands', 'channels:read', 'channels:write', 'chat:write:bot'],
+    scope: ['users:read', 'commands', 'channels:read', 'channels:write', 'chat:write:bot'],
     skipUserProfile: true,
   }, (accessToken, refreshToken, profile, done) => {
     done(null, accessToken);
